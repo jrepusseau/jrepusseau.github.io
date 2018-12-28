@@ -1,10 +1,10 @@
-.navbar{ background:#000080;}
+.navbar{ background:#000000;}
 
 .nav-link , .navbar-brand{ color: #f4f4f4; cursor: pointer;}
 
 .nav-link{ margin-right: 1em !important;}
 
-.nav-link:hover{ background: #f4f4f4; color: #000080; }
+.nav-link:hover{ background: #f4f4f4; color: #000000; }
 
 .navbar-collapse{ justify-content: flex-end;}
 
@@ -31,15 +31,17 @@
 .description{
 	
     position: absolute;
-    top: 30%;
+    top: 10%;
     margin: auto;
     padding: 2em;
-
+   
 }
 .description h1{
+	
  color:#F97300 ;
 }
 .description p{
+	font-size:20px;
 color:#FFFFFF;
 }
 .description button{
