@@ -1,3 +1,8 @@
+body{
+	/* background-image: url('../images/cim.jpg'),url('../images/cim2.jpg'); */
+     background-repeat:no-repeat;
+	 background-size: 100%}
+
 .navbar{ background:#000000;}
 
 .nav-link , .navbar-brand{ color: #f4f4f4; cursor: pointer;}
@@ -15,8 +20,9 @@
  
 }
 
+
 .overlay{
-	background-image: url('../images/cim.jpg'),url('../images/cim2.jpg');
+	
 	background-attachment: fixed;
  background-size: cover;
  background-position: top,  bottom;
