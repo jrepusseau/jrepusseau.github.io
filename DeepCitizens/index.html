@@ -3,13 +3,43 @@
 <head>
 	<meta charset="utf-8">
 	<title>DeepCitizens</title>
+	<style>
+  html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 90%;
+    width: 100%;
+  }
+</style>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+<script src="https://js.arcgis.com/4.10/">
+
+
+</script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	
 </head>
-
+<script>
+require([
+  "esri/Map",
+  "esri/views/SceneView"
+], function(Map, SceneView){
+  var map = new Map({
+    basemap: "streets",
+    ground: "world-elevation"
+  });
+  var view = new SceneView({
+    container: "viewDiv",     // Reference to the scene div created in step 5
+    map: map,                 // Reference to the map object created before the scene
+    scale: 50000000,          // Sets the initial scale to 1:50,000,000
+    center: [2, 48]  // Sets the center point of view with lon/lat
+  });
+});
+</script>
 <body>
-
+<div id="viewDiv"></div>
 	 <!-- navbar -->
 
   <nav class="navbar navbar-expand-lg fixed-top ">
@@ -47,13 +77,14 @@
 </nav>
 
 <header class="header ">
+
   <div class="overlay"></div>
    <div class="container">
    	  <div class="description ">
+	  
 	  <br />
 	  <br />
-	  <br />
-	  <br />
+	
   	<h1>
   		 DeepCitizens</h1>
   		<p>
