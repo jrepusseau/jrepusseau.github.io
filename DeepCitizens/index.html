@@ -10,6 +10,29 @@
     height: 90%;
     width: 100%;
   }
+  #optionsDiv {
+      position: absolute;
+      bottom: 200px;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1;
+      text-align: center;
+    }
+
+    button {
+      background: white;
+      padding: 7px;
+      border: 1px solid #005e95;
+      font-size: 0.9em;
+      margin: 5px;
+      color: #005e95;
+      font-family: "Avenir Next W01", "Arial", sans-serif;
+    }
+	 button:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
 </style>
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
@@ -34,14 +57,27 @@ require([
     container: "viewDiv",     // Reference to the scene div created in step 5
     map: map,                 // Reference to the map object created before the scene
     scale: 50000000,          // Sets the initial scale to 1:50,000,000
-    center: [2, 48]  // Sets the center point of view with lon/lat
+    center: [2, 49]  // Sets the center point of view with lon/lat
   });
+  document.getElementById("GotoFrance").addEventListener("click",
+          function() {
+          view.goTo({
+  center: [2, 47],
+  scale: 10000000,
+  heading: 0, // set the heading to point South
+  tilt: view.camera.tilt, // maintain tilt value
+})
+          });
 });
+
 </script>
 <body>
+<div id="optionsDiv">
+	  <button id="GotoFrance">Try</button>
+	  </div>
 <div id="viewDiv"></div>
 	 <!-- navbar -->
-
+ 
   <nav class="navbar navbar-expand-lg fixed-top ">
 	  <a class="navbar-brand" href="#">Home</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,9 +117,8 @@ require([
   <div class="overlay"></div>
    <div class="container">
    	  <div class="description ">
-	  
-	  <br />
-	 
+	
+	 <br/>
 	
   	<h1>
   		 DeepCitizens</h1>
