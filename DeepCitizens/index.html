@@ -54,12 +54,13 @@ require([
  
   var template = {
         title: "Temperature Info",
-        content: "Temperature {TTEMP}."
+       // content: "Temperature {TTEMP}."
+	   content: "Coucou {nom}."
       };
  
   
   var csvLayer = new CSVLayer({
-        url: "test.csv",
+        url: "test2.csv",
         copyright: "USGS Earthquakes",
         popupTemplate: template,
         elevationInfo: {
@@ -87,7 +88,7 @@ require([
   var map = new Map({
     basemap: "dark-gray-vector",
     ground: "world-elevation",
-	 layers: [csvLayer],
+	// layers: [csvLayer],
   });
   var view = new SceneView({
     container: "viewDiv",     // Reference to the scene div created in step 5
@@ -97,13 +98,14 @@ require([
   });
   document.getElementById("GotoFrance").addEventListener("click",
           function() {
+		  
           view.goTo({
   center: [2, 47],
  
   scale: 10000000,
   heading: 0, // set the heading to point South
   tilt: view.camera.tilt, // maintain tilt value
-})
+}), map.add(csvLayer)
           });
 		
 });
