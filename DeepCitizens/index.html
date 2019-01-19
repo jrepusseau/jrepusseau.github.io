@@ -54,13 +54,12 @@ require([
  
   var template = {
         title: "Temperature Info",
-       // content: "Temperature {TTEMP}."
-	   content: "Coucou {nom}."
+       content: "Temperature {TTEMP}."
       };
  
   
   var csvLayer = new CSVLayer({
-        url: "test2.csv",
+        url: "test.csv",
         copyright: "USGS Earthquakes",
         popupTemplate: template,
         elevationInfo: {
