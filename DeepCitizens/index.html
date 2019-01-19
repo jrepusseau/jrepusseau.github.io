@@ -47,11 +47,47 @@
 <script>
 require([
   "esri/Map",
-  "esri/views/SceneView"
-], function(Map, SceneView){
+ "esri/layers/CSVLayer",
+      "esri/views/SceneView",
+    
+], function(Map,CSVLayer,SceneView){
+ 
+  var template = {
+        title: "Temperature Info",
+        content: "Temperature {TTEMP}."
+      };
+ 
+  
+  var csvLayer = new CSVLayer({
+        url: "test.csv",
+        copyright: "USGS Earthquakes",
+        popupTemplate: template,
+        elevationInfo: {
+          // drapes icons on the surface of the globe
+          mode: "on-the-ground"
+        }
+      });
+  csvLayer.renderer = {
+        type: "simple", // autocasts as new SimpleRenderer()
+        symbol: {
+          type: "point-3d", // autocasts as new PointSymbol3D()
+          symbolLayers: [{
+            type: "icon", // autocasts as new IconSymbol3DLayer()
+            material: {
+              color: [238, 69, 0, 0.75]
+            },
+            outline: {
+              width: 0.5,
+              color: "white"
+            },
+            size: "6px"
+                           }]
+        }
+      };
   var map = new Map({
     basemap: "dark-gray-vector",
-    ground: "world-elevation"
+    ground: "world-elevation",
+	 layers: [csvLayer],
   });
   var view = new SceneView({
     container: "viewDiv",     // Reference to the scene div created in step 5
@@ -63,11 +99,13 @@ require([
           function() {
           view.goTo({
   center: [2, 47],
+ 
   scale: 10000000,
   heading: 0, // set the heading to point South
   tilt: view.camera.tilt, // maintain tilt value
 })
           });
+		
 });
 
 </script>
