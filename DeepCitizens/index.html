@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>DeepCitizens</title>
+	<title>ARC Platform</title>
 	<style>
   html, body, #viewDiv {
     padding: 0;
@@ -35,8 +35,8 @@
     }
 </style>
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
-<script src="https://js.arcgis.com/4.10/">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.11/themes/light/main.css">
+<script src="https://js.arcgis.com/4.11/">
 
 
 </script>
@@ -46,6 +46,8 @@
 </head>
 <script>
 require([
+	"esri/widgets/Track",
+        "esri/views/MapView",
   "esri/Map",
  "esri/layers/CSVLayer",
       "esri/views/SceneView",
