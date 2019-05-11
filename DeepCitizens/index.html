@@ -102,14 +102,15 @@ require([
 	
   document.getElementById("GotoFrance").addEventListener("click",
           function() {
-		  
+        /*
           view.goTo({
   center: [2, 47],
  
   scale: 10000000,
   heading: 0, // set the heading to point South
   tilt: view.camera.tilt, // maintain tilt value
-}), map.add(csvLayer)
+}), map.add(csvLayer)*/
+	  track.start();
           });
 		
 	var track = new Track({
