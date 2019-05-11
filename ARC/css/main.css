@@ -1,0 +1,56 @@
+body{
+	/* background-image: url('../images/cim.jpg'),url('../images/cim2.jpg'); */
+     background-repeat:no-repeat;
+	 background-size: 100%}
+
+.navbar{ background:#000000;}
+
+.nav-link , .navbar-brand{ color: #f4f4f4; cursor: pointer;}
+
+.nav-link{ margin-right: 1em !important;}
+
+.nav-link:hover{ background: #f4f4f4; color: #000000; }
+
+.navbar-collapse{ justify-content: flex-end;}
+
+.navbar-toggler{  background:#fff !important;}
+
+.header{
+ 
+ 
+}
+
+
+.overlay{
+	
+	background-attachment: fixed;
+ background-size: cover;
+ background-position: top,  bottom;
+  position: absolute;   
+ min-height: 100%;
+ min-width: 100%;
+ 
+ 
+}
+
+.description{
+
+  position: relative;  
+   background-color:rgba(0, 0, 0, 0.5);
+    margin: auto;
+    padding: 2em;
+   
+}
+.description h1{
+	
+ color:#F97300 ;
+}
+.description p{
+	font-size:20px;
+color:#FFFFFF;
+}
+.description button{
+ border:1px  solid #F97300;
+ background:#F97300;
+ color:#fff;
+}
