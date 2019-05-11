@@ -99,16 +99,6 @@ require([
     center: [2, 49]  // Sets the center point of view with lon/lat
   });
   
-  var track = new Track({
-          view: view
-        });
-        view.ui.add(track, "top-left");
-
-        // The sample will start tracking your location
-        // once the view becomes ready
-        view.when(function() {
-          track.start();
-        });
   
  
 	
