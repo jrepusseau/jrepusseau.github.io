@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ARC Platform</title>
+	<style>
+  html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+  #optionsDiv {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1;
+      text-align: center;
+    }
+
+    button {
+      background: white;
+      padding: 7px;
+      border: 1px solid #005e95;
+      font-size: 0.9em;
+      margin: 5px;
+      color: #005e95;
+      font-family: "Avenir Next W01", "Arial", sans-serif;
+    }
+	 button:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+</style>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.11/themes/light-blue/main.css">
+<script src="https://js.arcgis.com/4.11/">
+
+
+</script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ARC Platform</title>
+	<style>
+  html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 90%;
+    width: 100%;
+  }
+  #optionsDiv {
+      position: absolute;
+      bottom: 200px;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1;
+      text-align: center;
+    }
+
+    button {
+      background: white;
+      padding: 7px;
+      border: 1px solid #005e95;
+      font-size: 0.9em;
+      margin: 5px;
+      color: #005e95;
+      font-family: "Avenir Next W01", "Arial", sans-serif;
+    }
+	 button:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+</style>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.11/themes/light/main.css">
+<script src="https://js.arcgis.com/4.11/">
+
+
+</script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	
+</head>
+<script>
+require([
+  "esri/widgets/Track",
+  "esri/views/MapView",
+  "esri/Map",
+  "esri/layers/CSVLayer",
+  "esri/views/SceneView"   
+], function(Track, MapView,Map,CSVLayer,SceneView){
+ 
+  var template = {
+        title: "Temperature Info",
+       content: "Temperature {TTEMP}."
+      };
+ 
+  
+  var csvLayer = new CSVLayer({
+        url: "database/test.csv",
+        copyright: "USGS Earthquakes",
+        popupTemplate: template,
+        elevationInfo: {
+          // drapes icons on the surface of the globe
+          mode: "on-the-ground"
+        }
+      });
+  csvLayer.renderer = {
+        type: "simple", // autocasts as new SimpleRenderer()
+        symbol: {
+          type: "point-3d", // autocasts as new PointSymbol3D()
+          symbolLayers: [{
+            type: "icon", // autocasts as new IconSymbol3DLayer()
+            material: {
+              color: [238, 69, 0, 0.75]
+            },
+            outline: {
+              width: 0.2,
+              color: "white"
+            },
+            size: "5px"
+                           }]
+        }
+      };
+  var map = new Map({
+    basemap: "streets-night-vector",
+    ground: "world-elevation"
+	// layers: [csvLayer],
+  });
+  var view = new SceneView({
+    container: "viewDiv",     // Reference to the scene div created in step 5
+    map: map,                 // Reference to the map object created before the scene
+    scale: 50000000,          // Sets the initial scale to 1:50,000,000
+    center: [2, 49]  // Sets the center point of view with lon/lat
+  });
+  
+  
+ 
+	
+  document.getElementById("Position").addEventListener("click",
+          function() {
+        /*
+          view.goTo({
+  center: [2, 47],
+ 
+  scale: 10000000,
+  heading: 0, // set the heading to point South
+  tilt: view.camera.tilt, // maintain tilt value
+}), map.add(csvLayer)*/
+	  track.start();
+          });
+		
+	var track = new Track({
+          view: view
+        });
+	//view.ui.add(track, "top-left");
+
+});
+
+</script>
+<body>
+
+
+<div id="viewDiv"></div>
+	
+<div id="optionsDiv">
+	  <button id="Position">Position</button>
+ 	  <button id="Emergency">Emergency</button>
+</div>
+	 <!-- navbar -->
+ 
+  <nav class="navbar navbar-expand-lg fixed-top ">
+	  <a class="navbar-brand" href="#">Home</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-4">
+	      
+	      <li class="nav-item">
+	        <a class="nav-link" data-value="about" href="#">About</a>
+		
+	      </li>
+		  <li class="nav-item">
+	        <a class="nav-link " data-value="search" href="#search">Search</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link " data-value="database" href="#">Database</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link " data-value="blog" href="#">Blog</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link " data-value="team" href="#">
+	        Team</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link " data-value="contact" href="#">Contact</a>
+	      </li>
+	    </ul>
+	    
+	  </div>
+</nav>
+
+<header class="header ">
+
+  <div class="overlay"></div>
+   <div class="container">
+   	  <div class="description ">
+	
+	 <br/>
+	
+  	<h1>
+  		 ARC </h1>
+  		<p>
+		 <br />
+		The aim of this project is to use public information data from goverment and national statistics (Census, INSEE, ISI..) to make forecast at city scale. 
+		Scope population dynamic, anticipate next public infrastructure in wealth, education, transports, watch for economics activities...
+  		<br />
+        All the imaginable data layers can be  add to the model to make a virtual city alias then make predictions powered by deep learning models. <br />
+        <br />
+		The second step will allow even more complex predictions.
+		What if we can reduce the unemployment of a town or even a city? or predict the next election based on the past results?
+		<br />
+     
+		</p>
+  		<!-- <button class="btn btn-outline-secondary btn-lg">See more</button> -->
+		</br> </br>
+		<h1>Smart Cities and CIM<h1>
+		
+		<p><br/>
+		Inspired by the BIM (Building Information Modeling), the CIM will be the next breakthrough for the construction industry. <br/>
+		This technology will included building, roads, public spaces and all the public equipment.<br />
+        But this technology is far to be out of resources and already several layers of information can be build on top of those model. <br/>
+        Features about the active population, the age , the political vote, the weather, public camera, the recycling equipement... </p>
+  	<h1>
+  		National statistical services <br /></h1>
+  		<p>
+		   <br />
+		DeepCtizens is a non-profit and public services website. All datas are open-sourced, we will try to collaborate actively with National statistics services, International
+		Statistical Institutes and Unesco. 
+		</p>
+		
+	 	<h1>
+  		Individual contributor <br /></h1>
+  		<p>
+  		Everyone can contribute and participate as a DeepCitizens. 
+		
+		</p>
+		<h1>
+  		Others resources <br /></h1>
+  		<p>
+  		Our project is freely inspired by <a href="https://datafrance.info/">DataFrance</a> project.
+		</p>
+		
+  </div>
+ </div> 
+ </div>
+ 
+    <div class="container">
+   <div class="description " id="search">
+  	
+  		
+  	
+  </div>
+   </div>
+ 
+  
+</header>
+	<footer>
+	<div class="description " >
+     <p> School of AI Lyon <p>
+	 </div>
+	</footer>
+
+
+	
+	<script type="text/javascript" src='js/main.js'></script>
+	</body>
+</html>
