@@ -28,7 +28,7 @@
       text-align: center;
     }
 
-    button {
+    .button {
       background: white;
       padding: 7px;
       border: 1px solid #005e95;
@@ -37,7 +37,30 @@
       color: #005e95;
       font-family: "Avenir Next W01", "Arial", sans-serif;
     }
-	 button:hover {
+	
+	.button1
+	{
+	background: white;
+	}
+	
+	.button2
+	{
+	background: red;
+	border-radius: 50%;
+	}
+	
+	.button3
+	{
+	background: orange;
+	}
+	
+	.button4
+	{
+	background: green;
+	}
+	
+	
+	.button1:hover {
       background: #005e95;
       color: white;
       cursor: pointer;
@@ -93,8 +116,8 @@
   <body>
     <div id="viewDiv"></div>
 	<div id="optionsDiv">
-	  <button id="Position">Position</button>
- 	  <button id="Emergency">Emergency</button>
+	  <button id="Position" class="button button1">Position</button>
+ 	  <button id="Emergency" class="button button2">+E</button>
 </div>
  <nav class="navbar navbar-expand-lg fixed-top ">
 	  <a class="navbar-brand" href="#">ARC</a>
