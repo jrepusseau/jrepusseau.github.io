@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="initial-scale=1,maximum-scale=1,width=device-width"
+      content="initial-scale=1,width=device-width"
     />
     <title>Track current location - 4.11</title>
 
@@ -13,10 +13,10 @@
       body,
       #viewDiv {
 	    position: absolute;
-		top: 17px;
+		top: 21px;
 	   	padding: 0;
         margin: 0;
-        height: 99%;
+        height: 97%;
         width: 100%;
       }
 	  #optionsDiv {
@@ -122,8 +122,6 @@
         });
         view.ui.add(track, "top-left");
 
-        // The sample will start tracking your location
-        // once the view becomes ready
         
   document.getElementById("Position").addEventListener("click",
           function() {
@@ -143,24 +141,11 @@
 </div>
  <nav class="navbar navbar-expand-lg fixed-top ">
 	  <a class="navbar-brand" href="#">ARC</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+	 
 
-	  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+	  <div class="navbar-brand " id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-4">
-	      
-	      <li class="nav-item">
-	        <a class="nav-link" data-value="about" href="#">About</a>
-		
-	      </li>
-		  <li class="nav-item">
-	        <a class="nav-link " data-value="search" href="#search">Search</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link " data-value="database" href="#">Database</a>
-	      </li>
-	     
+	    
 	      <li class="nav-item">
 	        <a class="nav-link " data-value="contact" href="#">Contact</a>
 	      </li>
