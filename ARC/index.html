@@ -6,7 +6,7 @@
       name="viewport"
       content="initial-scale=1,width=device-width"
     />
-    <title>Track current location - 4.11</title>
+    <title> ARC Demo</title>
 
     <style>
       html,
@@ -101,7 +101,7 @@
         "esri/views/MapView",
         "esri/Map",
 		"esri/layers/CSVLayer",
-        "esri/views/SceneView" 
+        "esri/views/SceneView"
       ], function(Track, MapView, Map, CSVLayer,SceneView) {
         var map = new Map({
           basemap: "streets-navigation-vector",
@@ -118,16 +118,58 @@
         // Create an instance of the Track widget
         // and add it to the view's UI
         var track = new Track({
-          view: view
+         
+    view: view
         });
         view.ui.add(track, "top-left");
-
+		
+    
         
   document.getElementById("Position").addEventListener("click",
           function() {
 	  track.start();
+	   var r = confirm("Is the position accurate?");
+  if (r == true) {
+    document.getElementById("Position").style.color="green";
+  } else {
+    
+  }
+	  
           });
+		  
+		  document.getElementById("Emergency").addEventListener("click",
+          function() {
+	   document.getElementById("viewDiv").style.opacity = '0.6';
+          });
+
+		  var coordsWidget = document.createElement("div");
+      coordsWidget.id = "coordsWidget";
+      coordsWidget.className = "esri-widget esri-component";
+      coordsWidget.style.padding = "7px 15px 5px";
+
+      view.ui.add(coordsWidget, "bottom-right");
+		  
+		  function showCoordinates(pt) {
+        var coords = "Lat/Lon " + pt.latitude.toFixed(3) + " " + pt.longitude.toFixed(3);
+        coordsWidget.innerHTML = coords;
+      }
+		
+      view.watch("stationary", function(isStationary) {
+        showCoordinates(view.center);
       });
+
+      view.on("pointer-move", function(evt) {
+        showCoordinates(view.toMap({ x: evt.x, y: evt.y }));
+      });	
+
+      view.on("click", function(evt) {
+        alert("click!");
+      });		  
+	  
+	
+
+	
+	  });
     </script>
   </head>
 
