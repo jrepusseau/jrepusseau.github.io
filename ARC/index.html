@@ -40,7 +40,7 @@
 	
 	.button1
 	{
-	background: white;
+	background-image: url("ARClogo.jpg");
 	}
 	
 	.button2
@@ -128,18 +128,13 @@
   document.getElementById("Position").addEventListener("click",
           function() {
 	  track.start();
-	   var r = confirm("Is the position accurate?");
-  if (r == true) {
-    document.getElementById("Position").style.color="green";
-  } else {
-    
-  }
-	  
+		  
           });
 		  
 		  document.getElementById("Emergency").addEventListener("click",
           function() {
 	   document.getElementById("viewDiv").style.opacity = '0.6';
+	document.getElementById("viewDiv").style.backgroundImage= "url('ARClogo.jpg')"
           });
 
 		  var coordsWidget = document.createElement("div");
@@ -162,9 +157,9 @@
         showCoordinates(view.toMap({ x: evt.x, y: evt.y }));
       });	
 
-      view.on("click", function(evt) {
+    /*  view.on("click", function(evt) {
         alert("click!");
-      });		  
+      });	*/	  
 	  
 	
 
