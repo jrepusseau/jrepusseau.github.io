@@ -135,8 +135,8 @@
 		 document.getElementById("Emergency").addEventListener("click",
           function() {
 		  launchFullscreen(document.documentElement);
-	//   document.getElementById("viewDiv").style.opacity = "0.6";
-	   
+	  // document.getElementById("viewDiv").style.opacity = "0.6";
+	  
           });
 
 		  var coordsWidget = document.createElement("div");
@@ -183,7 +183,7 @@ var longitude
 function getLocation() {
     //Check if Geolocation is supported 
 	//getIPAddress();
-	
+	 alert("proble!m");
     if (navigator.geolocation) {
       //the watchposition() method show the position of the user and update it while is moving
         navigator.geolocation.getCurrentPosition(useposition, useIPposition);
