@@ -186,7 +186,7 @@ function getLocation() {
 	// useIPposition();
     if (navigator.geolocation) {
       //the watchposition() method show the position of the user and update it while is moving
-        navigator.geolocation.getCurrentPosition(useposition, useIPposition);
+        navigator.geolocation.getCurrentPosition(useposition, showError);
     } else { 
       //If not, display a message to the user
       useIPposition();
