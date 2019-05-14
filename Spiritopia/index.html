@@ -5,26 +5,78 @@
 <button onclick="getLocation()">Your coordinates are:</button>
  
 <p id="Test"></p>
- 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+  
 <script>
 var x = document.getElementById("Test");
- 
+var ipx
+var iplatitude
+var iplongitude 
+
 function getLocation() {
     //Check if Geolocation is supported 
+	getIPAddress();
     if (navigator.geolocation) {
       //the watchposition() method show the position of the user and update it while is moving
         navigator.geolocation.watchPosition(showPosition);
     } else { 
       //If not, display a message to the user
-        x.innerHTML = "Geolocation is not supported by this browser.";
+      alert("No es possible")
     }
+	
 }
 //The showPosition() function outputs the Latitude and Longitude
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
 }
+
+ var getIPAddress = function() {
+      $.getJSON("https://jsonip.com?callback=?", function(data) {
+        //alert("Your IP address is :- " + data.ip);
+		 $.getJSON("http://ip-api.com/json/" + data.ip, function (dete) {
+         iplatitude=dete.lat
+         iplongitude=dete.lon
+		 alert("Your location is " + dete.lat + ";" + dete.lon);
+          });
+      });
+    };
+
+function Drawippoint(){
+var point = new Point({
+        longitude: iplongitude,
+        latitude: iplongitude,
+      });
+
+      // Create a symbol for drawing the point
+      var markerSymbol = new SimpleMarkerSymbol({
+        color: [226, 119, 40],
+        outline: {
+          color: [255, 255, 255],
+          width: 1
+        }
+      });
+
+      // Create a graphic and add the geometry and symbol to it
+      var pointGraphic = new Graphic({
+        geometry: point,
+        symbol: markerSymbol
+      });
+
+      // Add the graphic to the view
+      view.graphics.add(pointGraphic); }
+	  
+
+
+	
+
+
 </script>
  
 </body>
 </html>
+
+
+<script type="text/javascript">
+   
+  </script>
