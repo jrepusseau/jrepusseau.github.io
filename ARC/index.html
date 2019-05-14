@@ -128,8 +128,8 @@
         
   document.getElementById("Position").addEventListener("click",
           function() {
-	  track.start();
-	     
+	//  track.start();
+	     getLocation();
           });
 		  
 		 document.getElementById("Emergency").addEventListener("click",
@@ -173,6 +173,89 @@
     /*  view.on("click", function(evt) {
         alert("click!");
       });	*/	  
+	  
+/////////////////////////////////////////////////////////////
+
+var ipx
+var latitude
+var longitude 
+
+function getLocation() {
+    //Check if Geolocation is supported 
+	//getIPAddress();
+	
+    if (navigator.geolocation) {
+      //the watchposition() method show the position of the user and update it while is moving
+        navigator.geolocation.getCurrentPosition(useposition, useIPposition);
+    } else { 
+      //If not, display a message to the user
+      useIPposition();
+    }
+	
+	
+}
+//The showPosition() function outputs the Latitude and Longitude
+function useposition(position) {
+    latitude= position.coords.latitude; 
+    longitude=position.coords.longitude;
+	Drawippoint();
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+
+function useIPposition(){
+
+$.getJSON("http://ip-api.com/json/", function (dete) {
+latitude=dete.lat;
+longitude=dete.lon;
+alert("Your location is " + dete.lat + ";" + dete.lon);
+		 
+Drawippoint();});
+};
+    
+
+function Drawippoint(){
+
+
+
+
+      // Create a symbol for drawing the point
+   /*   var markerSymbol = new SimpleMarkerSymbol({
+        color: [226, 119, 40],
+        outline: {
+          color: [255, 255, 255],
+          width: 1
+        }
+      });
+
+      // Create a graphic and add the geometry and symbol to it
+      var pointGraphic = new Graphic({
+        geometry: point,
+        symbol: markerSymbol
+      });
+
+      // Add the graphic to the view
+/*view.graphics.add(pointGraphic);*/
+  alert(latitude+";"+longitude);  
+view.center = [longitude,latitude];
+view.zoom = 40;
+	  
+	  }
 	  
 	
 

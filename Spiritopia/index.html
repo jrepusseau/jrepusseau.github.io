@@ -10,23 +10,24 @@
 <script>
 var x = document.getElementById("Test");
 var ipx
-var iplatitude
-var iplongitude 
+var latitude
+var longitude 
 
 function getLocation() {
     //Check if Geolocation is supported 
 	//getIPAddress();
     if (navigator.geolocation) {
       //the watchposition() method show the position of the user and update it while is moving
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        navigator.geolocation.getCurrentPosition(useposition, useIPposition);
     } else { 
       //If not, display a message to the user
-      alert("Location not supported");
+      useIPposition();
     }
+	//Drawippoint();
 	
 }
 //The showPosition() function outputs the Latitude and Longitude
-function showPosition(position) {
+function useposition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
 }
@@ -48,17 +49,14 @@ function showError(error) {
   }
 }
 
-
- var getIPAddress = function() {
-      $.getJSON("https://jsonip.com?callback=?", function(data) {
-        //alert("Your IP address is :- " + data.ip);
-		 $.getJSON("http://ip-api.com/json/" + data.ip, function (dete) {
-         iplatitude=dete.lat;
-         iplongitude=dete.lon;
-		 alert("Your location is " + dete.lat + ";" + dete.lon);
-          });
-      });
-    };
+function useIPposition(){
+alert("start");
+$.getJSON("http://ip-api.com/json/", function (dete) {
+iplatitude=dete.lat;
+iplongitude=dete.lon;
+alert("Your location is " + dete.lat + ";" + dete.lon);
+		 });};
+    
 
 function Drawippoint(){
 var point = new Point({
