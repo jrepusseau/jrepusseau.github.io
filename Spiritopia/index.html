@@ -35,8 +35,8 @@ function showPosition(position) {
       $.getJSON("https://jsonip.com?callback=?", function(data) {
         //alert("Your IP address is :- " + data.ip);
 		 $.getJSON("http://ip-api.com/json/" + data.ip, function (dete) {
-         iplatitude=dete.lat
-         iplongitude=dete.lon
+         iplatitude=dete.lat;
+         iplongitude=dete.lon;
 		 alert("Your location is " + dete.lat + ";" + dete.lon);
           });
       });
