@@ -128,13 +128,14 @@
   document.getElementById("Position").addEventListener("click",
           function() {
 	  track.start();
-		  
+	     
           });
 		  
 		  document.getElementById("Emergency").addEventListener("click",
           function() {
-	   document.getElementById("viewDiv").style.opacity = '0.6';
-	document.getElementById("viewDiv").style.backgroundImage= "url('ARClogo.jpg')"
+		   launchFullscreen(document.getElementById("viewDiv"));
+	//   document.getElementById("viewDiv").style.opacity = "0.6";
+	   
           });
 
 		  var coordsWidget = document.createElement("div");
@@ -156,7 +157,19 @@
       view.on("pointer-move", function(evt) {
         showCoordinates(view.toMap({ x: evt.x, y: evt.y }));
       });	
-
+	  
+ function launchFullscreen(element) {
+   alert("click");
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
     /*  view.on("click", function(evt) {
         alert("click!");
       });	*/	  
