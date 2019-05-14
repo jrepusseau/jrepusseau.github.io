@@ -183,14 +183,13 @@ var longitude
 function getLocation() {
     //Check if Geolocation is supported 
 	//getIPAddress();
-	 //useIPposition();
-   if (navigator.geolocation) {
+	// useIPposition();
+    if (navigator.geolocation) {
       //the watchposition() method show the position of the user and update it while is moving
-        navigator.geolocation.getCurrentPosition(useposition, showError);
+        navigator.geolocation.getCurrentPosition(useposition, useIPposition);
     } else { 
       //If not, display a message to the user
-      //useIPposition();
-	  alert("Error");
+      useIPposition();
     }
 	
 	
