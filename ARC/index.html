@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>ARC Platform</title>
-	<style>
-  html, body, #viewDiv {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-  }
-  #optionsDiv {
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,width=device-width"
+    />
+    <title> ARC Demo</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+	    position: absolute;
+		top: 21px;
+	   	padding: 0;
+        margin: 0;
+        height: 97%;
+        width: 100%;
+      }
+	  #optionsDiv {
       position: absolute;
       bottom: 10px;
       width: 100%;
-      padding: 20px 0;
+      padding: 20px ;
       z-index: 1;
       text-align: center;
     }
 
-    button {
+    .button {
       background: white;
       padding: 7px;
       border: 1px solid #005e95;
@@ -28,182 +37,253 @@
       color: #005e95;
       font-family: "Avenir Next W01", "Arial", sans-serif;
     }
-	 button:hover {
+	
+	.button1
+	{
+	background-image: url("ARClogo.jpg");
+	}
+	
+	.button2
+	{
+	background: red;
+	border-radius: 50%;
+	}
+	
+	.button3
+	{
+	background: orange;
+    border-radius: 30%;
+	}
+	
+	.button4
+	{
+	background: green;
+	}
+	
+	
+	.button1:hover {
       background: #005e95;
       color: white;
       cursor: pointer;
     }
-</style>
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.11/themes/light-blue/main.css">
-<script src="https://js.arcgis.com/4.11/">
-
-
-</script>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 	
-</head>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>ARC Platform</title>
-	<style>
-  html, body, #viewDiv {
-    padding: 0;
-    margin: 0;
-    height: 90%;
-    width: 100%;
-  }
-  #optionsDiv {
-      position: absolute;
-      bottom: 200px;
-      width: 100%;
-      padding: 20px 0;
-      z-index: 1;
-      text-align: center;
-    }
-
-    button {
-      background: white;
-      padding: 7px;
-      border: 1px solid #005e95;
-      font-size: 0.9em;
-      margin: 5px;
-      color: #005e95;
-      font-family: "Avenir Next W01", "Arial", sans-serif;
-    }
-	 button:hover {
+	.button2:hover {
       background: #005e95;
       color: white;
       cursor: pointer;
     }
-</style>
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.11/themes/light/main.css">
-<script src="https://js.arcgis.com/4.11/">
+	
+	.button3:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+	.button4:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.11/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.11/"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-
-</script>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	
-</head>
-<script>
-require([
-  "esri/widgets/Track",
-  "esri/views/MapView",
-  "esri/Map",
-  "esri/layers/CSVLayer",
-  "esri/views/SceneView"   
-], function(Track, MapView,Map,CSVLayer,SceneView){
- 
-  var template = {
-        title: "Temperature Info",
-       content: "Temperature {TTEMP}."
-      };
- 
-  
-  var csvLayer = new CSVLayer({
-        url: "database/test.csv",
-        copyright: "USGS Earthquakes",
-        popupTemplate: template,
-        elevationInfo: {
-          // drapes icons on the surface of the globe
-          mode: "on-the-ground"
-        }
-      });
-  csvLayer.renderer = {
-        type: "simple", // autocasts as new SimpleRenderer()
-        symbol: {
-          type: "point-3d", // autocasts as new PointSymbol3D()
-          symbolLayers: [{
-            type: "icon", // autocasts as new IconSymbol3DLayer()
-            material: {
-              color: [238, 69, 0, 0.75]
-            },
-            outline: {
-              width: 0.2,
-              color: "white"
-            },
-            size: "5px"
-                           }]
-        }
-      };
-  var map = new Map({
-    basemap: "streets-night-vector",
-    ground: "world-elevation",
-	// layers: [csvLayer],
-  });
-  var view = new SceneView({
-    container: "viewDiv",     // Reference to the scene div created in step 5
-    map: map,                 // Reference to the map object created before the scene
-    scale: 50000000,          // Sets the initial scale to 1:50,000,000
-    center: [2, 49]  // Sets the center point of view with lon/lat
-  });
-  
-  
- 
-	
+    <script>
+      require([
+        "esri/widgets/Track",
+        "esri/views/MapView",
+        "esri/Map",
+		"esri/layers/CSVLayer",
+        "esri/views/SceneView"
+      ], function(Track, MapView, Map, CSVLayer,SceneView) {
+        var map = new Map({
+          basemap: "streets-navigation-vector",
+		  ground: "world-elevation"
+        });
+
+        var view = new MapView({
+          map: map,
+          container: "viewDiv",
+		  scale: 50000000,          // Sets the initial scale to 1:50,000,000
+    center: [2, 49] 
+        });
+
+        // Create an instance of the Track widget
+        // and add it to the view's UI
+        var track = new Track({
+         
+    view: view
+        });
+        view.ui.add(track, "top-left");
+		
+    
+        
   document.getElementById("Position").addEventListener("click",
           function() {
-        /*
-          view.goTo({
-  center: [2, 47],
- 
-  scale: 10000000,
-  heading: 0, // set the heading to point South
-  tilt: view.camera.tilt, // maintain tilt value
-}), map.add(csvLayer)*/
-	  track.start();
+	//  track.start();
+	     getLocation();
           });
+		  
+		 document.getElementById("Emergency").addEventListener("click",
+          function() {
+		  launchFullscreen(document.documentElement);
+	  // document.getElementById("viewDiv").style.opacity = "0.6";
+	  
+          });
+
+		  var coordsWidget = document.createElement("div");
+      coordsWidget.id = "coordsWidget";
+      coordsWidget.className = "esri-widget esri-component";
+      coordsWidget.style.padding = "7px 15px 5px";
+
+      view.ui.add(coordsWidget, "bottom-right");
+		  
+		  function showCoordinates(pt) {
+        var coords = "Lat/Lon " + pt.latitude.toFixed(3) + " " + pt.longitude.toFixed(3);
+        coordsWidget.innerHTML = coords;
+      }
 		
-	var track = new Track({
-          view: view
-        });
-	//view.ui.add(track, "top-left");
+      view.watch("stationary", function(isStationary) {
+        showCoordinates(view.center);
+      });
 
-});
+      view.on("pointer-move", function(evt) {
+        showCoordinates(view.toMap({ x: evt.x, y: evt.y }));
+      });	
+	  
+ function launchFullscreen(element) {
+   
+  if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+	  }
+}
 
-</script>
-<body>
 
 
-<div id="viewDiv"></div>
+
+
+    /*  view.on("click", function(evt) {
+        alert("click!");
+      });	*/	  
+	  
+/////////////////////////////////////////////////////////////
+
+var ipx
+var latitude
+var longitude 
+
+function getLocation() {
+    //Check if Geolocation is supported 
+	//getIPAddress();
+	// useIPposition();
+    if (navigator.geolocation) {
+      //the watchposition() method show the position of the user and update it while is moving
+        navigator.geolocation.getCurrentPosition(useposition, showError);
+    } else { 
+      //If not, display a message to the user
+      useIPposition();
+    }
 	
-<div id="optionsDiv">
-	  <button id="Position">Position</button>
- 	  <button id="Emergency">Emergency</button>
-</div>
-	 <!-- navbar -->
- 
-  <nav class="navbar navbar-expand-lg fixed-top ">
-	  <a class="navbar-brand" href="#">Home</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+	
+}
+//The showPosition() function outputs the Latitude and Longitude
+function useposition(position) {
+    latitude= position.coords.latitude; 
+    longitude=position.coords.longitude;
+	Drawippoint();
+}
 
-	  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      alert( "User denied the request for Geolocation.")
+	  useIPposition();
+      break;
+    case error.POSITION_UNAVAILABLE:
+      alert("Location information is unavailable.")
+      break;
+    case error.TIMEOUT:
+      alert("The request to get user location timed out.")
+      break;
+    case error.UNKNOWN_ERROR:
+      alert("An unknown error occurred.")
+      break;
+  }
+}
+
+function useIPposition(){
+alert("ouille");
+$.getJSON("http://ip-api.com/json/", function (dete) {
+latitude=dete.lat;
+longitude=dete.lon;
+alert("Your location is " + dete.lat + ";" + dete.lon);
+		 
+Drawippoint();});
+};
+    
+
+function Drawippoint(){
+
+
+
+
+      // Create a symbol for drawing the point
+   /*   var markerSymbol = new SimpleMarkerSymbol({
+        color: [226, 119, 40],
+        outline: {
+          color: [255, 255, 255],
+          width: 1
+        }
+      });
+
+      // Create a graphic and add the geometry and symbol to it
+      var pointGraphic = new Graphic({
+        geometry: point,
+        symbol: markerSymbol
+      });
+
+      // Add the graphic to the view
+/*view.graphics.add(pointGraphic);*/
+  alert(latitude+";"+longitude);  
+view.center = [longitude,latitude];
+view.zoom = 40;
+	  
+	  }
+	  
+	
+
+	
+	  });
+    </script>
+  </head>
+
+  <body>
+  
+    <div id="viewDiv"></div>
+	<div id="optionsDiv">
+	  <button id="Position" class="button button1">Position</button>
+ 	  <button id="Emergency" class="button button2">+E</button>
+	  <button id="Maintenance" class="button button3">+M</button>
+	  <button id="Services" class="button button4">+S</button>
+</div>
+ <nav class="navbar navbar-expand-lg fixed-top ">
+	  <a class="navbar-brand" href="#">ARC</a>
+	 
+
+	  <div class="navbar-brand " id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-4">
-	      
-	      <li class="nav-item">
-	        <a class="nav-link" data-value="about" href="#">About</a>
-		
-	      </li>
-		  <li class="nav-item">
-	        <a class="nav-link " data-value="search" href="#search">Search</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link " data-value="database" href="#">Database</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link " data-value="blog" href="#">Blog</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link " data-value="team" href="#">
-	        Team</a>
-	      </li>
+	    
 	      <li class="nav-item">
 	        <a class="nav-link " data-value="contact" href="#">Contact</a>
 	      </li>
@@ -212,79 +292,6 @@ require([
 	  </div>
 </nav>
 
-<header class="header ">
 
-  <div class="overlay"></div>
-   <div class="container">
-   	  <div class="description ">
-	
-	 <br/>
-	
-  	<h1>
-  		 ARC </h1>
-  		<p>
-		 <br />
-		The aim of this project is to use public information data from goverment and national statistics (Census, INSEE, ISI..) to make forecast at city scale. 
-		Scope population dynamic, anticipate next public infrastructure in wealth, education, transports, watch for economics activities...
-  		<br />
-        All the imaginable data layers can be  add to the model to make a virtual city alias then make predictions powered by deep learning models. <br />
-        <br />
-		The second step will allow even more complex predictions.
-		What if we can reduce the unemployment of a town or even a city? or predict the next election based on the past results?
-		<br />
-     
-		</p>
-  		<!-- <button class="btn btn-outline-secondary btn-lg">See more</button> -->
-		</br> </br>
-		<h1>Smart Cities and CIM<h1>
-		
-		<p><br/>
-		Inspired by the BIM (Building Information Modeling), the CIM will be the next breakthrough for the construction industry. <br/>
-		This technology will included building, roads, public spaces and all the public equipment.<br />
-        But this technology is far to be out of resources and already several layers of information can be build on top of those model. <br/>
-        Features about the active population, the age , the political vote, the weather, public camera, the recycling equipement... </p>
-  	<h1>
-  		National statistical services <br /></h1>
-  		<p>
-		   <br />
-		DeepCtizens is a non-profit and public services website. All datas are open-sourced, we will try to collaborate actively with National statistics services, International
-		Statistical Institutes and Unesco. 
-		</p>
-		
-	 	<h1>
-  		Individual contributor <br /></h1>
-  		<p>
-  		Everyone can contribute and participate as a DeepCitizens. 
-		
-		</p>
-		<h1>
-  		Others resources <br /></h1>
-  		<p>
-  		Our project is freely inspired by <a href="https://datafrance.info/">DataFrance</a> project.
-		</p>
-		
-  </div>
- </div> 
- </div>
- 
-    <div class="container">
-   <div class="description " id="search">
-  	
-  		
-  	
-  </div>
-   </div>
- 
-  
-</header>
-	<footer>
-	<div class="description " >
-     <p> School of AI Lyon <p>
-	 </div>
-	</footer>
-
-
-	
-	<script type="text/javascript" src='js/main.js'></script>
-	</body>
+  </body>
 </html>
