@@ -92,10 +92,8 @@
     />
     <script src="https://js.arcgis.com/4.11/"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+	<script type="text/javascript" src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js"></script>
+ 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	
@@ -127,18 +125,25 @@
         });
         view.ui.add(track, "top-left");
 		
-    
-        
+        launchFullscreen(document.documentElement);
+		
+		
+        document.getElementById("FS").addEventListener("click",
+          function() {
+		  launchFullscreen(document.documentElement)
+	  
+          });
+		  
   document.getElementById("Position").addEventListener("click",
           function() {
-	//  track.start();
+	 //  track.start();
 	     getLocation();
           });
 		  
-		 document.getElementById("Emergency").addEventListener("click",
+		 document.getElementById("Pin").addEventListener("click",
           function() {
-		  launchFullscreen(document.documentElement);
-	  // document.getElementById("viewDiv").style.opacity = "0.6";
+		 
+	  document.getElementById("viewDiv").style.opacity = "0.6";
 	  
           });
 
@@ -192,7 +197,7 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(useposition, showError);
     } else { 
       //If not, display a message to the user
-      useIPposition();
+      alert("Pas de GPS sur l'appareil.")
     }
 	
 	
@@ -208,7 +213,6 @@ function showError(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
       alert( "User denied the request for Geolocation.")
-	  useIPposition();
       break;
     case error.POSITION_UNAVAILABLE:
       alert("Location information is unavailable.")
@@ -223,13 +227,34 @@ function showError(error) {
 }
 
 function useIPposition(){
-alert("ouille");
+
+/*alert("ouille");
+
+var onSuccess = function(location){
+  alert(
+      "Lookup successful:\n\n"
+      + JSON.stringify(location, undefined, 4)
+  );
+};
+ 
+var onError = function(error){
+  alert(
+      "Error:\n\n"
+      + JSON.stringify(error, undefined, 4)
+  );
+};
+ 
+//geoip2.city(onSuccess, onError);*/
+
+/*
+
 $.getJSON("http://ip-api.com/json/", function (dete) {
 latitude=dete.lat;
 longitude=dete.lon;
 alert("Your location is " + dete.lat + ";" + dete.lon);
 		 
-Drawippoint();});
+Drawippoint();});*/
+
 };
     
 
@@ -272,7 +297,9 @@ view.zoom = 40;
   
     <div id="viewDiv"></div>
 	<div id="optionsDiv">
+	<button id="FS" >FS</button>
 	  <button id="Position" class="button button1">Position</button>
+	  <button id="Pin" class="button button1">Pin</button>
  	  <button id="Emergency" class="button button2">+E</button>
 	  <button id="Maintenance" class="button button3">+M</button>
 	  <button id="Services" class="button button4">+S</button>
