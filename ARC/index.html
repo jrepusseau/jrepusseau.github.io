@@ -103,8 +103,9 @@
         "esri/views/MapView",
         "esri/Map",
 		"esri/layers/CSVLayer",
-        "esri/views/SceneView"
-      ], function(Track, MapView, Map, CSVLayer,SceneView) {
+        "esri/views/SceneView",
+		"esri/widgets/Search"
+      ], function(Track, MapView, Map, CSVLayer,SceneView,Search) {
         var map = new Map({
           basemap: "streets-navigation-vector",
 		  ground: "world-elevation"
@@ -120,12 +121,19 @@
         // Create an instance of the Track widget
         // and add it to the view's UI
         var track = new Track({
-         
-    view: view
+             view: view
         });
-        view.ui.add(track, "top-left");
 		
-        launchFullscreen(document.documentElement);
+		view.ui.add(track, "top-left");
+		
+		var search = new Search({
+        view: view
+         });
+		
+		view.ui.add(search, "top-right");
+        
+		
+        
 		
 		
         document.getElementById("FS").addEventListener("click",
@@ -144,6 +152,36 @@
           function() {
 		 
 	  document.getElementById("viewDiv").style.opacity = "0.6";
+	  
+	  view.on("drag", function(event) {
+          // prevents panning with the mouse drag event
+          event.stopPropagation();
+        });
+
+        view.on("key-down", function(event) {
+          // prevents panning with the arrow keys
+          var keyPressed = event.key;
+          if (keyPressed.slice(0, 5) === "Arrow") {
+            event.stopPropagation();
+          }
+        });
+	  
+	     view.popup.autoOpenEnabled = false;
+        view.on("click", function(event) {
+          // Get the coordinates of the click on the view
+          var lat = Math.round(event.mapPoint.latitude * 1000) / 1000;
+          var lon = Math.round(event.mapPoint.longitude * 1000) / 1000;
+
+          view.popup.open({
+            // Set the popup's title to the coordinates of the location
+            title: "Reverse geocode: [" + lon + ", " + lat + "]",
+            location: event.mapPoint // Set the location of the popup to the clicked location
+          });
+          view.popup.content="<button>GAN</button>";
+          // Display the popup
+          // Execute a reverse geocode using the clicked location
+          
+        });
 	  
           });
 
@@ -197,7 +235,7 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(useposition, showError);
     } else { 
       //If not, display a message to the user
-      alert("Pas de GPS sur l'appareil.")
+      alert("No GPS, Please use adress instead")
     }
 	
 	
@@ -212,18 +250,19 @@ function useposition(position) {
 function showError(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
-      alert( "User denied the request for Geolocation.")
+      alert( "User denied the request for Geolocation, Please use adress instead.")
       break;
     case error.POSITION_UNAVAILABLE:
-      alert("Location information is unavailable.")
+      alert("Location information is unavailable, Please use adress instead.")
       break;
     case error.TIMEOUT:
-      alert("The request to get user location timed out.")
+      alert("The request to get user location timed out, Please use adress instead.")
       break;
     case error.UNKNOWN_ERROR:
-      alert("An unknown error occurred.")
+      alert("An unknown error occurred, Please use adress instead")
       break;
   }
+  
 }
 
 function useIPposition(){
