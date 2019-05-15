@@ -27,6 +27,16 @@
       z-index: 1;
       text-align: center;
     }
+	
+	 #choiceDiv {
+	 visibility: hidden;
+      position: absolute;
+      top: 30px;
+      width: 100%;
+      padding: 20px ;
+      z-index: 1;
+      text-align: center;
+    }
 
     .button {
       background: white;
@@ -160,7 +170,7 @@
 		 Drawippoint(event.mapPoint.latitude,event.mapPoint.longitude);
 		 
 		 
-          view.popup.open({
+          /*view.popup.open({
             // Set the popup's title to the coordinates of the location
             title: "Reverse geocode: [" + lon + ", " + lat + "]",
             location: event.mapPoint // Set the location of the popup to the clicked location
@@ -171,14 +181,16 @@
 		       buttonEnabled: false,
               position: "top-center",
 			  breakpoint: false
-            });
+            });*/
+			
+			
           // Display the popup
           // Execute a reverse geocode using the clicked location
           
        view.goTo({
   center: [event.mapPoint.longitude, event.mapPoint.latitude]})
       // view.zoom = 40;
-	  
+	  document.getElementById("choiceDiv").style.visibility='visible';
           });
 
 		  var coordsWidget = document.createElement("div");
@@ -382,10 +394,10 @@ view.graphics.add(pointGraphic);
 	<button id="FS" >FS</button>
 	  <button id="Position" class="button button1">Position</button>
 	  <button id='Pin' class="button button1">Pin</button>
- 	  
-</div>
- 
-
+ 	  </div>
+	  <div id="choiceDiv">
+ <button id='Emergency' class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>
+       </div>
 
   </body>
 </html>
