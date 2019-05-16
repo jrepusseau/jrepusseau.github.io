@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,width=device-width"
+    />
+    <title> ARC Demo</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+	    position: fixed;
+		top: 0px;
+	   	padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+	  #optionsDiv {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      padding: 20px ;
+      z-index: 1;
+      text-align: center;
+    }
+	
+	 #choiceDiv {
+	 visibility: hidden;
+      position: absolute;
+      top: 30px;
+      width: 100%;
+      padding: 20px ;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .button {
+      background: white;
+      padding: 7px;
+      border: 1px solid #005e95;
+      font-size: 0.9em;
+      margin: 5px;
+      color: #005e95;
+      font-family: "Avenir Next W01", "Arial", sans-serif;
+    }
+	
+	.button1
+	{
+	background-image: url("ARClogo.jpg");
+	}
+	
+	.button2
+	{
+	background: red;
+	border-radius: 50%;
+	}
+	
+	.button3
+	{
+	background: orange;
+    border-radius: 30%;
+	}
+	
+	.button4
+	{
+	background: green;
+	}
+	
+	
+	.button1:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+	.button2:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+	.button3:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+	.button4:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.11/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.11/"></script>
+
+
+   
+	
+    <script>
+      require([
+        "esri/widgets/Track",
+        "esri/views/MapView",
+        "esri/Map",
+		"esri/layers/CSVLayer",
+        "esri/views/SceneView",
+		"esri/widgets/Search",
+		"esri/Graphic",
+      "esri/geometry/Point",
+      "esri/symbols/SimpleMarkerSymbol"
+      ], function(Track, MapView, Map, CSVLayer,SceneView,Search,  Graphic, Point, SimpleMarkerSymbol) {
+        var map = new Map({
+          basemap: "streets-navigation-vector",
+		  ground: "world-elevation"
+        });
+
+        var view = new MapView({
+          map: map,
+          container: "viewDiv",
+		  scale: 50000000,          // Sets the initial scale to 1:50,000,000
+    center: [2, 49] 
+        });
+
+        // Create an instance of the Track widget
+        // and add it to the view's UI
+        var track = new Track({
+             view: view
+        });
+		
+		view.ui.add(track, "top-left");
+		
+		var search = new Search({
+        view: view
+         });
+		
+		view.ui.add(search, "top-right");
+        
+		
+        
+		
+		
+        document.getElementById("FS").addEventListener("click",
+          function() {
+		  launchFullscreen(document.documentElement)
+	  
+          });
+		  
+  document.getElementById("Position").addEventListener("click",
+          function() {
+	 //  track.start();
+	     getLocation();
+          });
+		  
+		 
+	  
+	     view.popup.autoOpenEnabled = false;
+        view.on("hold", function(event) {
+          // Get the coordinates of the click on the view
+          var lat = Math.round(event.mapPoint.latitude * 1000) / 1000;
+          var lon = Math.round(event.mapPoint.longitude * 1000) / 1000;
+         
+		 Drawippoint(event.mapPoint.latitude,event.mapPoint.longitude);
+		 
+		 
+          /*view.popup.open({
+            // Set the popup's title to the coordinates of the location
+            title: "Reverse geocode: [" + lon + ", " + lat + "]",
+            location: event.mapPoint // Set the location of the popup to the clicked location
+          });
+          view.popup.content="<button id='Emergency' class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>";
+		  view.popup.dockEnabled = true;
+		  view.popup.set("dockOptions", {
+		       buttonEnabled: false,
+              position: "top-center",
+			  breakpoint: false
+            });*/
+			
+			
+          // Display the popup
+          // Execute a reverse geocode using the clicked location
+          
+       view.goTo({
+  center: [event.mapPoint.longitude, event.mapPoint.latitude]})
+      // view.zoom = 40;
+	  document.getElementById("choiceDiv").style.visibility='visible';
+          });
+
+		  var coordsWidget = document.createElement("div");
+      coordsWidget.id = "coordsWidget";
+      coordsWidget.className = "esri-widget esri-component";
+      coordsWidget.style.padding = "7px 15px 5px";
+
+      view.ui.add(coordsWidget, "bottom-right");
+		  
+		  function showCoordinates(pt) {
+        var coords = "Lat/Lon " + pt.latitude.toFixed(3) + " " + pt.longitude.toFixed(3);
+        coordsWidget.innerHTML = coords;
+      }
+		
+      view.watch("stationary", function(isStationary) {
+        showCoordinates(view.center);
+      });
+
+      view.on("pointer-move", function(evt) {
+        showCoordinates(view.toMap({ x: evt.x, y: evt.y }));
+      });	
+	  
+ function launchFullscreen(element) {
+   
+  if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+	  }
+}
+
+
+
+
+
+    /*  view.on("click", function(evt) {
+        alert("click!");
+      });	*/	  
+	  
+/////////////////////////////////////////////////////////////
+
+var ipx
+var latitude
+var longitude 
+
+function getLocation() {
+    //Check if Geolocation is supported 
+	//getIPAddress();
+	// useIPposition();
+    if (navigator.geolocation) {
+      //the watchposition() method show the position of the user and update it while is moving
+        navigator.geolocation.getCurrentPosition(useposition, showError);
+    } else { 
+      //If not, display a message to the user
+      alert("No GPS, Please use adress instead")
+    }
+	
+	
+}
+//The showPosition() function outputs the Latitude and Longitude
+function useposition(position) {
+    latitude= position.coords.latitude; 
+    longitude=position.coords.longitude;
+//	Drawippoint();
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      alert( "User denied the request for Geolocation, Please use adress instead.")
+      break;
+    case error.POSITION_UNAVAILABLE:
+      alert("Location information is unavailable, Please use adress instead.")
+      break;
+    case error.TIMEOUT:
+      alert("The request to get user location timed out, Please use adress instead.")
+      break;
+    case error.UNKNOWN_ERROR:
+      alert("An unknown error occurred, Please use adress instead")
+      break;
+  }
+  
+}
+
+function useIPposition(){
+
+/*alert("ouille");
+
+var onSuccess = function(location){
+  alert(
+      "Lookup successful:\n\n"
+      + JSON.stringify(location, undefined, 4)
+  );
+};
+ 
+var onError = function(error){
+  alert(
+      "Error:\n\n"
+      + JSON.stringify(error, undefined, 4)
+  );
+};
+ 
+//geoip2.city(onSuccess, onError);*/
+
+/*
+
+$.getJSON("http://ip-api.com/json/", function (dete) {
+latitude=dete.lat;
+longitude=dete.lon;
+alert("Your location is " + dete.lat + ";" + dete.lon);
+		 
+Drawippoint();});*/
+
+};
+    
+
+function Drawippoint(x,y){
+
+
+   var point = new Point({
+        latitude: x,
+        longitude: y
+      });
+
+
+      // Create a symbol for drawing the point
+      var markerSymbol = new SimpleMarkerSymbol({
+        color: [226, 119, 40],
+        outline: {
+          color: [255, 255, 255],
+          width: 1
+        }
+      });
+
+      // Create a graphic and add the geometry and symbol to it
+      var pointGraphic = new Graphic({
+        geometry: point,
+        symbol: markerSymbol
+      });
+
+      // Add the graphic to the view
+view.graphics.add(pointGraphic);
+
+	  
+	  }
+
+	  ///DRAG GRAPHICS
+	  
+	/*  view.on("drag", function(evt) {
+    evt.stopPropagation();
+    var screenPoint = {
+        x: evt.x,
+        y: evt.y
+    };
+
+ 
+
+    console.log(evt.action);
+
+ 
+
+    view.hitTest(screenPoint).then(function(response) {
+        var graphic = response.results[0].graphic;
+
+ 
+
+    if (graphic) {
+
+ 
+
+        console.log(response.results[0].mapPoint);
+
+ 
+
+        var newGraphic = Graphic({
+            geometry: response.results[0].mapPoint,
+            symbol: MarkerSymbol({
+                url: myUrl,
+                width: "48px",
+                height: "48px"
+            })
+        });
+
+ 
+
+        view.graphics.remove(graphic);
+        view.graphics.add(newGraphic);
+    }});
+
+});*/
+	  
+	
+
+	
+	  });
+    </script>
+  </head>
+
+  <body>
+  
+    <div id="viewDiv"></div>
+	<div id="optionsDiv">
+	<button id="FS" >FS</button>
+	  <button id="Position" class="button button1">Position</button>
+	  <button id='Pin' class="button button1">Pin</button>
+ 	  </div>
+	  <div id="choiceDiv">
+ <button id='Emergency' class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>
+       </div>
+
+  </body>
+</html>
