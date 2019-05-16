@@ -43,6 +43,22 @@
       z-index: 1;
       text-align: center;
     }
+	
+	.overlay {
+	opacity: 0.8;
+  visibility: hidden;
+  height: 100%;
+  width: 100vw;
+  margin-left: -100px;
+  position: relative;
+  float: right;
+  z-index: 2;
+  text-align: center;
+  display: inline-block;
+  
+}
+	
+	
 
     .button {
       background: white;
@@ -187,13 +203,18 @@
           var r = results[0];
           if (r) {
            newMarker = new L.marker(e.latlng,{draggable:true} ).addTo(mymap)
-	    .bindPopup(r.name+"<button id='Emergency' class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>").openPopup();	
-          }
+	    .bindPopup(r.name+"</br><button id='Emergency' onclick='Efunction()'class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>").openPopup();	
+          
+		  
+		  }
 		  else
 		  {
 		  newMarker = new L.marker(e.latlng,{draggable:true} ).addTo(mymap)
-	    .bindPopup("<button id='Emergency' class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>").openPopup();	
+	    .bindPopup("<button id='Emergency' onclick='Efunction()' class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>").openPopup();	
 
+		
+		
+		
 		  }
 		 //////////////////////////////////////////// 
 		 });
@@ -202,18 +223,26 @@
 			}
 
 	mymap.on('dblclick', onMapClick);
+	
+	
+          function Efunction() {
+	 document.getElementById("over").style.visibility='visible';
+	           };
+		  function Dfunction() {
+	 document.getElementById("over").style.visibility='hidden';
+	           };
+	
 
 </script>
 
-<div id="optionsDiv">
-	<button id="FS" >FS</button>
-	  <button id="Position" class="button button1">Position</button>
-	  <button id='Pin' class="button button1">Pin</button>
- 	  </div>
-	  <div id="choiceDiv">
- <button id='Emergency' class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>
-       </div>
-	   
+<div id="over" class="overlay">
+    <button id='Caraccident' class='button button2'> Car accident</button>
+	<button id='Caraccident' class='button button2'> Fire danger</button>
+	<button id='Caraccident' class='button button2'> Injuries</button>
+	<button id='Caraccident' class='button button2'> Hazard </button>
+	<button id='Caraccident' onclick='Dfunction()'> X </button>
+	
+ </div>
 
 
 </body>
