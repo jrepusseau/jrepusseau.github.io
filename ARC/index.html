@@ -146,6 +146,8 @@
 		id: 'mapbox.streets'
 	}).addTo(mymap);
 	
+	alert("double tap to start pin");
+	
 	mymap.locate({setView: true, maxZoom: 20});
 	
 	function onLocationFound(e) {
