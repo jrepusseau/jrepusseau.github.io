@@ -37,7 +37,7 @@
 	   #choiceDiv {
 	 visibility: hidden;
       position: absolute;
-      top: 30px;
+      top: 25%;
       width: 100%;
       padding: 20px ;
       z-index: 1;
@@ -47,7 +47,7 @@
 	.overlay {
 	opacity: 0.8;
   visibility: hidden;
-  height: 100%;
+  height: 33%;
   width: 100vw;
   margin-left: -100px;
   position: relative;
@@ -66,7 +66,7 @@
       border: 1px solid #005e95;
       font-size: 0.9em;
       margin: 5px;
-      color: #005e95;
+      color: white;
       font-family: "Avenir Next W01", "Arial", sans-serif;
     }
 	
@@ -203,14 +203,14 @@
           var r = results[0];
           if (r) {
            newMarker = new L.marker(e.latlng,{draggable:true} ).addTo(mymap)
-	    .bindPopup(r.name+"</br><button id='Emergency' onclick='Efunction()'class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>").openPopup();	
+	    .bindPopup(r.name+"</br><button id='Emergency' onclick='Efunction()' class='button button2'>Emergency</button><button id='Maintenance' onclick='Ffunction()' class='button button3'>Maintenance</button><button id='Services' onclick='Gfunction()' class='button button4'>Services</button>").openPopup();	
           
 		  
 		  }
 		  else
 		  {
 		  newMarker = new L.marker(e.latlng,{draggable:true} ).addTo(mymap)
-	    .bindPopup("<button id='Emergency' onclick='Efunction()' class='button button2'>Emergency</button><button id='Maintenance' class='button button3'>Maintenance</button><button id='Services' class='button button4'>Services</button>").openPopup();	
+	    .bindPopup("<button id='Emergency' onclick='Efunction()' class='button button2'>Emergency</button><button id='Maintenance' onclick='Ffunction()' class='button button3'>Maintenance</button><button id='Services' onclick='Gfunction()' class='button button4'>Services</button>").openPopup();	
 
 		
 		
@@ -224,25 +224,57 @@
 
 	mymap.on('dblclick', onMapClick);
 	
+	///////////////////// WE DONT DO LIKE THIS 
 	
           function Efunction() {
-	 document.getElementById("over").style.visibility='visible';
+		  Dfunction()
+	 document.getElementById("over1").style.visibility='visible';
 	           };
+			   
+			   function Ffunction() {
+			   Dfunction()
+	 document.getElementById("over2").style.visibility='visible';
+	           };
+			   
+			    function Gfunction() {
+				Dfunction()
+	 document.getElementById("over3").style.visibility='visible';
+	           };
+			   
+			   
 		  function Dfunction() {
-	 document.getElementById("over").style.visibility='hidden';
+	 document.getElementById("over1").style.visibility='hidden';
+	 document.getElementById("over2").style.visibility='hidden';
+	 document.getElementById("over3").style.visibility='hidden';
 	           };
 	
 
 </script>
 
-<div id="over" class="overlay">
+<div id="over1" class="overlay">
     <button id='Caraccident' class='button button2'> Car accident</button>
 	<button id='Caraccident' class='button button2'> Fire danger</button>
 	<button id='Caraccident' class='button button2'> Injuries</button>
-	<button id='Caraccident' class='button button2'> Hazard </button>
+	<button id='Caraccident' class='button button2'> Hazards </button>
 	<button id='Caraccident' onclick='Dfunction()'> X </button>
-	
  </div>
+ 
+ <div id="over2" class="overlay">
+    <button id='Caraccident' class='button button3'> Social Issues</button>
+	<button id='Caraccident' class='button button3'> Electric shortage</button>
+	<button id='Caraccident' class='button button3'> Water leaks</button>
+	<button id='Caraccident' class='button button3'> Garbages </button>
+	<button id='Caraccident' onclick='Dfunction()'> X </button>
+ </div>
+ 
+ <div id="over3" class="overlay">
+    <button id='Caraccident' class='button button4'> Transports</button>
+	<button id='Caraccident' class='button button4'> Lost and Found</button>
+	<button id='Caraccident' class='button button4'> Delivery</button>
+	<button id='Caraccident' class='button button4'> Events </button>
+	<button id='Caraccident' onclick='Dfunction()'> X </button>
+ </div>
+ 
 
 
 </body>
