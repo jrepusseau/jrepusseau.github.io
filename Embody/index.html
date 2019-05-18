@@ -41,6 +41,8 @@ function setup() {
     poses = results;
   });
   // Hide the video element, and just show the canvas
+  	text('HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII', 50, 50);
+	
   video.hide();
 }
 
@@ -77,7 +79,7 @@ function drawKeypoints()  {
         noStroke();
       //  ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
 		text(partNames[j], keypoint.position.x, keypoint.position.y);
-		text('HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII', 50, 50);
+	
 		
       }
     }
