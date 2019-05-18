@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <h1>PoseNet build v1.2 p5.js</h1>
+  <h1>PoseNet build v1.4 p5.js</h1>
   <p id='status'>Loading model...</p>
   <script >
   let video;
@@ -27,8 +27,8 @@ var partNames = [
 
 var options = 
 { 
- imageScaleFactor: 0.3,
- outputStride: 16,
+ imageScaleFactor: 1,
+ outputStride: 8,
  flipHorizontal: false,
  minConfidence: 0.5,
  maxPoseDetections: 3,
@@ -54,7 +54,7 @@ poseNet = ml5.poseNet(video, options, modelReady)
   ////// NO POSE DETECTED ON PHONE
   poseNet.on('pose', function(results) {
     poses = results;
-	
+	select('#status').html(poses.length);
    // alert('poses detected');
   });
   // Hide the video element, and just show the canvas
