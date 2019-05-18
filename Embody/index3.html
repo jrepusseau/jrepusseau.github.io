@@ -12,9 +12,10 @@
 </head>
 
 <body>
-  <h1>PoseNet build v1.7 p5.js</h1>
+  <h1>PoseNet build v1.8 p5.js</h1>
   <p id='status'>Loading model...</p>
   <div id="canvasContainer"></div>
+  <button onclick='fullscreen' id='Garbages' >Fullscreen</button>
   <script >
   let video;
 let poseNet;
@@ -85,6 +86,7 @@ function drawSkeleton() {
  var canvas = document.queryselector('canvasContainer');
  
 function fullscreen(){
+alert("full");
            var el = document.getElementById('canvasContainer');
  
            if(el.webkitRequestFullScreen) {
