@@ -28,7 +28,7 @@ var partNames = [
 
 
 function setup() {
-  frameRate(1);
+  frameRate(0.1);
   createCanvas(640, 480);
   video = createCapture(VIDEO);
   video.size(width, height);
@@ -41,7 +41,7 @@ function setup() {
     poses = results;
   });
   // Hide the video element, and just show the canvas
-  	text('HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII', 50, 50);
+  	
 	
   video.hide();
 }
@@ -57,6 +57,9 @@ function draw() {
   image(video, 0, 0, width, height);
 
   // We can call both functions to draw all keypoints and the skeletons
+  
+  text('HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII', 50, 50);
+  
   drawKeypoints();
  // drawSkeleton();
   
