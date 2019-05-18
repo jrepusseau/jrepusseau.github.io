@@ -28,6 +28,7 @@ var partNames = [
 
 
 function setup() {
+  frameRate(1);
   createCanvas(640, 480);
   video = createCapture(VIDEO);
   video.size(width, height);
@@ -48,6 +49,7 @@ function modelReady() {
 }
 
 function draw() {
+ 
   translate(width,0); // move to far corner
   scale(-1.0,1.0);
   image(video, 0, 0, width, height);
