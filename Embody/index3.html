@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <h1>PoseNet build v1.6 p5.js</h1>
+  <h1>PoseNet build v1.7 p5.js</h1>
   <p id='status'>Loading model...</p>
   <div id="canvasContainer"></div>
   <script >
@@ -82,10 +82,10 @@ function drawSkeleton() {
   }
 }
   
- var canvas = document.queryselector('canvas');
+ var canvas = document.queryselector('canvasContainer');
  
 function fullscreen(){
-           var el = document.getElementById('canvas');
+           var el = document.getElementById('canvasContainer');
  
            if(el.webkitRequestFullScreen) {
                el.webkitRequestFullScreen();
