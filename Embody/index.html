@@ -53,7 +53,7 @@ poseNet = ml5.poseNet(video, options, modelReady)
   ////// NO POSE DETECTED ON PHONE
   poseNet.on('pose', function(results) {
     poses = results;
-
+    alert('poses detected');
   });
   // Hide the video element, and just show the canvas
   	
