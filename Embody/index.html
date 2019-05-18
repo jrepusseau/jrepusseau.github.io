@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <h1>PoseNet build v0.7 p5.js</h1>
+  <h1>PoseNet build v0.8 p5.js</h1>
   <p id='status'>Loading model...</p>
   <script >
   let video;
@@ -25,6 +25,18 @@ var partNames = [
   'leftHip', 'rightHip', 'leftKnee', 'rightKnee', 'leftAnkle', 'rightAnkle'
 ];
 
+var options = 
+{ 
+ imageScaleFactor: 0.8,
+ outputStride: 8,
+ flipHorizontal: false,
+ minConfidence: 0.5,
+ maxPoseDetections: 3,
+ scoreThreshold: 0.5,
+ nmsRadius: 20,
+ detectionType: 'single',
+ multiplier: 0.75,
+};
 
 
 function setup() {
@@ -34,9 +46,7 @@ function setup() {
   video.size(width, height);
 
   // Create a new poseNet method with a single detection
-poseNet = ml5.poseNet(video, modelReady)
- if (poseNet)
-   alert('Work');
+poseNet = ml5.poseNet(video, options, modelReady)
   // This sets up an event that fills the global variable "poses"
   // with an array every time new poses are detected
   
@@ -56,9 +66,9 @@ function modelReady() {
 }
 
 function draw() {
- 
-  translate(width,0); // move to far corner
+   translate(width,0); // move to far corner
   scale(-1.0,1.0);
+ 
   image(video, 0, 0, width, height);
 
   // We can call both functions to draw all keypoints and the skeletons
