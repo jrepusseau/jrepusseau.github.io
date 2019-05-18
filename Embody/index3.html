@@ -15,7 +15,7 @@
   <h1>PoseNet build v1.8 p5.js</h1>
   <p id='status'>Loading model...</p>
   <div id="canvasContainer"></div>
-  <button onclick='fullscreen' id='Garbages' >Fullscreen</button>
+  <button onclick='fullscreen()' id='Garbages' >Fullscreen</button>
   <script >
   let video;
 let poseNet;
@@ -97,7 +97,7 @@ alert("full");
           }            
 }
  
-canvas.addEventListener("click",fullscreen)
+canvas.addEventListener("click",fullscreen())
   
   
   </script>
