@@ -23,9 +23,9 @@ let poses = [];
 let skeletons = [];
 
 function setup() {
-  createCanvas(width, height).parent('canvasContainer');
+  createCanvas(500, 500).parent('canvasContainer');
   video = createCapture(VIDEO);
-  video.size(width, height);
+  video.size(450, 450);
 
   // Create a new poseNet method with a single detection
   poseNet = ml5.poseNet(video, modelReady);
