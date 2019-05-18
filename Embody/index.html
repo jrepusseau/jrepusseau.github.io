@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <h1>PoseNet build v1.1 p5.js</h1>
+  <h1>PoseNet build v1.2 p5.js</h1>
   <p id='status'>Loading model...</p>
   <script >
   let video;
@@ -49,10 +49,12 @@ function setup() {
 poseNet = ml5.poseNet(video, options, modelReady)
   // This sets up an event that fills the global variable "poses"
   // with an array every time new poses are detected
+  console.log(ml5);
   
   ////// NO POSE DETECTED ON PHONE
   poseNet.on('pose', function(results) {
     poses = results;
+	
    // alert('poses detected');
   });
   // Hide the video element, and just show the canvas
