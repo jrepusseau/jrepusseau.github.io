@@ -151,7 +151,9 @@ h5
   color: green;
 }
 	
-	
+a:hover {
+  background-color: white;
+}
 	
 	  
 </style>
@@ -161,7 +163,7 @@ h5
 
 
 
-<div id="viewDiv" style="width: 100%; height: 98vh;"></div>
+<div id="viewDiv" style="width: 100%; height: 97vw;"></div>
 
 <script>
    
@@ -184,7 +186,7 @@ h5
     
 var pinpopup= L.popup();
 var pinpopupcontent= 
-"<form action=''> <p>Your id</p></br><p id='adress' value='adress'></p><button onclick=''> ✓ </button></br><h3 id='Title' value='title'></h3></br><input type='text' id='description' value='description'></br><button onclick='Pic()'>Pic</button></br><input type='submit' value='Submit'></form> "
+"<form action=''> <p>Your id</p></br><p id='adress' value='adress'></p><button onclick='bab'> ✓ </button></br><h3 id='Title' value='title'></h3></br><input type='text' id='name' value='name concern'></br><input type='text' id='description' value='description'></br><input type='file' accept='image/*;capture=camera' onchange='loadFile(event)'><img style='height: 100px;' id='output'/></br><input type='submit' value='Submit'></form> "
 
 	mymap.doubleClickZoom.disable(); 
 	
@@ -324,8 +326,13 @@ newMarker.setIcon(Icon);
 			   
 			  function Collision()
 			  {
-	            alert('One event found close to you')
+	            alert('One event found close to you');
 			 };
+			 
+			  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
 
 </script>
 
