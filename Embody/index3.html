@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <h1>PoseNet build v2.2 p5.js</h1>
+  <h1>PoseNet build v2.3 p5.js</h1>
   <p id='status'>Loading model...</p>
   <div id="canvasContainer"></div>
   <button onclick='fullscreen' id='Garbages' >Fullscreen</button>
@@ -21,8 +21,13 @@
 let poseNet;
 let poses = [];
 let skeletons = [];
+let multix= 1;
+let multiy= 1;
 
 function setup() {
+
+  background(200);
+
   createCanvas(320, 240).parent('canvasContainer');
   video = createCapture(VIDEO);
   video.size(width, height);
@@ -62,7 +67,7 @@ function drawKeypoints()  {
       if (keypoint.score > 0.2) {
         fill(255, 0, 0);
         noStroke();
-        ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
+        ellipse(keypoint.position.x*multix, keypoint.position.y*multiy, 10, 10);
       }
     }
   }
@@ -78,26 +83,26 @@ function drawSkeleton() {
       let partA = skeleton[j][0];
       let partB = skeleton[j][1];
       stroke(255, 0, 0);
-      line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
+      line(partA.position.x*multix, partA.position.y*multix, partB.position.x*multiy, partB.position.y*multiy);
     }
   }
 }
   
- var canvas = document.queryselector('canvasContainer');
+
  
-function fullscreen(){
-alert("full");
-           var el = document.getElementById('canvasContainer');
- 
-           if(el.webkitRequestFullScreen) {
-               el.webkitRequestFullScreen();
-           }
-          else {
-             el.mozRequestFullScreen();
-          }            
+function mousePressed() {
+  if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
+    let fs = fullscreen();
+    fullscreen(!fs);
+  }
 }
- 
-canvas.addEventListener("click",fullscreen)
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  multix=windowWidth/320;
+   multiy=windowHeight/240;
+}
+
   
   
   </script>
