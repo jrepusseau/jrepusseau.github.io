@@ -186,7 +186,7 @@ a:hover {
     
 var pinpopup= L.popup();
 var pinpopupcontent= 
-"<form action=''> <p>Your id</p></br><p id='adress' value='adress'></p><button onclick='bab'> ✓ </button></br><h3 id='Title' value='title'></h3></br><input type='text' id='name' value='name concern'></br><input type='text' id='description' value='description'></br><input type='file' accept='image/*;capture=camera' capture='environment' ><img style='height: 100px;' id='output'/></br><input type='submit' value='Submit'></form> "
+"<form action=''> <p>Your id</p></br><p id='adress' value='adress'></p></br><h3 id='Title' value='title'></h3></br><input type='text' id='name' value='name concern'></br></br><input type='text' id='description' value='description'></br></br><input type='file' accept='image/*;capture=camera' capture='environment' ><img id='output'/></br></br></br><input type='submit' value='Submit'></form> "
 
 	mymap.doubleClickZoom.disable(); 
 	
@@ -198,11 +198,27 @@ var pinpopupcontent=
 		id: 'mapbox.streets'
 	}).addTo(mymap);
 	
-	alert("Let's start!");
+	
+	
+	
+	 function GoInFullscreen(element) {
+	// alert("Let's start");
+	if(element.requestFullscreen)
+		element.requestFullscreen();
+	else if(element.mozRequestFullScreen)
+		element.mozRequestFullScreen();
+	else if(element.webkitRequestFullscreen)
+		element.webkitRequestFullscreen();
+	else if(element.msRequestFullscreen)
+		element.msRequestFullscreen();
+}
 	
 	mymap.locate({setView: true, maxZoom: 20});
 	
 	function onLocationFound(e) {
+	if (document.fullscreenEnabled) 
+       GoInFullscreen(document.documentElement);
+	 
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
     var radius = e.accuracy / 2;
@@ -259,7 +275,9 @@ var pinpopupcontent=
 		  //////////////////////////////////
 		  pinpopup.setContent(pinpopupcontent);
 		  newMarker = new L.marker(e.latlng,{draggable:true} ).addTo(mymap)
-	    .bindPopup(pinpopup).openPopup();
+	    .bindPopup(pinpopup,{
+  maxWidth: "auto"
+}).openPopup();
 		  
           if (r) {
           document.getElementById("adress").innerHTML=r.name;	
@@ -273,6 +291,7 @@ var pinpopupcontent=
 		 document.getElementById("nav").style.visibility='visible';
 		
 		 
+
 		 newMarker._popup._closeButton.onclick = function( ){
          Dfunction();
          }
@@ -309,7 +328,9 @@ newMarker.setIcon(Icon);
 			   function Ffunction() {
 			   Collision();
 			    newMarker = new L.marker(mymap.getCenter(),{icon: orangeIcon} ).addTo(mymap)
-	    .bindPopup("<p>Street name</p><p>Garbages on the street</p><div style='height: 100px;' class='image'></div> <button> Add info</button> 54 <button> +1 </button><button> -1 </button>").openPopup();
+	    .bindPopup("<p>Street name</p><p>Garbages on the street</p><div  class='image'></div> <button> Add info</button> 54 <button> +1 </button><button> -1 </button>", {
+  maxWidth: "auto"
+}).openPopup();
 	           };
 			   
 			    function Gfunction(e) {
