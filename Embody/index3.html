@@ -28,10 +28,10 @@ function setup() {
 
   background(200);
 
-  createCanvas(320,480).parent('canvasContainer');
+  createCanvas(320,240).parent('canvasContainer');
   video = createCapture(VIDEO);
   video.size(width, height);
-
+ 
   // Create a new poseNet method with a single detection
   poseNet = ml5.poseNet(video, modelReady);
   // This sets up an event that fills the global variable "poses"
@@ -48,7 +48,7 @@ function modelReady() {
 }
 
 function draw() {
-  image(video, 0, 0, width*multix, height*multiy);
+  image(video, 0, 0, width, height);
 
   // We can call both functions to draw all keypoints and the skeletons
   drawKeypoints();
