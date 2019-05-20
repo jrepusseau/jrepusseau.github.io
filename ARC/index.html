@@ -48,9 +48,12 @@
 	opacity: 0.8;
   visibility: hidden;
   bottom: 0%;
+  left:0%;
+  right:0%;
   z-index: 2;
   display:flex;
   position:fixed;
+  
 
   
 }
@@ -126,6 +129,7 @@
   	.column {
   float: left;
   padding:10px;
+ 
 
 }
 
@@ -141,7 +145,11 @@
 	div.image {
    content:url(trash2.jpg)
 }​
-	
+
+h5
+	{
+  color: green;
+}
 	
 	
 	
@@ -157,8 +165,8 @@
 
 <script>
    
-   var greenIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+   var orangeIcon = new L.Icon({
+  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
@@ -175,6 +183,8 @@
 		newCircle;
     
 var pinpopup= L.popup();
+var pinpopupcontent= 
+"<form action=''> <p>Your id</p></br><p id='adress' value='adress'></p><button onclick=''> ✓ </button></br><h3 id='Title' value='title'></h3></br><input type='text' id='description' value='description'></br><button onclick='Pic()'>Pic</button></br><input type='submit' value='Submit'></form> "
 
 	mymap.doubleClickZoom.disable(); 
 	
@@ -239,22 +249,27 @@ var pinpopup= L.popup();
 	     mymap.removeLayer(newMarker);
 		 
 		 
-		 //////////////////////////////////
+		 
 		 
 		  geocoder.reverse(e.latlng, mymap.options.crs.scale(mymap.getZoom()*2), function(results) {
           var r = results[0];
+		  
+		  //////////////////////////////////
+		  pinpopup.setContent(pinpopupcontent);
+		  newMarker = new L.marker(e.latlng,{draggable:true} ).addTo(mymap)
+	    .bindPopup(pinpopup).openPopup();
+		  
           if (r) {
-          pinpopup.setContent(r.name+"</br><button onclick='Dfunction()'> + </button>");	
+          document.getElementById("adress").innerHTML=r.name;	
    		  }
 		  else
 		  {
-		  	pinpopup.setContent("unknown adress"+"</br><button onclick='Dfunction()'> + </button>");
+		  document.getElementById("adress").innerHTML=e.latlng;
 		  }
-		  newMarker = new L.marker(e.latlng,{draggable:true} ).addTo(mymap)
-	    .bindPopup(pinpopup).openPopup();
+		  
 		 //////////////////////////////////////////// 
 		 document.getElementById("nav").style.visibility='visible';
-		 document.getElementById("search").style.visibility='visible';
+		
 		 
 		 newMarker._popup._closeButton.onclick = function( ){
          Dfunction();
@@ -269,29 +284,48 @@ var pinpopup= L.popup();
 	
 	///////////////////// WE DONT DO LIKE THIS 
 	
-          function Efunction() {
-		  Dfunction()
-	 document.getElementById("over1").style.visibility='visible';
+          function Efunction(e,color) {
+		  		//pinpopupcontent=pinpopupcontent+'</br>'+ e.innerHTML;
+				document.getElementById("Title").innerHTML=e.innerHTML;
+				///Collision detector here
+				
+				//pinpopupcontent+= '  <button onclick="Change()"> Change </button></br>' + '<input onclick="Description()"> Description </input></br>'+ '<button onclick="Pic()">Pic</button>'+'</br><button onclick="send()">Send</button>';
+				
+				var Icon = new L.Icon({
+  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-'+color+'.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+//pinpopup.setContent(pinpopupcontent);
+newMarker.setIcon(Icon);
 	           };
 			   
 			   function Ffunction() {
-			    newMarker = new L.marker(mymap.getCenter(),{icon: greenIcon} ).addTo(mymap)
+			   Collision();
+			    newMarker = new L.marker(mymap.getCenter(),{icon: orangeIcon} ).addTo(mymap)
 	    .bindPopup("<p>Street name</p><p>Garbages on the street</p><div style='height: 100px;' class='image'></div> <button> Add info</button> 54 <button> +1 </button><button> -1 </button>").openPopup();
 	           };
 			   
-			    function Gfunction() {
-				Dfunction()
-	 document.getElementById("over3").style.visibility='visible';
+			    function Gfunction(e) {
+		     pinpopupcontent='<h5>'+pinpopupcontent+'</h5>';
+			 pinpopup.setContent(pinpopupcontent);
 	           };
 			   
 			   
-		  function Dfunction() {
+		  function Dfunction()
+		  {
 	 document.getElementById("nav").style.visibility='hidden';
-	 document.getElementById("search").style.visibility='hidden';
+	 
 	           };
 			   
-			  
-	
+			  function Collision()
+			  {
+	            alert('One event found close to you')
+			 };
 
 </script>
 
@@ -300,20 +334,20 @@ var pinpopup= L.popup();
 
 <input id='search' type="text" class='column left' placeholder="Search..">
  <nav class="scroll column right" style="background-color:#bbb;">
-  <button >Car accident</button>
-  <button >Fire danger</button>
-  <button >Medical Issue</button>
-  <button >Hazards</button>
-  <button >Robbery</button>
-  <button >Social Issues</button>
-  <button>Electric shortage</button>
-  <button >Water leaks</button>
-  <button onclick='Ffunction()' id='Garbages' >Garbages</button>
-  <button >Transports</button>
-  <button >Lost and Found</button>
-  <button >Delivery</button>
-  <button >Events</button>
-  <button >...</button>
+  <a onclick="Efunction(this,'red')">Car accident</a>
+  <a onclick="Efunction(this,'red')">Fire danger</a>
+  <a onclick="Efunction(this,'red')">Medical Issue</a>
+  <a onclick="Efunction(this,'red')">Hazards</a>
+  <a onclick="Efunction(this,'red')" >Robbery</a>
+  <a onclick="Efunction(this,'red')">Social Issues</a>
+  <a onclick="Efunction(this,'orange')">Electric shortage</a>
+  <a onclick="Efunction(this,'orange')" >Water leaks</a>
+  <a onclick="Ffunction()" id='Garbages' >Garbages</a>
+  <a onclick="Efunction(this,'green')">Transports</a>
+  <a onclick="Efunction(this,'green')">Lost and Found</a>
+  <a onclick="Efunction(this,'green')">Delivery</a>
+  <a onclick="Efunction(this,'green')">Events</a>
+  <a onclick="Efunction(this,'green')">...</a>
   </nav>
 </div> 
 
