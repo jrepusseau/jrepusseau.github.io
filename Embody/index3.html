@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <h1>PoseNet build v2.3 p5.js</h1>
+  <h1>PoseNet build v2.4 p5.js</h1>
   <p id='status'>Loading model...</p>
   <div id="canvasContainer"></div>
   <button onclick='fullscreen' id='Garbages' >Fullscreen</button>
@@ -28,7 +28,7 @@ function setup() {
 
   background(200);
 
-  createCanvas(320, 240).parent('canvasContainer');
+  createCanvas(320,480).parent('canvasContainer');
   video = createCapture(VIDEO);
   video.size(width, height);
 
@@ -48,7 +48,7 @@ function modelReady() {
 }
 
 function draw() {
-  image(video, 0, 0, width, height);
+  image(video, 0, 0, width*multix, height*multiy);
 
   // We can call both functions to draw all keypoints and the skeletons
   drawKeypoints();
@@ -67,7 +67,7 @@ function drawKeypoints()  {
       if (keypoint.score > 0.2) {
         fill(255, 0, 0);
         noStroke();
-        ellipse(keypoint.position.x*multix, keypoint.position.y*multiy, 10, 10);
+        ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
       }
     }
   }
@@ -83,7 +83,7 @@ function drawSkeleton() {
       let partA = skeleton[j][0];
       let partB = skeleton[j][1];
       stroke(255, 0, 0);
-      line(partA.position.x*multix, partA.position.y*multix, partB.position.x*multiy, partB.position.y*multiy);
+      line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
     }
   }
 }
