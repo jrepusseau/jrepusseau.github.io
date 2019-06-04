@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>FView</title>
+  <title>FlipView</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -51,7 +51,7 @@ position:fixed;
 </head>
 <body>
 
- <nav class="navbar navbar-inverse navbar-fixed-top ">
+ <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-md ">
   <div class="container-fluid">
  
 
@@ -63,7 +63,7 @@ position:fixed;
       <li><a data-toggle="tab" href="#menu3" >Debates</a></li>
 	 
 	  
-	  <li><a href="#"><span class="glyphicon glyphicon-user"></span> X </a></li>
+	  <li><a href="#"><span data-toggle="tab" href="#menu4" class="glyphicon glyphicon-user"></span></a></li>
       
     </ul>
   </div>
@@ -106,7 +106,7 @@ position:fixed;
 		<p class="np" id="n"/> 0.5 <p>
 		</br>
 		</br>
-		<input type="button" onclick="add"> add </input>
+		<input type="button" onclick="add" value="add"/>  
 		<input type="range" min="0" max="1" step="0.1"/> 
 		<input type="range" min="0" max="1" step="0.1"/>
 		
@@ -122,8 +122,11 @@ position:fixed;
 	</br>
       <h2>Should abortion be legalized?</h2>
       
-	    <h2>Bayes mind</h2>
-	
+	    <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
+		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
+
+	    <input type="text"/>
+		<input type="submit"/>
        
       
   </div>
