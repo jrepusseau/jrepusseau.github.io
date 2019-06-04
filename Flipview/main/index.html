@@ -7,18 +7,45 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  
+ <script>
+ function showValue(val){
+ document.getElementById("n").innerHTML=val;
+ document.getElementById("n").style.left=val*95+'%';
+}
+ </script>
   <style>
   .fakeimg {
     height: 200px;
     background: #aaa;
   }
+.glitch {
+
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+
+
   
-
-
-.sec
-{
-width:25%
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+	
 }
+
+.glitch:hover
+ {
+
+  color:pink;
+	
+}
+
+.np
+{
+position:fixed;
+
+}
+
 
   </style>
 </head>
@@ -26,22 +53,16 @@ width:25%
 
  <nav class="navbar navbar-inverse navbar-fixed-top ">
   <div class="container-fluid">
-    <div class="navbar-header ">
-      <a class="navbar-brand" href="#">FlipView</a>
-    </div>
+ 
 
-    <ul class="nav navbar-nav navbar-right">
-	    <li class="active dropdown"><a href="#">Topics</a>
-		<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Hot Topics</a></li>
-          <li><a href="#">Random Topics</a></li>
-          <li><a href="#">Re-Vote</a></li>
-        </ul>
-		
+    <ul class="nav nav-tabs ">
+	<a class="navbar-brand" href="#">FlipView</a>
+	    <li><a data-toggle="tab" href="#menu1" >Topics</a>
 		</li>
-      <li><a href="#">Debates</a></li>
-	   <li><a href="#">Activities</a></li>
+		 <li><a data-toggle="tab" href="#menu2" >Bayes mind</a></li>
+      <li><a data-toggle="tab" href="#menu3" >Debates</a></li>
+	 
+	   <li><a data-toggle="tab" href="#menu4" >Activities</a></li>
 	  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Disconnect</a></li>
       
     </ul>
@@ -51,16 +72,54 @@ width:25%
  
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>About Me</h2>
-      <h5>Photo of me:</h5>
+<div class="tab-content">
+  <div id="menu1" class="tab-pane fade in active">
+
+	
+	</br></br>	</br>	</br>	</br>	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	
+      <h2>Hot Topics</h2>
      
-      <p>Lorem ipsum dolor sit ame.</p>
-        </div>
+     <a class="glitch">Should abortion be legalized?</a>
+	  <a class="glitch">Should we ban cigarettes?</a>
+	   <a class="glitch">Is democracy bad?</a>
+	    <a class="glitch">Does we live in a simulation?</a>
+		 <a class="glitch">Are animals more intelligent than humans?</a>
+		  <a class="glitch">Can we live without plastics?</a>
+ 
+       
+  </div>
+
+    <div id="menu2" class="tab-pane fade">
+	
+	</br></br>	</br>	</br>	</br>	</br>
+	
+	</br>
+      <h2>Should abortion be legalized?</h2>
+      
+	    <h2>Bayes mind</h2>
+		
+		
+		<input type="range" min="0" max="1" step="0.01" id="mySlider" onchange="showValue(this.value);"/> 
+		<p class="np" id="n"/> 0.5 <p>
+		<input type="range" min="0" max="1" step="0.1"/> 
+		<input type="range" min="0" max="1" step="0.1"/> 
+       
+      
   </div>
 </div>
+
+
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Footer</p>
