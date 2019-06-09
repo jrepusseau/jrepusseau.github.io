@@ -87,6 +87,19 @@ var txt = document.getElementById("textwriter");
 txt.style.display = "block";
 }
 
+function hideSource()
+{
+var source = document.getElementById("Sources");
+source.style.display = "none";
+}
+
+function showSource()
+{
+var source = document.getElementById("Sources");
+source.style.display = "block";
+}
+
+
  </script>
   <style>
   .fakeimg {
@@ -314,13 +327,14 @@ position:center;
 	 <div> 
 	 
 	 <p> Prince Louis X was love by his all the royal family during that time </p>  <a>
-  <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="" >
+  <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="showSource()" >
   </a> 
 
 	  </div>
 	  
-	  <div id="Sources" class="modal">
+	  <div id="Sources" class="modal" onclick="hideSource()">
   <div class="modal-content">
+   <p>vhjvuhwvrrwvuhhrvwhhvuvhrwivhiwurhvuirhviwhviruhviwshvwuirhvuh</p>
    <iframe height="500" width="500" src="http://example.com"></iframe>
    </div>
 </div>
@@ -339,7 +353,7 @@ position:center;
 	</br>
       <h2>Resources</h2>
       
-	  <iframe height="500" width="500" src="https://google.com"></iframe>
+	  <iframe height="500" width="500" src="http://example.com"></iframe>
 	 
 
 	  </div>
