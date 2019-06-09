@@ -23,7 +23,9 @@
 
 function showDebate(){
 
+  $('[href="#menu2"]').tab('show');
 showNav();
+showtextwriter();
 }
 
 function startDebate(){
@@ -34,11 +36,22 @@ var modal = document.getElementById("myModal");
 span.onclick = function() {
   modal.style.display = "none";
 showNav();
+
 }}
 
 function showNav(){
 document.getElementById("mainnav").style.top = "0px";
 }
+
+function hideNav(){
+document.getElementById("mainnav").style.top = "-100px";
+}
+
+function closemodal(){
+var modal = document.getElementById("myModal");
+ modal.style.display = "none";
+ }
+
 
 
   function myFunction1() {
@@ -57,6 +70,22 @@ document.getElementById("mainnav").style.top = "0px";
     } 
   }
  
+ 
+function Back() {
+ hideNav();
+  $('[href="#menu1"]').tab('show');
+ hidetextwriter();
+}
+
+function hidetextwriter(){
+var txt = document.getElementById("textwriter");
+txt.style.display = "none";
+}
+
+function showtextwriter(){
+var txt = document.getElementById("textwriter");
+txt.style.display = "block";
+}
 
  </script>
   <style>
@@ -102,8 +131,7 @@ position:center;
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -141,8 +169,10 @@ position:center;
 
     <ul class="nav nav-tabs" >
 	<li><a class="navbar-brand" href="#">FV</a></li>
-	    <li><a data-toggle="tab" href="#menu1" >Debates</a> </li>
-		<li><a data-toggle="tab" href="#menu2" >Bayes map</a> </li>
+	    <li><a data-toggle="tab" href="#menu1" onclick="Back()" > Back</a> </li>
+		<li><a data-toggle="tab" href="#menu2" >Debate map</a> </li>
+		<li><a data-toggle="tab" href="#menu3" >Ressources </a></li>
+		<li><a data-toggle="tab" href="#menu4" >Bayes points</a> </li>
 	  <li><a href="#"><span data-toggle="tab" href="#menu4" class="glyphicon glyphicon-user"></span>JK</a></li>
       
     </ul>
@@ -235,8 +265,8 @@ position:center;
   <img id="flipcoin" src="images/coin8bit.gif"  onclick="myFunction1()">
   </a>
   <p id="result">Flipping ...</p>
- <input type="button" id="btnenter" value="Enter" style="display:none;"/>  
-    <span class="close">&times;</span>
+ <input type="button" id="btnenter" value="Enter" style="display:none;"  onclick="closemodal()"/>  
+    <span class="close" onclick="closemodal()">&times;</span>
    </div>
 </div>
 
@@ -247,7 +277,7 @@ position:center;
        
  
 
-    <div id="menu2" class="tab-pane fade">
+    <div id="menu4" class="tab-pane fade">
 	
 	</br></br>	</br>	</br>	</br>	</br>
 	
@@ -266,46 +296,63 @@ position:center;
 		<input type="range" min="0" max="1" step="0.1"/> 
 		<input type="range" min="0" max="1" step="0.1"/>
 		
-	   
+	      <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
+		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
+		
+		<h5> Art is a good example of third opinion cause you can nat the same time dislike a part of an art but fall in love of one element </h5>
        
       
   </div>
   
-   <div id="menu3" class="tab-pane fade">
+   <div id="menu2" class="tab-pane fade">
 	
 	</br></br>	</br>	</br>	</br>	</br>
 	
 	</br>
-      <h2>Should abortion be legalized?</h2>
+      <h2>Debate map</h2>
       
-	    <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
-		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
+	 <div> 
+	 
+	 <p> Prince Louis X was love by his all the royal family during that time </p>  <a>
+  <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="" >
+  </a> 
 
-		<h2>Debate map</h2>   
-
-
-
-		<h2> Debate analytics</h2>
-		 
-		
-		
-		
-
-	    <input type="text"/>
-		<input type="submit"/>
-       
+	  </div>
+	  
+	  <div id="Sources" class="modal">
+  <div class="modal-content">
+   <iframe height="500" width="500" src="http://example.com"></iframe>
+   </div>
+</div>
+	  
+	  
+	  </div>
+	  
+	  
+	  
+	  
+	  
+	   <div id="menu3" class="tab-pane fade">
+	
+	</br></br>	</br>	</br>	</br>	</br>
+	
+	</br>
+      <h2>Resources</h2>
       
-  </div>
+	  <iframe height="500" width="500" src="https://google.com"></iframe>
+	 
+
+	  </div>
 </div>
 
 
 
 
-
-<div class="jumbotron text-center" style="margin-bottom:0">
- 
- 
+<footer>
+<div id="textwriter" class="jumbotron text-center" style="margin-bottom:0; display:none;">
+  <input type="text"/>
+<input type="submit"/>
 </div>
-
+</footer>
 </body>
 </html>
