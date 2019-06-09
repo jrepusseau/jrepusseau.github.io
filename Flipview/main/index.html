@@ -21,9 +21,9 @@
  document.getElementById("n").style.left=val*95+'%';
 }
 
-function showDebate(){
-
+function showDebate(id){
   $('[href="#menu2"]').tab('show');
+  document.getElementById("debatetitle").innerHTML=document.getElementById(id).children[0].innerHTML;
 showNav();
 showtextwriter();
 }
@@ -73,7 +73,9 @@ var modal = document.getElementById("myModal");
 	  document.getElementById(ids).style.color="white";
 	  btn.style.display = "block";
     } 
-
+    document.getElementById('activetopic').appendChild(
+    document.getElementById(ids)
+  );
   }
  
  
@@ -227,13 +229,13 @@ position:center;
      
   
  
- <div class="list-group" onclick="showDebate()">
-    <a href="#" class="list-group-item " style="background-color:DeepSkyBlue;color:white">
+ <div class="list-group" id="activetopic" >
+    <a href="#" id="567" class="list-group-item " style="background-color:DeepSkyBlue;color:white" onclick="showDebate(this.id)" >
       <h4 class="list-group-item-heading" style="color:white">Should abortion be legalized?</h4>
-      <p class="list-group-item-text">95 participants 13 answer</p>
+      <p class="list-group-item-text">95 participants 13 answers</p>
     </a>
     <a href="#" class="list-group-item " style="background-color:DeepPink;color:white">
-      <h4 class="list-group-item-heading" style="color:white">Should we ban cigarettes?</h4>
+      <h4 class="list-group-item-heading" style="color:white">Should we ban cigarets?</h4>
       <p class="list-group-item-text">List Group Item Text</p>
     </a>
     <a href="#" class="list-group-item " style="background-color:DeepPink;color:white">
@@ -245,7 +247,7 @@ position:center;
 	  <h2>Hot Topics</h2>
 	
 	 <div class="list-group" >
-	 <a href="#" id="768" class="list-group-item " onclick="startDebate(768)">
+	 <a href="#" id="768" class="list-group-item " onclick="startDebate(this.id)">
       <h4 class="list-group-item-heading">Do we live in a simulation?</h4>
       <p class="list-group-item-text">List Group Item Text</p>
     </a>
@@ -319,9 +321,11 @@ position:center;
 		<p class="np" id="n"/> 0.5 <p>
 		</br>
 		</br>
-		<input type="button" onclick="add" value="add"/>  
-		<input type="range" min="0" max="1" step="0.1"/> 
-		<input type="range" min="0" max="1" step="0.1"/>
+	
+		<input type="range" min="0" max="1" step="0.01"/> 
+		<input type="range" min="0" max="1" step="0.01"/>
+		
+			<input type="button" onclick="add" value="add"/>  
 		
 	      <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
 		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
@@ -336,7 +340,7 @@ position:center;
 	</br></br>	</br>	</br>	</br>	</br>
 	
 	</br>
-      <h2>Debate map</h2>
+      <h2 id="debatetitle" ></h2>
       
 	 <div> 
 	 <p> Argument 1</p>
@@ -348,6 +352,7 @@ position:center;
 	  
 	  <div id="Sources" class="modal" onclick="hideSource()">
   <div class="modal-content">
+   <span class="close">&times;</span>
    <p>Source</p>
   <object data=http://www.web-source.net width="400" height="400"> <embed src=http://www.web-source.net width="400" height="400"> </embed> Error: Embedded data could not be displayed. </object>
 	 
