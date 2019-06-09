@@ -13,7 +13,7 @@
  
   
  <script>
- 
+ var ids;
 
 
  function showValue(val){
@@ -28,8 +28,8 @@ showNav();
 showtextwriter();
 }
 
-function startDebate(){
-
+function startDebate(id){
+ids=id;
 var modal = document.getElementById("myModal");
  modal.style.display = "block";
  var span = document.getElementsByClassName("close")[0];
@@ -62,12 +62,18 @@ var modal = document.getElementById("myModal");
     if (x == 0) {
       image.src = "images/coinpro.png"
 	  document.getElementById("result").innerHTML = "You are pro";
+	  document.getElementById(ids).style.backgroundColor="DeepPink";
+	  document.getElementById(ids).style.color="white";
 	  btn.style.display = "block";
+	  
     } else {
       image.src = "images/coincon.png"
 	 document.getElementById("result").innerHTML = "You are con";
+	 document.getElementById(ids).style.backgroundColor="DeepSkyBlue";
+	  document.getElementById(ids).style.color="white";
 	  btn.style.display = "block";
     } 
+
   }
  
  
@@ -172,6 +178,14 @@ position:center;
   cursor: pointer;
 } 
 
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
+
   </style>
 </head>
 <body>
@@ -214,24 +228,24 @@ position:center;
   
  
  <div class="list-group" onclick="showDebate()">
-    <a href="#" class="list-group-item ">
-      <h4 class="list-group-item-heading">Should abortion be legalized?</h4>
+    <a href="#" class="list-group-item " style="background-color:DeepSkyBlue;color:white">
+      <h4 class="list-group-item-heading" style="color:white">Should abortion be legalized?</h4>
       <p class="list-group-item-text">95 participants 13 answer</p>
     </a>
-    <a href="#" class="list-group-item ">
-      <h4 class="list-group-item-heading">Should we ban cigarettes?</h4>
+    <a href="#" class="list-group-item " style="background-color:DeepPink;color:white">
+      <h4 class="list-group-item-heading" style="color:white">Should we ban cigarettes?</h4>
       <p class="list-group-item-text">List Group Item Text</p>
     </a>
-    <a href="#" class="list-group-item ">
-      <h4 class="list-group-item-heading">Is democracy bad?</h4>
+    <a href="#" class="list-group-item " style="background-color:DeepPink;color:white">
+      <h4 class="list-group-item-heading" style="color:white">Is democracy bad?</h4>
       <p class="list-group-item-text">List Group Item Text</p>
     </a>
 	 </div>
 	
 	  <h2>Hot Topics</h2>
 	
-	<div>
-	 <a href="#" class="list-group-item " onclick="startDebate()">
+	 <div class="list-group" >
+	 <a href="#" id="768" class="list-group-item " onclick="startDebate(768)">
       <h4 class="list-group-item-heading">Do we live in a simulation?</h4>
       <p class="list-group-item-text">List Group Item Text</p>
     </a>
@@ -245,7 +259,7 @@ position:center;
     </a>
   </div>
  
- 
+  <input type="button" value="Submit a topic" />
 <!-- The Modal -->
 <div id="myConnection" class="modal">
 
@@ -325,8 +339,8 @@ position:center;
       <h2>Debate map</h2>
       
 	 <div> 
-	 
-	 <p> Prince Louis X was love by his all the royal family during that time </p>  <a>
+	 <p> Argument 1</p>
+	 <p> Abortion should be legalized for all the womens </p>  <a>
   <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="showSource()" >
   </a> 
 
@@ -334,8 +348,9 @@ position:center;
 	  
 	  <div id="Sources" class="modal" onclick="hideSource()">
   <div class="modal-content">
-   <p>vhjvuhwvrrwvuhhrvwhhvuvhrwivhiwurhvuirhviwhviruhviwshvwuirhvuh</p>
-   <iframe height="500" width="500" src="http://example.com"></iframe>
+   <p>Source</p>
+  <object data=http://www.web-source.net width="400" height="400"> <embed src=http://www.web-source.net width="400" height="400"> </embed> Error: Embedded data could not be displayed. </object>
+	 
    </div>
 </div>
 	  
@@ -353,7 +368,7 @@ position:center;
 	</br>
       <h2>Resources</h2>
       
-	  <iframe height="500" width="500" src="http://example.com"></iframe>
+	 <object data=http://www.web-source.net width="600" height="400"> <embed src=http://www.web-source.net width="600" height="400"> </embed> Error: Embedded data could not be displayed. </object>
 	 
 
 	  </div>
