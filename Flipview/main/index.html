@@ -14,7 +14,11 @@
   
  <script>
  var ids;
-
+var recorded = ['legalized','abortion', 'Should'];
+var def1=["Induced termination of a pregnancy with destruction of the embryo or fetus.","Any of various procedures that result in the termination of a pregnancy."];
+var def2=["Express a conditional or contingent act or state, or as a supposition of an actual fact; also, to express moral obligation"];
+var def3=["To make legal or lawful","Authorize or sanction by law."];
+var defi=[def2,def3,def1];
 
  function showValue(val){
  document.getElementById("n").innerHTML=val;
@@ -23,7 +27,45 @@
 
 function showDebate(id){
   $('[href="#menu2"]').tab('show');
-  document.getElementById("debatetitle").innerHTML=document.getElementById(id).children[0].innerHTML;
+ var word = document.getElementById(id).children[0].innerHTML.split(" ");
+  
+  for (i = 0; i < word.length; i++) {    
+
+ ///// For each word if a definition was recorded display it and edit purpose 
+ ///// If not create a new definition 
+ 
+ /// Search in the db word correlation 
+var para = document.createElement("A");                       // Create a <p> node
+var t = document.createTextNode(word[i]+" ");      // Create a text node
+para.appendChild(t);                                          // Append the text to <p>  
+ document.getElementById("debatetitle").appendChild(para);
+ 
+ for (j = 0; j < recorded.length; j++)
+ {
+   if (word[i]==recorded[j])
+   {
+var node = document.createElement("A");  
+node.setAttribute("href","#");
+node.setAttribute("class", "list-group-item");  // Create a <li> node
+var titl = document.createElement("H4"); 
+var tt = document.createTextNode(recorded[j]); 
+titl.appendChild(tt);      
+node.appendChild(titl);
+ for (y = 0; y < defi[j].length; y++)
+ {
+ var p= document.createElement("P");
+var text = document.createTextNode(defi[j][y]);         // Create a text node
+p.appendChild(text);      
+node.appendChild(p);     
+}                   // Append the text to <li>
+document.getElementById("definition").appendChild(node);     // Ap
+   }
+
+   }
+ }
+ 
+
+  
 showNav();
 showtextwriter();
 }
@@ -106,6 +148,7 @@ function showSource()
 var source = document.getElementById("Sources");
 source.style.display = "block";
 }
+
 
 
  </script>
@@ -210,6 +253,7 @@ position:center;
 
  
 
+ <div id="directordiv">
 
 <div class="tab-content">
   <div id="menu1" class="tab-pane fade in active">
@@ -231,7 +275,7 @@ position:center;
  
  <div class="list-group" id="activetopic" >
     <a href="#" id="567" class="list-group-item " style="background-color:DeepSkyBlue;color:white" onclick="showDebate(this.id)" >
-      <h4 class="list-group-item-heading" style="color:white">Should abortion be legalized?</h4>
+      <h4 class="list-group-item-heading" style="color:white">Should abortion be legalized ?</h4>
       <p class="list-group-item-text">95 participants 13 answers</p>
     </a>
     <a href="#" class="list-group-item " style="background-color:DeepPink;color:white">
@@ -340,11 +384,18 @@ position:center;
 	</br></br>	</br>	</br>	</br>	</br>
 	
 	</br>
-      <h2 id="debatetitle" ></h2>
+      <div id="debatetitle" ></div>
       
+	  </br>
+	 <div class="list-group" id="definition" >
+      
+	 </div>
+	  
 	 <div> 
 	 <p> Argument 1</p>
-	 <p> Abortion should be legalized for all the womens </p>  <a>
+	 <p> Abortion should be legalized for all the womens </p>
+      
+	 <a>
   <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="showSource()" >
   </a> 
 
@@ -378,15 +429,15 @@ position:center;
 
 	  </div>
 </div>
+</div>
 
 
 
-
-<footer>
 <div id="textwriter" class="jumbotron text-center" style="margin-bottom:0; display:none;">
   <input type="text"/>
 <input type="submit"/>
 </div>
-</footer>
+
+
 </body>
 </html>
