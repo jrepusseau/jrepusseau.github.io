@@ -231,11 +231,22 @@ position:center;
    background:#6cf;
 }
 
-.carousel-indicators {
-    text-align: right;
-    float: right;
-    top: 0% !important;
-    left: inherit;
+.carousel-indicators li {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    background-color: DeepSkyBlue ;
 }
 
   </style>
@@ -363,9 +374,9 @@ position:center;
 	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" ></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="0" > <p>Map</p></li>
+      <li data-target="#myCarousel" data-slide-to="1"><p>Resources</p></li>
+      <li data-target="#myCarousel" data-slide-to="2"><p>Bayes</p></li>
     </ol>
 	
 	<div class="carousel-inner">
@@ -465,6 +476,11 @@ position:center;
 // Bootstrap carousel needs to be loaded first
 $('#myCarousel').carousel().swipeCarousel({
   sensitivity: 'medium' // low, medium or high
+});
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  var target = $(e.target).attr("href") // activated tab
+  alert(target);
 });
 </script>
 </html>
