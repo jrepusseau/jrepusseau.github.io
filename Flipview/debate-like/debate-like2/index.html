@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>FlipView</title>
+  <title>Flip View</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -14,11 +14,11 @@
   
  <script>
  var ids;
-var recorded = ['legalized','abortion', 'Should'];
-var def1=["Induced termination of a pregnancy with destruction of the embryo or fetus.","Any of various procedures that result in the termination of a pregnancy."];
-var def2=["Express a conditional or contingent act or state, or as a supposition of an actual fact; also, to express moral obligation"];
+var recorded = ['Should','abortion','legalized'];
+var def1=["Express a conditional or contingent act or state, or as a supposition of an actual fact; also, to express moral obligation"];
+var def2=["Induced termination of a pregnancy with destruction of the embryo or fetus.","Any of various procedures that result in the termination of a pregnancy."];
 var def3=["To make legal or lawful","Authorize or sanction by law."];
-var defi=[def2,def3,def1];
+var defi=[def1,def2,def3];
 
  function showValue(val){
  document.getElementById("n").innerHTML=val;
@@ -82,11 +82,11 @@ showNav();
 }}
 
 function showNav(){
-document.getElementById("mainnav").style.top = "0px";
+document.getElementById("back").innerHTML = "Back";
 }
 
 function hideNav(){
-document.getElementById("mainnav").style.top = "-100px";
+document.getElementById("back").innerHTML = "";
 }
 
 function closemodal(){
@@ -239,7 +239,7 @@ position:center;
     text-indent: 0;
     cursor: pointer;
     border: none;
-    border-radius: 50%;
+    border-radius: 0%;
     box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
 }
 .carousel-indicators .active {
@@ -248,23 +248,38 @@ position:center;
     margin: 10px;
     background-color: DeepSkyBlue ;
 }
+.topnav{
+  margin: 10px;
+}
+.topnav-right {
+  float: right;
+  margin-left:10px;
+}
 
   </style>
 </head>
 <body>
 
- <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-md" id="mainnav" style="top:-50px">
-  <div class="container-fluid">
  
-
-    <ul class="nav nav-tabs" >
-	<li><a class="navbar-brand" href="#">FV</a></li>
-	    <li><a data-toggle="tab" href="#menu1" onclick="Back()" > Back</a> </li>
-		<li><a data-toggle="tab" href="#menu2" >Debate map</a> </li>
-		<li><a data-toggle="tab" href="#menu3" >Ressources </a></li>
-		<li><a data-toggle="tab" href="#menu4" >Bayes points</a> </li>
-	  <li><a href="#"><span data-toggle="tab" href="#menu4" class="glyphicon glyphicon-user"></span>JK</a></li>
-      
+ <nav class="navbar ">
+  <div class="container-fluid">
+  
+    <ul class="nav navbar-nav">
+      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back"></a></li>
+      <li><a data-toggle="tab" href="#menu2"></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+	 <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">ZN</a></li>
+          <li><a href="#">FR</a></li>
+          <li><a href="#">KR</a></li>
+        </ul>
+      </li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
+	 
     </ul>
   </div>
 </nav> 
@@ -389,12 +404,28 @@ position:center;
 	  </br>
 	 <div class="list-group" id="definition" >
       
-	 </div>
+	 </div id="arguments">
 	  
 	 <div> 
-	 <p> Argument 1</p>
-	 <p> Abortion should be legalized for all the womens </p>
+	 <p> Argument A</p>
+	 <p> Women have the right to choose what to do with their body</p>
       
+	   <p> Argument B</p>
+	 <p>  Abortion supports the right to life
+	 The right to abortion is critical to gender equality
+	 Banning abortion risks illegal abortions
+	 Modern medicine makes abortion is less of a risk
+	 Abortion gives women the option to minimize their child’s suffering
+	 
+	 Abortion denies the fetus the right to life
+	 Abortion is Murder
+	 Abortion is not Contraception
+	 Selective Abortion is discriminatory
+	 Abortion is a business 
+	 Abortion can result in medical complications and psychological trauma for women
+	 Abortion reduces the number of babies available for adoption
+	 </p>
+	 
 	 <a>
   <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="showSource()" >
   </a> 
@@ -478,10 +509,10 @@ $('#myCarousel').carousel().swipeCarousel({
   sensitivity: 'medium' // low, medium or high
 });
 
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+/*$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   var target = $(e.target).attr("href") // activated tab
   alert(target);
-});
+});*/
 </script>
 </html>
 
