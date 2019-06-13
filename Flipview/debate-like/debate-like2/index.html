@@ -13,6 +13,10 @@
  
   
  <script>
+ $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+
  var ids;
 var recorded = ['Should','abortion','legalized'];
 var def1=["Express a conditional or contingent act or state, or as a supposition of an actual fact; also, to express moral obligation"];
@@ -52,7 +56,7 @@ function showDebate(id){
  /// Search in the db word correlation 
 var node = document.createElement("LI");
 var para = document.createElement("A");                       // Create a <p> node
-var t = document.createTextNode(word[i]+" ");      // Create a text node
+var t = document.createTextNode(word[i]);      // Create a text node
 para.appendChild(t);                 
 para.setAttribute("title",word[i]);  //word[i]
 para.setAttribute("data-toggle","popover");
@@ -65,7 +69,7 @@ para.setAttribute("data-content","jam");
     var text="";
  for (y = 0; y < defi[j].length; y++)
  {
-     para.setAttribute("data-content","jambon");
+    // para.setAttribute("data-content","jambon");
 }                   
 
    }
@@ -78,17 +82,26 @@ document.getElementById("debatetitle").appendChild(node);
  for (i = 0; i < arg.length; i++) {  
  var node = document.createElement("A");  
 node.setAttribute("class", "list-group-item");  // Create a <li> node
+var lpo= document.createElement("UL"); 
+lpo.setAttribute("class", "list-inline"); 
 var titl = document.createElement("H4"); 
 var tt = document.createTextNode(arg[i]); 
 titl.appendChild(tt);      
-node.appendChild(titl);
  var input = document.createElement("input");
 input.type = "range";
 input.setAttribute('min', '0');
 input.setAttribute('max', '1');
 input.setAttribute('step', '0.01');
-node.appendChild(input);
+input.setAttribute('width', '100px');
+var sourc= document.createElement("INPUT");
+sourc.appendChild(document.createTextNode("INPUT"));
+sourc.type="button";
+sourc.setAttribute('onclick', 'showSource()');
+lpo.appendChild(titl);
+lpo.appendChild(input);
+node.appendChild(lpo);
 node.appendChild(makeUL(['Pro','Con','Pro']));
+node.appendChild(sourc);
 document.getElementById("arguments").appendChild(node);     
 
 }
@@ -113,7 +126,7 @@ document.getElementById("back").innerHTML = "Back";
 }
 
 function hideNav(){
-document.getElementById("back").innerHTML = "";
+document.getElementById("back").innerHTML = "FlipView";
 }
 
 function closemodal(){
@@ -130,14 +143,14 @@ var modal = document.getElementById("myModal");
     console.log(x);
     if (x == 0) {
       image.src = "images/coinpro.png"
-	  document.getElementById("result").innerHTML = "You are pro";
+	  document.getElementById("result").innerHTML = "Defend the pro";
 	  document.getElementById(ids).style.backgroundColor="DeepPink";
 	  document.getElementById(ids).style.color="white";
 	  btn.style.display = "block";
 	  
     } else {
       image.src = "images/coincon.png"
-	 document.getElementById("result").innerHTML = "You are con";
+	 document.getElementById("result").innerHTML = "Defend the con";
 	 document.getElementById(ids).style.backgroundColor="DeepSkyBlue";
 	  document.getElementById(ids).style.color="white";
 	  btn.style.display = "block";
@@ -214,8 +227,6 @@ function makeUL(array) {
     return list;
 }
 
-
-
  </script>
   <style>
   .fakeimg {
@@ -256,21 +267,24 @@ position:center;
  /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
   
+  z-index: 1; /* Sit on top */
+  left: 0px;
+
+
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
   border: 1px solid #888;
-  width: 90%; /* Could be more or less, depending on screen size */
+  width: 100%; /* Could be more or less, depending on screen size */
+  position: relative; /* Stay in place */
+  bottom: 0px;
 }
 
 /* The Close Button */
@@ -321,16 +335,24 @@ position:center;
   margin-left:10px;
 }
 
+
+#nav1
+{  
+   background: rgba(0,0,0,.05);
+         
+}
+
+
   </style>
 </head>
 <body>
 
  
- <nav class="navbar ">
+ <nav class="navbar  navbar-fixed-top navbar-expand-md" id="nav1">
   <div class="container-fluid">
   
     <ul class="nav navbar-nav">
-      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back"></a></li>
+      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
       <li><a data-toggle="tab" href="#menu2"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -349,6 +371,8 @@ position:center;
   </div>
 </nav> 
 
+
+
  
 
  <div class="container" id="directordiv" style='width:100%'>
@@ -356,15 +380,17 @@ position:center;
 <div class="tab-content">
   <div id="menu1" class="tab-pane fade in active">
 
+  </br>
+  </br>
 	
-	<h2> FlipView </h2>
+	<h2>Research Topics </h2>
 	
 	</br>	
 	
 	 <input type="search" id="site-search" name="q"
        aria-label="Search through site content">
 
-<button>Search</button>
+<button onclick="showSource()">Search</button>
 	
 	
       <h2>Active Topics</h2>
@@ -482,12 +508,11 @@ position:center;
 
 	  </div>
 	  
-	  <div id="Sources" class="modal" onclick="hideSource()">
+	<div id="Sources" class="modal" onclick="hideSource()">
   <div class="modal-content">
    <span class="close">&times;</span>
    <p>Source</p>
-  <object data=http://www.web-source.net width="100%" height="400"> <embed src=http://www.web-source.net width="400" height="400"> </embed> Error: Embedded data could not be displayed. </object>
-	 
+   <iframe is="x-frame-bypass" src="https://www.duckduckgo.com/" width="100%" frameborder="0px"> Error</iframe> 
    </div>
 </div>
 	  
@@ -554,6 +579,9 @@ position:center;
 
 </body>
 <script>
+
+
+
 // Bootstrap carousel needs to be loaded first
 $('#myCarousel').carousel().swipeCarousel({
   sensitivity: 'medium' // low, medium or high
@@ -564,9 +592,6 @@ $('#myCarousel').carousel().swipeCarousel({
   alert(target);
 });*/
 
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-});
 
 </script>
 </html>
