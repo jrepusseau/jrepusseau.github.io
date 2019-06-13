@@ -20,6 +20,21 @@ var def2=["Induced termination of a pregnancy with destruction of the embryo or 
 var def3=["To make legal or lawful","Authorize or sanction by law."];
 var defi=[def1,def2,def3];
 
+var arg=[ "Women have the right to choose what to do with their body",
+		 "Abortion supports the right to life",
+	 "The right to abortion is critical to gender equality",
+	 "Banning abortion risks illegal abortions",
+	 "Modern medicine makes abortion is less of a risk",
+	 "Abortion gives women the option to minimize their child’s suffering",
+	 "Abortion denies the fetus the right to life",
+	 "Abortion is Murder",
+	 "Abortion is not Contraception",
+	 "Selective Abortion is discriminatory",
+	 "Abortion is a business ",
+	 "Abortion can result in medical complications and psychological trauma for women",
+	 "Abortion reduces the number of babies available for adoption"];
+arg=shuffle(arg);
+
  function showValue(val){
  document.getElementById("n").innerHTML=val;
  document.getElementById("n").style.left=val*95+'%';
@@ -35,36 +50,48 @@ function showDebate(id){
  ///// If not create a new definition 
  
  /// Search in the db word correlation 
+var node = document.createElement("LI");
 var para = document.createElement("A");                       // Create a <p> node
 var t = document.createTextNode(word[i]+" ");      // Create a text node
-para.appendChild(t);                                          // Append the text to <p>  
- document.getElementById("debatetitle").appendChild(para);
- 
+para.appendChild(t);                 
+para.setAttribute("title",word[i]);  //word[i]
+para.setAttribute("data-toggle","popover");
+para.setAttribute("data-placement","Top");                          // Append the text to <p>  
+para.setAttribute("data-content","jam");
  for (j = 0; j < recorded.length; j++)
  {
    if (word[i]==recorded[j])
    {
-var node = document.createElement("A");  
-node.setAttribute("href","#");
-node.setAttribute("class", "list-group-item");  // Create a <li> node
-var titl = document.createElement("H4"); 
-var tt = document.createTextNode(recorded[j]); 
-titl.appendChild(tt);      
-node.appendChild(titl);
+    var text="";
  for (y = 0; y < defi[j].length; y++)
  {
- var p= document.createElement("P");
-var text = document.createTextNode(defi[j][y]);         // Create a text node
-p.appendChild(text);      
-node.appendChild(p);     
-}                   // Append the text to <li>
-document.getElementById("definition").appendChild(node);     // Ap
+     para.setAttribute("data-content","jambon");
+}                   
+
    }
 
    }
+node.appendChild(para); 
+document.getElementById("debatetitle").appendChild(node);
  }
  
+ for (i = 0; i < arg.length; i++) {  
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item");  // Create a <li> node
+var titl = document.createElement("H4"); 
+var tt = document.createTextNode(arg[i]); 
+titl.appendChild(tt);      
+node.appendChild(titl);
+ var input = document.createElement("input");
+input.type = "range";
+input.setAttribute('min', '0');
+input.setAttribute('max', '1');
+input.setAttribute('step', '0.01');
+node.appendChild(input);
+node.appendChild(makeUL(['Pro','Con','Pro']));
+document.getElementById("arguments").appendChild(node);     
 
+}
   
 showNav();
 showtextwriter();
@@ -147,6 +174,44 @@ function showSource()
 {
 var source = document.getElementById("Sources");
 source.style.display = "block";
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function makeUL(array) {
+    // Create the list element:
+    var list = document.createElement('ul');
+
+    for (var i = 0; i < array.length; i++) {
+        // Create the list item:
+        var item = document.createElement('li');
+
+        // Set its contents:
+        item.appendChild(document.createTextNode(array[i]));
+
+        // Add it to the list:
+        list.appendChild(item);
+    }
+
+    // Finally, return the constructed list:
+    return list;
 }
 
 
@@ -399,31 +464,16 @@ position:center;
 	</br></br>	</br>	</br>	</br>	</br>
 	
 	</br>
-      <div id="debatetitle" ></div>
+      <ul  class="list-inline" id="debatetitle" ></ul>
       
 	  </br>
-	 <div class="list-group" id="definition" >
+	 <div class="list-group" id="definition" ></div>
       
-	 </div id="arguments">
-	  
-	 <div> 
-	 <p> Argument A</p>
-	 <p> Women have the right to choose what to do with their body</p>
-      
-	   <p> Argument B</p>
-	 <p>  Abortion supports the right to life
-	 The right to abortion is critical to gender equality
-	 Banning abortion risks illegal abortions
-	 Modern medicine makes abortion is less of a risk
-	 Abortion gives women the option to minimize their child’s suffering
+	 <div class="list-group" id="arguments"></div>
 	 
-	 Abortion denies the fetus the right to life
-	 Abortion is Murder
-	 Abortion is not Contraception
-	 Selective Abortion is discriminatory
-	 Abortion is a business 
-	 Abortion can result in medical complications and psychological trauma for women
-	 Abortion reduces the number of babies available for adoption
+	 <div> 
+	<p>
+	
 	 </p>
 	 
 	 <a>
@@ -513,6 +563,11 @@ $('#myCarousel').carousel().swipeCarousel({
   var target = $(e.target).attr("href") // activated tab
   alert(target);
 });*/
+
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+
 </script>
 </html>
 
