@@ -284,7 +284,7 @@ position:center;
   border: 1px solid #888;
   width: 100%; /* Could be more or less, depending on screen size */
   position: relative; /* Stay in place */
-  bottom: 0px;
+  //bottom: 0px;
 }
 
 /* The Close Button */
@@ -348,14 +348,13 @@ position:center;
 <body>
 
  
- <nav class="navbar  navbar-fixed-top navbar-expand-md" id="nav1">
+ <nav class="navbar navbar-fixed-top navbar-expand-md" id="nav1">
   <div class="container-fluid">
   
-    <ul class="nav navbar-nav">
+    <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
       <li><a data-toggle="tab" href="#menu2"></a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
+ 
 	 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
         <span class="caret"></span></a>
@@ -371,7 +370,25 @@ position:center;
   </div>
 </nav> 
 
-
+ <nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div id="Sources"  onclick="hideSource()" style="display:none;"  width="100%">
+  
+   <span class="close">&times;</span>
+   <p>Source</p>
+   <iframe is="x-frame-bypass" src="https://www.duckduckgo.com/"  width="100%" frameborder="0px"> Error</iframe> 
+   <a href="#">import ref</a>
+</div>
+    <ul class="nav navbar-nav">
+	
+      
+	  <li class="active"> <a href="#"><input type="text" value="enter comment"/> </a> </li>
+      
+      <li><a href="#">send</a></li>
+   
+    </ul>
+  </div>
+</nav> 
 
  
 
@@ -508,13 +525,7 @@ position:center;
 
 	  </div>
 	  
-	<div id="Sources" class="modal" onclick="hideSource()">
-  <div class="modal-content">
-   <span class="close">&times;</span>
-   <p>Source</p>
-   <iframe is="x-frame-bypass" src="https://www.duckduckgo.com/" width="100%" frameborder="0px"> Error</iframe> 
-   </div>
-</div>
+	
 	  
 	  
 	  </div>
