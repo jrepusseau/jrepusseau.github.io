@@ -46,7 +46,6 @@ arg=shuffle(arg);
 
 function showDebate(id){
   $('[href="#menu2"]').tab('show');
-  
  var word = document.getElementById(id).children[0].innerHTML.split(" ");
   
   for (i = 0; i < word.length; i++) {    
@@ -60,7 +59,9 @@ var para = document.createElement("A");                       // Create a <p> no
 var t = document.createTextNode(word[i]);      // Create a text node
 para.appendChild(t);                 
 para.setAttribute("title",word[i]);  //word[i]
-
+para.setAttribute("data-toggle","popover");
+para.setAttribute("data-placement","Top");                          // Append the text to <p>  
+para.setAttribute("data-content","jam");
  for (j = 0; j < recorded.length; j++)
  {
    if (word[i]==recorded[j])
@@ -81,53 +82,33 @@ document.getElementById("debatetitle").appendChild(node);
  for (i = 0; i < arg.length; i++) {  
  var node = document.createElement("A");  
 node.setAttribute("class", "list-group-item");  // Create a <li> node
-node.setAttribute("id", i);
-node.setAttribute('onclick','toggleargu(this.id);');
-
 var lpo= document.createElement("UL"); 
 lpo.setAttribute("class", "list-inline"); 
 var titl = document.createElement("H4"); 
-
 var tt = document.createTextNode(arg[i]); 
 titl.appendChild(tt);      
-var li1 = document.createElement("li"); 
-li1.setAttribute("style", "display:inline-block"); 
  var input = document.createElement("input");
 input.type = "range";
+
 input.setAttribute('min', '0');
 input.setAttribute('max', '1');
 input.setAttribute('step', '0.01');
- input.setAttribute('value', '0.5');
-
-input.setAttribute('id', "bayes"+[i]);
-input.setAttribute('onchange', "updateTextInput(this.id,this.value);");
- var bayesval = document.createElement("INPUT");
- bayesval.setAttribute('style','text-align:center');
- bayesval.type='text';
- bayesval.value='0.5';
-
- bayesval.setAttribute('id', "bayes"+[i]+"x");
-var li2 = document.createElement("li"); 
-li2.setAttribute("style", "display:inline-block;width:10%;float:right"); 
-var sourc= document.createElement("A");
-sourc.appendChild(document.createTextNode("source"));
+input.setAttribute('value', '0.5');
+input.setAttribute('width', '100px');
+var sourc= document.createElement("INPUT");
+sourc.appendChild(document.createTextNode("INPUT"));
+sourc.type="button";
 sourc.setAttribute('onclick', 'showSource()');
-var content= document.createElement("DIV");
-content.setAttribute('style','display:none');
-content.setAttribute('id',i+"content");
-content.appendChild(makeUL(['Pro','Con','Pro']));
-content.appendChild(sourc);
-li1.appendChild(titl);
-li2.appendChild(bayesval);
-li2.appendChild(input);
-node.appendChild(li1);
-node.appendChild(li2);
-node.appendChild(content);
+lpo.appendChild(titl);
+lpo.appendChild(input);
+node.appendChild(lpo);
+node.appendChild(makeUL(['Pro','Con','Pro']));
+node.appendChild(sourc);
 document.getElementById("arguments").appendChild(node);     
 
 }
   
-showNav(document.getElementById(id).children[0].innerHTML);
+showNav();
 showtextwriter();
 }
 
@@ -142,14 +123,12 @@ showNav();
 
 }}
 
-function showNav(title){
+function showNav(){
 document.getElementById("back").innerHTML = "Back";
-document.getElementById("maintitle").innerHTML = title;
 }
 
 function hideNav(){
 document.getElementById("back").innerHTML = "FlipView";
-document.getElementById("maintitle").innerHTML = "";
 }
 
 function closemodal(){
@@ -208,31 +187,8 @@ source.style.display = "none";
 
 function showSource()
 {
-$('[href="#menu3"]').tab('show');
-/*var source = document.getElementById("Sources");
-source.style.display = "block";*/
- 
-}
-
-function toggleargu(id) {
- if (document.getElementById(id+'content').style.display == 'none')
-  {
-  document.getElementById(id+'content').style.display = 'block';
-  document.getElementById(id).style.position= 'absolute';
-  document.getElementById(id).style.width= '100%';
-  document.getElementById(id).style.height='100%';
-  document.getElementById(id).style.top= '20px';
-  document.getElementById(id).style.left= '0px';
-  document.getElementById("editor").style.display = 'block';
-  }
-  else
-   {
-   document.getElementById(id+'content').style.display = 'none';
-   document.getElementById("editor").style.display = 'none';
-   document.getElementById(id).style.position= 'relative';
-    document.getElementById(id).style.top= '0px';
-  
-   }
+var source = document.getElementById("Sources");
+source.style.display = "block";
 }
 
 function shuffle(array) {
@@ -257,16 +213,12 @@ function shuffle(array) {
 function makeUL(array) {
     // Create the list element:
     var list = document.createElement('ul');
-  list.setAttribute("class","list-group"); 
+
     for (var i = 0; i < array.length; i++) {
         // Create the list item:
         var item = document.createElement('li');
-         item.setAttribute("class","list-group-item"); 
+
         // Set its contents:
-		   var badge = document.createElement('span');
-           badge.setAttribute("class","badge"); 
-		   badge.appendChild(document.createTextNode("JK"));
-		item.appendChild(badge);
         item.appendChild(document.createTextNode(array[i]));
 
         // Add it to the list:
@@ -277,12 +229,6 @@ function makeUL(array) {
     return list;
 }
 
-function updateTextInput(id,val) {
-          document.getElementById(id+"x").value=val; 
-        }
-function showArgu(){
- 
-}
  </script>
   <style>
   .fakeimg {
@@ -409,8 +355,8 @@ position:center;
   
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
-      <li><a data-toggle="tab" href="#menu2" id="maintitle"></a></li>
-      <li><a data-toggle="tab" href="#menu3" ></a></li>
+      <li><a data-toggle="tab" href="#menu2"></a></li>
+ 
 	 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
         <span class="caret"></span></a>
@@ -426,19 +372,19 @@ position:center;
   </div>
 </nav> 
 
- <nav class="navbar navbar-inverse navbar-fixed-bottom" style='display:none;' id="editor">
+ <nav class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container-fluid">
     <div id="Sources"  onclick="hideSource()" style="display:none;"  width="100%">
   
    <span class="close">&times;</span>
    <p>Source</p>
-   <iframe is="x-frame-bypass" src="https://en.wikipedia.org/wiki/Main_Page"  width="100%" frameborder="0px"> Error</iframe> 
+   <iframe is="x-frame-bypass" src="https://www.duckduckgo.com/"  width="100%" frameborder="0px"> Error</iframe> 
    <a href="#">import ref</a>
 </div>
     <ul class="nav navbar-nav">
 	
       
-	  <li class="active"> <input type="text" value="What do you think?"/>  </li>
+	  <li class="active"> <a href="#"><input type="text" value="enter comment"/> </a> </li>
       
       <li><a href="#">send</a></li>
    
@@ -550,11 +496,20 @@ position:center;
     
   
    <div id="menu2" class="tab-pane fade">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" > <p>Map</p></li>
+      <li data-target="#myCarousel" data-slide-to="1"><p>Resources</p></li>
+      <li data-target="#myCarousel" data-slide-to="2"><p>Bayes</p></li>
+    </ol>
 	
+	<div class="carousel-inner">
+      <div class="item active">
 	</br></br>	</br>	</br>	</br>	</br>
 	
 	</br>
-      <h2><ul  class="list-inline" id="debatetitle" ></ul></h2>
+      <ul  class="list-inline" id="debatetitle" ></ul>
       
 	  </br>
 	 <div class="list-group" id="definition" ></div>
@@ -577,18 +532,46 @@ position:center;
 	  
 	  </div>
 	  
-	  <div id="menu3" class="tab-pane fade">
-	   <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
+	  
+	  
+	  
+	  
+	   <div id="menu3" class="item">
+	
+	</br></br>	</br>	</br>	</br>	</br>
+	
+	</br>
+      <h2>Resources</h2>
+      
+	 <iframe is="x-frame-bypass" src="https://www.duckduckgo.com/" width="100%" frameborder="0px"></iframe>
+	 
+      </div>
+	  
+	  <div id="menu4" class="item">
+	
+	</br></br>	</br>	</br>	</br>	</br>
+	
+	</br>
+      <h2>Should abortion be legalized?</h2>
+      
+	    <h2>Your bayes opinions</h2>
+		
+		
+		
+		<input type="range" min="0" max="1" step="0.01" id="mySlider" onchange="showValue(this.value);"/> 
+		<p class="np" id="n"/> 0.5 <p>
+		</br>
+		</br>
+	
+		<input type="range" min="0" max="1" step="0.01"/> 
+		<input type="range" min="0" max="1" step="0.01"/>
+		
+			<input type="button" onclick="add" value="add"/>  
+		
+	      <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
 		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
 		
 		<h5> Art is a good example of third opinion cause you can nat the same time dislike a part of an art but fall in love of one element </h5>
-	  </div>
-	  
-	  
-	  
-	  
-		
-	      
        
       
   </div>
