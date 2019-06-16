@@ -109,20 +109,13 @@ input.setAttribute('onchange', "updateTextInput(this.id,this.value);");
  bayesval.setAttribute('id', "bayes"+[i]+"x");
 var li2 = document.createElement("li"); 
 li2.setAttribute("style", "display:inline-block;width:10%;float:right"); 
-var sourc= document.createElement("A");
-sourc.appendChild(document.createTextNode("source"));
-sourc.setAttribute('onclick', 'showSource()');
-var content= document.createElement("DIV");
-content.setAttribute('style','display:none');
-content.setAttribute('id',i+"content");
-content.appendChild(makeUL(['Pro','Con','Pro']));
-content.appendChild(sourc);
+
 li1.appendChild(titl);
 li2.appendChild(bayesval);
 li2.appendChild(input);
 node.appendChild(li1);
 node.appendChild(li2);
-node.appendChild(content);
+
 document.getElementById("arguments").appendChild(node);     
 
 }
@@ -208,14 +201,33 @@ source.style.display = "none";
 
 function showSource()
 {
-$('[href="#menu3"]').tab('show');
-/*var source = document.getElementById("Sources");
-source.style.display = "block";*/
+
+
+var source = document.getElementById("Sources");
+source.style.display = "block";
  
 }
 
 function toggleargu(id) {
- if (document.getElementById(id+'content').style.display == 'none')
+  $('[href="#menu3"]').tab('show');
+   var node2 = document.createElement("A");  
+node2.setAttribute("class", "list-group-item");
+  var sourc= document.createElement("A");
+sourc.appendChild(document.createTextNode("source"));
+sourc.setAttribute('onclick', 'showSource();');
+var content= document.createElement("DIV");
+//content.setAttribute('style','display:none');
+content.setAttribute('id',id+"content");
+content.appendChild(makeUL(['Pro','Con','Pro']));
+content.appendChild(sourc);
+node2.appendChild(content);
+document.getElementById("argut").appendChild(node2);  
+  document.getElementById("editor").style.display = 'block';
+  
+  showNav(document.getElementById(id).children[0].children[0].innerHTML);
+
+  
+/* if (document.getElementById(id+'content').style.display == 'none')
   {
   document.getElementById(id+'content').style.display = 'block';
   document.getElementById(id).style.position= 'absolute';
@@ -232,7 +244,7 @@ function toggleargu(id) {
    document.getElementById(id).style.position= 'relative';
     document.getElementById(id).style.top= '0px';
   
-   }
+   }*/
 }
 
 function shuffle(array) {
@@ -578,6 +590,12 @@ position:center;
 	  </div>
 	  
 	  <div id="menu3" class="tab-pane fade">
+	  
+	 
+
+	  </br></br>	</br>	</br>	</br>	</br>
+	  
+	  <div class="list-group" id="argut"></div>
 	   <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
 		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
 		
