@@ -45,6 +45,8 @@ arg=shuffle(arg);
 }
 
 function showDebate(id){
+$("#arguments").empty(); 
+$("#debatetitle").empty();
   $('[href="#menu2"]').tab('show');
   
  var word = document.getElementById(id).children[0].innerHTML.split(" ");
@@ -90,7 +92,7 @@ var titl = document.createElement("H4");
 
 var tt = document.createTextNode(arg[i]); 
 titl.appendChild(tt);      
-var li1 = document.createElement("li"); 
+var li1 = document.createElement("div"); 
 li1.setAttribute("style", "display:inline-block"); 
  var input = document.createElement("input");
 input.type = "range";
@@ -105,10 +107,10 @@ input.setAttribute('onchange', "updateTextInput(this.id,this.value);");
  bayesval.setAttribute('style','text-align:center');
  bayesval.type='text';
  bayesval.value='0.5';
-
+ 
  bayesval.setAttribute('id', "bayes"+[i]+"x");
-var li2 = document.createElement("li"); 
-li2.setAttribute("style", "display:inline-block;width:10%;float:right"); 
+var li2 = document.createElement("div"); 
+li2.setAttribute("style", "display:inline-block;width:20%;float:right"); 
 
 li1.appendChild(titl);
 li2.appendChild(bayesval);
@@ -116,7 +118,8 @@ li2.appendChild(input);
 node.appendChild(li1);
 node.appendChild(li2);
 
-document.getElementById("arguments").appendChild(node);     
+document.getElementById("arguments").appendChild(node);  
+   
 
 }
   
@@ -209,6 +212,7 @@ source.style.display = "block";
 }
 
 function toggleargu(id) {
+$("#argut").empty();  
   $('[href="#menu3"]').tab('show');
    var node2 = document.createElement("A");  
 node2.setAttribute("class", "list-group-item");
@@ -224,7 +228,7 @@ node2.appendChild(content);
 document.getElementById("argut").appendChild(node2);  
   document.getElementById("editor").style.display = 'block';
   
-  showNav(document.getElementById(id).children[0].children[0].innerHTML);
+  showNav(document.getElementById("maintitle").innerHTML+'</br>'+document.getElementById(id).children[0].innerHTML);
 
   
 /* if (document.getElementById(id+'content').style.display == 'none')
