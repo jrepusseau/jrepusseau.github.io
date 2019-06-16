@@ -124,6 +124,7 @@ document.getElementById("arguments").appendChild(node);
 }
   
 showNav(document.getElementById(id).children[0].innerHTML);
+document.getElementById("nav1").style.backgroundColor= document.getElementById(id).style.backgroundColor;
 showtextwriter();
 }
 
@@ -141,7 +142,7 @@ showNav();
 function showNav(title){
 document.getElementById("back").innerHTML = "Back";
 document.getElementById("maintitle").innerHTML = title;
-document.getElementById("nav1").style.backgroundColor= document.getElementById("nav1").style.backgroundColor
+
 }
 
 function hideNav(){
@@ -184,6 +185,7 @@ var modal = document.getElementById("myModal");
 function Back() {
  hideNav();
   $('[href="#menu1"]').tab('show');
+  document.getElementById("nav1").style.backgroundColor="";
  hidetextwriter();
 }
 
@@ -410,6 +412,7 @@ position:center;
 #nav1
 {  
    background: rgba(0,0,0,.05);
+  
          
 }
 
@@ -419,7 +422,7 @@ position:center;
 <body>
 
  
- <nav class="navbar navbar-fixed-top navbar-expand-md" id="nav1">
+ <nav class="navbar navbar-fixed-top navbar-expand-md" id="nav1" >
   <div class="container-fluid">
   
     <ul class="nav nav-tabs">
@@ -486,15 +489,15 @@ position:center;
   
  
  <div class="list-group" id="activetopic" >
-    <a href="#" id="567" class="list-group-item " style="background-color:DeepSkyBlue;color:white" onclick="showDebate(this.id)" >
+    <a href="#" id="567" class="list-group-item " style="background-color:RGBA(0, 191, 255, 0.5);color:white" onclick="showDebate(this.id)" >
       <h4 class="list-group-item-heading" style="color:white">Should abortion be legalized ?</h4>
       <p class="list-group-item-text">95 participants 13 answers</p>
     </a>
-    <a href="#" class="list-group-item " style="background-color:DeepPink;color:white" onclick="startDebate(this.id)">
+    <a href="#" id="568" class="list-group-item " style="background-color:RGBA(255, 20, 147, 0.5);color:white" onclick="showDebate(this.id)">
       <h4 class="list-group-item-heading" style="color:white">Should we ban cigarets?</h4>
       <p class="list-group-item-text">List Group Item Text</p>
     </a>
-    <a href="#" class="list-group-item " style="background-color:DeepPink;color:white">
+    <a href="#" class="list-group-item " style="background-color:RGBA(255, 20, 147, 0.5);color:white">
       <h4 class="list-group-item-heading" style="color:white">Is democracy bad?</h4>
       <p class="list-group-item-text">List Group Item Text</p>
     </a>
