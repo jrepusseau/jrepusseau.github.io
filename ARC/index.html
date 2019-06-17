@@ -28,10 +28,10 @@
       body,
       #viewDiv {
 	    position: fixed;
-		top: 0px;
+		top: 30px;
 	   	padding: 0;
         margin: 0;
-        height: 97%;
+        height: 98%;
         width: 100vw;
       }
 	   #choiceDiv {
@@ -44,6 +44,9 @@
       text-align: center;
     }
 	
+	.navbar{
+	 z-index: 2;
+	}
 	.row {
 	opacity: 0.8;
   visibility: hidden;
@@ -53,9 +56,7 @@
   z-index: 2;
   display:flex;
   position:fixed;
-  
 
-  
 }
 	
 	
@@ -357,6 +358,27 @@ newMarker.setIcon(Icon);
 
 </script>
 
+<nav class="navbar navbar-fixed-top navbar-expand-md" id="nav1" >
+  <div class="container-fluid">
+  
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
+      <li><a data-toggle="tab" href="#menu2" id="maintitle"></a></li>
+      <li><a data-toggle="tab" href="#menu3" ></a></li>
+	 <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">ZN</a></li>
+          <li><a href="#">FR</a></li>
+          <li><a href="#">KR</a></li>
+        </ul>
+      </li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
+	 
+    </ul>
+  </div>
+</nav> 
 
 <div id='nav' class="row">
 
