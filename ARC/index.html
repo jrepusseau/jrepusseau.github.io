@@ -2,7 +2,7 @@
 <html>
 <head>
 	
-	<title>ARC Leaflet</title>
+	<title>ARC</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -23,12 +23,20 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>     
 
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link href="/https:/maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  
 <style>
       html,
       body,
       #viewDiv {
 	    position: fixed;
-		top: 30px;
+		top: 0px;
 	   	padding: 0;
         margin: 0;
         height: 98%;
@@ -53,12 +61,16 @@
   bottom: 5%;
   left:0%;
   right:0%;
-  z-index: 2;
+  z-index: 0;
   display:flex;
   position:fixed;
 
 }
 	
+	.menu1{
+	background-color:pink;
+	z-index: 1;
+	}
 	
 
     .button {
@@ -164,10 +176,20 @@ a:hover {
 
 
 
-<div id="viewDiv" ></div>
+<div id="viewDiv"  ></div>
 
 <script>
-   
+
+var mymap;
+
+function Start(){
+document.getElementById("menu1").style.display="none";
+if (document.getElementById("viewDiv").innerHTML)
+{
+document.getElementById("viewDiv").style.display="block";
+}
+else
+{
    var orangeIcon = new L.Icon({
   iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -177,8 +199,8 @@ a:hover {
   shadowSize: [41, 41]
 });
 
-	var mymap = L.map('viewDiv').setView([45, 3], 3),
-	 geocoder = L.Control.Geocoder.nominatim(),
+	mymap = L.map('viewDiv').setView([45, 3], 3);
+	var geocoder = L.Control.Geocoder.nominatim(),
         control = L.Control.geocoder({
           geocoder: geocoder
         }).addTo(mymap),
@@ -216,14 +238,28 @@ var pinpopupcontent=
 	
 	mymap.locate({setView: true, maxZoom: 20});
 	
+	
+	function blue(){
+	var position ='good';
+	if (position=='good')
+	alert('✓ Your in the zone, Confirm your position');
+	else 
+	alert('X Position different, Relocate your pousition');
+	}
+	
 	function onLocationFound(e) {
+	
 	if (document.fullscreenEnabled) 
        GoInFullscreen(document.documentElement);
 	 
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
     var radius = e.accuracy / 2;
-    newCircle= new L.circle(e.latlng, radius).addTo(mymap);
+    newCircle= new L.circle(e.latlng, radius).addTo(mymap)
+	.bindPopup("You are within " + radius + " meters from this point <button id='confirm' onclick='showarrivaltime()'></button>").openPopup();
+	document.getElementById('confirm').innerHTML="Confirm and access info";
+	
+	
     }
 
     mymap.on('locationfound', onLocationFound);
@@ -355,15 +391,65 @@ newMarker.setIcon(Icon);
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
   };
+  };
+ };
+ 
+ function Back(){
+document.getElementById("viewDiv").style.display="none";
+document.getElementById("menu1").style.display="block";
+}
+
+function init(){
+var poll=['Emergency CASE:8979897','Police CASE:786878687','Haloween party','Delivery 76575676'];
+var status=['list-group-item-danger','list-group-item-danger','','disabled'];
+var creator=['EMS','Police Departement','Vanessa','Amazon'];
+ for (i = 0; i < poll.length; i++) {  
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item "+status[i]);  // Create a <li> node
+node.setAttribute("id", i);
+node.setAttribute('onclick','');
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading");
+var tt = document.createTextNode(poll[i]); 
+titl.appendChild(tt);      
+var cr = document.createTextNode(creator[i]);
+var li2 = document.createElement("p"); 
+li2.setAttribute("class", "list-group-item-text");
+li2.appendChild(cr);    
+
+node.appendChild(titl);
+node.appendChild(li2);
+
+document.getElementById("poll").appendChild(node);  
+   
+
+}}
+
+function activatedemo(){
+ $('[href="#menu2"]').tab('show');
+ Start();
+ alert('Welcome in ARC Emergency Demo</br></br>1.Activate your position</br>2.Confirm position or follow instructions</br>3. Fill out the questionnary.</br> Thanks for your support.');
+          
+}
+
+function showarrivaltime(){
+alert('start');
+L.Routing.control({
+    waypoints: [
+        L.latLng(57.74, 11.94),
+        L.latLng(57.6792, 11.949)
+    ]
+}).addTo(mymap);
+}
 
 </script>
 
-<nav class="navbar navbar-fixed-top navbar-expand-md" id="nav1" >
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-md" id="nav1" >
   <div class="container-fluid">
   
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
-      <li><a data-toggle="tab" href="#menu2" id="maintitle"></a></li>
+      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">ARC </a></li>
+      <li><a data-toggle="tab" href="#menu2" id="maintitle" onclick="Start()">Create</a></li>
       <li><a data-toggle="tab" href="#menu3" ></a></li>
 	 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
@@ -380,7 +466,18 @@ newMarker.setIcon(Icon);
   </div>
 </nav> 
 
-<div id='nav' class="row">
+
+<div class="tab-content">
+ <div id="menu1" class="tab-pane fade in active" >
+
+ </br>
+ </br>
+ </br>
+ </br> 
+ <div class="list-group" id="poll" onclick='activatedemo()'> </div>
+  <div id="message"/>
+
+<div id='nav' class="tab-pane fade row" id="menu2" >
 
 <input id='search' type="text" class='column left' placeholder="Search..">
  <nav class="scroll column right" style="background-color:#bbb;">
@@ -401,6 +498,11 @@ newMarker.setIcon(Icon);
   </nav>
 </div> 
 
+</div>
 
 </body>
+
+`<script>
+ init();
+</script>
 </html>
