@@ -181,6 +181,7 @@ a:hover {
 <script>
 
 var mymap;
+var pos;
 
 function Start(){
 document.getElementById("menu1").style.display="none";
@@ -248,7 +249,8 @@ var pinpopupcontent=
 	}
 	
 	function onLocationFound(e) {
-	
+	pos=e.latlng;
+	alert(pos);
 	if (document.fullscreenEnabled) 
        GoInFullscreen(document.documentElement);
 	 
@@ -256,7 +258,7 @@ var pinpopupcontent=
 	     mymap.removeLayer(newCircle);
     var radius = e.accuracy / 2;
     newCircle= new L.circle(e.latlng, radius).addTo(mymap)
-	.bindPopup("You are within " + radius + " meters from this point <button id='confirm' onclick='showarrivaltime()'></button>").openPopup();
+	.bindPopup("You are within " + radius + " meters from this point <button id='confirm' onclick='showarrivaltime(pos)'></button>").openPopup();
 	document.getElementById('confirm').innerHTML="Confirm and access info";
 	
 	
@@ -432,11 +434,11 @@ function activatedemo(){
           
 }
 
-function showarrivaltime(){
+function showarrivaltime(e){
 alert('start');
 L.Routing.control({
     waypoints: [
-        L.latLng(57.74, 11.94),
+        L.latLng(e),
         L.latLng(57.6792, 11.949)
     ]
 }).addTo(mymap);

@@ -13,6 +13,380 @@
  
   
  <script>
+
+ </script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+.glitch {
+
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+
+
+  
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+	
+}
+
+.glitch:hover
+ {
+
+  color:pink;
+	
+}
+
+.np
+{
+position:fixed;
+
+}
+
+h2{
+position:center;
+}
+
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  
+  z-index: 1; /* Sit on top */
+  left: 0px;
+
+
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+  position: relative; /* Stay in place */
+  //bottom: 0px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 0%;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    background-color: DeepSkyBlue ;
+}
+.topnav{
+  margin: 10px;
+}
+.topnav-right {
+  right: 10px;
+  margin-left:10px;
+}
+
+
+#nav1
+{  
+   background: rgba(0,0,0,.05);
+  
+         
+}
+
+
+  </style>
+</head>
+<body>
+
+ 
+ <nav class="navbar navbar-fixed-top navbar-expand-md" id="nav1" >
+  <div class="container-fluid">
+  
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
+      <li><a data-toggle="tab" href="#menu2" id="maintitle"></a></li>
+      <li><a data-toggle="tab" href="#menu3" ></a></li>
+	 <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">ZN</a></li>
+          <li><a href="#">FR</a></li>
+          <li><a href="#">KR</a></li>
+        </ul>
+      </li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
+	 
+    </ul>
+  </div>
+</nav> 
+
+ <nav class="navbar navbar-inverse navbar-fixed-bottom" style='display:none;' id="editor">
+  <div class="container-fluid">
+    <div id="Sources"  onclick="hideSource()" style="display:none;"  width="100%">
+  
+   <span class="close">&times;</span>
+   <p>Source</p>
+   <iframe is="x-frame-bypass" src="https://en.wikipedia.org/wiki/Main_Page"  width="100%" frameborder="0px"> Error</iframe> 
+   <a href="#">import ref</a>
+</div>
+    <ul class="nav navbar-nav">
+	
+      
+	  <li class="active"> <input type="text" value="What do you think?" width="100%"/>  </li>
+      
+      <li><a href="#" width="10%">send</a></li>
+   
+    </ul>
+  </div>
+</nav> 
+
+ 
+
+ <div class="container" id="directordiv" style='width:100%'>
+
+<div class="tab-content">
+  <div id="menu1" class="tab-pane fade in active">
+
+  </br>
+  </br>
+	
+	<h2>Research Topics </h2>
+	
+	</br>	
+	
+	 <input type="search" id="site-search" name="q"
+       aria-label="Search through site content">
+
+<button onclick="showSource()">Search</button>
+	
+	
+      <h2>Active Topics</h2>
+     
+  
+ 
+ <div class="list-group" id="activetopic" >
+  
+	 </div>
+	
+	  <h2>Hot Topics</h2>
+	
+	 <div class="list-group" id="hottopic" >
+	
+  </div>
+ 
+  <input type="button" value="Submit a topic" />
+<!-- The Modal -->
+<div id="myConnection" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Connection</p>
+	<form>
+	<input type="text" class="form-control" placeholder="username">
+	<input type="password" class="form-control" placeholder="password">
+	<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+	</form>
+  </div>
+
+</div>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+  <a>
+  <img id="flipcoin" src="images/coin8bit.gif"  onclick="myFunction1()" width='20%' height='20%' >
+  </a>
+  <p id="result">Flipping ...</p>
+ <input type="button" id="btnenter" value="Enter" style="display:none;"  onclick="closemodal()"/>  
+    <span class="close" onclick="closemodal()">&times;</span>
+   </div>
+</div>
+
+
+
+
+</div>
+       
+ 
+
+    
+  
+   <div id="menu2" class="tab-pane fade">
+	
+	</br></br>	</br>	</br>	</br>	</br>
+	
+	</br>
+      <h2><ul  class="list-inline" id="debatetitle" ></ul></h2>
+      
+	  </br>
+	 <div class="list-group" id="definition" ></div>
+      <select id='argulist'> 
+	   <option value="All topics">All arguments</option>
+	  </select>
+	 <div class="list-group" id="arguments"></div>
+	 
+	 <div> 
+	<p>
+	
+	 </p>
+	 
+	 <a>
+  <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="showSource()" >
+  </a> 
+
+	  </div>
+	  
+	
+	  
+	  
+	  </div>
+	  
+	  <div id="menu3" class="tab-pane fade">
+	  
+	 
+
+	  </br></br>	</br>	</br>	</br>	</br>
+	  
+	  <div id="argut"></div>
+	   <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
+		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
+		
+		<h5> Art is a good example of third opinion cause you can nat the same time dislike a part of an art but fall in love of one element </h5>
+	  </div>
+	  
+	  
+	  
+	  
+		
+	      
+       
+      
+  </div>
+  
+  
+	
+	  </div>
+</div>
+</div>
+
+
+
+
+
+
+</body>
+<script>
+
+
+ var subjecten=[
+'Does the actual political system in China democratic?',
+'Is Hongkong should be governed by China?',
+'Should Taiwan be independent?'
+];
+
+var style=['RGBA(0, 191, 255, 1)','RGBA(255, 20, 147, 1)','RGBA(255, 20, 147, 1)'];
+
+var info=['95 participants 13 answers','50 participants 12 answers','185 participants 7 answers'];
+
+var hottopicen=[
+'Is there segregation between Chinese and Malais in Singapore?',
+'Is North Korea enemy of South Korea?',
+'Is Chinese more influent than English in Asia?',
+'Should abortion be legalized ?',
+'Should cigarets be banned?',
+'Do we live in a simulation?',
+'Can we live without plastics?'
+];
+ 
+ init();
+ 
+ function init()
+ {
+ for (var i = 0; i < subjecten.length; i++) {
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item"); 
+node.setAttribute("style", "background-color:"+style[i]+";color:white"); 
+node.setAttribute("id", i); 
+node.setAttribute("onclick", "showDebate(this.id)"); 
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading"); 
+var tt = document.createTextNode(subjecten[i]); 
+titl.appendChild(tt);
+var p = document.createElement("p"); 
+p.setAttribute("class", "list-group-item-text"); 
+var tt = document.createTextNode(info[i]); 
+p.appendChild(tt);
+node.appendChild(titl);
+node.appendChild(p);
+document.getElementById("activetopic").appendChild(node);
+ }
+ for (var i = 0; i < hottopicen.length; i++) {
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item"); 
+node.setAttribute("id", subjecten.length+i); 
+node.setAttribute("onclick", "startDebate(this.id)"); 
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading"); 
+var tt = document.createTextNode(hottopicen[i]); 
+titl.appendChild(tt);
+var p = document.createElement("p"); 
+p.setAttribute("class", "list-group-item-text"); 
+var tt = document.createTextNode('Flip it!'); 
+p.appendChild(tt);
+node.appendChild(titl);
+node.appendChild(p);
+document.getElementById("hottopic").appendChild(node);
+ }
+ }
+ 
  $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
@@ -38,6 +412,8 @@ var arg=[ "Women have the right to choose what to do with their body",
 	 "Abortion can result in medical complications and psychological trauma for women",
 	 "Abortion reduces the number of babies available for adoption"];
 arg=shuffle(arg);
+
+
 
  function showValue(val){
  document.getElementById("n").innerHTML=val;
@@ -120,7 +496,12 @@ node.appendChild(li2);
 
 document.getElementById("arguments").appendChild(node);  
    
+/// Charge select option
 
+
+var option = document.createElement("option");
+option.innerHTML=arg[i];     
+document.getElementById("argulist").appendChild(option);  
 }
   
 showNav(document.getElementById(id).children[0].innerHTML);
@@ -300,338 +681,6 @@ function updateTextInput(id,val) {
 function showArgu(){
  
 }
- </script>
-  <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-.glitch {
-
-    line-height: 1;
-    font-family: 'Poppins', sans-serif;
-
-
-  
-    transform: translate(-50%, -50%);
-    margin: 0;
-    text-decoration: none;
-	
-}
-
-.glitch:hover
- {
-
-  color:pink;
-	
-}
-
-.np
-{
-position:fixed;
-
-}
-
-h2{
-position:center;
-}
-
-
- /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  
-  z-index: 1; /* Sit on top */
-  left: 0px;
-
-
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  border: 1px solid #888;
-  width: 100%; /* Could be more or less, depending on screen size */
-  position: relative; /* Stay in place */
-  //bottom: 0px;
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-} 
-
-#footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:60px;   /* Height of the footer */
-   background:#6cf;
-}
-
-.carousel-indicators li {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    margin: 10px;
-    text-indent: 0;
-    cursor: pointer;
-    border: none;
-    border-radius: 0%;
-    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
-}
-.carousel-indicators .active {
-    width: 48px;
-    height: 48px;
-    margin: 10px;
-    background-color: DeepSkyBlue ;
-}
-.topnav{
-  margin: 10px;
-}
-.topnav-right {
-  float: right;
-  margin-left:10px;
-}
-
-
-#nav1
-{  
-   background: rgba(0,0,0,.05);
-  
-         
-}
-
-
-  </style>
-</head>
-<body>
-
- 
- <nav class="navbar navbar-fixed-top navbar-expand-md" id="nav1" >
-  <div class="container-fluid">
-  
-    <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
-      <li><a data-toggle="tab" href="#menu2" id="maintitle"></a></li>
-      <li><a data-toggle="tab" href="#menu3" ></a></li>
-	 <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">ZN</a></li>
-          <li><a href="#">FR</a></li>
-          <li><a href="#">KR</a></li>
-        </ul>
-      </li>
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
-	 
-    </ul>
-  </div>
-</nav> 
-
- <nav class="navbar navbar-inverse navbar-fixed-bottom" style='display:none;' id="editor">
-  <div class="container-fluid">
-    <div id="Sources"  onclick="hideSource()" style="display:none;"  width="100%">
-  
-   <span class="close">&times;</span>
-   <p>Source</p>
-   <iframe is="x-frame-bypass" src="https://en.wikipedia.org/wiki/Main_Page"  width="100%" frameborder="0px"> Error</iframe> 
-   <a href="#">import ref</a>
-</div>
-    <ul class="nav navbar-nav">
-	
-      
-	  <li class="active"> <input type="text" value="What do you think?" width="100%"/>  </li>
-      
-      <li><a href="#" width="10%">send</a></li>
-   
-    </ul>
-  </div>
-</nav> 
-
- 
-
- <div class="container" id="directordiv" style='width:100%'>
-
-<div class="tab-content">
-  <div id="menu1" class="tab-pane fade in active">
-
-  </br>
-  </br>
-	
-	<h2>Research Topics </h2>
-	
-	</br>	
-	
-	 <input type="search" id="site-search" name="q"
-       aria-label="Search through site content">
-
-<button onclick="showSource()">Search</button>
-	
-	
-      <h2>Active Topics</h2>
-     
-  
- 
- <div class="list-group" id="activetopic" >
-    <a href="#" id="567" class="list-group-item " style="background-color:RGBA(0, 191, 255, 0.75);color:white" onclick="showDebate(this.id)" >
-      <h4 class="list-group-item-heading" style="color:white">Should abortion be legalized ?</h4>
-      <p class="list-group-item-text">95 participants 13 answers</p>
-    </a>
-    <a href="#" id="568" class="list-group-item " style="background-color:RGBA(255, 20, 147, 0.75);color:white" onclick="showDebate(this.id)">
-      <h4 class="list-group-item-heading" style="color:white">Should we ban cigarets?</h4>
-      <p class="list-group-item-text">List Group Item Text</p>
-    </a>
-    <a href="#" class="list-group-item " style="background-color:RGBA(255, 20, 147, 0.75);color:white">
-      <h4 class="list-group-item-heading" style="color:white">Is democracy bad?</h4>
-      <p class="list-group-item-text">List Group Item Text</p>
-    </a>
-	 </div>
-	
-	  <h2>Hot Topics</h2>
-	
-	 <div class="list-group" >
-	 <a href="#" id="768" class="list-group-item " onclick="startDebate(this.id)">
-      <h4 class="list-group-item-heading" >Do we live in a simulation?</h4>
-      <p class="list-group-item-text">List Group Item Text</p>
-    </a>
-    <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Are animals more intelligent than humans?</h4>
-      <p class="list-group-item-text">List Group Item Text</p>
-    </a>
-    <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Can we live without plastics?</h4>
-      <p class="list-group-item-text">List Group Item Text</p>
-    </a>
-  </div>
- 
-  <input type="button" value="Submit a topic" />
-<!-- The Modal -->
-<div id="myConnection" class="modal">
-
-  <!-- Modal content -->
-  
-  
-  
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Connection</p>
-	<form>
-	<input type="text" class="form-control" placeholder="username">
-	<input type="password" class="form-control" placeholder="password">
-	<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
-					</div>
-	</form>
-  </div>
-
-</div>
-
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  
-  
-  
-  <div class="modal-content">
-  <a>
-  <img id="flipcoin" src="images/coin8bit.gif"  onclick="myFunction1()" width='20%' height='20%' >
-  </a>
-  <p id="result">Flipping ...</p>
- <input type="button" id="btnenter" value="Enter" style="display:none;"  onclick="closemodal()"/>  
-    <span class="close" onclick="closemodal()">&times;</span>
-   </div>
-</div>
-
-
-
-
-</div>
-       
- 
-
-    
-  
-   <div id="menu2" class="tab-pane fade">
-	
-	</br></br>	</br>	</br>	</br>	</br>
-	
-	</br>
-      <h2><ul  class="list-inline" id="debatetitle" ></ul></h2>
-      
-	  </br>
-	 <div class="list-group" id="definition" ></div>
-      
-	 <div class="list-group" id="arguments"></div>
-	 
-	 <div> 
-	<p>
-	
-	 </p>
-	 
-	 <a>
-  <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="showSource()" >
-  </a> 
-
-	  </div>
-	  
-	
-	  
-	  
-	  </div>
-	  
-	  <div id="menu3" class="tab-pane fade">
-	  
-	 
-
-	  </br></br>	</br>	</br>	</br>	</br>
-	  
-	  <div id="argut"></div>
-	   <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
-		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
-		
-		<h5> Art is a good example of third opinion cause you can nat the same time dislike a part of an art but fall in love of one element </h5>
-	  </div>
-	  
-	  
-	  
-	  
-		
-	      
-       
-      
-  </div>
-  
-  
-	
-	  </div>
-</div>
-</div>
-
-
-
-
-
-
-</body>
-<script>
-
-
 
 // Bootstrap carousel needs to be loaded first
 $('#myCarousel').carousel().swipeCarousel({
