@@ -141,7 +141,7 @@ position:center;
   
     <ul class="nav navbar-nav navbar-left">
       <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
-      <li><a href="#menu2" id="maintitle"  >Use trustable source, </br> Attack facts not people</a></li>
+      <li><a href="#menu2" id="maintitle"></a></li>
      
 	 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" >LN
@@ -571,6 +571,7 @@ showNav();
 
 function showNav(title){
 document.getElementById("back").innerHTML = "Back";
+alert(title.length);
 document.getElementById("maintitle").innerHTML = title;
 
 }
