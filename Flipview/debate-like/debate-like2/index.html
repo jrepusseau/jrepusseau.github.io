@@ -327,7 +327,7 @@ position:center;
 </body>
 <script>
 
-alert('1.1')
+alert('1.3')
 
 var subject;
 var hottopic;
@@ -577,7 +577,7 @@ if(title.length>20)
 title = title.slice(0, 20) + "\n \n " + title.slice(20);
 if(title.length>40)
 var title = title.slice(0, 40) + "\n \n" + title.slice(40);
-document.getElementById("maintitle").appendChild(title);
+document.getElementById("maintitle").appendChild(document.createTextNode(title));
 
 }
 
