@@ -144,11 +144,12 @@ position:center;
       <li><a data-toggle="tab" href="#menu2" id="maintitle"></a></li>
       <li><a data-toggle="tab" href="#menu3" ></a></li>
 	 <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >LN
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">ZN</a></li>
-          <li><a href="#">FR</a></li>
+		<li><a href="#" onclick="init('en')">EN</a></li>
+          <li><a href="#" onclick="init('cn')">ZN</a></li>
+          <li><a href="#" onclick="init('fr')">FR</a></li>
           <li><a href="#">KR</a></li>
         </ul>
       </li>
@@ -170,9 +171,9 @@ position:center;
     <ul class="nav navbar-nav">
 	
       
-	  <li class="active"> <input type="text" value="What do you think?" width="100%"/>  </li>
+	  <li class="active"> <input type="text" placeholder="What do you think?" width="100%" id='editortext'/>  </li>
       
-      <li><a href="#" width="10%">send</a></li>
+      <li><a href="#" width="10%" onclick="add()">Add</a></li>
    
     </ul>
   </div>
@@ -212,7 +213,7 @@ position:center;
 	
   </div>
  
-  <input type="button" value="Submit a topic" />
+  <input type="button" value="Submit a topic" onclick='showtextwriter()' />
 <!-- The Modal -->
 <div id="myConnection" class="modal">
 
@@ -268,9 +269,9 @@ position:center;
       
 	  </br>
 	 <div class="list-group" id="definition" ></div>
-      <select id='argulist'> 
-	   <option value="All topics">All arguments</option>
-	  </select>
+      <h4> <select id='argulist'> 
+	   <option value="All topics" onclick="showDebate(0)">All arguments</option>
+	  </select> </h4>
 	 <div class="list-group" id="arguments"></div>
 	 
 	 <div> 
@@ -325,12 +326,25 @@ position:center;
 </body>
 <script>
 
+var subject;
+var hottopic;
 
  var subjecten=[
 'Does the actual political system in China democratic?',
-'Is Hongkong should be governed by China?',
-'Should Taiwan be independent?'
+'Is Hongkong should be rulling by "one country, two systems"?',
+'Is Taiwan an independent country?'
 ];
+
+var subjectfr=[
+'Le systeme politique en Chine est-il democratique?',
+'Honkgong doit-il etre gouverner par la regle "un pays, deux systemes"?',
+'Taiwan est-il un pays independant?'];
+
+var subjectcn=[
+'中国的政治制度是不是民主的？',
+'香港应该规则"一国两制"吗？',
+'台湾是独立国家吗？'];
+
 
 var style=['RGBA(0, 191, 255, 1)','RGBA(255, 20, 147, 1)','RGBA(255, 20, 147, 1)'];
 
@@ -339,18 +353,49 @@ var info=['95 participants 13 answers','50 participants 12 answers','185 partici
 var hottopicen=[
 'Is there segregation between Chinese and Malais in Singapore?',
 'Is North Korea enemy of South Korea?',
-'Is Chinese more influent than English in Asia?',
+'Is Chinese more used than English in Asia?',
 'Should abortion be legalized ?',
 'Should cigarets be banned?',
-'Do we live in a simulation?',
+'Should we work?',
 'Can we live without plastics?'
 ];
  
- init();
+var hottopicfr=[
+'Y-a t-il une segregation entre Chinois et Malais a Singapoure',
+'La Coree du Nord est-il ennemi avec la Coree du Sud?',
+"Le Chinois est-il plus utilise que l'Anglais en Asie?",
+"L'abortion doit elle legalisee?",
+"Les cigarettes doivent-elles etre bannies?",
+"Devons nous travailler?",
+"Peut on vivre sans plastiques?" ];
+
+var hottopiccn=[
+'有没有在新加坡中国人比马来人分离?',
+'朝鲜比韩国仇敌吗？',
+'在亚洲汉语比英语很说吗？',
+"流產....?",
+"纸烟....?",
+"我们应该工作吗？",
+"我们可以生活没有塑料？"];
+
+function language(val)
+{
+if (val=="en")
+{hottopic=[...hottopicen];subject=[...subjecten]}
+if (val=="cn")
+{hottopic=[...hottopiccn];subject=[...subjectcn]}
+if (val=="fr")
+{hottopic=[...hottopicfr];subject=[...subjectfr]}
+}
  
- function init()
+ init('en');
+ 
+ function init(val)
  {
- for (var i = 0; i < subjecten.length; i++) {
+  $("#activetopic").empty();  
+ $("#hottopic").empty();  
+ language(val);
+ for (var i = 0; i < subject.length; i++) {
  var node = document.createElement("A");  
 node.setAttribute("class", "list-group-item"); 
 node.setAttribute("style", "background-color:"+style[i]+";color:white"); 
@@ -358,7 +403,7 @@ node.setAttribute("id", i);
 node.setAttribute("onclick", "showDebate(this.id)"); 
 var titl = document.createElement("H4"); 
 titl.setAttribute("class", "list-group-item-heading"); 
-var tt = document.createTextNode(subjecten[i]); 
+var tt = document.createTextNode(subject[i]); 
 titl.appendChild(tt);
 var p = document.createElement("p"); 
 p.setAttribute("class", "list-group-item-text"); 
@@ -368,14 +413,14 @@ node.appendChild(titl);
 node.appendChild(p);
 document.getElementById("activetopic").appendChild(node);
  }
- for (var i = 0; i < hottopicen.length; i++) {
+ for (var i = 0; i < hottopic.length; i++) {
  var node = document.createElement("A");  
 node.setAttribute("class", "list-group-item"); 
 node.setAttribute("id", subjecten.length+i); 
 node.setAttribute("onclick", "startDebate(this.id)"); 
 var titl = document.createElement("H4"); 
 titl.setAttribute("class", "list-group-item-heading"); 
-var tt = document.createTextNode(hottopicen[i]); 
+var tt = document.createTextNode(hottopic[i]); 
 titl.appendChild(tt);
 var p = document.createElement("p"); 
 p.setAttribute("class", "list-group-item-text"); 
@@ -496,12 +541,15 @@ node.appendChild(li2);
 
 document.getElementById("arguments").appendChild(node);  
    
-/// Charge select option
+/// Load select option
 
 
 var option = document.createElement("option");
 option.innerHTML=arg[i];     
+option.setAttribute('onclick',"showArgu("+i+")");
 document.getElementById("argulist").appendChild(option);  
+
+
 }
   
 showNav(document.getElementById(id).children[0].innerHTML);
@@ -571,12 +619,12 @@ function Back() {
 }
 
 function hidetextwriter(){
-var txt = document.getElementById("textwriter");
+var txt = document.getElementById("editor");
 txt.style.display = "none";
 }
 
 function showtextwriter(){
-var txt = document.getElementById("textwriter");
+var txt = document.getElementById("editor");
 txt.style.display = "block";
 }
 
@@ -608,7 +656,7 @@ content.setAttribute('id',id+"content");
 content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con'),sourc]));
 
 document.getElementById("argut").appendChild(content);  
-  document.getElementById("editor").style.display = 'block';
+  showtxtwriter();
   
   showNav(document.getElementById("maintitle").innerHTML+'</br>'+document.getElementById(id).children[0].innerHTML);
 
@@ -678,7 +726,18 @@ function makeUL(array) {
 function updateTextInput(id,val) {
           document.getElementById(id+"x").value=val; 
         }
-function showArgu(){
+function showArgu(value){
+$("#arguments").empty(); 
+var sourc= document.createElement("A");
+sourc.appendChild(document.createTextNode("source"));
+sourc.setAttribute('onclick', 'showSource();');
+var content= document.createElement("DIV");
+//content.setAttribute('style','display:none');
+content.setAttribute('id',value+"content");
+content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con'),sourc]));
+
+document.getElementById("arguments").appendChild(content);  
+  showtxtwriter();
  
 }
 
@@ -692,6 +751,23 @@ $('#myCarousel').carousel().swipeCarousel({
   alert(target);
 });*/
 
+function add(){
+var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item"); 
+node.setAttribute("id", '56');   //New id
+node.setAttribute("onclick", "startDebate(this.id)"); 
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading"); 
+var tt = document.createTextNode(document.getElementById('editortext').value); 
+titl.appendChild(tt);
+var p = document.createElement("p"); 
+p.setAttribute("class", "list-group-item-text"); 
+var tt = document.createTextNode('Flip it!'); 
+p.appendChild(tt);
+node.appendChild(titl);
+node.appendChild(p);
+document.getElementById("hottopic").appendChild(node);
+}
 
 </script>
 </html>
