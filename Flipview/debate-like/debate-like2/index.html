@@ -141,7 +141,7 @@ position:center;
   
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
-      <li><a href="#menu2" data-toggle="tab" id="maintitle"></a></li>
+      <li><a href="#menu2" data-toggle="tab" id="maintitle">xxxxxxxxxxxxxxxxxxxx</a></li>
      
 	 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" >LN
@@ -577,7 +577,7 @@ if(title.length>20)
 title = title.slice(0, 20) + "\n \n " + title.slice(20);
 if(title.length>40)
 var title = title.slice(0, 40) + "\n \n" + title.slice(40);
-document.getElementById("maintitle").appendChild(document.createTextNode(title));
+document.getElementById("maintitle").innerHTML=title;
 
 }
 
