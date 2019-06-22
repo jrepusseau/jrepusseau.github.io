@@ -167,7 +167,10 @@ h5
 a:hover {
   background-color: white;
 }
-	
+
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+}
 	  
 </style>
 	
@@ -250,7 +253,6 @@ var pinpopupcontent=
 	
 	function onLocationFound(e) {
 	pos=e.latlng;
-	alert(pos);
 	if (document.fullscreenEnabled) 
        GoInFullscreen(document.documentElement);
 	 
@@ -319,7 +321,7 @@ var pinpopupcontent=
 }).openPopup();
 		  
           if (r) {
-          document.getElementById("adress").innerHTML=r.name;	
+          document.getElementById("adress").innerHTML=e.latlng+'\n'+r.name;	
    		  }
 		  else
 		  {
@@ -430,18 +432,28 @@ document.getElementById("poll").appendChild(node);
 function activatedemo(){
  $('[href="#menu2"]').tab('show');
  Start();
- alert('Welcome in ARC Emergency Demo</br></br>1.Activate your position</br>2.Confirm position or follow instructions</br>3. Fill out the questionnary.</br> Thanks for your support.');
+ alert('Welcome in ARC Emergency Demo \n  \n 1.Activate your position \n 2.Confirm position or follow instructions \n 3. Fill out the questionnary. \n Thanks for your support.');
           
 }
 
 function showarrivaltime(e){
-alert('start');
-L.Routing.control({
+var Road = L.Routing.control({
     waypoints: [
-        L.latLng(e),
-        L.latLng(57.6792, 11.949)
+        L.latLng(37.545877, 126.921235), //e
+        L.latLng(37.546084, 126.922203)
     ]
-}).addTo(mymap);
+})
+
+
+/*
+Road.on('routeselected', function (e) {
+alert(Road._routes[0].summary.totalTime);
+});
+
+Road.on('routingerror', function (e) {
+alert(e.message);
+});*/
+Road.addTo(mymap);
 }
 
 </script>
