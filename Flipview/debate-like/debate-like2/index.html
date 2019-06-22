@@ -328,7 +328,7 @@ position:center;
 </body>
 <script>
 
-alert('1.7')
+alert('1.8')
 
 var subject;
 var hottopic;
@@ -574,12 +574,12 @@ showNav();
 
 function showNav(title){
 document.getElementById("back").innerHTML = "Back";
-if(title.length>15)
-title = title.slice(0, 15) + "</br>" + title.slice(15);
-if(title.length>30)
-var title = title.slice(0, 30) + "</br>" + title.slice(30);
-if(title.length>45)
-var title = title.slice(0, 45) + "</br>" + title.slice(45);
+if(title.length>20)
+title = title.slice(0, 20) + "</br>" + title.slice(20);
+if(title.length>40)
+var title = title.slice(0, 40) + "</br>" + title.slice(40);
+if(title.length>60)
+var title = title.slice(0, 60) + "</br>" + title.slice(60);
 document.getElementById("maintitle").innerHTML=title;
 
 }
