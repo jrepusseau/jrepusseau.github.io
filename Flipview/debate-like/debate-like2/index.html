@@ -574,10 +574,10 @@ showNav();
 function showNav(title){
 document.getElementById("back").innerHTML = "Back";
 if(title.length>20)
-title = title.slice(0, 20) + "</br>" + title.slice(20);
+title = title.slice(0, 20) + "\n \n " + title.slice(20);
 if(title.length>40)
-var title = title.slice(0, 40) + "</br>" + title.slice(40);
-document.getElementById("maintitle").innerHTML = title;
+var title = title.slice(0, 40) + "\n \n" + title.slice(40);
+document.getElementById("maintitle").appendChild(title);
 
 }
 
