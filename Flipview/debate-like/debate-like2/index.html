@@ -171,7 +171,7 @@ position:center;
     <ul class="nav navbar-nav">
 	
       
-	  <li class="active"> <input type="text" placeholder="What do you think?" width="100%" id='editortext'/>  </li>
+	  <li class="active"> <input type="text" placeholder="Write your opinion" width="100%" id='editortext'/>  </li>
       
       <li><a href="#" width="10%" onclick="add()">Add</a></li>
    
@@ -273,6 +273,7 @@ position:center;
 	   <option value="All topics" onclick="showDebate(0)">All arguments</option>
 	  </select> </h4>
 	 <div class="list-group" id="arguments"></div>
+	 
 	 
 	 <div> 
 	<p>
@@ -505,7 +506,7 @@ document.getElementById("debatetitle").appendChild(node);
  var node = document.createElement("A");  
 node.setAttribute("class", "list-group-item");  // Create a <li> node
 node.setAttribute("id", i);
-node.setAttribute('onclick','toggleargu(this.id);');
+//node.setAttribute('onclick','toggleargu(this.id);');  No more toggle argu function
 
 var lpo= document.createElement("UL"); 
 lpo.setAttribute("class", "list-inline"); 
