@@ -574,12 +574,12 @@ showNav();
 
 function showNav(title){
 document.getElementById("back").innerHTML = "Back";
-if(title.length>22)
-title = title.slice(0, 26) + "</br>" + title.slice(26);
-if(title.length>44)
-var title = title.slice(0, 44) + "</br>" + title.slice(44);
-if(title.length>66)
-var title = title.slice(0, 66) + "</br>" + title.slice(66);
+if(title.length>25)
+title = title.slice(0, 25) + "</br>" + title.slice(25);
+if(title.length>50)
+var title = title.slice(0, 50) + "</br>" + title.slice(44);
+if(title.length>75)
+var title = title.slice(0, 75) + "</br>" + title.slice(66);
 document.getElementById("maintitle").innerHTML=title;
 
 }
