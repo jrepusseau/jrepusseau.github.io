@@ -125,11 +125,18 @@ position:center;
 
 #nav1
 {  
-   background: rgba(0,0,0,.05);
-  
-         
+   background: rgba(0,0,0,.05);     
 }
 
+
+#argutitle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 23px;
+}
 
   </style>
 </head>
@@ -144,7 +151,7 @@ position:center;
       <li><a href="#menu2" data-toggle="tab" id="maintitle"></a></li>
      
 	 <li id="user"><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
-	 <li class="dropdown">
+	 <li class="dropdown" id='LN'>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" >LN
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -560,6 +567,7 @@ showNav(document.getElementById(id).children[0].innerHTML);
 document.getElementById("nav1").style.backgroundColor= document.getElementById(id).style.backgroundColor;
 showtextwriter();
   document.getElementById("user").style.display="none";
+  document.getElementById("LN").style.display="none";
 }
 
 function startDebate(id){
@@ -575,19 +583,19 @@ showNav();
 }}
 
 function showNav(title){
-document.getElementById("back").innerHTML = "Back";
-if(title.length>25)
+document.getElementById("back").style.display = "none";
+/*if(title.length>25)
 title = title.slice(0, 25) + "</br>" + title.slice(25);
 if(title.length>50)
 var title = title.slice(0, 50) + "</br>" + title.slice(50);
 if(title.length>75)
-var title = title.slice(0, 75) + "</br>" + title.slice(75);
-document.getElementById("maintitle").innerHTML=title;
+var title = title.slice(0, 75) + "</br>" + title.slice(75);*/
+document.getElementById("maintitle").innerHTML="<button onclick='Back()'>Back</button> "+title;
 
 }
 
 function hideNav(){
-document.getElementById("back").innerHTML = "FlipView";
+document.getElementById("back").style.display = "";
 document.getElementById("maintitle").innerHTML = "";
 }
 
@@ -628,6 +636,7 @@ function Back() {
   $('[href="#menu1"]').tab('show');
   document.getElementById("nav1").style.backgroundColor="";
   document.getElementById("user").style.display="";
+  document.getElementById("LN").style.display="";
  hidetextwriter();
 }
 
