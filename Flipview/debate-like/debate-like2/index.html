@@ -141,9 +141,9 @@ position:center;
   
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
-      <li><a href="#menu2" data-toggle="tab" id="maintitle">'__________'</a></li>
+      <li><a href="#menu2" data-toggle="tab" id="maintitle"></a></li>
      
-	 <li><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
+	 <li id="user"><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
 	 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" >LN
         <span class="caret"></span></a>
@@ -559,6 +559,7 @@ option.setAttribute('onclick',"showArgu("+i+")");
 showNav(document.getElementById(id).children[0].innerHTML);
 document.getElementById("nav1").style.backgroundColor= document.getElementById(id).style.backgroundColor;
 showtextwriter();
+  document.getElementById("user").style.display="none";
 }
 
 function startDebate(id){
@@ -568,6 +569,7 @@ var modal = document.getElementById("myModal");
  var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
   modal.style.display = "none";
+
 showNav();
 
 }}
@@ -577,9 +579,9 @@ document.getElementById("back").innerHTML = "Back";
 if(title.length>25)
 title = title.slice(0, 25) + "</br>" + title.slice(25);
 if(title.length>50)
-var title = title.slice(0, 50) + "</br>" + title.slice(44);
+var title = title.slice(0, 50) + "</br>" + title.slice(50);
 if(title.length>75)
-var title = title.slice(0, 75) + "</br>" + title.slice(66);
+var title = title.slice(0, 75) + "</br>" + title.slice(75);
 document.getElementById("maintitle").innerHTML=title;
 
 }
@@ -625,6 +627,7 @@ function Back() {
  hideNav();
   $('[href="#menu1"]').tab('show');
   document.getElementById("nav1").style.backgroundColor="";
+  document.getElementById("user").style.display="";
  hidetextwriter();
 }
 

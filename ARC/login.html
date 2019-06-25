@@ -60,24 +60,34 @@
 }
 
 </style>
+
+<script>
+
+function send(){
+document.getElementById("code").style.display='';
+document.getElementById("subm").style.display='';
+}
+
+
+</script>
 </head>
 
 <body>
 <div class="container login-container">
             <div class="row">
                 <div class="col-md-6 login-form-1" >
-                    <h3>Start with number</h3>
+                    <h3>Start</h3>
                     <form>
                         <div class="form-group" style="display:inline;" >
                             <input type="text" class="form-control" placeholder="Your Phone or Your Email" value="" style="float:left;width:80%" /> 
-							<input type="button"class="btnSubmit" value="Send" style="float:right;width:15%"></input>
+							<input onclick='send()' type="button"class="btnSubmit" value="→" style="float:right;width:15%"></input>
                         </div>
 						</br>
 						</br>
-                        <div class="form-group">
+                        <div id='code' class="form-group" style='display:none'>
                             <input type="password" class="form-control" placeholder="Code received" value="" />
                         </div>
-                        <div class="form-group">
+                        <div id='subm' class="form-group" style='display:none'>
 						
                             <input type="submit" class="btnSubmit" value="Enter" />
 							
