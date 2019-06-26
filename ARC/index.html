@@ -187,6 +187,21 @@ a:hover {
 
 var mymap;
 var pos;
+var surveyttl=[
+'1. Are you involved in the emergency and how do you feel?',
+"2. Can you label the emergency?",
+"3. People involved and the most critical situation?",
+'4.Are vehicules involved? Which types?',
+'5. Are guns involved? Whict types?',
+"6. If medical problems what are symptoms?",
+"7. What medications people involved are on?",
+"8. Are they breathing?",
+'9. If there is a fire, how big is the fire?' ]
+var survey=[];
+
+
+
+
 
 function Start(){
 document.getElementById("menu1").style.display="none";
@@ -490,7 +505,8 @@ request.onreadystatechange = function () {
 	document.getElementById('popuptxt').innerHTML='Arrival';
 	--ss;
  document.getElementById('popuptxt').innerHTML='Information validated. </br> Estimated arrival time: '+mn+' min '+ss+' sec '; 
- document.getElementById('confirm').innerHTML='1. How do you feel?'}
+ document.getElementById('confirm').innerHTML='Please fill the survey'}
+ document.getElementById('confirm').setAttribute('onclick','question(Number(0))');
  
 }
 , 1000);
@@ -502,9 +518,28 @@ request.send();
 
 }
 
- 
+ function question(e)
+ {
 
+ $(document).ready(function(){
+   $("#confirm").popover({
+        placement: 'bottom',
+        html: 'true',
+        title : "<ul class='nav nav-tabs'><li class='active'><a data-toggle='tab' href='#menusurvey1' >Style</a></li><li><a href='#menusurvey2' data-toggle='tab' >Contrestyle</a></li></ul>",
+        content : " <div class='tab-content'><div id='menusurvey1' class='tab-pane fade in active'><input type='range'></input></br><input type='button' value='Next' onclick='' ></input></div><div id='menusurvey2' class='tab-pane fade'><p>Yooooooo</p></div></div><div class='btn-group'><button class='btn' id='prevtab' type='button'>Prev</button><button class='btn' id='nexttab' type='button'>Next</button></div>"
+    });
+});
+ }
 
+var $tabs = $('.tabbable li');
+
+$('#prevtab').on('click', function() {
+    $tabs.filter('.active').prev('li').find('a[data-toggle="tab"]').tab('show');
+});
+
+$('#nexttab').on('click', function() {
+    $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
+});
 
 </script>
 
