@@ -525,21 +525,12 @@ request.send();
    $("#confirm").popover({
         placement: 'bottom',
         html: 'true',
-        title : "<ul class='nav nav-tabs'><li class='active'><a data-toggle='tab' href='#menusurvey1' >Style</a></li><li><a href='#menusurvey2' data-toggle='tab' >Contrestyle</a></li></ul>",
+        title : "<ul class='nav nav-tabs' id='navsurvey'><li class='active'><a data-toggle='tab' href='#menusurvey1' >Style</a></li><li><a href='#menusurvey2' data-toggle='tab' >Contrestyle</a></li></ul>",
         content : " <div class='tab-content'><div id='menusurvey1' class='tab-pane fade in active'><input type='range'></input></br><input type='button' value='Next' onclick='' ></input></div><div id='menusurvey2' class='tab-pane fade'><p>Yooooooo</p></div></div><div class='btn-group'><button class='btn' id='prevtab' type='button'>Prev</button><button class='btn' id='nexttab' type='button'>Next</button></div>"
     });
 });
  }
 
-var $tabs = $('.tabbable li');
-
-$('#prevtab').on('click', function() {
-    $tabs.filter('.active').prev('li').find('a[data-toggle="tab"]').tab('show');
-});
-
-$('#nexttab').on('click', function() {
-    $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
-});
 
 </script>
 
@@ -603,5 +594,15 @@ $('#nexttab').on('click', function() {
 
 `<script>
  init();
+ var $tabs = $('#navsurvey').children();
+
+$('#prevtab').on('click', function() {
+    $tabs.filter('.active').prev('li').find('a[data-toggle="tab"]').tab('show');
+});
+
+$('#nexttab').on('click', function() {
+    $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
+});
+
 </script>
 </html>
