@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
    <script src="test.js"></script>
  <script type="module" src="x-frame-bypass.js"></script></script>
-  
+  <script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
  
   
  <script>
@@ -144,13 +144,42 @@ position:center;
    z-index: 999;
 }
 
+
+ 
+
 .flex-container {
-  display: block;
+    
+       display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+      
 }
+
 
 .fill-width {
   flex: 1;
 }
+
+#leftArrow {
+    
+width:40px;
+height:40px;
+background:#ff0000; 
+position:absolute;
+left:0px;
+}
+
+#rightArrow {
+    
+width:40px;
+height:40px;
+background:#ff0000; 
+position:absolute;
+right:0px;
+}
+
+
   </style>
 </head>
 <body>
@@ -182,17 +211,20 @@ position:center;
   </div>
 </nav> 
 
-<nav class='navbar' style='display:none;' id="Sources" onclick="" style="width:100%">
-  
-    <div class="flex-container" id="argudiv">
-	<button  style='border-radius: 25px;'>Arguklweflfefjlkefklfjlklefjklwefkjfjlewfjkwfjkwe 1</button></br><input class="fill-width" type="text" id='srch'></input><span>more text</span>
-</div>
+<nav class='navbar'  id="Sources" onclick="" style="width:100%">
+ <div class="flex-container" id="argudiv"  >
+ 
+ </div>
+ <div id="Web" style='display:none;'>
+    <div class="flex-container"  >
+	<input class="fill-width" type="text" id='srch'></input><span>more text</span>
+
 	
    <span class="close">&times;</span>
-  
+  </div>
    <iframe is="x-frame-bypass" src="https://en.wikipedia.org/wiki/Main_Page"  width="100%" frameborder="0px"> Error</iframe> 
    <a href="#">import ref</a>
-
+</div>
 </nav>
  
 
@@ -582,6 +614,7 @@ var button=document.createElement("INPUT");
 button.type="button";
 button.value=arg[i];
 button.setAttribute('style','border-radius:25px');
+button.setAttribute('onclick','center(this)');
 document.getElementById("argudiv").appendChild(button); 
 /// Load select option
 
@@ -596,6 +629,7 @@ option.setAttribute('onclick',"showArgu("+i+")");
   
 showNav(document.getElementById(id).children[0].innerHTML);
 document.getElementById("nav1").style.backgroundColor= document.getElementById(id).style.backgroundColor;
+
 showSource();
 showtextwriter();
   document.getElementById("user").style.display="none";
@@ -827,6 +861,30 @@ p.appendChild(tt);
 node.appendChild(titl);
 node.appendChild(p);
 document.getElementById("hottopic").appendChild(node);
+}
+
+var view = $("#argudiv");
+var move = "100px";
+var sliderLimit = -9000
+
+$("#rightArrow").click(function(){
+    alert('boom');
+    var currentPosition = parseInt(view.css("left"));
+    if (currentPosition >= sliderLimit) view.stop(false,true).animate({left:"-="+move},{ duration: 400})
+
+});
+
+$("#leftArrow").click(function(){
+
+    var currentPosition = parseInt(view.css("left"));
+    if (currentPosition < 0) view.stop(false,true).animate({left:"+="+move},{ duration: 400})
+});
+
+function center(e)
+{
+
+e.style.color='red';
+
 }
 
 
