@@ -144,7 +144,11 @@ position:center;
    z-index: 999;
 }
 
+.divargu:hover{
 
+background-color:#E8E8E8;
+
+}
  
 
 .flex-container {
@@ -348,10 +352,8 @@ position:relative;
       
 	  </br>
 	 <div class="list-group" id="definition" ></div>
-      <h4> <select id='argulist'> 
-	   <option value="All topics" onclick="showDebate(0)">All arguments</option>
-	  </select> </h4>
-	 <div class="list-group" id="arguments"></div>
+   
+	 <div id="arguments"></div>
 	 
 	 
 	 <div> 
@@ -585,17 +587,20 @@ node.appendChild(para);
  }
  
  for (i = 0; i < arg.length; i++) {  
- var node = document.createElement("A");  
-node.setAttribute("class", "list-group-item");  // Create a <li> node
+ var node = document.createElement("DIV");  
+node.setAttribute("class", "divargu");  // Create a <li> node
 node.setAttribute("id", i);
 //node.setAttribute('onclick','toggleargu(this.id);');  No more toggle argu function
 
 var lpo= document.createElement("UL"); 
-lpo.setAttribute("class", "list-inline"); 
+//lpo.setAttribute("class", "list-inline"); 
 var titl = document.createElement("H4"); 
 var pp=  document.createElement("span"); 
 var tt = document.createTextNode(arg[i]); 
 titl.appendChild(tt);      
+var tt2= document.createTextNode("7 pro and 15 cons");
+var ppp = document.createElement("P");
+ppp.appendChild(tt2); 
 var li1 = document.createElement("div"); 
 li1.setAttribute("style", "display:inline-block");
 li1.setAttribute("id", "middleDiv");
@@ -617,6 +622,7 @@ var li2 = document.createElement("div");
 li2.setAttribute("style", "display:inline-block");
 li2.setAttribute("id", "rightDiv");
 li1.appendChild(titl);
+li1.appendChild(ppp);
 li2.appendChild(bayesval);
 li2.appendChild(input);
 var li3 = document.createElement("div"); 
