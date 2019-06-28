@@ -179,6 +179,19 @@ position:absolute;
 right:0px;
 }
 
+#rightDiv{
+right:0;
+left:75%;
+position:absolute;
+text-align:center;
+}
+
+#leftDiv{
+right:25%;
+left:0;
+position:relative;
+text-align:center;
+}
 
   </style>
 </head>
@@ -582,7 +595,8 @@ var pp=  document.createElement("span");
 var tt = document.createTextNode(arg[i]); 
 titl.appendChild(tt);      
 var li1 = document.createElement("div"); 
-li1.setAttribute("style", "display:inline-block"); 
+li1.setAttribute("style", "display:inline-block");
+li1.setAttribute("id", "leftDiv");
  var input = document.createElement("input");
 input.type = "range";
 input.setAttribute('min', '0');
@@ -599,23 +613,24 @@ input.setAttribute('onchange', "updateTextInput(this.id,this.value);");
  
  bayesval.setAttribute('id', "bayes"+[i]+"x");
 var li2 = document.createElement("div"); 
-li2.setAttribute("style", "display:inline-block;width:20%;float:right"); 
-
+li2.setAttribute("style", "display:inline-block");
+li2.setAttribute("id", "rightDiv");
 li1.appendChild(titl);
 li2.appendChild(bayesval);
 li2.appendChild(input);
 node.appendChild(li1);
-//node.appendChild(li2);
+node.appendChild(li2);
 
 document.getElementById("arguments").appendChild(node);  
 
-// Argu as button on top 
+/*// Argu as button on top 
 var button=document.createElement("INPUT"); 
 button.type="button";
 button.value=arg[i];
 button.setAttribute('style','border-radius:25px');
 button.setAttribute('onclick','center(this)');
-document.getElementById("argudiv").appendChild(button); 
+document.getElementById("argudiv").appendChild(button); */
+
 /// Load select option
 
 
