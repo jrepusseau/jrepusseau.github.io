@@ -180,17 +180,21 @@ right:0px;
 }
 
 #rightDiv{
-right:0;
-left:75%;
-position:absolute;
+width:25%;
+position:relative;
 text-align:center;
 }
 
-#leftDiv{
-right:25%;
-left:0;
+#middleDiv{
+width:70%;
 position:relative;
-text-align:center;
+
+}
+
+#leftDiv{
+width:5%;
+position:relative;
+
 }
 
   </style>
@@ -339,9 +343,7 @@ text-align:center;
    
  
 	
-	</br></br>	</br>	</br>	</br>	</br>
 	
-	</br>
       <h2><ul  class="list-inline" id="debatetitle" ></ul></h2>
       
 	  </br>
@@ -579,7 +581,7 @@ para.setAttribute("title",word[i]);  //word[i]
 
    }
 node.appendChild(para); 
-document.getElementById("debatetitle").appendChild(node);
+//document.getElementById("debatetitle").appendChild(node); We stop using debatetitle
  }
  
  for (i = 0; i < arg.length; i++) {  
@@ -596,7 +598,7 @@ var tt = document.createTextNode(arg[i]);
 titl.appendChild(tt);      
 var li1 = document.createElement("div"); 
 li1.setAttribute("style", "display:inline-block");
-li1.setAttribute("id", "leftDiv");
+li1.setAttribute("id", "middleDiv");
  var input = document.createElement("input");
 input.type = "range";
 input.setAttribute('min', '0');
@@ -606,10 +608,9 @@ input.setAttribute('step', '0.01');
 
 input.setAttribute('id', "bayes"+[i]);
 input.setAttribute('onchange', "updateTextInput(this.id,this.value);");
- var bayesval = document.createElement("INPUT");
+ var bayesval = document.createElement("P");
  bayesval.setAttribute('style','text-align:center');
- bayesval.type='text';
- bayesval.value='0.5';
+ bayesval.innerHTML='0.5';
  
  bayesval.setAttribute('id', "bayes"+[i]+"x");
 var li2 = document.createElement("div"); 
@@ -618,6 +619,10 @@ li2.setAttribute("id", "rightDiv");
 li1.appendChild(titl);
 li2.appendChild(bayesval);
 li2.appendChild(input);
+var li3 = document.createElement("div"); 
+li3.setAttribute("style", "display:inline-block");
+li3.setAttribute("id", "leftDiv");
+node.appendChild(li3);
 node.appendChild(li1);
 node.appendChild(li2);
 
@@ -833,7 +838,7 @@ function makeUL(array) {
 }
 
 function updateTextInput(id,val) {
-          document.getElementById(id+"x").value=val; 
+          document.getElementById(id+"x").innerHTML=val; 
         }
 function showArgu(value){
 $("#arguments").empty(); 
