@@ -234,16 +234,16 @@ background-image: url("back.png");
   </div>
 </nav> 
 
-<nav class='navbar'  id="Sources" onclick="" style="width:100%">
+<nav class='navbar'  id="Sources" onclick="" style="width:100%;display:none">
  <div class="flex-container" id="argudiv"  >
  
  </div>
- <div id="Web" style='display:none;'>
+ <div id="Web" >
     <div class="flex-container"  >
 	<input class="fill-width" type="text" id='srch'></input><span>more text</span>
 
 	
-   <span class="close">&times;</span>
+   <span class="close" onclick="hideSource()">&times;</span>
   </div>
    <iframe is="x-frame-bypass" src="https://en.wikipedia.org/wiki/Main_Page"  width="100%" frameborder="0px"> Error</iframe> 
    <a href="#">import ref</a>
@@ -253,14 +253,13 @@ background-image: url("back.png");
 
  <nav class="navbar navbar-inverse navbar-fixed-bottom " style='display:none;' id="editor">
   
-    <ul class="nav navbar-nav">
+    
 	
-      
-	  <li class="active"> <input type="text" placeholder="Write your opinion" width="100%" id='editortext'/>  </li>
-      
-      <li><a href="#" width="10%" onclick="add()">Add</a></li>
-   
-    </ul>
+      <div class="flex-container"  >
+	<input class="fill-width" type="text" id='editortext' placeholder="Write your opinion"></input><span>Add</span>
+	</div>
+	 
+
  
 </nav> 
 
@@ -587,7 +586,7 @@ ppp.appendChild(tt2);
 var li1 = document.createElement("div"); 
 li1.setAttribute("style", "display:inline-block");
 li1.setAttribute("id", "middleDiv");
-li1.setAttribute("onclick","fireArgu(this)");
+li1.setAttribute("onclick","toggleArgu(this)");
  var input = document.createElement("input");
 input.type = "range";
 input.setAttribute('min', '0');
@@ -641,8 +640,8 @@ option.setAttribute('onclick',"showArgu("+i+")");
 showNav(document.getElementById(id).children[0].innerHTML);
 document.getElementById("nav1").style.backgroundColor= document.getElementById(id).style.backgroundColor;
 
-showSource();
-showtextwriter();
+
+
   document.getElementById("user").style.display="none";
   document.getElementById("LN").style.display="none";
 }
@@ -744,47 +743,10 @@ $('#Sources').affix({
         top: '0px'
       }
 });
-$('.affix').css('top',$("#nav1").height());
+$('.affix').css('top',$("#arguments").height());
 
 }
 
-function toggleargu(id) {
-$("#argut").empty();  
-  $('[href="#menu3"]').tab('show');
- 
-  var sourc= document.createElement("A");
-sourc.appendChild(document.createTextNode("source"));
-sourc.setAttribute('onclick', 'showSource();');
-var content= document.createElement("DIV");
-//content.setAttribute('style','display:none');
-content.setAttribute('id',id+"content");
-content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con'),sourc]));
-
-document.getElementById("argut").appendChild(content);  
-  showtxtwriter();
-  
-  showNav(document.getElementById("maintitle").innerHTML+'</br>'+document.getElementById(id).children[0].innerHTML);
-
-  
-/* if (document.getElementById(id+'content').style.display == 'none')
-  {
-  document.getElementById(id+'content').style.display = 'block';
-  document.getElementById(id).style.position= 'absolute';
-  document.getElementById(id).style.width= '100%';
-  document.getElementById(id).style.height='100%';
-  document.getElementById(id).style.top= '20px';
-  document.getElementById(id).style.left= '0px';
-  document.getElementById("editor").style.display = 'block';
-  }
-  else
-   {
-   document.getElementById(id+'content').style.display = 'none';
-   document.getElementById("editor").style.display = 'none';
-   document.getElementById(id).style.position= 'relative';
-    document.getElementById(id).style.top= '0px';
-  
-   }*/
-}
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -831,20 +793,7 @@ function makeUL(array) {
 function updateTextInput(id,val) {
           document.getElementById(id+"x").innerHTML=val; 
         }
-function showArgu(value){
-$("#arguments").empty(); 
-var sourc= document.createElement("A");
-sourc.appendChild(document.createTextNode("source"));
-sourc.setAttribute('onclick', 'showSource();');
-var content= document.createElement("DIV");
-//content.setAttribute('style','display:none');
-content.setAttribute('id',value+"content");
-content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con'),sourc]));
 
-document.getElementById("arguments").appendChild(content);  
-  showtxtwriter();
- 
-}
 
 // Bootstrap carousel needs to be loaded first
 $('#myCarousel').carousel().swipeCarousel({
@@ -898,40 +847,57 @@ e.style.color='red';
 
 }
 
-function fireArgu(a)
+function toggleArgu(a)
 {
-//a.parentElement.setAttribute('style','background-color:#E8E8E8;')
+if (document.getElementById("nav1").style.display=="none")
+{
 
-  document.getElementById("nav1").style.display="none";
-  var idfix= a.parentElement.id;
+a.parentElement.setAttribute('style','background-color:white');
+document.getElementById("arguments").setAttribute('class',"");
+
+document.getElementById("nav1").style.display="";
+for (var i = 0; i < arg.length; i++)
+a.parentElement.parentElement.children[i].style.display="";
+$("#argut").empty(); 
+a.parentElement.children[1].children[1].style.display="";
+hidetextwriter();
+hideSource();
+}
+else{
+
+
+a.parentElement.setAttribute('style','background-color:#E8E8E8;')
+
+
+document.getElementById("arguments").setAttribute('class',"navbar navbar-fixed-top");
+
+document.getElementById("nav1").style.display="none";
+var idfix= a.parentElement.id;
 for (var i = 0; i < arg.length; i++){
 if (i != a.parentElement.id)
 a.parentElement.parentElement.children[i].style.display="none";
 }
- var input = document.createElement("input");
-input.type = "range";
-input.setAttribute('min', '0');
-input.setAttribute('max', '1');
-input.setAttribute('step', '0.01');
- input.setAttribute('value', '0.5');
 
-input.setAttribute('id', "bayes"+[i]);
-input.setAttribute('onchange', "updateTextInput(this.id,this.value);");
+
+
+
 
 a.parentElement.children[1].children[1].style.display="none";
-
-
-  
    var sourc= document.createElement("A");
 sourc.appendChild(document.createTextNode("source"));
 sourc.setAttribute('onclick', 'showSource();');
 var content= document.createElement("DIV");
 //content.setAttribute('style','display:none');
 content.setAttribute('id',a.parentElement.id+"content");
-content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con'),sourc]));
-
+content.setAttribute('onclick', 'showSource();');
+for (var i = 0; i < 10; i++)
+{
+content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con')]));
+}
 document.getElementById("argut").appendChild(content);  
   showtextwriter();
+  
+}
 }
 
 </script>
