@@ -149,7 +149,8 @@ position:center;
 background-color:#E8E8E8;
 
 }
- 
+
+
 
 .flex-container {
     
@@ -193,12 +194,13 @@ text-align:center;
 width:70%;
 position:relative;
 
+
 }
 
 #leftDiv{
 width:5%;
 position:relative;
-
+background-image: url("back.png");
 }
 
   </style>
@@ -346,28 +348,11 @@ position:relative;
    <div id="menu2" class="tab-pane fade">
    
  
-	
-	
-      <h2><ul  class="list-inline" id="debatetitle" ></ul></h2>
-      
-	  </br>
-	 <div class="list-group" id="definition" ></div>
    
 	 <div id="arguments"></div>
 	 
+	 <div id="argut"></div>
 	 
-	 <div> 
-	<p>
-	
-	 </p>
-	 
-	 <a>
-  <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="showSource()" >
-  </a> 
-
-	  </div>
-	  
-	
 	  
 	  
 	  </div>
@@ -378,7 +363,7 @@ position:relative;
 
 	  </br></br>	</br>	</br>	</br>	</br>
 	  
-	  <div id="argut"></div>
+	  
 	   <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
 		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
 		
@@ -588,12 +573,10 @@ node.appendChild(para);
  
  for (i = 0; i < arg.length; i++) {  
  var node = document.createElement("DIV");  
-node.setAttribute("class", "divargu");  // Create a <li> node
+node.setAttribute("class", "divargu");  
 node.setAttribute("id", i);
-//node.setAttribute('onclick','toggleargu(this.id);');  No more toggle argu function
 
-var lpo= document.createElement("UL"); 
-//lpo.setAttribute("class", "list-inline"); 
+
 var titl = document.createElement("H4"); 
 var pp=  document.createElement("span"); 
 var tt = document.createTextNode(arg[i]); 
@@ -604,6 +587,7 @@ ppp.appendChild(tt2);
 var li1 = document.createElement("div"); 
 li1.setAttribute("style", "display:inline-block");
 li1.setAttribute("id", "middleDiv");
+li1.setAttribute("onclick","fireArgu(this)");
  var input = document.createElement("input");
 input.type = "range";
 input.setAttribute('min', '0');
@@ -628,6 +612,7 @@ li2.appendChild(input);
 var li3 = document.createElement("div"); 
 li3.setAttribute("style", "display:inline-block");
 li3.setAttribute("id", "leftDiv");
+
 node.appendChild(li3);
 node.appendChild(li1);
 node.appendChild(li2);
@@ -913,6 +898,39 @@ e.style.color='red';
 
 }
 
+function fireArgu(a)
+{
+//a.parentElement.setAttribute('style','background-color:#E8E8E8;')
+
+  document.getElementById("nav1").style.display="none";
+  var idfix= a.parentElement.id;
+for (var i = 0; i < arg.length; i++){
+if (i != a.parentElement.id)
+a.parentElement.parentElement.children[i].style.display="none";
+}
+ var input = document.createElement("input");
+input.type = "range";
+input.setAttribute('min', '0');
+input.setAttribute('max', '1');
+input.setAttribute('step', '0.01');
+ input.setAttribute('value', '0.5');
+
+input.setAttribute('id', "bayes"+[i]);
+input.setAttribute('onchange', "updateTextInput(this.id,this.value);");
+
+
+  
+   var sourc= document.createElement("A");
+sourc.appendChild(document.createTextNode("source"));
+sourc.setAttribute('onclick', 'showSource();');
+var content= document.createElement("DIV");
+//content.setAttribute('style','display:none');
+content.setAttribute('id',a.parentElement.id+"content");
+content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con'),sourc]));
+
+document.getElementById("argut").appendChild(content);  
+  showtextwriter();
+}
 
 </script>
 </html>
