@@ -203,6 +203,46 @@ position:relative;
 background-image: url("back.png");
 }
 
+/*Presentation of argu*/
+
+.containertype {
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color:white; 
+}
+
+
+.con {
+  border-color: #ccc;
+  background-color: RGBA(0, 191, 255, 1);
+}
+
+.pro {
+  border-color: #ccc;
+  background-color: RGBA(255, 20, 147, 1);
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style time text */
+.time-right {
+  float: right;
+  color: black;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color: black;
+}
+
   </style>
 </head>
 <body>
@@ -349,7 +389,7 @@ background-image: url("back.png");
  
    
 	 <div id="arguments"></div>
-	 
+	 </br> </br> </br>
 	 <div id="argut"></div>
 	 
 	  
@@ -883,6 +923,8 @@ a.parentElement.parentElement.children[i].style.display="none";
 
 
 a.parentElement.children[1].children[1].style.display="none";
+
+/*
    var sourc= document.createElement("A");
 sourc.appendChild(document.createTextNode("source"));
 sourc.setAttribute('onclick', 'showSource();');
@@ -893,8 +935,46 @@ content.setAttribute('onclick', 'showSource();');
 for (var i = 0; i < 10; i++)
 {
 content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con')]));
+}*/
+
+
+for (var i = 0; i < 4; i++)
+{
+var content= document.createElement("DIV");
+
+var opinion= document.createElement("P");
+var opinioncontent='qwodkowkopqdwkwwwdwpqkwddoqkwpqdk /n iwjcewciowejciowjcewio /n iuweecuiewiuceuiweh/n'
+var ref = " <a onclick='showSource()'>1</a> "
+opinioncontent = opinioncontent.slice(0, 3) + ref + opinioncontent.slice(3);
+var posttime= document.createElement('span');
+posttime.innerHTML='Posted 30/7 12:30';
+posttime.setAttribute('class','time-right');
+content.setAttribute('class','containertype pro');
+
+opinion.innerHTML=opinioncontent;
+content.appendChild(opinion);
+content.appendChild(posttime);
+
+document.getElementById("argut").appendChild(content); 
+
+var content2= document.createElement("DIV");
+
+var opinion= document.createElement("P");
+var opinioncontent='gfghghgheuiweh/n'
+var ref = " <a onclick='showSource()'>2</a> "
+opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(8);
+var posttime= document.createElement('span');
+posttime.innerHTML='Edited 25/6 12:14';
+posttime.setAttribute('class','time-left');
+content2.setAttribute('class','containertype con');
+
+opinion.innerHTML=opinioncontent;
+content2.appendChild(opinion);
+content2.appendChild(posttime);
+
+document.getElementById("argut").appendChild(content2); 
 }
-document.getElementById("argut").appendChild(content);  
+
   showtextwriter();
   
 }
