@@ -233,13 +233,13 @@ background-image: url("back.png");
 
 /* Style time text */
 .time-right {
-  float: right;
+
   color: black;
 }
 
 /* Style time text */
 .time-left {
-  float: left;
+
   color: black;
 }
 
@@ -386,15 +386,63 @@ background-image: url("back.png");
   
    <div id="menu2" class="tab-pane fade">
    
- 
+  </br> </br> </br>
    
 	 <div id="arguments"></div>
 	 </br> </br> </br>
 	 <div id="argut"></div>
 	 
+	 <div id="Question" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+  <br>
+  <br>
+    <span class="close">&times;</span>
+    <h4>Context</h4>
+	
+	<h4>Definition</h4>
+	
+	<h4>Statistics</h4>
+	
+	
+	</form>
+  </div>
+
+</div
 	  
 	  
 	  </div>
+	  
+	  <div id="AddArgu" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+  <br>
+  <br>
+    <span class="close">&times;</span>
+    <h4>Title</h4>
+	<input type='text' placeholder='Arguments title' />
+	<h4>Description</h4>
+    <input type='text' placeholder='Describe briefly why it differ from others arguments' />
+	
+	<input type="submit" value="Validate" class="btn float-right">
+	
+	
+	</form>
+  </div>
+
+</div
+	  
+	  
+	  </div>
+	  
 	  
 	  <div id="menu3" class="tab-pane fade">
 	  
@@ -441,18 +489,24 @@ var hottopic;
  var subjecten=[
 'Does the actual political system in China democratic?',
 'Is Hongkong should be rulling by "one country, two systems"?',
-'Is Taiwan an independent country?'
+'Is Taiwan an independent country?',
+'Should abortion be legalized ?'
 ];
 
 var subjectfr=[
 'Le systeme politique en Chine est-il democratique?',
 'Honkgong doit-il etre gouverner par la regle "un pays, deux systemes"?',
-'Taiwan est-il un pays independant?'];
+'Taiwan est-il un pays independant?',
+"L'abortion doit elle legalisee?"
+];
+
 
 var subjectcn=[
 '中国的政治制度是不是民主的？',
 '香港应该规则"一国两制"吗？',
-'台湾是独立国家吗？'];
+'台湾是独立国家吗？',
+"纸烟....?",
+];
 
 
 var style=['RGBA(0, 191, 255, 1)','RGBA(255, 20, 147, 1)','RGBA(255, 20, 147, 1)'];
@@ -463,7 +517,6 @@ var hottopicen=[
 'Is there segregation between Chinese and Malais in Singapore?',
 'Is North Korea enemy of South Korea?',
 'Is Chinese more used than English in Asia?',
-'Should abortion be legalized ?',
 'Should cigarets be banned?',
 'Should we work?',
 'Can we live without plastics?'
@@ -473,7 +526,6 @@ var hottopicfr=[
 'Y-a t-il une segregation entre Chinois et Malais a Singapoure',
 'La Coree du Nord est-il ennemi avec la Coree du Sud?',
 "Le Chinois est-il plus utilise que l'Anglais en Asie?",
-"L'abortion doit elle legalisee?",
 "Les cigarettes doivent-elles etre bannies?",
 "Devons nous travailler?",
 "Peut on vivre sans plastiques?" ];
@@ -483,7 +535,6 @@ var hottopiccn=[
 '朝鲜比韩国仇敌吗？',
 '在亚洲汉语比英语很说吗？',
 "流產....?",
-"纸烟....?",
 "我们应该工作吗？",
 "我们可以生活没有塑料？"];
 
@@ -552,7 +603,7 @@ var def2=["Induced termination of a pregnancy with destruction of the embryo or 
 var def3=["To make legal or lawful","Authorize or sanction by law."];
 var defi=[def1,def2,def3];
 
-var arg=[ "Women have the right to choose what to do with their body",
+var argabortion=[ "Women have the right to choose what to do with their body",
 		 "Abortion supports the right to life",
 	 "The right to abortion is critical to gender equality",
 	 "Banning abortion risks illegal abortions",
@@ -565,7 +616,10 @@ var arg=[ "Women have the right to choose what to do with their body",
 	 "Abortion is a business ",
 	 "Abortion can result in medical complications and psychological trauma for women",
 	 "Abortion reduces the number of babies available for adoption"];
-arg=shuffle(arg);
+	 
+	 
+	 
+
 
 
 
@@ -609,6 +663,12 @@ para.setAttribute("title",word[i]);  //word[i]
 node.appendChild(para); 
 //document.getElementById("debatetitle").appendChild(node); We stop using debatetitle
  }
+ 
+ if (document.getElementById(id).children[0].innerHTML=='Should abortion be legalized ?')
+ arg=shuffle(argabortion);
+ else
+ arg='';
+ 
  
  for (i = 0; i < arg.length; i++) {  
  var node = document.createElement("DIV");  
@@ -669,13 +729,26 @@ document.getElementById("argudiv").appendChild(button); */
 /// Load select option
 
 
-var option = document.createElement("option");
-option.innerHTML=arg[i];     
-option.setAttribute('onclick',"showArgu("+i+")");
-//document.getElementById("argulist").appendChild(option);  
-
 
 }
+var a = document.createElement("div")
+a.setAttribute('style','display:inline');
+  var addargu = document.createElement("div"); 
+  addargu.setAttribute("style", "width:25%,position:relative");
+   var input = document.createElement("BUTTON");
+   input.innerHTML='+';
+   input.setAttribute('onclick','AddArgu()');
+   var argu = document.createElement("div"); 
+  argu.setAttribute("style", "width:25%,position:relative");
+   var tp = document.createElement("H4");
+   tp.innerHTML='Other useful arguments? Add them!';
+ 	a.appendChild(input);
+	a.appendChild(tp);
+  document.getElementById("arguments").appendChild(a);
+  
+  
+  
+  
   
 showNav(document.getElementById(id).children[0].innerHTML);
 document.getElementById("nav1").style.backgroundColor= document.getElementById(id).style.backgroundColor;
@@ -706,7 +779,7 @@ if(title.length>50)
 var title = title.slice(0, 50) + "</br>" + title.slice(50);
 if(title.length>75)
 var title = title.slice(0, 75) + "</br>" + title.slice(75);*/
-document.getElementById("maintitle").innerHTML="<button onclick='Back()'>Back</button> "+title;
+document.getElementById("maintitle").innerHTML="<button onclick='Back()'>Back</button> "+title+"  <button onclick='Question()'>*</button>";
 
 }
 
@@ -897,7 +970,7 @@ a.parentElement.setAttribute('style','background-color:white');
 document.getElementById("arguments").setAttribute('class',"");
 
 document.getElementById("nav1").style.display="";
-for (var i = 0; i < arg.length; i++)
+for (var i = 0; i < arg.length+1; i++)
 a.parentElement.parentElement.children[i].style.display="";
 $("#argut").empty(); 
 a.parentElement.children[1].children[1].style.display="";
@@ -914,7 +987,7 @@ document.getElementById("arguments").setAttribute('class',"navbar navbar-fixed-t
 
 document.getElementById("nav1").style.display="none";
 var idfix= a.parentElement.id;
-for (var i = 0; i < arg.length; i++){
+for (var i = 0; i < arg.length+1; i++){
 if (i != a.parentElement.id)
 a.parentElement.parentElement.children[i].style.display="none";
 }
@@ -944,11 +1017,11 @@ for (var i = 0; i < 4; i++)
 var content= document.createElement("DIV");
 
 var opinion= document.createElement("P");
-var opinioncontent='qwodkowkopqdwkwwwdwpqkwddoqkwpqdk /n iwjcewciowejciowjcewio /n iuweecuiewiuceuiweh/n'
+var opinioncontent='qwodkowkopqdwkwwwdwpqkwddoqkwpqdk /n iwjcewciowejciowjcewio /n iuweecuiewiuceuiweh/n '
 var ref = " <a onclick='showSource()'>1</a> "
 opinioncontent = opinioncontent.slice(0, 3) + ref + opinioncontent.slice(3);
 var posttime= document.createElement('span');
-posttime.innerHTML='Posted 30/7 12:30';
+posttime.innerHTML='Posted 30/7 12:30 <br> ';
 posttime.setAttribute('class','time-right');
 content.setAttribute('class','containertype pro');
 
@@ -961,11 +1034,11 @@ document.getElementById("argut").appendChild(content);
 var content2= document.createElement("DIV");
 
 var opinion= document.createElement("P");
-var opinioncontent='gfghghgheuiweh/n'
+var opinioncontent='gfghghgheuiweh '
 var ref = " <a onclick='showSource()'>2</a> "
 opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(8);
 var posttime= document.createElement('span');
-posttime.innerHTML='Edited 25/6 12:14';
+posttime.innerHTML='Edited 25/6 12:14 <br> ';
 posttime.setAttribute('class','time-left');
 content2.setAttribute('class','containertype con');
 
@@ -981,6 +1054,39 @@ document.getElementById("argut").appendChild(content2);
 }
 }
 
+function Question()
+{
+var modal = document.getElementById("Question");
+if (modal.style.display == "block")
+ modal.style.display = "none";
+else
+ modal.style.display = "block";
+ var span = document.getElementsByClassName("close");
+ for (var i = 0; i < span.length; ++i) {
+span[i].onclick = function() {
+  modal.style.display = "none";
+ 
+}
+}
+//$('#Question').modal().hide();
+}
+
+function AddArgu()
+{
+var modal = document.getElementById("AddArgu");
+if (modal.style.display == "block")
+ modal.style.display = "none";
+else
+ modal.style.display = "block";
+ var span = document.getElementsByClassName("close");
+ for (var i = 0; i < span.length; ++i) {
+span[i].onclick = function() {
+  modal.style.display = "none";
+ 
+}
+}
+}
+//$('#AddArgu').modal().hide();
 </script>
 </html>
 
