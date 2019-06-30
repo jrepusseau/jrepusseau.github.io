@@ -479,8 +479,8 @@ var request = new XMLHttpRequest();
 
 
 
-var hospitallng=  '120.964790'; //'126.909769';
-var hospitallat= '24.798140'; //'37.523164';
+var hospitallng=  '126.909769'; //'120.964790'; 
+var hospitallat= '37.523164'; //'24.798140'; 
 
 
 var geocoder = L.Control.Geocoder.nominatim(),
@@ -489,12 +489,12 @@ var geocoder = L.Control.Geocoder.nominatim(),
         });
        
 // Matching with the closest hospital or receive notification from the hospital
- geocoder.reverse(e,mymap.getZoom()*20, function(results) {
+ /*geocoder.reverse(e,mymap.getZoom()*20, function(results) {
           var r = results[0];
 		  if (r.name=='South Korea')
-		  { hospitallng=  '126.909769'; hospitallat= '37.523164';}
+		  { alert('fine'); hospitallng=  '126.909769'; hospitallat= '37.523164';}
 		 
-         });
+         });*/
 
 
 var string= "https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf624879ebfcdd06524b60bd41133c5aa01fb1&start="+hospitallng+","+hospitallat+"&end="+e.lng+","+e.lat;

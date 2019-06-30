@@ -488,7 +488,7 @@ var hottopic;
 
  var subjecten=[
 'Does the actual political system in China democratic?',
-'Is Hongkong should be rulling by "one country, two systems"?',
+"Is Hongkong should be rulling by 'one country, two systems'?",
 'Is Taiwan an independent country?',
 'Should abortion be legalized ?'
 ];
@@ -616,6 +616,14 @@ var argabortion=[ "Women have the right to choose what to do with their body",
 	 "Abortion is a business ",
 	 "Abortion can result in medical complications and psychological trauma for women",
 	 "Abortion reduces the number of babies available for adoption"];
+
+var arghk=["'Two systems' make Hongkong the most prosperous and the most free part of China",
+" Basic Law open HongKong to self-determinism",
+" China have a major influence on the political power: 'one country, 1.5 systems' ",
+" Kidnapping of Gui Minhai and others publishers endanger Hongkongese freedom of speech",
+" Misinformation campaign and attack on social network concerning strikes contestation are lead by China"]
+
+
 	 
 	 
 	 
@@ -665,6 +673,8 @@ node.appendChild(para);
  }
  
  if (document.getElementById(id).children[0].innerHTML=='Should abortion be legalized ?')
+ arg=shuffle(argabortion);
+ if (document.getElementById(id).children[0].innerHTML=="Is Hongkong should be rulling by 'one country, two systems'")
  arg=shuffle(argabortion);
  else
  arg='';
