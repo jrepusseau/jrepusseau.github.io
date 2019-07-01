@@ -632,7 +632,12 @@ var arghk=["'Two systems' make Hongkong the most prosperous and the most free pa
 "Kidnapping of Gui Minhai and others publishers endanger Hongkongese freedom of speech",
 "Misinformation campaign and attack on social network concerning strikes contestation are lead by China"]
 
-
+var argtw=["Taiwan has is own sovereignity",
+"25 countries recognize Taiwan as an independant country",
+"Some political power are hold by Chinese power",
+"Han Kuo-yu powered financed by China threath Taiwan independance",
+"Taiwan doesn't have international boundaries",
+"Mainland China has approved anti-cession law blocking Taiwan independance"]
 	 
 	 
 	 
@@ -681,13 +686,20 @@ node.appendChild(para);
 //document.getElementById("debatetitle").appendChild(node); We stop using debatetitle
  }
  
- if (document.getElementById(id).children[0].innerHTML=='Should abortion be legalized ?')
- arg=shuffle(argabortion);
- if (document.getElementById(id).children[0].innerHTML=="Is Hongkong should be rulling by 'one country, two systems'?")
- arg=shuffle(arghk);
- else
- arg='';
  
+ switch(document.getElementById(id).children[0].innerHTML) {
+  case 'Should abortion be legalized ?':
+   arg=shuffle(argabortion);
+    break;
+  case "Is Hongkong should be rulling by 'one country, two systems'?":
+     arg=shuffle(arghk);
+    break;
+  case "Is Taiwan an independent country?":
+       arg=shuffle(argtw);
+	break;
+  default:
+    arg='';
+} 
  
  for (i = 0; i < arg.length; i++) {  
  var node = document.createElement("DIV");  
