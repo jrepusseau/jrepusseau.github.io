@@ -243,6 +243,17 @@ background-image: url("back.png");
   color: black;
 }
 
+input[type=text] {
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 80%;
+}
+
   </style>
 </head>
 <body>
@@ -285,7 +296,7 @@ background-image: url("back.png");
 	
    <span class="close" onclick="hideSource()">&times;</span>
   </div>
-   <iframe is="x-frame-bypass" src="https://en.wikipedia.org/wiki/Main_Page"  width="100%" frameborder="0px"> Error</iframe> 
+   <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' name='webpage'  width="100%" frameborder="0px"> Error</iframe> 
    <a href="#">import ref</a>
 </div>
 </nav>
@@ -317,10 +328,8 @@ background-image: url("back.png");
 	
 	</br>	
 	
-	 <input type="search" id="site-search" name="q"
-       aria-label="Search through site content">
-
-<button onclick="showSource()">Search</button>
+	  <input type="text" name="search" placeholder="Search.." onkeyup="showResult(this.value)" id='searchtopic'> 
+      <div id="livesearch"></div>
 	
 	
       <h2>Active Topics</h2>
@@ -481,7 +490,7 @@ background-image: url("back.png");
 <script>
 /* affix the 2nd navbar after scroll past first navbar */
 
-alert('2.6')
+//alert('2.6')
 
 var subject;
 var hottopic;
@@ -515,7 +524,7 @@ var info=['95 participants 13 answers','50 participants 12 answers','185 partici
 
 var hottopicen=[
 'Is there segregation between Chinese and Malais in Singapore?',
-'Is North Korea enemy of South Korea?',
+'Is South Korea still in conflict with Japan?',
 'Is Chinese more used than English in Asia?',
 'Should cigarets be banned?',
 'Should we work?',
@@ -524,7 +533,7 @@ var hottopicen=[
  
 var hottopicfr=[
 'Y-a t-il une segregation entre Chinois et Malais a Singapoure',
-'La Coree du Nord est-il ennemi avec la Coree du Sud?',
+'La Coree du Sud est elle toujours en conflit avec le Japon?',
 "Le Chinois est-il plus utilise que l'Anglais en Asie?",
 "Les cigarettes doivent-elles etre bannies?",
 "Devons nous travailler?",
@@ -618,10 +627,10 @@ var argabortion=[ "Women have the right to choose what to do with their body",
 	 "Abortion reduces the number of babies available for adoption"];
 
 var arghk=["'Two systems' make Hongkong the most prosperous and the most free part of China",
-" Basic Law open HongKong to self-determinism",
-" China have a major influence on the political power: 'one country, 1.5 systems' ",
-" Kidnapping of Gui Minhai and others publishers endanger Hongkongese freedom of speech",
-" Misinformation campaign and attack on social network concerning strikes contestation are lead by China"]
+"Basic Law open HongKong to self-determinism",
+"China have a major influence on the political power: 'one country, 1.5 systems' ",
+"Kidnapping of Gui Minhai and others publishers endanger Hongkongese freedom of speech",
+"Misinformation campaign and attack on social network concerning strikes contestation are lead by China"]
 
 
 	 
@@ -674,8 +683,8 @@ node.appendChild(para);
  
  if (document.getElementById(id).children[0].innerHTML=='Should abortion be legalized ?')
  arg=shuffle(argabortion);
- if (document.getElementById(id).children[0].innerHTML=="Is Hongkong should be rulling by 'one country, two systems'")
- arg=shuffle(argabortion);
+ if (document.getElementById(id).children[0].innerHTML=="Is Hongkong should be rulling by 'one country, two systems'?")
+ arg=shuffle(arghk);
  else
  arg='';
  
@@ -857,9 +866,12 @@ var source = document.getElementById("Sources");
 source.style.display = "none";
 }
 
-function showSource()
+function showSource(id)
 {
 var source = document.getElementById("Sources");
+
+//document.getElementById('webpage').setAttribute('src',id);
+document.getElementById('srch').value=id;
 source.setAttribute('style','left:0px');
 source.style.display = "block";
 $('#Sources').affix({
@@ -868,6 +880,7 @@ $('#Sources').affix({
       }
 });
 $('.affix').css('top',$("#arguments").height());
+
 
 }
 
@@ -1027,9 +1040,13 @@ for (var i = 0; i < 4; i++)
 var content= document.createElement("DIV");
 
 var opinion= document.createElement("P");
-var opinioncontent='qwodkowkopqdwkwwwdwpqkwddoqkwpqdk /n iwjcewciowejciowjcewio /n iuweecuiewiuceuiweh/n '
-var ref = " <a onclick='showSource()'>1</a> "
-opinioncontent = opinioncontent.slice(0, 3) + ref + opinioncontent.slice(3);
+if (a.parentElement.children[1].children[0].innerHTML=='Kidnapping of Gui Minhai and others publishers endanger Hongkongese freedom of speech')
+{var opinioncontent='Gui Minhai and severals publishers have been kidnapped becaused of their freedom of speech';
+ var ref = " <a href='https://www.la-croix.com/Monde/Asie-et-Oceanie/Nouvelle-disparition-suspecte-Chine-dun-libraire-suedois-dorigine-hongkongaise-2018-01-23-1200908157/' target='webpage' onclick='showSource(this.href)'>1</a> ";
+ opinioncontent = opinioncontent.slice(0, 90) + ref + opinioncontent.slice(90);}
+if (a.parentElement.children[1].children[0].innerHTML=='Misinformation campaign and attack on social network concerning strikes contestation are lead by China')
+{var opinioncontent='China cyber army use DDOs attack on Telegram', ref = "<a href='https://techcrunch.com/2019/06/12/telegram-faces-ddos-attack-in-china-again/' target='webpage' onclick='showSource(this.href)'>1</a> "
+opinioncontent = opinioncontent.slice(0, 44) + ref + opinioncontent.slice(44);}
 var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 posttime.setAttribute('class','time-right');
@@ -1096,7 +1113,46 @@ span[i].onclick = function() {
 }
 }
 }
-//$('#AddArgu').modal().hide();
+
+function showResult(str) {
+var results=[] ,result='';
+  if (str.length==0) {
+  
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  else{
+       for(var i=0; i<(subjecten.length);i++)
+	   {
+        if(subjecten[i].toLowerCase().indexOf(document.getElementById('searchtopic').value.toLowerCase())!=-1)
+		results.push(subjecten[i]);
+	  }
+	    for(var i=0; i<(hottopicen.length);i++)
+	   {
+        if(hottopicen[i].toLowerCase().indexOf(document.getElementById('searchtopic').value.toLowerCase())!=-1) 
+		results.push(hottopicen[i]);
+	  }
+	   if (results[0])
+	   {
+	      for (var i=0; i<results.length;i++)
+		 {
+		  result+=results[i]+'</br>'
+		 }
+	   document.getElementById("livesearch").innerHTML=result;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+	   }
+	   else
+	   {
+	   document.getElementById("livesearch").innerHTML="";
+       document.getElementById("livesearch").style.border="0px";
+	   }
+	  }
+  results=[];
+  result='';
+ 
+}
+
 </script>
 </html>
 
