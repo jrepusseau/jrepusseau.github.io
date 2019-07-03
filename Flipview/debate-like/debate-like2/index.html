@@ -254,6 +254,22 @@ input[type=text]:focus {
   width: 80%;
 }
 
+.time-right {
+  float: right;
+  color: #aaa;
+    border: 2px solid #dedede;
+	background-color:white;
+	max-width:10%;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+    border: 2px solid #dedede;
+	background-color:white;
+	
+}
+
   </style>
 </head>
 <body>
@@ -1082,11 +1098,19 @@ opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(8);
 var posttime= document.createElement('span');
 posttime.innerHTML='Edited 25/6 12:14 <br> ';
 posttime.setAttribute('class','time-left');
+var input = document.createElement("input");
+input.type = "range";
+input.setAttribute('min', '0');
+input.setAttribute('max', '1');
+input.setAttribute('step', '0.01');
+ input.setAttribute('value', '0.5');
+ input.setAttribute('class','time-right');
+ 
 content2.setAttribute('class','containertype con');
 
 opinion.innerHTML=opinioncontent;
 content2.appendChild(opinion);
-content2.appendChild(posttime);
+content2.appendChild(input);
 
 document.getElementById("argut").appendChild(content2); 
 }
