@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bring my father home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 
+ 
+  
+
+</head>
+<body>
+
+ 
+ <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-md" id="nav1" >
+  <div class="container-fluid" >
+  
+    <ul class="nav nav-tabs" style='text-align: center;'>
+      <li class="active"><a   id="back"></a></li>
+       <li><a class="btn btn-info navbar-btn" href='' id='mainbutton'> Sign-up the petition! </a></li>
+	
+	 <li class="dropdown navbar-right" >
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" ><p id='LN'>LN</p>
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+		<li><a href="#" onclick="init('en')">EN</a></li>
+		<li><a href="#" onclick="init('kr')">KR</a></li>
+          <li><a href="#" onclick="init('cn')">CN</a></li>
+          <li><a href="#" onclick="init('fr')">FR</a></li>
+          <li><a href="#" onclick="init('de')">DE</a></li>
+		  <li><a href="#" onclick="init('sp')">SP</a></li>
+		  <li><a href="#" onclick="init('pt')">PT</a></li>
+		  <li><a href="#" onclick="init('IT')">IT</a></li>
+        </ul>
+      </li>
+      
+	 
+    </ul>
+	
+	
+  </div>
+</nav> 
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom " >
+  
+   <ul class="nav nav-tabs" style='text-align: center;'>
+   <li> <a class="btn btn-info navbar-btn" href='' id='don'> Share </a></li>
+   <li> <a class="btn btn-info navbar-btn" href='' id='don'> Contact </a></li>
+   <li> <a class="btn btn-info navbar-btn" href='' id='don'> Donate </a></li>
+	 </ul>
+
+ 
+</nav> 
+
+ 
+
+ <div class="container" id="directordiv" style='width:100%'>
+
+
+<br>
+<br>
+<br>
+<br>	
+	<h2 id='title'>Bring my father home </h2>
+<img src='appeal.jpg'></img>
+</div>
+
+
+
+
+<script>
+
+
+var contentfr=['Signez la petition!','https://www.change.org/p/appel-aux-consciences-du-21%C3%A8me-si%C3%A8cle-s-il-vous-plait-aidez-moi-%C3%A0-rapatrier-mon-p%C3%A8re-bringmyfatherhome','FR','Ramenez mon pere a la maison']
+var contenten=['Sign-up the petition!','https://www.change.org/p/appealing-to-the-conscience-of-the-21st-century-please-help-repatriate-my-father-bringmyfatherhome','EN','Bring my father home']
+var contentcn=['Prout!','','CN','Prout']
+var content;
+
+init('en');
+
+function init(val)
+{
+if (val=="en")
+content=[...contenten];
+if (val=="cn")
+content=[...contentcn];
+if (val=="fr")
+content=[...contentfr];
+document.getElementById('mainbutton').innerHTML=content[0];
+document.getElementById('mainbutton').setAttribute('href',content[1]);
+document.getElementById('LN').innerHTML=content[2];
+document.getElementById('title').innerHTML=content[3];
+
+
+}
+
+/*           
+	amnesty https://amnesty.or.kr/onlineaction/27845/?fbclid=IwAR1UNwE2acSrHPpM6BRMVaR7gop2WJpKIbTO9hdk6ddUH-KKgDUL6V44VOo
+		https://amnesty.or.kr/onlineaction/27845/?fbclid=IwAR1UNwE2acSrHPpM6BRMVaR7gop2WJpKIbTO9hdk6ddUH-KKgDUL6V44VOo
+		
+	change en https://www.change.org/p/appealing-to-the-conscience-of-the-21st-century-please-help-repatriate-my-father-bringmyfatherhome
+change kr https://www.change.org/p/21%EC%84%B8%EA%B8%B0-%EC%A7%80%EC%84%B1%EA%B3%BC-%EC%96%91%EC%8B%AC%EC%9D%B4%EC%97%AC-%EA%B9%A8%EC%96%B4-%EC%9D%BC%EC%96%B4%EB%82%98-%EB%82%B4-%EC%95%84%EB%B2%84%EC%A7%80%EB%A5%BC-%EC%86%A1%ED%99%98%ED%95%98%EC%97%AC-%EC%A3%BC%EC%86%8C%EC%84%9C-bringmyfatherhome
+change de https://www.change.org/p/appell-an-das-bewusstsein-im-21-jahrhundert-bitte-helfen-sie-meinen-vater-zur%C3%BCckzuholen-bringmyfatherhome
+change sp https://www.change.org/p/apelando-a-la-conciencia-del-siglo-xxi-por-favor-ay%C3%BAdenme-a-repatriar-a-mi-padre-bringmyfatherhome
+change fr https://www.change.org/p/appel-aux-consciences-du-21%C3%A8me-si%C3%A8cle-s-il-vous-plait-aidez-moi-%C3%A0-rapatrier-mon-p%C3%A8re-bringmyfatherhome
+change pt https://www.change.org/p/apelo-%C3%A0-consci%C3%AAncia-do-s%C3%A9culo-xxi-por-favor-ajude-a-repatriar-meu-pai-bringmyfatherhome
+change it https://www.change.org/p/appello-alle-coscienze-del-xxi-secolo-per-favore-aiutatemi-a-rimpatriare-mio-padre-bringmyfatherhome
+*/
+
+ 
+
+</script>
+
+</body>
+
+</html>
+
+
+
+

@@ -1,99 +1,18 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charset="utf-8">
+	<title>Spiritopia</title>
+</head>
 <body>
- 
-<button onclick="getLocation()">Your coordinates are:</button>
- 
-<p id="Test"></p>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
-  
-<script>
-
-var x = document.getElementById("Test");
-var ipx
-var latitude
-var longitude 
-
-function getLocation() {
-    //Check if Geolocation is supported 
-	//getIPAddress();
-    if (navigator.geolocation) {
-      //the watchposition() method show the position of the user and update it while is moving
-        navigator.geolocation.getCurrentPosition(useposition, useIPposition);
-    } else { 
-      //If not, display a message to the user
-      useIPposition();
-    }
-	//Drawippoint();
-	
-}
-//The showPosition() function outputs the Latitude and Longitude
-function useposition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-
-function showError(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation."
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred."
-      break;
-  }
-}
-
-function useIPposition(){
-alert("start");
-$.getJSON("http://ip-api.com/json/", function (dete) {
-iplatitude=dete.lat;
-iplongitude=dete.lon;
-alert("Your location is " + dete.lat + ";" + dete.lon);
-		 });};
-    
-
-function Drawippoint(){
-var point = new Point({
-        longitude: iplongitude,
-        latitude: iplongitude,
-      });
-
-      // Create a symbol for drawing the point
-      var markerSymbol = new SimpleMarkerSymbol({
-        color: [226, 119, 40],
-        outline: {
-          color: [255, 255, 255],
-          width: 1
-        }
-      });
-
-      // Create a graphic and add the geometry and symbol to it
-      var pointGraphic = new Graphic({
-        geometry: point,
-        symbol: markerSymbol
-      });
-
-      // Add the graphic to the view
-      view.graphics.add(pointGraphic); }
-	  
-
+	<h1>Ingrid Joy </h1>
+	<h2>is</h2>
+	<h3>a </h3>
+	<h4>real </h4>
+	<h5>puppy </h5>
+	<h5>lover!</h5>
+	<p><a href="http://www.htmldog.com/examples/"><img src="http://www.htmldog.com/badge1.gif" alt="HTML Dog"></a></p>
 
 	
-
-
-</script>
- 
-</body>
+	</body>
 </html>
-
-
-<script type="text/javascript">
-   
-  </script>
