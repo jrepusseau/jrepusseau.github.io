@@ -8,6 +8,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
  
+ <style>
+ h2{
+ color:#11abe2;
+ }
+ </style>
  
   
 
@@ -15,25 +20,25 @@
 <body>
 
  
- <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-md" id="nav1" >
+ <nav class="navbar  navbar-fixed-top navbar-expand-md" id="nav1" >
   <div class="container-fluid" >
   
     <ul class="nav nav-tabs" style='text-align: center;'>
       <li class="active"><a   id="back"></a></li>
        <li><a class="btn btn-info navbar-btn" href='' id='mainbutton'> Sign-up the petition! </a></li>
 	
-	 <li class="dropdown navbar-right" >
+	 <li class="dropdown" >
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" ><p id='LN'>LN</p>
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-		<li><a href="#" onclick="init('en')">EN</a></li>
-		<li><a href="#" onclick="init('kr')">KR</a></li>
-          <li><a href="#" onclick="init('cn')">CN</a></li>
-          <li><a href="#" onclick="init('fr')">FR</a></li>
-          <li><a href="#" onclick="init('de')">DE</a></li>
-		  <li><a href="#" onclick="init('sp')">SP</a></li>
-		  <li><a href="#" onclick="init('pt')">PT</a></li>
-		  <li><a href="#" onclick="init('IT')">IT</a></li>
+		<li><a href="#" onclick="init('en')">English</a></li>
+		<li><a href="#" onclick="init('kr')">한국</a></li>
+          <li><a href="#" onclick="init('cn')">中文</a></li>
+          <li><a href="#" onclick="init('fr')">Francais</a></li>
+          <li><a href="#" onclick="init('de')">Deutch</a></li>
+		  <li><a href="#" onclick="init('sp')">Espanol</a></li>
+		  <li><a href="#" onclick="init('pt')">Portuguais</a></li>
+		  <li><a href="#" onclick="init('IT')">Italian</a></li>
         </ul>
       </li>
       
@@ -44,9 +49,9 @@
   </div>
 </nav> 
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom " >
+<nav class="navbar  navbar-fixed-bottom " >
   
-   <ul class="nav nav-tabs" style='text-align: center;'>
+   <ul class="nav nav-tabs" style='text-align: center;left:30%; position:absolute'>
    <li> <a class="btn btn-info navbar-btn" href='' id='don'> Share </a></li>
    <li> <a class="btn btn-info navbar-btn" href='' id='don'> Contact </a></li>
    <li> <a class="btn btn-info navbar-btn" href='' id='don'> Donate </a></li>
@@ -64,7 +69,7 @@
 <br>
 <br>
 <br>	
-	<h2 id='title'>Bring my father home </h2>
+	<h2 id='title' >Bring my father home </h2>
 <img src='appeal.jpg'></img>
 </div>
 
@@ -74,9 +79,9 @@
 <script>
 
 
-var contentfr=['Signez la petition!','https://www.change.org/p/appel-aux-consciences-du-21%C3%A8me-si%C3%A8cle-s-il-vous-plait-aidez-moi-%C3%A0-rapatrier-mon-p%C3%A8re-bringmyfatherhome','FR','Ramenez mon pere a la maison']
-var contenten=['Sign-up the petition!','https://www.change.org/p/appealing-to-the-conscience-of-the-21st-century-please-help-repatriate-my-father-bringmyfatherhome','EN','Bring my father home']
-var contentcn=['Prout!','','CN','Prout']
+var contentfr=['Signez la petition!','https://www.change.org/p/appel-aux-consciences-du-21%C3%A8me-si%C3%A8cle-s-il-vous-plait-aidez-moi-%C3%A0-rapatrier-mon-p%C3%A8re-bringmyfatherhome','Francais','Ramenez mon pere a la maison']
+var contenten=['Sign-up the petition!','https://www.change.org/p/appealing-to-the-conscience-of-the-21st-century-please-help-repatriate-my-father-bringmyfatherhome','English','Bring my father home']
+var contentcn=['pop','','中文','pop']
 var content;
 
 init('en');
