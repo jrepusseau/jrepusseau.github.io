@@ -7,11 +7,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
  
  <style>
  h2{
  color:#11abe2;
  }
+
+body
+{
+background-color:black;
+//background-image: url("gifbmfh.gif");
+background-repeat: no-repeat;
+}
  </style>
  
   
@@ -23,7 +32,7 @@
  <nav class="navbar  navbar-fixed-top navbar-expand-md" id="nav1" >
   <div class="container-fluid" >
   
-    <ul class="nav nav-tabs" style='text-align: center;'>
+    <ul class="nav nav-tabs" style='margin:0 auto;width:40%;'>
       <li class="active"><a   id="back"></a></li>
        <li><a class="btn btn-info navbar-btn" href='' id='mainbutton'> Sign-up the petition! </a></li>
 	
@@ -51,10 +60,10 @@
 
 <nav class="navbar  navbar-fixed-bottom " >
   
-   <ul class="nav nav-tabs" style='text-align: center;left:30%; position:absolute'>
-   <li> <a class="btn btn-info navbar-btn" href='' id='don'> Share </a></li>
-   <li> <a class="btn btn-info navbar-btn" href='' id='don'> Contact </a></li>
-   <li> <a class="btn btn-info navbar-btn" href='' id='don'> Donate </a></li>
+   <ul class="nav nav-tabs" style=' margin: auto;width:30%'>
+   <li> <button class="btn btn-info navbar-btn" href='' data-toggle="modal" data-target="#share"> Share <span class="glyphicon glyphicon-thumbs-up"> </button></li>
+   <li> <button class="btn btn-info navbar-btn" href='' data-toggle="modal" data-target="#contact"> Contact <span class="glyphicon glyphicon-send"></span></button></li>
+   <li> <a class="btn btn-info navbar-btn" href='https://give.lovetnkr.com/en/KAL1969' id='don'> Donate <span class="glyphicon glyphicon-heart-empty"></span></a></li>
 	 </ul>
 
  
@@ -70,18 +79,126 @@
 <br>
 <br>	
 	<h2 id='title' >Bring my father home </h2>
-<img src='appeal.jpg'></img>
+	
+	<img src='picture1.jpg' style='margin:0 auto' />
 </div>
 
 
 
 
+
+<div id="contact" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">×</button>
+<h4 class="modal-title">Contact Us</h4>
+</div>
+<div class="modal-body">
+
+        <form role="form" method="post" id="reused_form">
+        <p>
+            Contact Mr. Hwang:	friendsofhwang@gmail.com
+        </p>
+
+        <div class="form-group">
+            <label for="name">
+                Name:</label>
+            <input type="text" class="form-control"
+            id="name" name="name"   required maxlength="50" placeholder='Your name :-)'>
+
+        </div>
+        <div class="form-group">
+            <label for="email">
+                Email:</label>
+            <input type="email" class="form-control"
+            id="email" name="email" required maxlength="50" placeholder='Your email'>
+        </div>
+        <div class="form-group">
+            <label for="name">
+                Message:</label>
+            <textarea class="form-control" type="textarea" name="message"
+            id="message" placeholder="Your Message Here"
+            maxlength="6000" rows="7"></textarea>
+        </div>
+        <button type="submit" class="btn btn-lg btn-info btn-block" id="btnContactUs">Send it <span class="glyphicon glyphicon-send"></span> </button>
+
+    </form>
+    <div id="success_message" style="width:100%; height:100%; display:none; ">
+        <h3>Sent your message successfully!</h3>
+    </div>
+    <div id="error_message"
+    style="width:100%; height:100%; display:none; ">
+        <h3>Error</h3>
+        Sorry there was an error sending your form.
+
+    </div>
+</div>
+
+</div>
+
+ </div>
+</div>
+
+
+
+
+<div id="share" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">×</button>
+<h4 class="modal-title">Share our content</h4>
+</div>
+<!--Facebook-->
+<a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
+<!--Twitter-->
+<a class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fab fa-twitter"></i></a>
+<!--Google +-->
+<a class="btn-floating btn-lg btn-gplus" type="button" role="button"><i class="fab fa-google-plus-g"></i></a>
+<!--Linkedin-->
+<a class="btn-floating btn-lg btn-li" type="button" role="button"><i class="fab fa-linkedin-in"></i></a>
+<!--Instagram-->
+<a class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fab fa-instagram"></i></a>
+<!--Pinterest-->
+<a class="btn-floating btn-lg btn-pin" type="button" role="button"><i class="fab fa-pinterest"></i></a>
+<!--Vkontakte-->
+<a class="btn-floating btn-lg btn-vk" type="button" role="button"><i class="fab fa-vk"></i></a>
+<!--Stack Overflow-->
+<a class="btn-floating btn-lg btn-so" type="button" role="button"><i class="fab fa-stack-overflow"></i></a>
+<!--Youtube-->
+<a class="btn-floating btn-lg btn-yt" type="button" role="button"><i class="fab fa-youtube"></i></a>
+<!--Slack-->
+<a class="btn-floating btn-lg btn-slack" type="button" role="button"><i class="fab fa-slack-hash"></i></a>
+<!--Github-->
+<a class="btn-floating btn-lg btn-git" type="button" role="button"><i class="fab fa-github"></i></a>
+<!--Comments-->
+<a class="btn-floating btn-lg btn-comm" type="button" role="button"><i class="fas fa-comments"></i></a>
+<!--Email-->
+<a class="btn-floating btn-lg btn-email" type="button" role="button"><i class="fas fa-envelope"></i></a>
+<!--Dribbble-->
+<a class="btn-floating btn-lg btn-dribbble" type="button" role="button"><i class="fab fa-dribbble"></i></a>
+<!--Reddit-->
+<a class="btn-floating btn-lg btn-reddit" type="button" role="button"><i class="fab fa-reddit-alien"></i></a>
+</div>
+
+</div>
+
+ </div>
+</div>
+
+
 <script>
 
 
-var contentfr=['Signez la petition!','https://www.change.org/p/appel-aux-consciences-du-21%C3%A8me-si%C3%A8cle-s-il-vous-plait-aidez-moi-%C3%A0-rapatrier-mon-p%C3%A8re-bringmyfatherhome','Francais','Ramenez mon pere a la maison']
-var contenten=['Sign-up the petition!','https://www.change.org/p/appealing-to-the-conscience-of-the-21st-century-please-help-repatriate-my-father-bringmyfatherhome','English','Bring my father home']
+var contentfr=['Signez la petition','https://www.change.org/p/appel-aux-consciences-du-21%C3%A8me-si%C3%A8cle-s-il-vous-plait-aidez-moi-%C3%A0-rapatrier-mon-p%C3%A8re-bringmyfatherhome','Francais','Ramenez mon pere a la maison']
+var contenten=['Sign the petition','https://www.change.org/p/appealing-to-the-conscience-of-the-21st-century-please-help-repatriate-my-father-bringmyfatherhome','English','Bring my father home']
 var contentcn=['pop','','中文','pop']
+var contentkr=['','','한국','우리 아버지를 돌려주세요']
 var content;
 
 init('en');
@@ -94,9 +211,11 @@ if (val=="cn")
 content=[...contentcn];
 if (val=="fr")
 content=[...contentfr];
-document.getElementById('mainbutton').innerHTML=content[0];
+if (val=="kr")
+content=[...contentkr];
+document.getElementById('mainbutton').innerHTML=content[0] + " <span class='glyphicon glyphicon-pencil' ></span>";
 document.getElementById('mainbutton').setAttribute('href',content[1]);
-document.getElementById('LN').innerHTML=content[2];
+document.getElementById('LN').innerHTML=content[2]+" <span class='glyphicon glyphicon-globe' ></span>";
 document.getElementById('title').innerHTML=content[3];
 
 
