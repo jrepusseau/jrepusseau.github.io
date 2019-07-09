@@ -260,6 +260,7 @@ input[type=text]:focus {
     border: 2px solid #dedede;
 	background-color:white;
 	max-width:10%;
+
 }
 
 .time-left {
@@ -268,6 +269,26 @@ input[type=text]:focus {
     border: 2px solid #dedede;
 	background-color:white;
 	
+}
+
+input[orient=vertical] {
+    -webkit-appearance: none;
+    background-color: white;
+    width: 20px;
+    height: 60px;
+		margin-left:8px;
+}
+
+input[orient="vertical"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #666;
+    opacity: 0.5;
+    width: 10px;
+    height: 26px;
+}
+
+.textop {
+    width: 100%;
 }
 
   </style>
@@ -1089,30 +1110,81 @@ content.appendChild(posttime);
 
 document.getElementById("argut").appendChild(content); 
 
-var content2= document.createElement("DIV");
+var contentm= document.createElement("DIV");
+//contentm.setAttribute("style", "display:inline-block");
+contentm.setAttribute('class','containertype con');
 
-var opinion= document.createElement("P");
-var opinioncontent='gfghghgheuiweh '
+var content2= document.createElement("DIV");
+content2.setAttribute('class','flex-container');
+content2.setAttribute("id", "middleDiv");
+content2.setAttribute("style", "display:inline-block");
+
+var content3= document.createElement("DIV");
+content3.setAttribute("style", "display:inline-block");
+content3.setAttribute("id", "rightDiv");
+
+//
+var opinion= document.createElement("span");
+
+var opinioncontent='gfghghgheuiwehooooooooooooooooooo ooooooooo oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo'
 var ref = " <a onclick='showSource()'>2</a> "
 opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(8);
 var posttime= document.createElement('span');
 posttime.innerHTML='Edited 25/6 12:14 <br> ';
 posttime.setAttribute('class','time-left');
+
+
 var input = document.createElement("input");
 input.type = "range";
 input.setAttribute('min', '0');
 input.setAttribute('max', '1');
 input.setAttribute('step', '0.01');
  input.setAttribute('value', '0.5');
- input.setAttribute('class','time-right');
+ input.setAttribute('orient','vertical');
+ input.setAttribute('id', 'source');
+input.setAttribute('class','time-right');
  
-content2.setAttribute('class','containertype con');
+
 
 opinion.innerHTML=opinioncontent;
 content2.appendChild(opinion);
-content2.appendChild(input);
+content3.appendChild(input);
+input.setAttribute('id', 'logic');
 
-document.getElementById("argut").appendChild(content2); 
+$('span').bind('dblclick', function() {
+        $(this).attr('contentEditable', true);
+		 document.execCommand('styleWithCSS', false, true);
+    document.execCommand('foreColor', false, "#f00");
+	this.parentElement.parentElement.children[1].children[3].style.display='block';
+    }).blur(
+        function() {
+            $(this).attr('contentEditable', false);
+        });
+
+
+var input2=input.cloneNode(true);
+content3.appendChild(input2);
+input.setAttribute('id', 'grammar');
+var input3=input.cloneNode(true);
+content3.appendChild(input3);
+var btnn = document.createElement("button")
+ //btnn.setAttribute('onclick', 'edittxt');
+ btnn.innerHTML='submit change';
+ btnn.id='btnn';
+ btnn.style.display='none';
+btnn.setAttribute('class','time-right');
+//this.parentElement.parentElement.children[0].
+ content3.appendChild(btnn);
+contentm.appendChild(content2);
+contentm.appendChild(content3);
+document.getElementById("argut").appendChild(contentm); 
+
+/*
+Get cursor position
+https://api.jquery.com/position/
+Draw line between point 
+https://stackoverflow.com/questions/20969434/drawing-line-in-a-div-with-javascript
+*/
 }
 
   showtextwriter();
