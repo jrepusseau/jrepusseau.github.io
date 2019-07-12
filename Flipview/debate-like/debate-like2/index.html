@@ -190,6 +190,13 @@ position:relative;
 text-align:center;
 }
 
+
+.rightDivopi{
+width:25%;
+position:relative;
+text-align:center;
+}
+
 #middleDiv{
 width:70%;
 position:relative;
@@ -335,6 +342,18 @@ input[orient="vertical"]::-moz-range-thumb {
 	  border-right: 6px solid red;
  }
 
+.sidenav {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  right: 5px;
+  text-align:right;
+  background: transparent;
+  overflow-x: hidden;
+  padding: 8px 0;
+  display:none;
+}
+
   </style>
 </head>
 <body>
@@ -395,7 +414,14 @@ input[orient="vertical"]::-moz-range-thumb {
  
 </nav> 
 
- 
+<div class="sidenav" id='notationtool' style='display:none;background-color: transparent;'>
+	<a href="#about" style='background-color:white;'>Ge</a><br>
+  <a href="#services" style='background-color:green;'>WW</a><br>
+  <a href="#clients"  style='background-color:yellow;'>Lo</a><br>
+  <a href="#contact" style='background-color:red;'>Tr</a><br>
+  </div>
+
+  
 
  <div class="container" id="directordiv" style='width:100%'>
 
@@ -544,7 +570,7 @@ input[orient="vertical"]::-moz-range-thumb {
 	   <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
 		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
 		
-		<h5> Art is a good example of third opinion cause you can nat the same time dislike a part of an art but fall in love of one element </h5>
+		<h5> Art is a good example of third opinion cause you can, at the same time, dislike a part of an art but fall in love of one element </h5>
 	  </div>
 	  
 	  
@@ -981,6 +1007,9 @@ $('.affix').css('top',$("#arguments").height());
 }
 
 
+
+
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -1165,7 +1194,7 @@ content2.setAttribute("style", "display:inline-block");
 
 var content3= document.createElement("DIV");
 content3.setAttribute("style", "display:inline-block");
-content3.setAttribute("id", "rightDiv");
+content3.setAttribute("class", "rightDivopi");
 
 //
 var opinion= document.createElement("span");
@@ -1183,7 +1212,7 @@ opinion.innerHTML=opinioncontent;
 content2.appendChild(opinion);
 
 
-
+//editable content
 $('span').bind('dblclick', function() {
         $(this).attr('contentEditable', true);
 		 document.execCommand('styleWithCSS', false, true);
@@ -1194,8 +1223,11 @@ $('span').bind('dblclick', function() {
             $(this).attr('contentEditable', false);
         });
 
-
-var btnn = document.createElement("button")
+contentm.appendChild(content2);
+		
+		//Notation with button 
+		
+/*var btnn = document.createElement("button")
  //btnn.setAttribute('onclick', 'edittxt');
  btnn.innerHTML='submit change';
  btnn.id='btnn';
@@ -1203,16 +1235,22 @@ var btnn = document.createElement("button")
 btnn.setAttribute('class','time-right');
 //this.parentElement.parentElement.children[0].
  content3.appendChild(btnn);
-contentm.appendChild(content2);
+;
 
 
 var btng = document.createElement("button")
 btng.innerHTML='G';
 btng.setAttribute('class','but');
 btng.setAttribute('onclick','changeclass(this)');
-content3.appendChild(btng);
+content3.appendChild(btng);*/
+/*document.getElementById('notationtool').style.display='block';
+$(".rightDivopi").append($( "#notationtool" ));
+
 
 contentm.appendChild(content3);
+*/
+
+
 document.getElementById("argut").appendChild(contentm); 
 /*
 Get cursor position
@@ -1221,7 +1259,7 @@ Draw line between point
 https://stackoverflow.com/questions/20969434/drawing-line-in-a-div-with-javascript
 */
 }
-
+document.getElementById('notationtool').style.display='block';
   showtextwriter();
   
 }
