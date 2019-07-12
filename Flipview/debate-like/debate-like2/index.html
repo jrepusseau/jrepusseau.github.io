@@ -273,7 +273,8 @@ input[type=text]:focus {
 
 input[orient=vertical] {
     -webkit-appearance: none;
-    background-color: white;
+	appearance:none;
+  //  background-color: red;
     width: 20px;
     height: 60px;
 		margin-left:8px;
@@ -281,15 +282,58 @@ input[orient=vertical] {
 
 input[orient="vertical"]::-webkit-slider-thumb {
      -webkit-appearance: none;
-    background-color: #666;
-    opacity: 0.5;
-    width: 10px;
-    height: 26px;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url('p.png');
+  cursor: pointer;
 }
+
+input[orient="vertical"]::-moz-range-thumb {
+  width: 23px;
+  height: 25px;
+  border: 0;
+  background: url('p.png');
+  cursor: pointer;
+}
+
+
 
 .textop {
     width: 100%;
 }
+
+.but{
+ border-radius: 12px;
+ color:red;
+ }
+ 
+ .but1
+ {
+ border-top: 6px solid red;
+ }
+ 
+ .but2
+ {
+ border-top: 6px solid red;
+  border-right: 6px solid red;
+ }
+ 
+ .but3
+ {
+ border-top: 6px solid red;
+  border-right: 6px solid red;
+  border-bottom: 6px solid red;
+ }
+ 
+ .but4
+ {
+ border-top: 6px solid red;
+  border-left: 6px solid red;
+    border-bottom: 6px solid red;
+	  border-right: 6px solid red;
+ }
 
   </style>
 </head>
@@ -1134,22 +1178,11 @@ posttime.innerHTML='Edited 25/6 12:14 <br> ';
 posttime.setAttribute('class','time-left');
 
 
-var input = document.createElement("input");
-input.type = "range";
-input.setAttribute('min', '0');
-input.setAttribute('max', '1');
-input.setAttribute('step', '0.01');
- input.setAttribute('value', '0.5');
- input.setAttribute('orient','vertical');
- input.setAttribute('id', 'source');
-input.setAttribute('class','time-right');
- 
-
 
 opinion.innerHTML=opinioncontent;
 content2.appendChild(opinion);
-content3.appendChild(input);
-input.setAttribute('id', 'logic');
+
+
 
 $('span').bind('dblclick', function() {
         $(this).attr('contentEditable', true);
@@ -1162,11 +1195,6 @@ $('span').bind('dblclick', function() {
         });
 
 
-var input2=input.cloneNode(true);
-content3.appendChild(input2);
-input.setAttribute('id', 'grammar');
-var input3=input.cloneNode(true);
-content3.appendChild(input3);
 var btnn = document.createElement("button")
  //btnn.setAttribute('onclick', 'edittxt');
  btnn.innerHTML='submit change';
@@ -1176,9 +1204,16 @@ btnn.setAttribute('class','time-right');
 //this.parentElement.parentElement.children[0].
  content3.appendChild(btnn);
 contentm.appendChild(content2);
+
+
+var btng = document.createElement("button")
+btng.innerHTML='G';
+btng.setAttribute('class','but');
+btng.setAttribute('onclick','changeclass(this)');
+content3.appendChild(btng);
+
 contentm.appendChild(content3);
 document.getElementById("argut").appendChild(contentm); 
-
 /*
 Get cursor position
 https://api.jquery.com/position/
@@ -1264,6 +1299,30 @@ var results=[] ,result='';
  
 }
 
+function changeclass(t)
+{
+
+
+ switch(t.className) {
+  case 'but':
+   t.setAttribute('class','but but1');
+    break;
+  case 'but but1':
+     t.setAttribute('class','but but2');
+    break;
+  case 'but but2':
+       t.setAttribute('class','but but3');
+	   break;
+     case 'but but3':
+       t.setAttribute('class','but but4');
+	   break;
+	    case 'but but4':
+       t.setAttribute('class','but');
+	   break;
+  default:
+	
+}
+}
 </script>
 </html>
 
