@@ -221,6 +221,10 @@ background-image: url("back.png");
 }
 
 
+
+
+
+
 .con {
   border-color: RGBA(0, 191, 255, 1);
   background-color: white ;
@@ -278,7 +282,7 @@ input[type=text]:focus {
 	
 }
 
-input[orient=vertical] {
+input[orient="vertical"] {
     -webkit-appearance: none;
 	appearance:none;
   //  background-color: red;
@@ -305,6 +309,16 @@ input[orient="vertical"]::-moz-range-thumb {
   cursor: pointer;
 }
 
+.o
+{
+    -webkit-appearance: none;
+	appearance:none;
+   background-image: linear-gradient(to right, red,orange,white,white,rgba(0,255,0,0.1),rgba(0,255,0,0.5),green); 
+    height: 20px;
+}
+
+
+
 
 
 .textop {
@@ -314,7 +328,6 @@ input[orient="vertical"]::-moz-range-thumb {
 .but{
  border-radius: 2px;
  color:red;
- float: right;
  }
  
  .but1
@@ -805,6 +818,7 @@ node.appendChild(para);
     break;
   case "Is Taiwan an independent country?":
        arg=shuffle(argtw);
+	   break;
     case "Is South Korea still in conflict with Japan?":
        arg=shuffle(argkr);
 	break;
@@ -832,12 +846,12 @@ li1.setAttribute("onclick","toggleArgu(this)");
  var input = document.createElement("input");
 input.type = "range";
 input.setAttribute('min', '0');
-input.setAttribute('max', '1');
-input.setAttribute('step', '0.01');
- input.setAttribute('value', '0.5');
+input.setAttribute('max', '100');
+input.setAttribute('step', '1');
+ input.setAttribute('value', '50');
 
 input.setAttribute('id', "bayes"+[i]);
-input.setAttribute('onchange', "updateTextInput(this.id,this.value);");
+input.setAttribute('onchange', "updateTextInput(this)");
  var bayesval = document.createElement("P");
  bayesval.setAttribute('style','text-align:center');
  bayesval.innerHTML='0.5';
@@ -1053,10 +1067,16 @@ function makeUL(array) {
     return list;
 }
 
-function updateTextInput(id,val) {
-          document.getElementById(id+"x").innerHTML=val; 
-        }
 
+function updateTextInput(e) {
+e.parentElement.children[0].innerHTML=e.value+'%';
+}
+         // 
+
+function updateNotation(e) {
+e.parentElement.children[1].innerHTML=e.value+'%';
+         // document.getElementById(id+"x").innerHTML=val; 
+        }
 
 // Bootstrap carousel needs to be loaded first
 $('#myCarousel').carousel().swipeCarousel({
@@ -1243,8 +1263,33 @@ var btng = document.createElement("button")
 btng.innerHTML='G';
 btng.setAttribute('class','but');
 btng.setAttribute('onclick','changeclass(this)');
-content2.appendChild(document.createElement("BR"));
-content2.appendChild(btng);
+
+contentm.appendChild(document.createElement("BR"));
+
+
+var ul = document.createElement("UL");
+ul.setAttribute('class','list-inline')
+var li= document.createElement("LI");
+li.setAttribute('class','list-inline-item')
+li.setAttribute('style','text-align:center')
+var input = document.createElement("input");
+input.type = "range";
+input.setAttribute('min', '-100');
+input.setAttribute('max', '100');
+input.setAttribute('step', '1');
+ input.setAttribute('value', '0');
+ input.setAttribute('class', 'o');
+ input.setAttribute('onchange','updateNotation(this)');
+var txt= document.createElement("P");
+var i = document.createTextNode('0%');
+txt.appendChild(i);
+ li.appendChild(input)
+ li.appendChild(txt)
+ul.appendChild(li);
+ul.appendChild(li.cloneNode(true));
+ul.appendChild(li.cloneNode(true));
+
+contentm.appendChild(ul);
 /*document.getElementById('notationtool').style.display='block';
 $(".rightDivopi").append($( "#notationtool" ));
 
@@ -1261,7 +1306,7 @@ Draw line between point
 https://stackoverflow.com/questions/20969434/drawing-line-in-a-div-with-javascript
 */
 }
-document.getElementById('notationtool').style.display='block';
+//document.getElementById('notationtool').style.display='block';
   showtextwriter();
   
 }
