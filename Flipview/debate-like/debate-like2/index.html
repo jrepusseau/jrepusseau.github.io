@@ -8,9 +8,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
    <script src="test.js"></script>
- <script type="module" src="x-frame-bypass.js"></script></script>
-  <script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
- 
+ <script type="module" src="x-frame-bypass.js"></script>
+ <script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.css"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.js"></script>
   
  <script>
 
@@ -254,14 +255,14 @@ background-image: url("back.png");
   color: black;
 }
 
-input[type=text] {
+.serc {
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
 
 /* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
+.serc:focus {
   width: 80%;
 }
 
@@ -309,13 +310,31 @@ input[orient="vertical"]::-moz-range-thumb {
   cursor: pointer;
 }
 
-.o
-{
-    -webkit-appearance: none;
-	appearance:none;
-   background-image: linear-gradient(to right, red,orange,white,white,rgba(0,255,0,0.1),rgba(0,255,0,0.5),green); 
-    height: 20px;
+
+.v::-webkit-slider-thumb {
+     -webkit-appearance: none;
+  appearance: none;
+  background-color:red;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
 }
+/** FF*/
+.v::-moz-range-progress {
+  background-color:green; 
+}
+.v::-moz-range-track {  
+  background-color: #9a905d;
+}
+/* IE*/
+.v::-ms-fill-lower {
+   background-color:green;
+}
+.v::-ms-fill-upper {  
+  background-color: #9a905d;
+}
+
 
 
 
@@ -444,12 +463,14 @@ input[orient="vertical"]::-moz-range-thumb {
 
   </br>
   </br>
+  
+  <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
 	
 	<h2>Research Topics </h2>
 	
 	</br>	
 	
-	  <input type="text" name="search" placeholder="Search.." onkeyup="showResult(this.value)" id='searchtopic'> 
+	  <input type="text" name="search" class='serc' placeholder="Search.." onkeyup="showResult(this.value)" id='searchtopic'> 
       <div id="livesearch"></div>
 	
 	
@@ -1074,8 +1095,30 @@ e.parentElement.children[0].innerHTML=e.value+'%';
          // 
 
 function updateNotation(e) {
-e.parentElement.children[1].innerHTML=e.value+'%';
-         // document.getElementById(id+"x").innerHTML=val; 
+//e.parentElement.children[1].innerHTML=e.value+'%';
+
+ 
+ switch(e.value) {
+  case '0':
+   e.parentElement.children[1].innerHTML='Bad'
+    break;
+  case '1':
+     e.parentElement.children[1].innerHTML='Poor'
+    break;
+  case '2':
+        e.parentElement.children[1].innerHTML='OK'
+	   break;
+    case '3':
+     e.parentElement.children[1].innerHTML='Good'
+	break;
+	  case '4':
+     e.parentElement.children[1].innerHTML='Perfect'
+	break;
+  default:
+} 
+
+ //e.parentElement.children[1].innerHTML=+'%';
+         
         }
 
 // Bootstrap carousel needs to be loaded first
@@ -1220,9 +1263,9 @@ content3.setAttribute("style", "display:inline-block");
 //
 var opinion= document.createElement("span");
 
-var opinioncontent='gfghghgheuiwehooooooooooooooooooo ooooooooo oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo'
+var opinioncontent='gfghghgheuiwehooooooooooooooooooo ooooooooo '
 var ref = " <a onclick='showSource()'>2</a> "
-opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(8);
+opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(5);
 var posttime= document.createElement('span');
 posttime.innerHTML='Edited 25/6 12:14 <br> ';
 posttime.setAttribute('class','time-left');
@@ -1272,16 +1315,36 @@ ul.setAttribute('class','list-inline')
 var li= document.createElement("LI");
 li.setAttribute('class','list-inline-item')
 li.setAttribute('style','text-align:center')
+
+//<input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$100", "$200", "$300", "$400"]'/>
+
 var input = document.createElement("input");
+i/*nput.type="text";
+input.setAttribute('data-provide',"slider");;
+input.setAttribute('data-slider-ticks', '[0,100,200,300,400]');
+input.setAttribute('data-slider-ticks-snap-bounds', '30');
+input.setAttribute('data-slider-ticks-labels', '["Bad","Poor","OK","Good","Perfect"]');*/
+
+
+/*
 input.type = "range";
 input.setAttribute('min', '-100');
 input.setAttribute('max', '100');
 input.setAttribute('step', '1');
  input.setAttribute('value', '0');
  input.setAttribute('class', 'o');
+ input.setAttribute('onchange','updateNotation(this)');*/
+ 
+input.type = "range";
+input.setAttribute('min', '0');
+input.setAttribute('max', '4');
+input.setAttribute('step', '1');
+ input.setAttribute('value', '2');
+ input.setAttribute('class', 'v');
  input.setAttribute('onchange','updateNotation(this)');
+ 
 var txt= document.createElement("P");
-var i = document.createTextNode('0%');
+var i = document.createTextNode('OK');
 txt.appendChild(i);
  li.appendChild(input)
  li.appendChild(txt)
