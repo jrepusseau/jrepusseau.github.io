@@ -151,6 +151,7 @@ background-color:#E8E8E8;
 
 
 
+
 .flex-container {
     
        display: flex;
@@ -343,34 +344,34 @@ input[orient="vertical"]::-moz-range-thumb {
 }
 
 .but{
- border-radius: 2px;
- color:red;
+border-radius: 50%;
+    border: 2px solid white;
  }
  
  .but1
  {
- border-top: 2px solid red;
+ border-top: 2px solid green;
  }
  
  .but2
  {
- border-top: 2px solid red;
-  border-right: 2px solid red;
+ border-top: 2px solid green;
+  border-right: 2px solid green;
  }
  
  .but3
  {
- border-top: 2px solid red;
-  border-right: 2px solid red;
-  border-bottom: 2px solid red;
+ border-top: 2px solid green;
+  border-right: 2px solid green;
+  border-bottom: 2px solid green;
  }
  
  .but4
  {
- border-top: 2px solid red;
-  border-left: 2px solid red;
-    border-bottom: 2px solid red;
-	  border-right: 2px solid red;
+ border-top: 2px solid green;
+  border-left: 2px solid green;
+    border-bottom: 2px solid green;
+	  border-right: 2px solid green;
  }
 
 .sidenav {
@@ -1096,19 +1097,24 @@ function updateNotation(e) {
  
  switch(e.value) {
   case '0':
-   e.parentElement.children[1].innerHTML='Bad'
+   e.parentElement.children[2].innerHTML='Bad';
+   e.parentElement.setAttribute('class','list-inline-item but');
     break;
   case '1':
-     e.parentElement.children[1].innerHTML='Poor'
+     e.parentElement.children[2].innerHTML='Poor';
+	   e.parentElement.setAttribute('class','list-inline-item but but1');
     break;
   case '2':
-        e.parentElement.children[1].innerHTML='OK'
+        e.parentElement.children[2].innerHTML='OK';
+		  e.parentElement.setAttribute('class','list-inline-item but but2');
 	   break;
     case '3':
-     e.parentElement.children[1].innerHTML='Good'
+     e.parentElement.children[2].innerHTML='Good';
+	   e.parentElement.setAttribute('class','list-inline-item but but3');
 	break;
 	  case '4':
-     e.parentElement.children[1].innerHTML='Perfect'
+     e.parentElement.children[2].innerHTML='Perfect';
+	   e.parentElement.setAttribute('class','list-inline-item but but4');
 	break;
   default:
 } 
@@ -1309,7 +1315,7 @@ contentm.appendChild(document.createElement("BR"));
 var ul = document.createElement("UL");
 ul.setAttribute('class','list-inline')
 var li= document.createElement("LI");
-li.setAttribute('class','list-inline-item')
+li.setAttribute('class','list-inline-item but')
 li.setAttribute('style','text-align:center')
 
 //<input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$100", "$200", "$300", "$400"]'/>
@@ -1341,12 +1347,19 @@ input.setAttribute('step', '1');
  input.setAttribute('onchange','updateNotation(this)');
  
 var txt= document.createElement("P");
-var i = document.createTextNode('OK');
+var i = document.createTextNode('Well-Written');
 txt.appendChild(i);
+var txt2= document.createElement("P");
+var i2 = document.createTextNode('OK');
+txt2.appendChild(i2);
+li.appendChild(txt)
  li.appendChild(input)
- li.appendChild(txt)
-ul.appendChild(li);
+ li.appendChild(txt2)
+
 ul.appendChild(li.cloneNode(true));
+li.children[0].innerHTML='Neutrality';
+ul.appendChild(li.cloneNode(true));
+li.children[0].innerHTML='Trustability';
 ul.appendChild(li.cloneNode(true));
 
 contentm.appendChild(ul);
@@ -1449,20 +1462,20 @@ function changeclass(t)
 
 
  switch(t.className) {
-  case 'but':
-   t.setAttribute('class','but but1');
+  case 'list-inline-item but':
+   t.setAttribute('class','list-inline-item but but1');
     break;
-  case 'but but1':
-     t.setAttribute('class','but but2');
+  case 'list-inline-item but but1':
+     t.setAttribute('class','list-inline-item but but2');
     break;
-  case 'but but2':
-       t.setAttribute('class','but but3');
+  case 'list-inline-item but but2':
+       t.setAttribute('class','list-inline-item but but3');
 	   break;
-     case 'but but3':
-       t.setAttribute('class','but but4');
+     case 'list-inline-item but but3':
+       t.setAttribute('class','list-inline-item but but4');
 	   break;
-	    case 'but but4':
-       t.setAttribute('class','but');
+	    case 'list-inline-item but but4':
+       t.setAttribute('class','list-inline-item but');
 	   break;
   default:
 	
