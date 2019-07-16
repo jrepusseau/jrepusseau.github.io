@@ -420,7 +420,7 @@ document.getElementById("menu1").style.display="block";
 }
 
 function init(){
-var poll=['Emergency CASE:8979897','Police CASE:786878687','Haloween party','Delivery 76575676'];
+var poll=['Emergency CASE:8979897','Police CASE:786878687','Halloween party','Delivery 76575676'];
 var status=['list-group-item-danger','list-group-item-danger','','disabled'];
 var creator=['EMS','Police Departement','Vanessa','Amazon'];
  for (i = 0; i < poll.length; i++) {  
@@ -547,10 +547,17 @@ request.send();
    $("#confirm").popover({
         placement: 'bottom',
         html: 'true',
-        title : "<ul class='nav nav-tabs' id='navsurvey'><li class='active'><a data-toggle='tab' href='#menusurvey1' >Style</a></li><li><a href='#menusurvey2' data-toggle='tab' >Contrestyle</a></li></ul>",
-        content : " <div class='tab-content'><div id='menusurvey1' class='tab-pane fade in active'><input type='range'></input></br><input type='button' value='Next' onclick='' ></input></div><div id='menusurvey2' class='tab-pane fade'><p>Yooooooo</p></div></div><div class='btn-group'><button class='btn' id='prevtab' type='button'>Prev</button><button class='btn' id='nexttab' type='button'>Next</button></div>"
-    });
+       // title : "<ul class='nav nav-tabs' id='navsurvey'><li class='active'><a data-toggle='tab' href='#menusurvey1' >Style</a></li><li><a href='#menusurvey2' data-toggle='tab' >Contrestyle</a></li></ul>",
+       // content : " <div class='tab-content'><div id='menusurvey1' class='tab-pane fade in active'><input type='range'></input></br><input type='button' value='Next' onclick='' ></input></div><div id='menusurvey2' class='tab-pane fade'><p>Yooooooo</p></div></div><div class='btn-group'><button class='btn' id='prevtab' type='button'>Prev</button><button class='btn' id='nexttab' type='button'>Next</button></div>"
+       title : "<input type = 'range' min='0' max='6' step='1' value='0' onchange='updatettl(this.value)'><br><p id='qtitle'>"+surveyttl[0]+"</p>",
+	
+	});
 });
+ }
+ 
+ function updatettl(e)
+ {
+ document.getElementById('qtitle').innerHTML=surveyttl[e];
  }
 
 
