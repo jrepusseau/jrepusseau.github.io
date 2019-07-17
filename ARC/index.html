@@ -219,7 +219,23 @@ else
   shadowSize: [41, 41]
 });
 
-	mymap = L.map('viewDiv').setView([45, 3], 3);
+var littleton = L.marker([37.523164, 126.909769]).bindPopup('This is the hospital'),
+ denver    = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.');
+	var hospital = L.layerGroup([littleton,denver]);
+	
+		mymap = L.map('viewDiv',
+	{center: [45, 3],
+    zoom: 3,
+    layers: hospital});
+	
+	var overlayMaps = {
+    "Cities": hospital
+};
+
+	
+	L.control.layers(overlayMaps).addTo(mymap);
+	
+//.setView([45, 3], 3);});
 	var geocoder = L.Control.Geocoder.nominatim(),
         control = L.Control.geocoder({
           geocoder: geocoder
@@ -242,8 +258,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	}).addTo(mymap);
 	
 	
-var littleton = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
-	
+
+
+
+
 	
 	
 	 function GoInFullscreen(element) {
@@ -424,7 +442,7 @@ document.getElementById("menu1").style.display="block";
 function init(){
 var poll=['Emergency CASE:8979897','Police CASE:786878687','Halloween party','Delivery 76575676'];
 var status=['list-group-item-danger','list-group-item-danger','','disabled'];
-var creator=['EMS','Police Departement','Vanessa','Amazon'];
+var creator=['EMS','Police Departement','Eloise','Amazon'];
  for (i = 0; i < poll.length; i++) {  
  var node = document.createElement("A");  
 node.setAttribute("class", "list-group-item "+status[i]);  // Create a <li> node
@@ -565,7 +583,7 @@ request.send();
 
 </script>
 
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-md" id="nav1" >
+<nav class="navbar navbar-fixed-bottom navbar-expand-md" id="nav1" >
   <div class="container-fluid">
   
     <ul class="nav nav-tabs">
