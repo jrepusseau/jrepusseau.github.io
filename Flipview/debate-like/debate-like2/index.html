@@ -142,6 +142,11 @@ position:center;
   width: 100%;
    z-index: 999;
 }
+.affixsourcebox {
+  top: 70px;
+  width: 100%;
+   z-index: 999;
+}
 
 .divargu:hover{
 
@@ -419,12 +424,10 @@ border-radius: 50%;
 </nav> 
 
 <nav class='navbar'  id="Sources" onclick="" style="width:100%;display:none">
- <div class="flex-container" id="argudiv"  >
- 
- </div>
+
  <div id="Web" >
     <div class="flex-container"  >
-	<input class="fill-width" type="text" id='srch'></input><span>more text</span>
+	<input class="serc"  type="text" id='srch'></input><button onclick='insertcit()' >INSERT</button>
 
 	
    <span class="close" onclick="hideSource()">&times;</span>
@@ -435,12 +438,19 @@ border-radius: 50%;
 </nav>
  
 
+
+ 
+ 
  <nav class="navbar navbar navbar-fixed-bottom " style='display:none;' id="editor">
   
     
 	
       <div class="flex-container"  >
-	<input class="serc" type="text" id='editortext' placeholder="Write your opinion"></input><span> Post </span>
+<textarea rows="4" cols="50" id='editortext' placeholder="Write your opinion" class='pro'></textarea>
+    <button id="sourcebox" onclick="SourceBox()"  data-html="true"  data-toggle="popover" title="Source" data-placement="left" data-trigger="focus"
+	 tabindex="0"   data-popover-content="#unique-id"><</button>
+	
+	<button onclick='showSource()'>Browser</button><button onclick='post()'> Post </button>
 	</div>
 	 
 
@@ -622,14 +632,30 @@ border-radius: 50%;
 </div>
 
 
-
+<div id="unique-id" style="display:none;">
+    <div class="popover-heading">Source</div>
+    <div  class="popover-body"><p id='ui'> <p></div>
+</div>
 
 
 
 </body>
 <script>
 /* affix the 2nd navbar after scroll past first navbar */
-
+$(function(){
+    
+    $("[data-toggle=popover]").popover({
+        html : true,
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).children(".popover-body").html();
+        },
+        title: function() {
+            var title = $(this).attr("data-popover-content");
+            return $(title).children(".popover-heading").html();
+        }
+    });});
+	
 //alert('2.6')
 
 var subject;
@@ -873,7 +899,7 @@ input.setAttribute('id', "bayes"+[i]);
 input.setAttribute('onchange', "updateTextInput(this)");
  var bayesval = document.createElement("P");
  bayesval.setAttribute('style','text-align:center');
- bayesval.innerHTML='0.5';
+ bayesval.innerHTML='50%';
  
  bayesval.setAttribute('id', "bayes"+[i]+"x");
 var li2 = document.createElement("div"); 
@@ -1481,6 +1507,50 @@ function changeclass(t)
   default:
 	
 }
+}
+
+function insertcit()
+{
+ var a=document.getElementById('editortext').value;
+ if (a.length)
+ a=a.slice(0, a.length) + " [a] " + a.slice(a.length);
+ else
+ a='[a]';
+ document.getElementById('editortext').value=a;
+ 
+ 
+
+//Show cit in citation space
+document.getElementById("ui").innerHTML='YESSSSSSSSS';
+ 
+ $('#sourcebox').popover('show');
+}
+
+function post()
+{
+//On place le text dans une div 
+ var a=document.getElementById('editortext').value;
+ var content= document.createElement("DIV");
+ content.setAttribute('class','containertype pro');
+var opinion= document.createElement("P");
+opinion.innerHTML=a;
+content.appendChild(opinion);
+document.getElementById("argut").appendChild(content); 
+
+
+ //On vide la box 
+document.getElementById('editortext').value='';
+
+
+
+
+
+}
+
+function SourceBox()
+{
+$('#sourcebox').popover('show');
+
 }
 </script>
 </html>
