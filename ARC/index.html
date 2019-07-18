@@ -185,6 +185,20 @@ a:hover {
 
 <script>
 
+$(function(){
+    
+    $("[data-toggle=popover]").popover({
+        html : true,
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).children(".popover-body").html();
+        },
+        title: function() {
+            var title = $(this).attr("data-popover-content");
+            return $(title).children(".popover-heading").html();
+        }
+    });});
+
 var mymap;
 var pos;
 var surveyttl=[
@@ -233,7 +247,7 @@ var littleton = L.marker([37.523164, 126.909769]).bindPopup('This is the hospita
 };
 
 	
-	L.control.layers(overlayMaps).addTo(mymap);
+	//L.control.layers(overlayMaps).addTo(mymap);
 	
 //.setView([45, 3], 3);});
 	var geocoder = L.Control.Geocoder.nominatim(),
@@ -461,9 +475,34 @@ node.appendChild(titl);
 node.appendChild(li2);
 
 document.getElementById("poll").appendChild(node);  
-   
+}
 
-}}
+var poll=['Alex surpise birthday','Association meeting','Dentist RDV','Secret Appointement'];
+var status=['list-group-item-info','list-group-item-success','disbabled','disabled'];
+var creator=['Paul','John JinYu','Mr JKKKD','Masked'];
+ for (i = 0; i < poll.length; i++) {  
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item "+status[i]);  // Create a <li> node
+node.setAttribute("id", i);
+node.setAttribute('onclick','');
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading");
+var tt = document.createTextNode(poll[i]); 
+titl.appendChild(tt);      
+var cr = document.createTextNode(creator[i]);
+var li2 = document.createElement("p"); 
+li2.setAttribute("class", "list-group-item-text");
+li2.appendChild(cr);    
+
+node.appendChild(titl);
+node.appendChild(li2);
+
+document.getElementById("pollr").appendChild(node);  
+}
+
+
+
+}
 
 function activatedemo(){
  $('[href="#menu2"]').tab('show');
@@ -580,18 +619,53 @@ request.send();
  document.getElementById('qtitle').innerHTML=surveyttl[e];
  }
 
-
+ function showmenu2()
+ {
+  document.getElementById('eventbar').style.display='block';
+ }
 </script>
 
 <nav class="navbar navbar-fixed-bottom navbar-expand-md" id="nav1" >
   <div class="container-fluid">
   
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back"><span class="glyphicon glyphicon-user"></span> JK</a></a></li>
-      <li><a data-toggle="tab" href="#menu2" id="maintitle" onclick="Start()">Create</a></li>
-      <li><a data-toggle="tab" href="#menu3" ></a></li>
+      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back" data-html="true"  data-toggle="popover" title="Source" data-placement="top" data-trigger="focus"
+	 tabindex="0"  data-popover-content="#unique-id" ><span class="glyphicon glyphicon-user" ></span> JK</a></a></li>
+	 
+	 <li>
+  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
+    Start
+  </button>
+  </li>
+  <li>
+  <div class="btn-group dropup">
+  <button type="button" class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-list-alt"></span>
+  </button>
+  <div class="dropdown-menu">
+     <div class="list-group" id="poll" onclick='activatedemo()'> </div>
+  </div>
+  </div>
+  </li>
+  <li>
+  <div class="btn-group dropup">
+  <button type="button" class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-inbox"></span>
+  </button>
+  <div class="dropdown-menu">
+    <p> Create a new event!</p> <button onclick='showmenu2()'>+</button>
+     <div class="list-group" id="pollr" onclick='activatedemo()'> </div>
+  </div>
+  </div>
+  </li>
+  <li>
+ 
+  
+  
+ 
+
 	 <li class="dropdown" >
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
+        <a class="dropdown-toggle"   data-toggle="dropdown" href="#">EN
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">ZN</a></li>
@@ -604,18 +678,7 @@ request.send();
   </div>
 </nav> 
 
-
-<div class="tab-content">
- <div id="menu1" class="tab-pane fade in active" >
-
- </br>
- </br>
- </br>
- </br> 
- <div class="list-group" id="poll" onclick='activatedemo()'> </div>
-  <div id="message"/>
-
-<div id='nav' class="tab-pane fade row" id="menu2" >
+<div id='nav' class='navbar-fixed-top' style='display:none;'  >
 
 <input id='search' type="text" class='column left' placeholder="Search..">
  <nav class="scroll column right" style="background-color:#bbb;">
@@ -636,7 +699,37 @@ request.send();
   </nav>
 </div> 
 
+<nav id='eventnav' class='navbar-fixed-top' style='display:none;'  >
+  <ul>
+    <li>
+	  Step 1: Pick up location 
+	</li>
+  </ul>
+</nav>
+
 </div>
+
+
+<div class="tab-content">
+ <div id="menu1" class="tab-pane fade in active" >
+
+ </br>
+ </br>
+ </br>
+ </br> 
+
+  <div id="message"/>
+  </div>
+  
+  
+
+
+
+<div id="unique-id" style="display:none;">
+    <div class="popover-heading">Source</div>
+    <div  class="popover-body"><p id='ui'> ljrnljnvzjlv<p></div>
+</div>
+
 
 </body>
 
