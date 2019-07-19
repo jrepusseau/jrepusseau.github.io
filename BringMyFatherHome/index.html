@@ -42,6 +42,7 @@ h3{
   <div class="navbar-header">
   <ul class="nav nav-tabs" style='display:inline'>
     <li><a href='' id=''>Logo</a></li>
+	<li><a href='' id=''>Home</a></li>
     <!--Facebook-->
 	 <li><a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-facebook-f"></i></a></li>
 <!--Twitter-->
@@ -74,10 +75,10 @@ h3{
       </button>
 	  <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav" style='margin:0 auto;'>
-      <li class="active"><a   id="back"></a></li>
+    
      
-	   <li><a  href='' id=''>ABOUT US</a></li>
-	   <li><a  href='' id=''>OUR WORK</a></li>
+	   <li><a  data-toggle="tab" href="#menu1" id=''>ABOUT US</a></li>
+	   <li><a  data-toggle="tab" href="#menu2"  id=''>OUR WORK</a></li>
 	   <li><a  href='' id=''>EVENTS</a></li>
 	   
 	   <li class="dropdown" >
@@ -116,17 +117,33 @@ h3{
 
  <div class="container" id="directordiv" style='width:100%'>
 
-
+ <div class="tab-content">
+ <div id="menu1" class="tab-pane fade in active" >
+ 
+ Information on the case 
+ 
+ The campaign itself: Goals purposes motivations 
+ 
+ Team Hwang
+ 
+ 
+</div>
+ <div id="menu2" class="tab-pane" >
+ 
 <br>
-<br>
-<br>
-<br>	
+	
 	<h2 id='title' >Bring my father home </h2>
 	
 	<h3> On December 11, 1969, when I was just 2 years old, my father boarded a plane to go on a business trip in lieu of his supervisor. After taking off at 12:25 pm, the plane was soon hijacked by a North Korean agent and forcibly diverted to North Korea.
 	</h3>
 	
 	<img src='' style='margin:0 auto' />
+ 
+ 
+</div>
+</div>
+
+
 </div>
 
 
@@ -236,6 +253,8 @@ h3{
 
  </div>
 </div>
+
+
 
 
 <script>
