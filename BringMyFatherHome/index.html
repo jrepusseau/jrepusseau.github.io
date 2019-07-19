@@ -41,6 +41,7 @@ h3{
   <div class="container-fluid" >
   <div class="navbar-header">
   <ul class="nav nav-tabs" style='display:inline'>
+    <li><a href='' id=''>Logo</a></li>
     <!--Facebook-->
 	 <li><a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-facebook-f"></i></a></li>
 <!--Twitter-->
@@ -49,6 +50,21 @@ h3{
 <li><a class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fab fa-instagram"></i></a></li>
 <!--Youtube-->
 <li><a class="btn-floating btn-lg btn-yt" type="button" role="button"><i class="fab fa-youtube"></i></a></li>
+
+ <li class="dropdown" >
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Languages
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+		<li><a href="#" onclick="init('en')">English</a></li>
+		<li><a href="#" onclick="init('kr')">한국</a></li>
+          <li><a href="#" onclick="init('cn')">中文</a></li>
+          <li><a href="#" onclick="init('fr')">Francais</a></li>
+          <li><a href="#" onclick="init('de')">Deutch</a></li>
+		  <li><a href="#" onclick="init('sp')">Espanol</a></li>
+		  <li><a href="#" onclick="init('pt')">Portuguais</a></li>
+		  <li><a href="#" onclick="init('IT')">Italian</a></li>
+        </ul>
+      </li>
       </ul>
 	 
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
@@ -56,11 +72,10 @@ h3{
         <span class="icon-bar" style='background-color:blue'></span>
         <span class="icon-bar" style='background-color:blue'></span>
       </button>
-    </div>
-	<div class="collapse navbar-collapse" id="myNavbar">
+	  <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav" style='margin:0 auto;'>
       <li class="active"><a   id="back"></a></li>
-       <li><a href='' id=''>Logo</a></li>
+     
 	   <li><a  href='' id=''>ABOUT US</a></li>
 	   <li><a  href='' id=''>OUR WORK</a></li>
 	   <li><a  href='' id=''>EVENTS</a></li>
@@ -77,27 +92,12 @@ h3{
         </ul>
       </li>
 	   <li><a  href='' id=''>NEWS</a></li>
-	 
-	  
-	
-	 <li class="dropdown" >
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Languages
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-		<li><a href="#" onclick="init('en')">English</a></li>
-		<li><a href="#" onclick="init('kr')">한국</a></li>
-          <li><a href="#" onclick="init('cn')">中文</a></li>
-          <li><a href="#" onclick="init('fr')">Francais</a></li>
-          <li><a href="#" onclick="init('de')">Deutch</a></li>
-		  <li><a href="#" onclick="init('sp')">Espanol</a></li>
-		  <li><a href="#" onclick="init('pt')">Portuguais</a></li>
-		  <li><a href="#" onclick="init('IT')">Italian</a></li>
-        </ul>
-      </li>
 	
     </ul>
 	
 	</div>
+    </div>
+	
   </div>
 </nav> 
 
