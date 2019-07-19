@@ -173,7 +173,12 @@ a:hover {
 .leaflet-control-container .leaflet-routing-container-hide {
     display: none;
 }
-	  
+	
+#navsub {
+   max-height:70vh;
+   overflow-y:auto;
+   overflow-x:hidden;
+}	
 </style>
 	
 </head>
@@ -497,7 +502,7 @@ li2.appendChild(cr);
 node.appendChild(titl);
 node.appendChild(li2);
 
-document.getElementById("pollr").appendChild(node);  
+document.getElementById("poll").appendChild(node);  
 }
 
 
@@ -621,11 +626,16 @@ request.send();
 
  function showmenu2()
  {
-  document.getElementById('eventbar').style.display='block';
+  document.getElementById('eventnav').style.display='block';
+ }
+ 
+  function hidemenu2()
+ {
+  document.getElementById('eventnav').style.display='none';
  }
 </script>
 
-<nav class="navbar navbar-fixed-bottom navbar-expand-md" id="nav1" >
+<nav class="navbar navbar-fixed-bottom navbar-expand-md" id="nav1" >  
   <div class="container-fluid">
   
     <ul class="nav nav-tabs">
@@ -640,25 +650,16 @@ request.send();
   <li>
   <div class="btn-group dropup">
   <button type="button" class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="glyphicon glyphicon-list-alt"></span>
+    <span class="glyphicon glyphicon-inbox"></span>
   </button>
-  <div class="dropdown-menu">
+  <div id="navsub" class="dropdown-menu">
+   <p> Create a new event!</p> <button onclick='showmenu2()'>+</button>
      <div class="list-group" id="poll" onclick='activatedemo()'> </div>
   </div>
   </div>
   </li>
-  <li>
-  <div class="btn-group dropup">
-  <button type="button" class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="glyphicon glyphicon-inbox"></span>
-  </button>
-  <div class="dropdown-menu">
-    <p> Create a new event!</p> <button onclick='showmenu2()'>+</button>
-     <div class="list-group" id="pollr" onclick='activatedemo()'> </div>
-  </div>
-  </div>
-  </li>
-  <li>
+ 
+
  
   
   
@@ -699,12 +700,77 @@ request.send();
   </nav>
 </div> 
 
-<nav id='eventnav' class='navbar-fixed-top' style='display:none;'  >
-  <ul>
-    <li>
-	  Step 1: Pick up location 
-	</li>
-  </ul>
+<nav id='eventnav' class='navbar-fixed-top' style='display:none;margin:5%'  >
+  
+    
+	   Choose type of event
+       <select>
+  <option value="volvo">Evenement privé</option>
+  <option value="saab">Notification public</option>
+</select> 	  
+<br>
+Choose a title
+	   <select>
+	    <option>Car accident</option>
+  <option>Fire danger</option>
+  <option>Medical Issue</option>
+  <option>Hazards</option>
+  <option>Robbery</option>
+  <option>Social Issues</option>
+  <option>Electric shortage</option>
+  <option>Water leaks</option>
+  <option>Garbages</option>
+  <option>Transports</option>
+  <option>Lost and Found</option>
+  <option>Delivery</option>
+  <option>Events</option>
+  <option>...</option>
+</select> <br>
+Add an image
+<input type='file' accept='image/*;capture=camera' capture='environment' >
+<br>
+	  <input type="checkbox" name="check" value="check">Set up time
+	  <input type="datetime-local">
+	  <br>
+      Choose position with research bar or pin it on the map
+	  <br> 
+	   Whose in ?
+	   <table>
+  <tr>
+    <th>id/phone</th>
+    <th>status</th>
+	<th>Arrival Time</th>
+	<th>Real Time Position</th>
+	<th>Position Box</th>
+  </tr>
+  <tr>
+    <td>all</td>
+    <td> <select>
+  <option value="volvo">admin</option>
+  <option value="saab">guest</option>
+</select> 	</td>
+	<td><input type="checkbox" name="check" value="check"></td>
+	<td><input type="checkbox" name="check" value="check"></td>
+		<td><input type="checkbox" name="check" value="check"></td>
+  </tr>
+  <tr>
+    <td>you</td>
+    <td><select>
+  <option value="volvo">admin</option>
+  <option value="saab">guest</option>
+</select> 
+</td>
+	<td><input type="checkbox" name="check" value="check"></td>
+	<td><input type="checkbox" name="check" value="check"></td>
+    <td><input type="checkbox" name="check" value="check"></td>
+  </tr>
+    <tr>
+    <td><input type='text'></input></td>
+  </tr>
+</table> 
+	  <br>
+	  <button onclick='hidemenu2()'>POST</button>
+  
 </nav>
 
 </div>
