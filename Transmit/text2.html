@@ -10,8 +10,12 @@
   .draggable { width: 0px; height: 0px; padding: 0.5em; }
   
   .center {
+  display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
   margin: auto;
-   display: inline-block;
    text-align:center;
 }
 p
@@ -35,15 +39,9 @@ float:left;
  </div>
  
  <script>
- $( function() {
-    $( "div" ).draggable();
-  } );
-  
-function kill(e) { 
-e.parentNode.removeChild(e);
-        }; 
+
 		
-var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ I V ∇ F I X space';
+var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ I V ∇ F I X space cut';
  
   var word = caract.split(" ");
   
@@ -54,6 +52,7 @@ var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ
    
      var block=document.createElement("P");
 	   block.setAttribute('style','text-align:center');
+	   block.setAttribute("contenteditable",'true');
    document.getElementById('start').appendChild(block);
  
   function Add(e)
@@ -62,15 +61,31 @@ var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ
   { 
   var bl0=document.createElement("P");
   bl0.setAttribute('style','text-align:center');
-  bl0.innerHTML=' ';
+  bl0.innerHTML='&nbsp';
   var bl=document.createElement("P");
   bl.setAttribute('style','text-align:center');
-  bl.innerHTML=' ';
+    bl.setAttribute("contenteditable",'true');
    document.getElementById('start').appendChild(bl0); 
  document.getElementById('start').appendChild(bl); 
   }
   else
   {
+  if (e=='cut')
+  {
+  if (document.getElementById('start').lastChild.innerHTML==='')
+document.getElementById('start').removeChild(document.getElementById('start').lastChild); 
+if (document.getElementById('start').lastChild.innerHTML==='')
+document.getElementById('start').removeChild(document.getElementById('start').lastChild); 
+
+document.getElementById('start').removeChild(document.getElementById('start').lastChild); 
+   var bl=document.createElement("P");
+  bl.setAttribute('style','text-align:center');
+    bl.setAttribute("contenteditable",'true');
+	 document.getElementById('start').appendChild(bl)
+	 
+  }
+  else{
+  
   var s=document.getElementById('start').lastChild.innerText;
   if (s.length==2)
   s+='\n'
@@ -82,6 +97,7 @@ var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ
   bl.setAttribute('style','text-align:center');
   bl.innerHTML=' ';
  document.getElementById('start').appendChild(bl); 
+ }
   }
   }
    
