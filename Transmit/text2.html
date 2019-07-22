@@ -8,30 +8,30 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
   .draggable { width: 0px; height: 0px; padding: 0.5em; }
+  
+  .center {
+  margin: auto;
+   display: inline-block;
+   text-align:center;
+}
+p
+{
+float:left;
+}
+
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
+  
  
-  function Add(e)
-  {
-   
-      var val=document.getElementById("txt").value;
-    $("<div ondblclick='kill(this)' onclass='draggable ui-widget-content'><p>"+e+"</p></div>").appendTo('#ft').draggable();
-	document.getElementById("txt").value='';
-   
-  }
   </script>
 </head>
 <body>
- <div id='start'>
- <input type='text' id='txt'></input>
- <button onclick='Add(this)'>Add</button>
+ <div id='start'  class='center'>
  </div>
-<div  contenteditable='true' class="draggable ui-widget-content">
-  <p >Pjkbk</p>
-</div>
- <div id='ft'>
+
+ <div id='ft' >
  </div>
  
  <script>
@@ -43,14 +43,52 @@ function kill(e) {
 e.parentNode.removeChild(e);
         }; 
 		
-var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ I V ∇ F I X';
+var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ I V ∇ F I X space';
  
   var word = caract.split(" ");
   
    for (i = 0; i < word.length; i++) {    
-   alert(word[i]);
-      $("<button onclick='Add(this.innerHTML)'>"+word[i]+"</button>").appendTo('#start');
+
+      $("<button onclick='Add(this.innerHTML)'>"+word[i]+"</button>").appendTo('#ft');
    }
+   
+     var block=document.createElement("P");
+	   block.setAttribute('style','text-align:center');
+   document.getElementById('start').appendChild(block);
+ 
+  function Add(e)
+  {
+  if (e=='space')
+  { 
+  var bl0=document.createElement("P");
+  bl0.setAttribute('style','text-align:center');
+  bl0.innerHTML=' ';
+  var bl=document.createElement("P");
+  bl.setAttribute('style','text-align:center');
+  bl.innerHTML=' ';
+   document.getElementById('start').appendChild(bl0); 
+ document.getElementById('start').appendChild(bl); 
+  }
+  else
+  {
+  var s=document.getElementById('start').lastChild.innerText;
+  if (s.length==2)
+  s+='\n'
+  s+=e;
+  document.getElementById('start').lastChild.innerText=s;
+  if (s.length==5)
+  { 
+  var bl=document.createElement("P");
+  bl.setAttribute('style','text-align:center');
+  bl.innerHTML=' ';
+ document.getElementById('start').appendChild(bl); 
+  }
+  }
+   
+  
+   
+  }
+   
    
  </script>
 </body>
