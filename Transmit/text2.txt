@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  .draggable { width: 0px; height: 0px; padding: 0.5em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+ 
+  function Add(e)
+  {
+   
+      var val=document.getElementById("txt").value;
+    $("<div ondblclick='kill(this)' onclass='draggable ui-widget-content'><p>"+e+"</p></div>").appendTo('#ft').draggable();
+	document.getElementById("txt").value='';
+   
+  }
+  </script>
+</head>
+<body>
+ <div id='start'>
+ <input type='text' id='txt'></input>
+ <button onclick='Add(this)'>Add</button>
+ </div>
+<div  contenteditable='true' class="draggable ui-widget-content">
+  <p >Pjkbk</p>
+</div>
+ <div id='ft'>
+ </div>
+ 
+ <script>
+ $( function() {
+    $( "div" ).draggable();
+  } );
+  
+function kill(e) { 
+e.parentNode.removeChild(e);
+        }; 
+		
+var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ I V ∇ F I X';
+ 
+  var word = caract.split(" ");
+  
+   for (i = 0; i < word.length; i++) {    
+   alert(word[i]);
+      $("<button onclick='Add(this.innerHTML)'>"+word[i]+"</button>").appendTo('#start');
+   }
+   
+ </script>
+</body>
+</html>
