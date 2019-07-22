@@ -316,10 +316,11 @@ input[orient="vertical"]::-moz-range-thumb {
 }
 
 
+
 .v::-webkit-slider-thumb {
      -webkit-appearance: none;
   appearance: none;
-  background-color:red;
+  background:red;
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -339,7 +340,38 @@ input[orient="vertical"]::-moz-range-thumb {
 .v::-ms-fill-upper {  
   background-color: #9a905d;
 }
+.a
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.a::-moz-range-progress {
+  background-color:red; 
+}
 
+.a::-webkit-slider-thumb {
+  background: red;
+}
+.b
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.b::-moz-range-progress {
+  background-color:orange; 
+}
+.b::-webkit-slider-thumb {
+  background:blue; 
+}
+
+
+
+.c::-moz-range-progress {
+  background-color:green; 
+}
+.c::-webkit-slider-thumb {
+  background-image: :url(smiley2.png);
+}
 
 
 
@@ -361,8 +393,8 @@ border-radius: 50%;
  
  .but2
  {
- border-top: 2px solid orange;
-  border-right: 2px solid orange;
+// border-top: 2px solid orange;
+//  border-right: 2px solid orange;
  }
  
  .but3
@@ -1124,24 +1156,30 @@ function updateNotation(e) {
  
  switch(e.value) {
   case '0':
-   e.parentElement.children[2].innerHTML='Bad';
-   e.parentElement.setAttribute('class','list-inline-item but');
+   e.parentElement.children[2].innerHTML='&#128555;';
+//   e.parentElement.setAttribute('class','list-inline-item but');
+e.setAttribute('class','v');
+
     break;
   case '1':
-     e.parentElement.children[2].innerHTML='Poor';
-	   e.parentElement.setAttribute('class','list-inline-item but but1');
+     e.parentElement.children[2].innerHTML='&#128543;';
+//	   e.parentElement.setAttribute('class','list-inline-item but but1');
+e.setAttribute('class','a');
     break;
   case '2':
-        e.parentElement.children[2].innerHTML='OK';
-		  e.parentElement.setAttribute('class','list-inline-item but but2');
+        e.parentElement.children[2].innerHTML='&#128535;';
+//		  e.parentElement.setAttribute('class','list-inline-item but but2');
+e.setAttribute('class','b');
 	   break;
     case '3':
-     e.parentElement.children[2].innerHTML='Good';
-	   e.parentElement.setAttribute('class','list-inline-item but but3');
+     e.parentElement.children[2].innerHTML='&#128578;';
+//	   e.parentElement.setAttribute('class','list-inline-item but but3');
+e.setAttribute('class','c');
 	break;
 	  case '4':
-     e.parentElement.children[2].innerHTML='Perfect';
-	   e.parentElement.setAttribute('class','list-inline-item but but4');
+     e.parentElement.children[2].innerHTML='&#129488;';
+//	   e.parentElement.setAttribute('class','list-inline-item but but4');
+e.setAttribute('class','c');
 	break;
   default:
 } 
@@ -1374,15 +1412,18 @@ input.setAttribute('step', '1');
  input.setAttribute('onchange','updateNotation(this)');
  
 var txt= document.createElement("P");
-var i = document.createTextNode('Well-Written');
+var i = document.createTextNode('Structure');
 txt.appendChild(i);
 var txt2= document.createElement("P");
-var i2 = document.createTextNode('OK');
+var i2 = document.createTextNode('-');
+var txt3= document.createElement("P");
+var i3 = document.createTextNode('98%');
+txt3.appendChild(i3);
 txt2.appendChild(i2);
 li.appendChild(txt)
  li.appendChild(input)
  li.appendChild(txt2)
-
+li.appendChild(txt3)
 ul.appendChild(li.cloneNode(true));
 li.children[0].innerHTML='Neutrality';
 ul.appendChild(li.cloneNode(true));
