@@ -1,9 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Draggable - Default functionality</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+ 
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
@@ -22,7 +27,11 @@ p
 {
 float:left;
 }
-
+.fixbottom
+{
+position:fixed;
+bottom:0;
+}
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -34,10 +43,12 @@ float:left;
 <body>
  <div id='start'  class='center'>
  </div>
-
+<nav class="fixbottom"  id="editor">
+<div class="container-fluid">
  <div id='ft' >
  </div>
- 
+ </div>
+</nav>
  <script>
 
 		
@@ -62,7 +73,7 @@ var caract ='工 丁 亍 ㅂ ㅈ ㄷ ㄱ ㅅ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ
 
   var bl0=document.createElement("P");
   bl0.setAttribute('style','text-align:center');
-  bl0.innerHTML='&nbsp';
+  bl0.innerHTML='&nbsp&nbsp';
   var bl=document.createElement("P");
   bl.setAttribute('style','text-align:center');
     bl.setAttribute("contenteditable",'true');
@@ -70,11 +81,10 @@ var caract ='工 丁 亍 ㅂ ㅈ ㄷ ㄱ ㅅ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ
  document.getElementById('start').appendChild(bl); 
   break;
  case 'cut':
-  
-  if (document.getElementById('start').lastChild.innerHTML=='')
-document.getElementById('start').removeChild(document.getElementById('start').lastChild); 
-if (document.getElementById('start').lastChild.innerHTML=='')
-document.getElementById('start').removeChild(document.getElementById('start').lastChild); 
+while(document.getElementById('start').lastChild.innerHTML=='  ' || document.getElementById('start').lastChild.innerHTML=='')
+{
+document.getElementById('start').removeChild(document.getElementById('start').lastChild);
+}
 
 document.getElementById('start').lastChild.innerText=document.getElementById('start').lastChild.innerText.slice(0,document.getElementById('start').lastChild.innerText.length-1);
 
@@ -84,7 +94,8 @@ document.getElementById('start').lastChild.innerText=document.getElementById('st
 	 document.getElementById('start').appendChild(bl)*/
 	 break;
 	 case 'post':
-	 
+	 document.body.insertBefore(document.getElementById('start').cloneNode(true),document.getElementById('start'));
+	 document.getElementById('start').setAttribute('id','dep');
 	 break;
  default:
   var s=document.getElementById('start').lastChild.innerText;
@@ -96,7 +107,7 @@ document.getElementById('start').lastChild.innerText=document.getElementById('st
   { 
   var bl=document.createElement("P");
   bl.setAttribute('style','text-align:center');
-  bl.innerHTML=' ';
+  bl.innerText=' ';
  document.getElementById('start').appendChild(bl);
  break;
  
