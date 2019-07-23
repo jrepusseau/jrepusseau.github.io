@@ -41,7 +41,7 @@ float:left;
  <script>
 
 		
-var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ I V ∇ F I X space cut';
+var caract ='工 丁 亍 ㅂ ㅈ ㄷ ㄱ ㅅ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ V ∇ F X space cut post';
  
   var word = caract.split(" ");
   
@@ -57,8 +57,9 @@ var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ
  
   function Add(e)
   {
-  if (e=='space')
-  { 
+  switch(e) {
+  case 'space':
+
   var bl0=document.createElement("P");
   bl0.setAttribute('style','text-align:center');
   bl0.innerHTML='&nbsp';
@@ -67,25 +68,25 @@ var caract ='ㅂ ㅈ ㄷ ㄱ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ
     bl.setAttribute("contenteditable",'true');
    document.getElementById('start').appendChild(bl0); 
  document.getElementById('start').appendChild(bl); 
-  }
-  else
-  {
-  if (e=='cut')
-  {
-  if (document.getElementById('start').lastChild.innerHTML==='')
+  break;
+ case 'cut':
+  
+  if (document.getElementById('start').lastChild.innerHTML=='')
 document.getElementById('start').removeChild(document.getElementById('start').lastChild); 
-if (document.getElementById('start').lastChild.innerHTML==='')
+if (document.getElementById('start').lastChild.innerHTML=='')
 document.getElementById('start').removeChild(document.getElementById('start').lastChild); 
 
-document.getElementById('start').removeChild(document.getElementById('start').lastChild); 
-   var bl=document.createElement("P");
+document.getElementById('start').lastChild.innerText=document.getElementById('start').lastChild.innerText.slice(0,document.getElementById('start').lastChild.innerText.length-1);
+
+   /*var bl=document.createElement("P");
   bl.setAttribute('style','text-align:center');
     bl.setAttribute("contenteditable",'true');
-	 document.getElementById('start').appendChild(bl)
+	 document.getElementById('start').appendChild(bl)*/
+	 break;
+	 case 'post':
 	 
-  }
-  else{
-  
+	 break;
+ default:
   var s=document.getElementById('start').lastChild.innerText;
   if (s.length==2)
   s+='\n'
@@ -96,14 +97,15 @@ document.getElementById('start').removeChild(document.getElementById('start').la
   var bl=document.createElement("P");
   bl.setAttribute('style','text-align:center');
   bl.innerHTML=' ';
- document.getElementById('start').appendChild(bl); 
+ document.getElementById('start').appendChild(bl);
+ break;
+ 
  }
   }
   }
    
   
    
-  }
    
    
  </script>
