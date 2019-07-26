@@ -70,24 +70,12 @@ var caract ='工 丁 亍 ㅂ ㅈ ㄷ ㄱ ㅅ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ
   {
   switch(e) {
   case 'space':
-
-  var bl0=document.createElement("P");
-  bl0.setAttribute('style','text-align:center');
-  bl0.innerHTML='&nbsp';
-  var bl=document.createElement("P");
-  bl.setAttribute('style','text-align:center');
-    bl.setAttribute("contenteditable",'true');
-   document.getElementById('start').appendChild(bl0); 
- document.getElementById('start').appendChild(bl); 
+ Space();
   break;
  case 'cut':
-while(document.getElementById('start').lastChild.innerHTML=='  ' || document.getElementById('start').lastChild.innerHTML=='')
-{
-document.getElementById('start').removeChild(document.getElementById('start').lastChild);
-}
-
-document.getElementById('start').lastChild.innerText=document.getElementById('start').lastChild.innerText.slice(0,document.getElementById('start').lastChild.innerText.length-1);
-
+Cut();
+if (document.getElementById('start').length==0)
+Space()
    /*var bl=document.createElement("P");
   bl.setAttribute('style','text-align:center');
     bl.setAttribute("contenteditable",'true');
@@ -96,6 +84,11 @@ document.getElementById('start').lastChild.innerText=document.getElementById('st
 	 case 'post':
 	 document.body.insertBefore(document.getElementById('start').cloneNode(true),document.getElementById('start'));
 	 document.getElementById('start').setAttribute('id','dep');
+	 while (document.getElementById('start').length!=0)
+	 {
+	 Cut()
+	 }
+	 Space()
 	 break;
  default:
   var s=document.getElementById('start').lastChild.innerText;
@@ -115,9 +108,30 @@ document.getElementById('start').lastChild.innerText=document.getElementById('st
   }
   }
    
+  function Space()
+  {
   
+  var bl0=document.createElement("P");
+   bl0.setAttribute('style','text-align:center');
+  bl0.innerHTML='&nbsp';
+  var bl=document.createElement("P");
+  bl.setAttribute('style','text-align:center');
+    bl.setAttribute("contenteditable",'true');
+   document.getElementById('start').appendChild(bl0); 
+ document.getElementById('start').appendChild(bl); 
+  }
    
-   
+  function Cut()
+  
+ {
+ while(document.getElementById('start').lastChild.innerHTML=='  ' || document.getElementById('start').lastChild.innerHTML=='')
+{
+document.getElementById('start').removeChild(document.getElementById('start').lastChild);
+}
+
+document.getElementById('start').lastChild.innerText=document.getElementById('start').lastChild.innerText.slice(0,document.getElementById('start').lastChild.innerText.length-1);
+
+ }
    
  </script>
 </body>
