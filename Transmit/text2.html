@@ -52,7 +52,7 @@ bottom:0;
  <script>
 
 		
-var caract ='工 丁 亍 ㅂ ㅈ ㄷ ㄱ ㅅ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ V ∇ F X . , ? space cut post';
+var caract ='工 丁 亍 ㅂ ㅈ ㄷ ㄱ ㅅ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ V ∇ F X . , ? : ; space cut enter';
  
   var word = caract.split(" ");
   
@@ -81,7 +81,7 @@ Space();
     bl.setAttribute("contenteditable",'true');
 	 document.getElementById('start').appendChild(bl)*/
 	 break;
-	 case 'post':
+	 case 'enter':
 	 document.body.insertBefore(document.getElementById('start').cloneNode(true),document.getElementById('start'));
 	 document.getElementById('start').setAttribute('id','dep');
 	 while (document.getElementById('start').length!=0)
@@ -89,32 +89,33 @@ Space();
 	 Cut();
 	 }
 	 Space();
+	 
+	 break;
+	 case '.':
+     case ',':
+     case '?':
+	 case ':':
+     case ';':
+	 Space();
+	 Addletter(e);
 	 Space();
 	 break;
  default:
-  var s=document.getElementById('start').lastChild.innerText;
-  if (s.length==2)
-  s+='\n'
-  s+=e;
-  document.getElementById('start').lastChild.innerText=s;
-  if (s.length==5)
-  { 
-  var bl=document.createElement("P");
-  bl.setAttribute('style','text-align:center');
-  bl.innerText=' ';
- document.getElementById('start').appendChild(bl);
+  Addletter(e);
  break;
  
- }
   }
   }
    
-  function Space()
+  function Space(e)
   {
-  
+  if(e)
+  var r=e;
+  else
+  var r='&nbsp';
   var bl0=document.createElement("P");
    bl0.setAttribute('style','text-align:center');
-  bl0.innerHTML='&nbsp';
+  bl0.innerHTML=r;
   var bl=document.createElement("P");
   bl.setAttribute('style','text-align:center');
     bl.setAttribute("contenteditable",'true');
@@ -132,6 +133,22 @@ document.getElementById('start').removeChild(document.getElementById('start').la
 
 document.getElementById('start').lastChild.innerText=document.getElementById('start').lastChild.innerText.slice(0,document.getElementById('start').lastChild.innerText.length-1);
 
+ }
+ 
+ function Addletter(e)
+ {
+ var s=document.getElementById('start').lastChild.innerText;
+  if (s.length==2)
+  s+='\n'
+  s+=e;
+  document.getElementById('start').lastChild.innerText=s;
+  if (s.length==5)
+  { 
+  var bl=document.createElement("P");
+  bl.setAttribute('style','text-align:center');
+  bl.innerText=' ';
+ document.getElementById('start').appendChild(bl);
+ }
  }
    
  </script>
