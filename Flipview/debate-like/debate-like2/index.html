@@ -776,8 +776,13 @@ node.setAttribute("id", i);
 node.setAttribute("onclick", "showDebate(this.id)"); 
 var titl = document.createElement("H4"); 
 titl.setAttribute("class", "list-group-item-heading"); 
-var tt = document.createTextNode(subject[i]); 
+var tt = document.createTextNode(subject[i]);
+ var badge = document.createElement('span');
+           badge.setAttribute("class","badge"); 
+		   badge.appendChild(document.createTextNode("reelection"));
+		  
 titl.appendChild(tt);
+titl.appendChild(badge); 
 var p = document.createElement("p"); 
 p.setAttribute("class", "list-group-item-text"); 
 var tt = document.createTextNode(info[i]); 
@@ -918,7 +923,10 @@ node.setAttribute("id", i);
 var titl = document.createElement("H4"); 
 var pp=  document.createElement("span"); 
 var tt = document.createTextNode(arg[i]); 
+
 titl.appendChild(tt);      
+
+
 var tt2= document.createTextNode("7 pro and 15 cons");
 var ppp = document.createElement("P");
 ppp.appendChild(tt2); 
