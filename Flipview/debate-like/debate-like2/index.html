@@ -462,7 +462,7 @@ border-radius: 50%;
 	
    <span class="close" onclick="hideSource()">&times;</span>
   </div>
-   <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' id='webpage' name='webpage'  width="100%" frameborder="0px"> Error</iframe> 
+   <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' id='webpage' name='webpage'  width="100%" frameborder="0px" onLoad="changeURI()"> Error</iframe> 
    <a href="#">import ref</a>
 </div>
 </nav>
@@ -1089,9 +1089,9 @@ source.style.display = "none";
 function showSource(id)
 {
 var source = document.getElementById("Sources");
-
+if(id);
 document.getElementById('webpage').setAttribute('src',id);
-document.getElementById('srch').value=id;
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
 source.setAttribute('style','left:0px');
 source.style.display = "block";
 $('#Sources').affix({
@@ -1337,7 +1337,7 @@ content3.setAttribute("style", "display:inline-block");
 var opinion= document.createElement("span");
 
 var opinioncontent='gfghghgheuiwehooooooooooooooooooo ooooooooo <br> oiadjooozijjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjzi'
-var ref = " <a onclick='showSource()'>2</a> "
+var ref = " <a href='https://en.wikipedia.org/wiki/Main_Page' target='webpage' onclick='showSource(this.href)'>2</a> "
 opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(5);
 var posttime= document.createElement('span');
 posttime.innerHTML='Edited 25/6 12:14 <br> ';
@@ -1517,7 +1517,7 @@ function insertcit()
  
 
 //Show cit in citation space
-document.getElementById("ui").innerHTML='YESSSSSSSSS';
+document.getElementById("ui").innerHTML=document.getElementById('webpage').src;
  
  $('#sourcebox').popover('show');
 }
@@ -1606,6 +1606,21 @@ li.children[0].innerHTML='Trustability';
 ul.appendChild(li.cloneNode(true));
 n.appendChild(ul);
 }
+
+function changeURI()
+{
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
+}
+
+window.addEventListener('keypress', function (e) {
+
+    if (e.keyCode == 13) {
+      var a = document.createElement('A');
+	  a.setAttribute('href',document.getElementById('srch').value)
+	  showSource(a.href);
+    }
+}, false);
+
 </script>
 </html>
 
