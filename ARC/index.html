@@ -180,7 +180,17 @@ a:hover {
    overflow-x:hidden;
 }	
 
+.type
+{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
 
+}
 </style>
 	
 </head>
@@ -652,7 +662,8 @@ request.send();
   <li>
   <div class="btn-group dropup">
   <button type="button" class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="glyphicon glyphicon-inbox"></span>
+    <span class="glyphicon glyphicon-inbox">Inbox</span>
+	<span class="badge type">3</span>
   </button>
   <div id="navsub" class="dropdown-menu">
    <p> Create a new event!</p> <button onclick='showmenu2()'>+</button>
@@ -779,12 +790,17 @@ Add an image
 
 
 <div class="tab-content">
- <div id="menu1" class="tab-pane fade in active" >
+ <div id="menu1" class="tab-pane fade in active" style='text-align:center' >
 
  
  <h2> JK </h2>
+ <br>
  <h4> phone number </h4>
- 
+ <br>
+ <br>
+ <button> Parameters </button>
+ <br>
+ <a href='#'> LogOut<a>
  
  </br>
  </br>
