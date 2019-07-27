@@ -464,7 +464,7 @@ border-radius: 50%;
 	
    <span class="close" onclick="hideSource()">&times;</span>
   </div>
-   <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' name='webpage'  width="100%" frameborder="0px"> Error</iframe> 
+   <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' id='webpage' name='webpage'  width="100%" frameborder="0px"> Error</iframe> 
    <a href="#">import ref</a>
 </div>
 </nav>
@@ -593,11 +593,20 @@ border-radius: 50%;
   <br>
   <br>
     <span class="close">&times;</span>
+	
+	
+	<h4>Statistics</h4>
+	
+		<h2> paixjoixjooxnaexniucn </h2>
+	
     <h4>Context</h4>
+	
+	<h2> paixjoixjooxnaexniucn </h2>
 	
 	<h4>Definition</h4>
 	
-	<h4>Statistics</h4>
+		<h2> paixjoixjooxnaexniucn </h2>
+	
 	
 	
 	</form>
@@ -642,9 +651,8 @@ border-radius: 50%;
 	  </br></br>	</br>	</br>	</br>	</br>
 	  
 	  
-	   <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
+	   <h5>Use trustable source, Attack facts not people, Take pleasure  </h5>
 		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
-		
 		<h5> Art is a good example of third opinion cause you can, at the same time, dislike a part of an art but fall in love of one element </h5>
 	  </div>
 	  
@@ -1084,7 +1092,7 @@ function showSource(id)
 {
 var source = document.getElementById("Sources");
 
-//document.getElementById('webpage').setAttribute('src',id);
+document.getElementById('webpage').setAttribute('src',id);
 document.getElementById('srch').value=id;
 source.setAttribute('style','left:0px');
 source.style.display = "block";
@@ -1330,7 +1338,7 @@ content3.setAttribute("style", "display:inline-block");
 //
 var opinion= document.createElement("span");
 
-var opinioncontent='gfghghgheuiwehooooooooooooooooooo ooooooooo '
+var opinioncontent='gfghghgheuiwehooooooooooooooooooo ooooooooo <br> oiadjooozijjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjzi'
 var ref = " <a onclick='showSource()'>2</a> "
 opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(5);
 var posttime= document.createElement('span');
@@ -1377,60 +1385,9 @@ btng.setAttribute('onclick','changeclass(this)');
 contentm.appendChild(document.createElement("BR"));
 
 
-var ul = document.createElement("UL");
-ul.setAttribute('class','list-inline')
-var li= document.createElement("LI");
-li.setAttribute('class','list-inline-item but but2')
-li.setAttribute('style','text-align:center')
-
-//<input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$100", "$200", "$300", "$400"]'/>
-
-var input = document.createElement("input");
-i/*nput.type="text";
-input.setAttribute('data-provide',"slider");;
-input.setAttribute('data-slider-ticks', '[0,100,200,300,400]');
-input.setAttribute('data-slider-ticks-snap-bounds', '30');
-input.setAttribute('data-slider-ticks-labels', '["Bad","Poor","OK","Good","Perfect"]');*/
 
 
-/*
-input.type = "range";
-input.setAttribute('min', '-100');
-input.setAttribute('max', '100');
-input.setAttribute('step', '1');
- input.setAttribute('value', '0');
- input.setAttribute('class', 'o');
- input.setAttribute('onchange','updateNotation(this)');*/
- 
-input.type = "range";
-input.setAttribute('style','max-width:20vw');
-input.setAttribute('min', '0');
-input.setAttribute('max', '4');
-input.setAttribute('step', '1');
- input.setAttribute('value', '2');
- input.setAttribute('class', 'v');
- input.setAttribute('onchange','updateNotation(this)');
- 
-var txt= document.createElement("P");
-var i = document.createTextNode('Structure');
-txt.appendChild(i);
-var txt2= document.createElement("P");
-var i2 = document.createTextNode('-');
-var txt3= document.createElement("P");
-var i3 = document.createTextNode('98%');
-txt3.appendChild(i3);
-txt2.appendChild(i2);
-li.appendChild(txt)
- li.appendChild(input)
- li.appendChild(txt2)
-li.appendChild(txt3)
-ul.appendChild(li.cloneNode(true));
-li.children[0].innerHTML='Neutrality';
-ul.appendChild(li.cloneNode(true));
-li.children[0].innerHTML='Trustability';
-ul.appendChild(li.cloneNode(true));
-
-contentm.appendChild(ul);
+appendNote(contentm);
 /*document.getElementById('notationtool').style.display='block';
 $(".rightDivopi").append($( "#notationtool" ));
 
@@ -1576,6 +1533,7 @@ function post()
 var opinion= document.createElement("P");
 opinion.innerHTML=a;
 content.appendChild(opinion);
+appendNote(content);
 document.getElementById("argut").appendChild(content); 
 
 
@@ -1592,6 +1550,63 @@ function SourceBox()
 {
 $('#sourcebox').popover('show');
 
+}
+
+function appendNote(n)
+{
+var ul = document.createElement("UL");
+ul.setAttribute('class','list-inline')
+var li= document.createElement("LI");
+li.setAttribute('class','list-inline-item but but2')
+li.setAttribute('style','text-align:center')
+
+//<input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$100", "$200", "$300", "$400"]'/>
+
+var input = document.createElement("input");
+i/*nput.type="text";
+input.setAttribute('data-provide',"slider");;
+input.setAttribute('data-slider-ticks', '[0,100,200,300,400]');
+input.setAttribute('data-slider-ticks-snap-bounds', '30');
+input.setAttribute('data-slider-ticks-labels', '["Bad","Poor","OK","Good","Perfect"]');*/
+
+
+/*
+input.type = "range";
+input.setAttribute('min', '-100');
+input.setAttribute('max', '100');
+input.setAttribute('step', '1');
+ input.setAttribute('value', '0');
+ input.setAttribute('class', 'o');
+ input.setAttribute('onchange','updateNotation(this)');*/
+ 
+input.type = "range";
+input.setAttribute('style','max-width:20vw');
+input.setAttribute('min', '0');
+input.setAttribute('max', '4');
+input.setAttribute('step', '1');
+ input.setAttribute('value', '2');
+ input.setAttribute('class', 'v');
+ input.setAttribute('onchange','updateNotation(this)');
+ 
+var txt= document.createElement("P");
+var i = document.createTextNode('Structure');
+txt.appendChild(i);
+var txt2= document.createElement("P");
+var i2 = document.createTextNode('-');
+var txt3= document.createElement("P");
+var i3 = document.createTextNode('98%');
+txt3.appendChild(i3);
+txt2.appendChild(i2);
+li.appendChild(txt)
+ li.appendChild(input)
+ li.appendChild(txt2)
+li.appendChild(txt3)
+ul.appendChild(li.cloneNode(true));
+li.children[0].innerHTML='Neutrality';
+ul.appendChild(li.cloneNode(true));
+li.children[0].innerHTML='Trustability';
+ul.appendChild(li.cloneNode(true));
+n.appendChild(ul);
 }
 </script>
 </html>
