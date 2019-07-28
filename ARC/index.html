@@ -607,7 +607,6 @@ request.onreadystatechange = function () {
 , 1000);
   }}
  else{
- alert('Road missing');
  }
 };
 
@@ -645,6 +644,11 @@ request.send();
  {
   document.getElementById('eventnav').style.display='none';
  }
+ 
+ function showmenu3()
+{
+document.getElementById("menu1").style.marginRight = "50%";
+}
 </script>
 
 <nav class="navbar navbar-fixed-bottom navbar-expand-md" id="nav1" >  
@@ -662,11 +666,11 @@ request.send();
   <li>
   <div class="btn-group dropup">
   <button type="button" class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="glyphicon glyphicon-inbox">Inbox</span>
+    <span class="glyphicon glyphicon-inbox"></span>
 	<span class="badge type">3</span>
   </button>
   <div id="navsub" class="dropdown-menu">
-   <p> Create a new event!</p> <button onclick='showmenu2()'>+</button>
+   <p> Create a new event!</p> <button onclick='showmenu3()'>+</button>
      <div class="list-group" id="poll" onclick='activatedemo()'> </div>
   </div>
   </div>
