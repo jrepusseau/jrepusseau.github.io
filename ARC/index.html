@@ -314,18 +314,21 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	function onLocationFound(e) {
 	pos=e.latlng;
 	
-	 
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
     var radius = e.accuracy / 2;
     newCircle= new L.circle(e.latlng, radius).addTo(mymap)
-	.bindPopup("<p id='popuptxt' >You are within " + radius + " meters from this point</P> <button id='confirm' onclick='Roadmap(pos)'></button>").openPopup();
-	document.getElementById('confirm').innerHTML="Access menu";
+	//.bindPopup("<p id='popuptxt' >You are within " + radius + " meters from this point</P> <button id='confirm' onclick='Roadmap(pos)'></button>").openPopup();
+		.bindPopup("Your position is set.<br><button class='btn btn-primary'>Continue</button><button class='btn btn-light'>Stay hidden</button>").openPopup();
+	//document.getElementById('confirm').innerHTML="Access menu";
     }
 	
 	function onLocationError(e)
 	{
-	alert('Unfortunately:'+e+'<button>Stay hidden</button>');
+	if (newCircle)
+	     mymap.removeLayer(newCircle);
+	newCircle=new L.circle([45, 3],10).addTo(mymap)
+	.bindPopup('Unfortunately:'+e.message+"<br><button class='btn btn-primary'>Retry</button><button class='btn btn-light'>Stay hidden</button>").openPopup();
 	}
 
     mymap.on('locationfound', onLocationFound);

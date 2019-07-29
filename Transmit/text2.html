@@ -32,6 +32,11 @@ float:left;
 position:fixed;
 bottom:0;
 }
+
+button
+{
+  font-size: 150%;
+}
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -52,7 +57,7 @@ bottom:0;
  <script>
 
 		
-var caract ='工 丁 亍 ㅂ ㅈ ㄷ ㄱ ㅅ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ V ∇ F X . , ? : ; space cut enter';
+var caract ='工 丁 亍 ㅂ ㅈ ㄷ ㄱ ㅅ ㅁ ㄴ ㅇ ㄹ ㅎ ㅋ ㅌ ㅊ ㅍ ㅛ ㅗ ㅠ ㅕ ㅓ ㅜ ㅑ ㅏ ㅡ ㅐ ㅣ ㅔ Θ V ∇ F X . , ? : ; ! space cut enter';
  
   var word = caract.split(" ");
   
@@ -89,13 +94,14 @@ Space();
 	 Cut();
 	 }
 	 Space();
-	 
+	
 	 break;
 	 case '.':
      case ',':
      case '?':
 	 case ':':
      case ';':
+	 case '!':
 	 Space();
 	 Addletter(e);
 	 Space();
