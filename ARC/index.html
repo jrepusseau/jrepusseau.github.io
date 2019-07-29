@@ -191,6 +191,23 @@ a:hover {
   color: white;
 
 }
+
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+    background-color: transparent;
+    color:black;
+}
+
+.located
+{
+border: 2px solid blue;
+}
+
+.unlocated
+{
+border: 2px solid gray;
+}
+
 </style>
 	
 </head>
@@ -201,6 +218,9 @@ a:hover {
 <div id="viewDiv"  ></div>
 
 <script>
+var markers=[];
+var customPopup;
+ var customOptions;
 
 $(function(){
     
@@ -259,6 +279,10 @@ var littleton = L.marker([37.523164, 126.909769]).bindPopup('This is the hospita
     zoom: 3,
     layers: hospital});
 	
+	mymap.on('moveend', function(e) {
+   //document.getElementById('inbox').style.display='block';
+});
+	
 	var overlayMaps = {
     "Cities": hospital
 };
@@ -266,6 +290,7 @@ var littleton = L.marker([37.523164, 126.909769]).bindPopup('This is the hospita
 	//https://github.com/domoritz/leaflet-locatecontrol
 	var geocoder = L.Control.Geocoder.nominatim(),
         control = L.Control.geocoder({
+		position:'topright',
           geocoder: geocoder
         }).addTo(mymap),
         newMarker,
@@ -314,23 +339,38 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	function onLocationFound(e) {
 	pos=e.latlng;
 	
+	customPopup="<p>Your position is set.</p><br><div class='list-group' id='poll2'></div>"
+	 customOptions=
+        {
+        'className' : 'custom located',
+        };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
     var radius = e.accuracy / 2;
     newCircle= new L.circle(e.latlng, radius).addTo(mymap)
 	//.bindPopup("<p id='popuptxt' >You are within " + radius + " meters from this point</P> <button id='confirm' onclick='Roadmap(pos)'></button>").openPopup();
-		.bindPopup("Your position is set.<br><button class='btn btn-primary'>Continue</button><button class='btn btn-light'>Stay hidden</button>").openPopup();
+		.bindPopup(customPopup,customOptions).openPopup();
 	//document.getElementById('confirm').innerHTML="Access menu";
+	markers.push(newCircle);
+	init();
     }
+	
 	
 	function onLocationError(e)
 	{
+	customPopup="<div id='menu'><p>"+e.message+"<span class='glyphicon glyphicon-alert' style='color:red' ></span><p><br> <div class='list-group' id='poll2'></div>";
+	 customOptions=
+        {
+        'className' : 'custom unlocated',
+        };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
 	newCircle=new L.circle([45, 3],10).addTo(mymap)
-	.bindPopup('Unfortunately:'+e.message+"<br><button class='btn btn-primary'>Retry</button><button class='btn btn-light'>Stay hidden</button>").openPopup();
+	.bindPopup(customPopup,customOptions).openPopup();
+	markers.push(newCircle);
+	init();
 	}
-
+    
     mymap.on('locationfound', onLocationFound);
 	 mymap.on('locationerror', onLocationError);
 	
@@ -459,6 +499,8 @@ newMarker.setIcon(Icon);
 			  var loadFile = function(event) {
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
+	
+	
   };
   };
  };
@@ -489,7 +531,7 @@ li2.appendChild(cr);
 node.appendChild(titl);
 node.appendChild(li2);
 
-document.getElementById("poll").appendChild(node);  
+document.getElementById("poll2").appendChild(node);  
 }
 
 var poll=['Alex surpise birthday','Association meeting','Dentist RDV','Secret Appointement'];
@@ -643,10 +685,13 @@ request.send();
   document.getElementById('eventnav').style.display='none';
  }
  
- function showmenu3()
+  function showmenu3()
 {
-document.getElementById("menu1").style.marginRight = "50%";
+markers[0].openPopup();
 }
+ 
+
+
 </script>
 
 <nav class="navbar navbar-fixed-bottom navbar-expand-md" id="nav1" >  
@@ -662,7 +707,7 @@ document.getElementById("menu1").style.marginRight = "50%";
   </button>
   </li>
   <li>
-  <div class="btn-group dropup">
+  <div class="btn-group dropup" id='inbox' >
   <button type="button" class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="glyphicon glyphicon-inbox"></span>
 	<span class="badge type">3</span>
@@ -825,7 +870,7 @@ Add an image
 </body>
 
 `<script>
- init();
+
  var $tabs = $('#navsurvey').children();
 
 $('#prevtab').on('click', function() {
