@@ -321,12 +321,15 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     newCircle= new L.circle(e.latlng, radius).addTo(mymap)
 	.bindPopup("<p id='popuptxt' >You are within " + radius + " meters from this point</P> <button id='confirm' onclick='Roadmap(pos)'></button>").openPopup();
 	document.getElementById('confirm').innerHTML="Access menu";
-	
-	
     }
+	
+	function onLocationError(e)
+	{
+	alert('Unfortunately:'+e+'<button>Stay hidden</button>');
+	}
 
     mymap.on('locationfound', onLocationFound);
-	
+	 mymap.on('locationerror', onLocationError);
 	
 	
 	
