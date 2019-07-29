@@ -263,10 +263,7 @@ var littleton = L.marker([37.523164, 126.909769]).bindPopup('This is the hospita
     "Cities": hospital
 };
 
-	
-	//L.control.layers(overlayMaps).addTo(mymap);
-	
-//.setView([45, 3], 3);});
+	//https://github.com/domoritz/leaflet-locatecontrol
 	var geocoder = L.Control.Geocoder.nominatim(),
         control = L.Control.geocoder({
           geocoder: geocoder
@@ -274,6 +271,9 @@ var littleton = L.marker([37.523164, 126.909769]).bindPopup('This is the hospita
         newMarker,
 		newCircle;
     
+	
+	
+	
 var pinpopup= L.popup();
 var pinpopupcontent= 
 "<form action=''> <p>Your id</p></br><p id='adress' value='adress'></p></br><h3 id='Title' value='title'></h3></br><input type='text' id='name' value='name concern'></br></br><input type='text' id='description' value='description'></br></br><input type='file' accept='image/*;capture=camera' capture='environment' ><img id='output'/></br></br></br><input type='submit' value='Submit'></form> "
@@ -310,25 +310,17 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	mymap.locate({setView: true, maxZoom: 20});
 	
 	
-	function blue(){
-	var position ='good';
-	if (position=='good')
-	alert('✓ Your in the zone, Confirm your position');
-	else 
-	alert('X Position different, Relocate your pousition');
-	}
 	
 	function onLocationFound(e) {
 	pos=e.latlng;
-	if (document.fullscreenEnabled) 
-       GoInFullscreen(document.documentElement);
+	
 	 
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
     var radius = e.accuracy / 2;
     newCircle= new L.circle(e.latlng, radius).addTo(mymap)
 	.bindPopup("<p id='popuptxt' >You are within " + radius + " meters from this point</P> <button id='confirm' onclick='Roadmap(pos)'></button>").openPopup();
-	document.getElementById('confirm').innerHTML="Confirm and access info";
+	document.getElementById('confirm').innerHTML="Access menu";
 	
 	
     }
