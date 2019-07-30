@@ -174,8 +174,9 @@ a:hover {
     display: none;
 }
 	
-#navsub {
+.navsub {
    max-height:70vh;
+   min-width:40vw;
    overflow-y:auto;
    overflow-x:hidden;
 }	
@@ -339,10 +340,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	function onLocationFound(e) {
 	pos=e.latlng;
 	
-	customPopup="<p>Your position is set.</p><br><div class='list-group' id='poll2'></div>"
+	customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div>"
 	 customOptions=
         {
-        'className' : 'custom located',
+        'className' : 'custom located navsub',
         };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
@@ -358,10 +359,11 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	
 	function onLocationError(e)
 	{
-	customPopup="<div id='menu'><p>"+e.message+"<span class='glyphicon glyphicon-alert' style='color:red' ></span><p><br> <div class='list-group' id='poll2'></div>";
+	customPopup="<div id='menu' ><p>"+e.message+"<span class='glyphicon glyphicon-alert' style='color:red' ></span><p><br> <div class='list-group' id='poll2'></div>";
 	 customOptions=
         {
-        'className' : 'custom unlocated',
+        'className' : 'custom unlocated navsub',
+		'autoClose' : false,
         };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
@@ -517,8 +519,8 @@ var creator=['EMS','Police Departement','Eloise','Amazon'];
  for (i = 0; i < poll.length; i++) {  
  var node = document.createElement("A");  
 node.setAttribute("class", "list-group-item "+status[i]);  // Create a <li> node
-node.setAttribute("id", i);
-node.setAttribute('onclick','');
+node.setAttribute('id',"desactivate");
+node.setAttribute('onclick','toggleConv(this)');
 var titl = document.createElement("H4"); 
 titl.setAttribute("class", "list-group-item-heading");
 var tt = document.createTextNode(poll[i]); 
@@ -690,7 +692,39 @@ request.send();
 markers[0].openPopup();
 }
  
+function toggleConv(conv)
+{
+var poll = conv.parentElement;
+var j = [...poll.children].indexOf(conv);
+  //a.parentElement.setAttribute('style','background-color:#E8E8E8;')  Change the style of the active conversation
+  //document.getElementById("arguments").setAttribute('class',"navbar navbar-fixed-top"); Maybe fix the div on the top
+  
+if (conv.id=='desactivate')
+{
+for (var i = 0; i < poll.children.length; i++)
+{
+if (i != j)
+poll.children[i].style.display="none";
+else
+poll.children[i].setAttribute('id',"activate");
+}
 
+for (var i = 0; i < 4; i++)
+{
+ //Mettre du content
+}
+}
+
+
+
+else
+{
+conv.setAttribute('id',"desactivate");
+for (var i = 0; i < poll.children.length; i++)
+poll.children[i].style.display="";
+}
+
+}
 
 </script>
 
@@ -712,7 +746,7 @@ markers[0].openPopup();
     <span class="glyphicon glyphicon-inbox"></span>
 	<span class="badge type">3</span>
   </button>
-  <div id="navsub" class="dropdown-menu">
+  <div  class="dropdown-menu navsub">
    <p> Create a new event!</p> <button onclick='showmenu3()'>+</button>
      <div class="list-group" id="poll" onclick='activatedemo()'> </div>
   </div>
