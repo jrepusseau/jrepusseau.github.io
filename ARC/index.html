@@ -175,10 +175,15 @@ a:hover {
 }
 	
 .navsub {
-   max-height:70vh;
-   min-width:40vw;
-   overflow-y:auto;
+     max-height:65vh;
+     min-width:43vw;
+}
+
+#poll2{
+ overflow-y:auto;
    overflow-x:hidden;
+    max-height:60vh;
+   min-width:40vw;
 }	
 
 .type
@@ -207,6 +212,19 @@ border: 2px solid blue;
 .unlocated
 {
 border: 2px solid gray;
+}
+
+.containertype {
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color:black; 
+}
+
+.pro {
+  border-color: RGBA(0, 191, 255, 1);
+  background-color: white ;
 }
 
 </style>
@@ -340,10 +358,11 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	function onLocationFound(e) {
 	pos=e.latlng;
 	
-	customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div>"
+	customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
 	 customOptions=
         {
         'className' : 'custom located navsub',
+				'autoClose' : false,
         };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
@@ -359,7 +378,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	
 	function onLocationError(e)
 	{
-	customPopup="<div id='menu' ><p>"+e.message+"<span class='glyphicon glyphicon-alert' style='color:red' ></span><p><br> <div class='list-group' id='poll2'></div>";
+	customPopup="<div id='menu' ><p>"+e.message+"<span class='glyphicon glyphicon-alert' style='color:red' ></span><p><br> <div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>";
 	 customOptions=
         {
         'className' : 'custom unlocated navsub',
@@ -708,11 +727,8 @@ poll.children[i].style.display="none";
 else
 poll.children[i].setAttribute('id',"activate");
 }
+buildcontent(this);
 
-for (var i = 0; i < 4; i++)
-{
- //Mettre du content
-}
 }
 
 
@@ -722,9 +738,33 @@ else
 conv.setAttribute('id',"desactivate");
 for (var i = 0; i < poll.children.length; i++)
 poll.children[i].style.display="";
+
+//hidecontent() empty
 }
 
 }
+
+
+function buildcontent()
+{
+
+var content= document.createElement("DIV");
+
+var opinion= document.createElement("P");
+var opinioncontent='Gui Minhai and severals publishers have been kidnapped because of their freedom of speech';
+var posttime= document.createElement('span');
+posttime.innerHTML='Posted 30/7 12:30 <br> ';
+
+content.setAttribute('class','containertype pro');
+
+opinion.innerHTML=opinioncontent;
+content.appendChild(opinion);
+content.appendChild(posttime);
+
+document.getElementById("content").appendChild(content); 
+
+}
+
 
 </script>
 
