@@ -227,6 +227,11 @@ border: 2px solid gray;
   background-color: white ;
 }
 
+.con {
+  border-color: RGBA(255, 20, 147, 1);
+  background-color: white ;
+}
+
 </style>
 	
 </head>
@@ -261,8 +266,8 @@ var surveyttl=[
 '1. Are you involved in the emergency and how do you feel?',
 "2. Can you label the emergency?",
 "3. People involved and the most critical situation?",
-'4.Are vehicules involved? Which types?',
-'5. Are guns involved? Whict types?',
+'4. Are vehicules involved? Which types?',
+'5. Are guns involved? Which types?',
 "6. If medical problems what are symptoms?",
 "7. What medications people involved are on?",
 "8. Are they breathing?",
@@ -289,8 +294,11 @@ else
   shadowSize: [41, 41]
 });
 
-var littleton = L.marker([37.523164, 126.909769]).bindPopup('This is the hospital'),
- denver    = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.');
+var littleton = L.marker([37.523164, 126.909769]),
+ denver    = L.marker([39.74, -104.99]);
+ 
+ 	markers.push(littleton);
+	markers.push(denver);
 	var hospital = L.layerGroup([littleton,denver]);
 	
 		mymap = L.map('viewDiv',
@@ -756,12 +764,41 @@ var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
 content.setAttribute('class','containertype pro');
+content.setAttribute('onclick','updateloc(0)');
 
 opinion.innerHTML=opinioncontent;
 content.appendChild(opinion);
 content.appendChild(posttime);
 
 document.getElementById("content").appendChild(content); 
+
+var content2= document.createElement("DIV");
+
+var opinion= document.createElement("P");
+var opinioncontent='Gui Minhai and severals publishers have been kidnapped because of their freedom of speech';
+var posttime= document.createElement('span');
+posttime.innerHTML='Posted 30/7 12:30 <br> ';
+
+content2.setAttribute('class','containertype con');
+content2.setAttribute('onclick','updateloc(1)');
+
+opinion.innerHTML=opinioncontent;
+content2.appendChild(opinion);
+content2.appendChild(posttime);
+
+document.getElementById("content").appendChild(content2); 
+
+}
+
+function updateloc(nb)
+{
+mymap.closePopup();
+ customOptions=
+        {
+        'className' : 'custom located navsub',
+				'autoClose' : false,
+        };
+markers[nb].bindPopup(document.getElementById("menu").cloneNode(true),customOptions).openPopup();
 
 }
 
