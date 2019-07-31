@@ -752,7 +752,7 @@ conv.setAttribute('id',"desactivate");
 for (var i = 0; i < poll.children.length; i++)
 poll.children[i].style.display="";
 
-//hidecontent() empty
+$("#content").empty();  
 }
 
 }
@@ -760,11 +760,18 @@ poll.children[i].style.display="";
 
 function buildcontent()
 {
+var switchpos= document.createElement("DIV");
+switchpos.setAttribute('class','checkbox');
+var switcharr document.createElement("DIV");
+switcharr.setAttribute('class','checkbox');
+
+document.getElementById('properties').appendChild(switchpos);
+document.getElementById('properties').appendChild(switcharr);
 
 var content= document.createElement("DIV");
 
 var opinion= document.createElement("P");
-var opinioncontent='Gui Minhai and severals publishers have been kidnapped because of their freedom of speech';
+var opinioncontent='Im on my way!';
 var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
@@ -780,7 +787,7 @@ document.getElementById("content").appendChild(content);
 var content2= document.createElement("DIV");
 
 var opinion= document.createElement("P");
-var opinioncontent='Gui Minhai and severals publishers have been kidnapped because of their freedom of speech';
+var opinioncontent='Please fill the questionnary';
 var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
