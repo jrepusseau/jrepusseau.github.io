@@ -760,12 +760,16 @@ $("#content").empty();
 
 function buildcontent()
 {
-var switchpos= document.createElement("DIV");
-switchpos.setAttribute('class','checkbox');
-var switcharr= document.createElement("DIV");
-switcharr.setAttribute('class','checkbox');
+var switchpos= document.createElement("INPUT");
+switchpos.setAttribute('type','checkbox');
+switchpos.setAttribute('data-toggle',"toggle");
+var switcharr= document.createElement("INPUT");
+switcharr.setAttribute('type','checkbox');
+switcharr.setAttribute('data-toggle',"toggle");
 
+document.getElementById('properties').appendChild(document.createTextNode("Show position"));
 document.getElementById('properties').appendChild(switchpos);
+document.getElementById('properties').appendChild(document.createTextNode("Show estimated arrival"));
 document.getElementById('properties').appendChild(switcharr);
 
 var content= document.createElement("DIV");
