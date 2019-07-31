@@ -369,6 +369,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	
 	
 	function onLocationFound(e) {
+	
+	alert('find');
 	pos=e.latlng;
 	
 	customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
