@@ -175,15 +175,14 @@ a:hover {
 }
 	
 .navsub {
-     max-height:65vh;
-     min-width:43vw;
-}
-
-#poll2{
- overflow-y:auto;
+    overflow-y:auto;
    overflow-x:hidden;
     max-height:60vh;
    min-width:40vw;
+}
+
+#poll2{
+
 }	
 
 .type
@@ -232,6 +231,11 @@ border: 2px solid gray;
   background-color: white ;
 }
 
+.neutral{
+  border-color: grey;
+  background-color: white ;
+}
+
 </style>
 	
 </head>
@@ -245,6 +249,7 @@ border: 2px solid gray;
 var markers=[];
 var customPopup;
  var customOptions;
+var mymap;
 
 $(function(){
     
@@ -260,7 +265,7 @@ $(function(){
         }
     });});
 
-var mymap;
+
 var pos;
 var surveyttl=[
 '1. Are you involved in the emergency and how do you feel?',
@@ -788,6 +793,12 @@ content2.appendChild(posttime);
 
 document.getElementById("content").appendChild(content2); 
 
+var content3= document.createElement("DIV");
+content3.setAttribute('class','containertype neutral');
+content3.innerHTML="<input type = 'range' min='0' max='6' step='1' value='0' onchange='updatettl(this.value)'><br><p id='qtitle'>"+surveyttl[0]+"</p>";
+
+document.getElementById("content").appendChild(content3); 
+
 }
 
 function updateloc(nb)
@@ -798,6 +809,7 @@ mymap.closePopup();
         'className' : 'custom located navsub',
 				'autoClose' : false,
         };
+		
 markers[nb].bindPopup(document.getElementById("menu").cloneNode(true),customOptions).openPopup();
 
 }
