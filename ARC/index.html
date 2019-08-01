@@ -251,6 +251,8 @@ var customPopup;
  var customOptions;
 var mymap;
 
+
+
 $(function(){
     
     $("[data-toggle=popover]").popover({
@@ -266,7 +268,7 @@ $(function(){
     });});
 
 
-var pos;
+var pos=[];
 var surveyttl=[
 '1. Are you involved in the emergency and how do you feel?',
 "2. Can you label the emergency?",
@@ -282,7 +284,8 @@ var survey=[];
 
 
 
-function Start(){
+function Start()
+{
 document.getElementById("menu1").style.display="none";
 if (document.getElementById("viewDiv").innerHTML)
 {
@@ -364,30 +367,19 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 		element.msRequestFullscreen();
 }
 	
-	mymap.locate({setView: true, maxZoom: 20});
+	mymap.locate({setView: true,watch:true, maxZoom: 20});
 	
 	
 	
 	function onLocationFound(e) {
+
+	if(pos.length!=0 && (pos.latlng.lat!=e.latlng.lat || pos.latlng.lng!=e.latlng.lng) ):
+	{
+	if(distanceInMBetweenEarthCoordinates(e.latlng.lat,e.latlng.lng,pos.latlng.lat,pos.latlng.lng)>10)
+	//update marker and   marker.setPosition(e.latlng);
+	}
+	pos=e;
 	
-	alert('find');
-	pos=e.latlng;
-	
-	customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
-	 customOptions=
-        {
-        'className' : 'custom located navsub',
-				'autoClose' : false,
-        };
-	if (newCircle)
-	     mymap.removeLayer(newCircle);
-    var radius = e.accuracy / 2;
-    newCircle= new L.circle(e.latlng, radius).addTo(mymap)
-	//.bindPopup("<p id='popuptxt' >You are within " + radius + " meters from this point</P> <button id='confirm' onclick='Roadmap(pos)'></button>").openPopup();
-		.bindPopup(customPopup,customOptions).openPopup();
-	//document.getElementById('confirm').innerHTML="Access menu";
-	markers.push(newCircle);
-	init();
     }
 	
 	
@@ -538,6 +530,25 @@ newMarker.setIcon(Icon);
 	
 	
   };
+  
+  
+ /* //Every 5 secondes we update la position des points 
+  setInterval(function(){ 
+//
+customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
+	 customOptions=
+        {
+        'className' : 'custom located navsub',
+				'autoClose' : false,
+        };
+	if (newCircle)
+	     mymap.removeLayer(newCircle);
+    var radius = e.accuracy / 2;
+    newCircle= new L.circle(pos, radius).addTo(mymap)
+		.bindPopup(customPopup,customOptions).openPopup();
+	markers.push(newCircle);
+	init();
+  }, 10000);*/
   };
  };
  
@@ -814,6 +825,15 @@ document.getElementById("content").appendChild(content3);
 
 }
 
+
+/*How to check if a marker is open
+var popup = marker.getPopup(); // returns marker._popup
+
+console.log(popup._isOpen); // true or false
+*/
+
+
+
 function updateloc(nb)
 {
 mymap.closePopup();
@@ -825,7 +845,32 @@ mymap.closePopup();
 		
 markers[nb].bindPopup(document.getElementById("menu").cloneNode(true),customOptions).openPopup();
 
+
 }
+
+
+/* Math function to calculate the distance in meter between 2 gps coordinates */
+
+function degreesToRadians(degrees) {
+  return degrees * Math.PI / 180;
+}
+
+function distanceInMBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
+  var earthRadiusKm = 6371;
+
+  var dLat = degreesToRadians(lat2-lat1);
+  var dLon = degreesToRadians(lon2-lon1);
+
+  lat1 = degreesToRadians(lat1);
+  lat2 = degreesToRadians(lat2);
+
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  return (earthRadiusKm * c)*1000;
+}
+
+
 
 
 </script>
@@ -1016,6 +1061,33 @@ $('#prevtab').on('click', function() {
 $('#nexttab').on('click', function() {
     $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
 });
+
+/*
+Comment creer un evenement? Double clique sur la map : [Add event +] : Add people or phone number and Select personne tout follow if there is and validate the fix adress. 
+
+Pas dans l'evenement backgroud-color white, border color, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
 
 </script>
 </html>
