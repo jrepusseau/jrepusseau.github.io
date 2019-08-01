@@ -44,6 +44,31 @@
     background-color: #42AEEC;
     color: #fff;
 }
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 100%;
+}
+
 </style>
 
 <script>
@@ -60,22 +85,35 @@
 <div class="card bg-light">
 <article class="card-body mx-auto" style="">
     <img src='yahopetlogo.png'/>
-	<h4 class="card-title mt-3 text-center">Create Account</h4>
-	<p class="text-center">Get started with your free account</p>
-	<p>
-		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-	</p>
+	<h4 class="card-title mt-3 text-center">Fill your information please :)</h4>
+	
 	<p class="divider-text">
-        <span class="bg-light">OR</span>
+        <span class="bg-light">Here</span>
     </p>
 	<form>
+	
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="Full name" type="text">
+        <input name="" class="form-control" placeholder="Company / Association name " type="text">
     </div> <!-- form-group// -->
+	
+
+    <div class="form-group">
+        <label>Upload Image</label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    Browse… <input type="file" id="imgInp">
+                </span>
+            </span>
+            <input type="text" class="form-control" readonly>
+        </div>
+        <img id='img-upload'/>
+    </div>
+
+  
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
@@ -99,12 +137,21 @@
 		    <span class="input-group-text"> <i class="fas fa-dog"></i> </span>
 		</div>
 		<select class="form-control">
-			<option selected=""> Select job type</option>
+			<option selected=""> Category </option>
 			<option>Designer</option>
 			<option>Manager</option>
 			<option>Association</option>
 			<option>Veterinary</option>
+			<option>Petshop</option>
+			<option>Journalist</option>
 			<option>Blogger</option>
+			<option>Groomer</option>
+			<option>Handler</option>
+			<option>Dog Trainer</option>
+			<option>Cat Cafe</option>
+			<option>Retirement</option>
+			<option>Journalist</option>
+			<option>Others</option>
 		</select>
 	</div> <!-- form-group end.// -->
 	<div class="form-group input-group">
@@ -114,22 +161,57 @@
         <input name="" class="form-control" placeholder="Adress or shop name" type="text">
 		
     </div> <!-- form-group// -->
-    <div class="form-group input-group">
+	
+	 <div class="form-group input-group">
     	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Create password" type="password">
+		    <span class="input-group-text"> <i class="fab fa-blog"></i> </span>
+		 </div>
+        <textarea name="comment" style='min-width:40vw;min-height:30vh'>Description and Needs</textarea>
     </div> <!-- form-group// -->
-    <div class="form-group input-group">
+	
+       <div class="form-group input-group">
     	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Repeat password" type="password">
-    </div> <!-- form-group// -->                                      
+		    <span class="input-group-text"> <i class="fab fa-facebook"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Facebook URL" >
+    </div> <!-- form-group// -->
+	
+	 
+       <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fab fa-instagram"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Instagram URL" >
+    </div> <!-- form-group// -->
+	
+
+       <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fab fa-twitter"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Twitter URL" >
+    </div> <!-- form-group// -->
+	
+	 
+       <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fab fa-youtube"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Youtube Channel" >
+    </div> <!-- form-group// -->
+	
+	 
+       <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fab "></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Blog Adress" >
+    </div> <!-- form-group// -->
+                                        
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+        <button type="submit" class="btn btn-primary btn-block"> Submit information  </button>
     </div> <!-- form-group// -->      
-    <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
+                                                                  
 </form>
 </article>
 </div> <!-- card.// -->
@@ -137,6 +219,45 @@
 </div> 
 <!--container end.//-->
 
+<script>
+
+$(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+	
+</script>
 
 </body>
 </html>
