@@ -27,10 +27,10 @@ body
 <body>
 
  
- <nav class="navbar  navbar-fixed-top navbar-expand-md" id="nav1" >
+ <nav class="navbar  navbar-static-top navbar-expand-md" id="nav1" >
   <div class="container-fluid" >
   <a class="navbar-brand" href="#">
-          <img src="yahopetlogo.png" height="70px" alt="">
+          <img src="logo.png" height="70px" alt="">
         </a>
     <ul class="nav nav-tabs" style='margin:0 auto;'>
       <li class="active"><a   id="back"></a></li>
@@ -75,12 +75,45 @@ body
 
 
 <br>
-<br>
-<br>
-<br>	
-	<h2 id='title' > Main news </h2>
+
+	<h2 id='title' > Research profil</h2>
 	
-	<img src='picture1.jpg' style='margin:0 auto' />
+	<select class="form-control">
+			<option selected=""> Category </option>
+			<option>Designer</option>
+			<option>Manager</option>
+			<option>Association</option>
+			<option>Veterinary</option>
+			<option>Petshop</option>
+			<option>Journalist</option>
+			<option>Blogger</option>
+			<option>Groomer</option>
+			<option>Handler</option>
+			<option>Dog Trainer</option>
+			<option>Cat Cafe</option>
+			<option>Retirement</option>
+			<option>Journalist</option>
+			<option>Others</option>
+		</select>
+		
+		<select class="form-control">
+			<option selected=""> Location  </option>
+			<option>Busan</option>
+			<option>Jeju</option>
+			<option>Seoul</option>
+		</select>
+		
+	
+		<button> Search </button> 
+		
+		
+		<p> Order by: <p> 
+		<select class="form-control">
+			<option>Popular</option>
+			<option>New</option>
+		</select>
+	
+	<div id='result'></div>
 </div>
 
 
