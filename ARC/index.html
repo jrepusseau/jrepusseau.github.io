@@ -336,7 +336,7 @@ else
 	
 var pinpopup= L.popup();
 var pinpopupcontent= 
-"<form action=''> <p>Your id</p></br><p id='adress' value='adress'></p></br><h3 id='Title' value='title'></h3></br><input type='text' id='name' value='name concern'></br></br><input type='text' id='description' value='description'></br></br><input type='file' accept='image/*;capture=camera' capture='environment' ><img id='output'/></br></br></br><input type='submit' value='Submit'></form> "
+"<form action=''> <input type='text' placeholder='Event name'></input></br><input type='text' placeholder='Center'></input><p id='adress' value='adress'></p></br><input type='submit' value='Submit'></form> "
 
 	mymap.doubleClickZoom.disable(); 
 	
@@ -473,14 +473,15 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 		  document.getElementById("adress").innerHTML=e.latlng;
 		  }
 		  
-		 //////////////////////////////////////////// 
-		 document.getElementById("nav").style.visibility='visible';
+		 
 		
 		 
-
-		 newMarker._popup._closeButton.onclick = function( ){
+newMarker.getPopup().on('remove', function() {
+   mymap.removeLayer(newMarker);
+});
+		/* newMarker._popup._closeButton.onclick = function( ){
          Dfunction();
-         }
+         } */
 		 
 		 });
 		
@@ -838,11 +839,13 @@ document.getElementById("content").appendChild(content3);
 
 function buildmap()
 {
-var littleton = L.marker([37.523164, 126.909769]),
- denver    = L.marker([39.74, -104.99]);
+var event1  = new L.circle([37.544097, 126.95053], 40)
+guest1 = L.marker([37.523164, 126.909769]),
+ guest2    = L.marker([39.74, -104.99]);
  
- markers.push(littleton);
- markers.push(denver);
+ markers.push(event1);
+ markers.push(guest1);
+ markers.push(guest2);
  
  for (i=1;i<markers.length;i++)
  	mymap.addLayer(markers[i]);
