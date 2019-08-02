@@ -57,13 +57,15 @@ button
  <script>
 
 		
-var caract ='ㅇ ㄱ ㄴ ㅁ ㄹ ㅅ ∇ Z Θ ㅋ ㄷ ㅂ 丁 ㅈ F ( V ㅎ ㅌ ㅍ 亍 ㅊ X ) ㅏ ㅓ ㅗ ㅜ 工 ㅔ ? ㅑ ㅕ ㅛ ㅠ ㅡ ㅐ ㅖ . , : ; ! space cut enter';
+var caract ='ㅇ ㄱ ㄴ ㅁ ㄹ ㅅ ∇ Z Θ ㅋ ㄷ ㅂ 丁 ㅈ F ( ㅎ V ㅌ ㅍ 亍 ㅊ X ) ㅏ ㅓ ㅗ ㅜ 工 ㅔ ㅣ ? ㅑ ㅕ ㅛ ㅠ ㅡ ㅐ ㅖ . , : ; ! space cut enter';
  
   var word = caract.split(" ");
   
    for (i = 0; i < word.length; i++) {    
 
       $("<button onclick='Add(this.innerHTML)'>"+word[i]+"</button>").appendTo('#ft');
+	  if ((i+1)%8==0 && i!=0)
+	  $("<BR>").appendTo('#ft');
    }
    
      var block=document.createElement("P");
