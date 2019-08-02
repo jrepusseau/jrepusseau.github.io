@@ -769,7 +769,8 @@ $("#content").empty();
 updateloc(0);
 
 //destroymap()
-mymap.removeLayer(activemarker);
+ for (i=1;i<markers.length;i++)
+ 	mymap.removeLayer(markers[i]);
 
 
 }
@@ -836,12 +837,17 @@ function buildmap()
 var littleton = L.marker([37.523164, 126.909769]),
  denver    = L.marker([39.74, -104.99]);
  
- 	markers.push(littleton);
+ markers.push(littleton);
+ markers.push(denver);
+ 
+ for (i=1;i<markers.length;i++)
+ 	mymap.addLayer(markers[i]);
 	
-	markers.push(denver);
 	
-	activemarker = L.layerGroup(markers);
-	mymap.addLayer(activemarker);
+	
+	
+	//activemarker = L.layerGroup(markers);
+	//mymap.addLayer(activemarker);
 }
 
 
