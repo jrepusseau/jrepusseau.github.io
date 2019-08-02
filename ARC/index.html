@@ -250,6 +250,8 @@ var markers=[];
 var customPopup;
  var customOptions;
 var mymap;
+var activemarker;
+var actvmkr=[];
 
 
 
@@ -302,25 +304,20 @@ else
   shadowSize: [41, 41]
 });
 
-var littleton = L.marker([37.523164, 126.909769]),
- denver    = L.marker([39.74, -104.99]);
- 
- 	markers.push(littleton);
-	markers.push(denver);
-	var hospital = L.layerGroup([littleton,denver]);
+
+	
 	
 		mymap = L.map('viewDiv',
 	{center: [45, 3],
-    zoom: 3,
-    layers: hospital});
+    zoom: 10});
+	
+	
 	
 	mymap.on('moveend', function(e) {
    //document.getElementById('inbox').style.display='block';
 });
 	
-	var overlayMaps = {
-    "Cities": hospital
-};
+	
 
 	//https://github.com/domoritz/leaflet-locatecontrol
 	var geocoder = L.Control.Geocoder.nominatim(),
@@ -367,16 +364,37 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 		element.msRequestFullscreen();
 }
 	
-	mymap.locate({setView: true,watch:true, maxZoom: 20});
+	mymap.locate({watch:true, maxZoom: 20});
 	
 	
 	
 	function onLocationFound(e) {
 
-	if(pos.length!=0 && (pos.latlng.lat!=e.latlng.lat || pos.latlng.lng!=e.latlng.lng) ):
+	if(pos.length==0)
+	{
+	
+	customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
+	 customOptions=
+        {
+        'className' : 'custom located navsub',
+				'autoClose' : false,
+        };
+	if (newCircle)
+	     mymap.removeLayer(newCircle);
+    var radius = e.accuracy / 2;
+    newCircle= new L.circle(e.latlng, radius).addTo(mymap)
+		.bindPopup(customPopup,customOptions).openPopup();
+	markers.push(newCircle);
+	init();
+	
+	}
+	
+	if(pos.length!=0 && (pos.latlng.lat!=e.latlng.lat || pos.latlng.lng!=e.latlng.lng) )
 	{
 	if(distanceInMBetweenEarthCoordinates(e.latlng.lat,e.latlng.lng,pos.latlng.lat,pos.latlng.lng)>10)
+	{}
 	//update marker and   marker.setPosition(e.latlng);
+	
 	}
 	pos=e;
 	
@@ -421,17 +439,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     //  L.Control.geocoder().addTo(mymap);
 
 
-	/*L.circle([51.508, -0.11], 500, {
-		color: 'red',
-		fillColor: '#f03',
-		fillOpacity: 0.5
-	}).addTo(mymap).bindPopup("I am a circle.");
-
-	L.polygon([
-		[51.509, -0.08],
-		[51.503, -0.06],
-		[51.51, -0.047]
-	]).addTo(mymap).bindPopup("I am a polygon.");*/
+	
 
 
 	var popup = L.popup();
@@ -535,19 +543,7 @@ newMarker.setIcon(Icon);
  /* //Every 5 secondes we update la position des points 
   setInterval(function(){ 
 //
-customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
-	 customOptions=
-        {
-        'className' : 'custom located navsub',
-				'autoClose' : false,
-        };
-	if (newCircle)
-	     mymap.removeLayer(newCircle);
-    var radius = e.accuracy / 2;
-    newCircle= new L.circle(pos, radius).addTo(mymap)
-		.bindPopup(customPopup,customOptions).openPopup();
-	markers.push(newCircle);
-	init();
+
   }, 10000);*/
   };
  };
@@ -754,7 +750,7 @@ else
 poll.children[i].setAttribute('id',"activate");
 }
 buildcontent(this);
-
+buildmap(this);
 }
 
 
@@ -764,8 +760,18 @@ else
 conv.setAttribute('id',"desactivate");
 for (var i = 0; i < poll.children.length; i++)
 poll.children[i].style.display="";
+
+//destroycontent()
 $("#properties").empty();
 $("#content").empty();  
+
+//start to 
+updateloc(0);
+
+//destroymap()
+mymap.removeLayer(activemarker);
+
+
 }
 
 }
@@ -793,7 +799,7 @@ var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
 content.setAttribute('class','containertype pro');
-content.setAttribute('onclick','updateloc(0)');
+content.setAttribute('onclick','updateloc(1)');
 
 opinion.innerHTML=opinioncontent;
 content.appendChild(opinion);
@@ -809,7 +815,7 @@ var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
 content2.setAttribute('class','containertype con');
-content2.setAttribute('onclick','updateloc(1)');
+content2.setAttribute('onclick','updateloc(2)');
 
 opinion.innerHTML=opinioncontent;
 content2.appendChild(opinion);
@@ -823,6 +829,19 @@ content3.innerHTML="<input type = 'range' min='0' max='6' step='1' value='0' onc
 
 document.getElementById("content").appendChild(content3); 
 
+}
+
+function buildmap()
+{
+var littleton = L.marker([37.523164, 126.909769]),
+ denver    = L.marker([39.74, -104.99]);
+ 
+ 	markers.push(littleton);
+	
+	markers.push(denver);
+	
+	activemarker = L.layerGroup(markers);
+	mymap.addLayer(activemarker);
 }
 
 
