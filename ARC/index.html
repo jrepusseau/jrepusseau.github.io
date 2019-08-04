@@ -239,6 +239,11 @@ border: 2px solid gray;
   background-color: white ;
 }
 
+.popover
+{
+   background-color: transparent;
+}
+
 </style>
 	
 </head>
@@ -255,6 +260,8 @@ var customPopup;
 var mymap;
 var activemarker;
 var actvmkr=[];
+var newMarker;
+var newMarkerCircle;
 
 
 
@@ -328,7 +335,6 @@ else
 		position:'topright',
           geocoder: geocoder
         }).addTo(mymap),
-        newMarker,
 		newCircle;
     
 	
@@ -336,7 +342,9 @@ else
 	
 var pinpopup= L.popup();
 var pinpopupcontent= 
-"<form action=''> <input type='text' placeholder='Event name'></input></br><input type='text' placeholder='Center'></input><p id='adress' value='adress'></p></br><input type='submit' value='Submit'></form> "
+"<div id='ppp'><form action='' > <input type='text' placeholder='Event name'></input></br><input type='text' placeholder='Center'></input><p id='adress' value='adress'></p></br><input type='text' placeholder='Invite'></input> <input type='submit'  value='Create event'></form></div> "
+
+
 
 	mymap.doubleClickZoom.disable(); 
 	
@@ -376,7 +384,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	if(pos.length==0)
 	{
 	
-	customPopup="<div id='menu' ><p>Your position is set.</p><br><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
+	customPopup="<div id='menu' ><p>Your position is set.</p><br><button onclick='backconv()' id='backconv' style='display:none'>back</button><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
 	 customOptions=
         {
         'className' : 'custom located navsub',
@@ -407,7 +415,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	
 	function onLocationError(e)
 	{
-	customPopup="<div id='menu' ><p>"+e.message+"<span class='glyphicon glyphicon-alert' style='color:red' ></span><p><br> <div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>";
+	customPopup="<div id='menu' ><p>"+e.message+"<span class='glyphicon glyphicon-alert' style='color:red' ></span><p><br><button onclick='backconv()' id='backconv' style='display:none'>back</button> <div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>";
 	 customOptions=
         {
         'className' : 'custom unlocated navsub',
@@ -473,11 +481,27 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 		  document.getElementById("adress").innerHTML=e.latlng;
 		  }
 		  
-		 
+		   $(document).ready(function(){
+   $("#ppp").popover({
+        placement: 'bottom',
+        html: 'true',
+       // title : "<ul class='nav nav-tabs' id='navsurvey'><li class='active'><a data-toggle='tab' href='#menusurvey1' >Style</a></li><li><a href='#menusurvey2' data-toggle='tab' >Contrestyle</a></li></ul>",
+       // content : " <div class='tab-content'><div id='menusurvey1' class='tab-pane fade in active'><input type='range'></input></br><input type='button' value='Next' onclick='' ></input></div><div id='menusurvey2' class='tab-pane fade'><p>Yooooooo</p></div></div><div class='btn-group'><button class='btn' id='prevtab' type='button'>Prev</button><button class='btn' id='nexttab' type='button'>Next</button></div>"
+       content : "<div ><br><br><br> <input type='range' min='20' max='1000' onchange='updateradius(this.value)' style='background-color:white;'><br><input type='time' id='appt' name='appt' min='9:00' max='18:00' required></div>",
+	
+	});
+	$("#ppp").popover('show');
+});
+		  
+		 newMarkerCircle = new L.circle(e.latlng, 40).addTo(mymap)
+		
+		
 		
 		 
 newMarker.getPopup().on('remove', function() {
    mymap.removeLayer(newMarker);
+   mymap.removeLayer(newMarkerCircle);
+
 });
 		/* newMarker._popup._closeButton.onclick = function( ){
          Dfunction();
@@ -550,6 +574,9 @@ newMarker.setIcon(Icon);
 //
 
   }, 10000);*/
+  
+ 
+
   };
  };
  
@@ -740,7 +767,7 @@ markers[0].openPopup();
  
 function toggleConv(conv)
 {
-var poll = conv.parentElement;
+var poll = document.getElementById('poll2');
 var j = [...poll.children].indexOf(conv);
   //a.parentElement.setAttribute('style','background-color:#E8E8E8;')  Change the style of the active conversation
   //document.getElementById("arguments").setAttribute('class',"navbar navbar-fixed-top"); Maybe fix the div on the top
@@ -754,17 +781,26 @@ poll.children[i].style.display="none";
 else
 poll.children[i].setAttribute('id',"activate");
 }
-buildcontent(this);
+buildcontent(conv);
 buildmap(this);
+document.getElementById('backconv').style.display="block";
 }
 
 
 
-else
+}
+
+function backconv()
 {
-conv.setAttribute('id',"desactivate");
+var poll = document.getElementById('poll2');
 for (var i = 0; i < poll.children.length; i++)
+{
+if(poll.children[i].style.display="")
+poll.children[i].setAttribute('id',"desactivate");
 poll.children[i].style.display="";
+}
+
+document.getElementById('backconv').style.display="none";
 
 //destroycontent()
 $("#properties").empty();
@@ -780,11 +816,10 @@ updateloc(0);
 
 }
 
-}
 
-
-function buildcontent()
+function buildcontent(a)
 {
+a.setAttribute('onclick','updateloc(1)');
 var switchpos= document.createElement("INPUT");
 switchpos.setAttribute('type','checkbox');
 switchpos.setAttribute('data-toggle',"toggle");
@@ -805,7 +840,7 @@ var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
 content.setAttribute('class','containertype pro');
-content.setAttribute('onclick','updateloc(1)');
+content.setAttribute('onclick','updateloc(2)');
 
 opinion.innerHTML=opinioncontent;
 content.appendChild(opinion);
@@ -821,7 +856,7 @@ var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
 content2.setAttribute('class','containertype con');
-content2.setAttribute('onclick','updateloc(2)');
+content2.setAttribute('onclick','updateloc(3)');
 
 opinion.innerHTML=opinioncontent;
 content2.appendChild(opinion);
@@ -903,6 +938,12 @@ function distanceInMBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
   return (earthRadiusKm * c)*1000;
 }
 
+ function updateradius(val)
+{
+if(newMarkerCircle)
+mymap.removeLayer(newMarkerCircle);
+newMarkerCircle= new L.circle(newMarker.getLatLng(),val*10).addTo(mymap)
+}
 
 
 
@@ -934,7 +975,9 @@ function distanceInMBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
   </li>
  
 
- 
+ <li>
+ <input type="range" min="20" max="100" onchange='updateradius(this.value)'>
+ </li>
   
   
  
