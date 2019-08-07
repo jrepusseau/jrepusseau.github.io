@@ -9,6 +9,12 @@
   background-color: #fff;
 }
 
+body
+{
+overflow-x: hidden;
+}
+
+
 #mainNav .navbar-toggler {
   font-size: 80%;
   padding: 0.75rem;
