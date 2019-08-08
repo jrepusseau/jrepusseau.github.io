@@ -281,7 +281,7 @@ function search(){
 
 //$("#result").empty();  
 
-alasql(['SELECT * FROM XLS("https://jrepusseau.github.io/Yahopet/data/company.xls") WHERE category = "펫샵" and city = "서울" GROUP BY company '])
+alasql(['SELECT * FROM CSV("./data/company.csv") WHERE category = "펫샵" and city = "서울" GROUP BY company '])
     .then(function(res){
         console.log(res); // output depends on company.xls
     }).catch(function(err){
