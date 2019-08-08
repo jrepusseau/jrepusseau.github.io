@@ -9,6 +9,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+  
+ <script src="https://cdn.jsdelivr.net/npm/alasql@0.4"></script>
+ <script src="https://unpkg.com/xlsx@0.11.5/dist/xlsx.core.min.js"></script>
  
  <style>
  h2{
@@ -78,30 +81,34 @@ body
 
 	<h2 id='title' > Research profil</h2>
 	
-	<select class="form-control">
-			<option selected=""> Category </option>
-			<option>Designer</option>
-			<option>Manager</option>
-			<option>Association</option>
-			<option>Veterinary</option>
-			<option>Petshop</option>
-			<option>Journalist</option>
-			<option>Blogger</option>
-			<option>Groomer</option>
-			<option>Handler</option>
-			<option>Dog Trainer</option>
-			<option>Cat Cafe</option>
-			<option>Retirement</option>
-			<option>Journalist</option>
-			<option>Others</option>
-		</select>
+	
+	 <div class="list-group">
+			<a href="#" class="list-group-item disabled">Category </a>
+			<a href="#" class="list-group-item">Designer  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Manager  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Association <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Veterinary <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Petshop  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Journalist  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Blogger  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Groomer  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Handler  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Dog Trainer <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Cat Cafe  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Retirement  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Journalist  <input type="checkbox"></a>
+			<a href="#" class="list-group-item">Others  <input type="checkbox"></a>
+			</div> 
+	
 		
-		<select class="form-control">
-			<option selected=""> Location  </option>
-			<option>Busan</option>
-			<option>Jeju</option>
-			<option>Seoul</option>
-		</select>
+		 <div class="list-group">
+		 <a href="#" class="list-group-item disabled">Location</a>
+  <a href="#" class="list-group-item">Busan</a>
+  <a href="#" class="list-group-item">Jeju</a>
+  <a href="#" class="list-group-item">Seoul</a>
+</div> 
+		
+		
 		
 	
 		<button> Search </button> 
@@ -113,7 +120,22 @@ body
 			<option>New</option>
 		</select>
 	
-	<div id='result'></div>
+	<div id='result'>
+	<div class="col-12 col-sm-6 col-md-4">
+		<div class="issue my-4 text-center">
+		<h4 class="mb-4 text-uppercase text-primary"> Yahopet </h4>
+		<img class="img-fluid" src='logo.png'  />
+		<p>category</p>
+		<p>email</p>
+		<p>phone</p>
+		<p> adress </p>
+		
+		
+		</div></div>
+	
+	
+	
+	
 </div>
 
 
@@ -226,7 +248,7 @@ body
 
 
 <script>
-alert("v1");
+//alert("v1");
 
 var contentfr=['Abonnez vous a la newsletter','Francais']
 var contenten=['Subscribe to the newsletter','English']
@@ -251,14 +273,61 @@ document.getElementById('mainbutton').innerHTML=content[0] + " <span class='glyp
 //document.getElementById('LN').innerHTML=content[2]+" <span class='glyphicon glyphicon-globe' ></span>";
 //document.getElementById('title').innerHTML=content[3];
 
-
+search()
 }
 
+
+function search(){
+
+//$("#result").empty();  
+
+alasql(['SELECT * FROM XLS("https://jrepusseau.github.io/Yahopet/data/company.xls") WHERE category = "펫샵" and city = "서울" GROUP BY company '])
+    .then(function(res){
+        console.log(res); // output depends on company.xls
+    }).catch(function(err){
+        console.log('Does the file exist? There was an error:', err);
+    });
+
+
+/*
+ for (var i = 0; i < subject.length; i++) {
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item"); 
+node.setAttribute("style", "background-color:white;color:black"); 
+node.setAttribute("id", i); 
+
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading"); 
+var tt = document.createTextNode(subject[i]);
+ var badge = document.createElement('span');
+           badge.setAttribute("class","badge"); 
+		   badge.appendChild(document.createTextNode("reelection"));
+		  
+titl.appendChild(tt);
+titl.appendChild(badge); 
+var p = document.createElement("p"); 
+p.setAttribute("class", "list-group-item-text"); 
+var tt = document.createTextNode(info[i]); 
+p.appendChild(tt);
+node.appendChild(titl);
+node.appendChild(p);
+document.getElementById("result").appendChild(node);
+}*/
+}
 
 
  
 
 </script>
+
+<footer>
+<br>
+<br>
+<br>
+<br>
+<h4> Yahopet by Unskilled Studio </h4>
+
+
 
 </body>
 
