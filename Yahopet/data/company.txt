@@ -1,0 +1,12 @@
+﻿company 	e-mail	homepage	phone	category	address	description	facebook	twitter	youtube	blog
+핫독	help@hotdog.net	http://www.htdog.co.kr/	055-322-2835	펫샵	경남 김해시 한림면 김해대로 1288번길 26	핫독입니다. 				
+펫저널		http://petjournal.allofthat.kr/	010-8711-0006	언론	서울 광진구 능동 18-11 육영재단어린이회관 문화관 2층	오프라인 펫비지니스 잡지				
+도그코리아		http://www.petworldkorea.com/	02-2103-2422	입양	서울시 구로구 디지털로32길 30 1409호 (코오롱디지털 타워 빌란트1차)	반려동물 DNA 실명제				
+버블부들		http://www.myskin365.com/					https://www.facebook.com/BubbleBuddle			
+										
+										
+										
+										
+										
+										
+										
