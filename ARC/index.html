@@ -244,6 +244,17 @@ border: 2px solid gray;
    background-color: transparent;
 }
 
+.modal.right .modal-dialog {
+	//position:absolute;
+	right:0;
+}
+
+.modal.left .modal-dialog {
+	//position:absolute;
+	left:0;
+
+}
+
 </style>
 	
 </head>
@@ -384,7 +395,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	if(pos.length==0)
 	{
 	
-	customPopup="<div id='menu' ><p>Your position is set.</p><br><button onclick='backconv()' id='backconv' style='display:none'>back</button><div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>"
+	customPopup="<div><h4>Distance: xxxx </h4><br><h4>Estimated arrival time: xxx </h4></div>"
 	 customOptions=
         {
         'className' : 'custom located navsub',
@@ -394,9 +405,12 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
     var radius = e.accuracy / 2;
-    newCircle= new L.circle(e.latlng, radius).addTo(mymap)
-		.bindPopup(customPopup,customOptions).openPopup();
+    newCircle= new L.circle(e.latlng, radius).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
 	markers.push(newCircle);
+	$('#inboxxx').modal('show');
+	document.getElementById('positiontext').innerText= 'Your position is set';
+	var d =document.getElementById('inboxxx');
+d.className += " located";
 	init();
 	
 	}
@@ -415,17 +429,20 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	
 	function onLocationError(e)
 	{
-	customPopup="<div id='menu' ><p>"+e.message+"<span class='glyphicon glyphicon-alert' style='color:red' ></span><p><br><button onclick='backconv()' id='backconv' style='display:none'>back</button> <div class='list-group' id='poll2'></div><div id='properties'></div><div id='content'></div>";
-	 customOptions=
+	customPopup="<div><h4>Distance: xxxx </h4><br><h4>Estimated arrival time: xxx </h4></div>"
+	customOptions=
         {
         'className' : 'custom unlocated navsub',
 		'autoClose' : false,
         };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
-	newCircle=new L.circle([45, 3],10).addTo(mymap)
-	.bindPopup(customPopup,customOptions).openPopup();
+	newCircle=new L.circle([45, 3],10).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
 	markers.push(newCircle);
+	$('#inboxxx').modal('show');
+	document.getElementById('positiontext').innerText= e.message;
+	var d =document.getElementById('inboxxx');
+d.className += " unlocated";
 	init();
 	}
     
@@ -911,8 +928,12 @@ mymap.closePopup();
     closeOnClick:false
         };
 		
-markers[nb].bindPopup(document.getElementById("menu").cloneNode(true),customOptions).openPopup();
+//markers[nb].bindPopup(document.getElementById("menu").cloneNode(true),customOptions).openPopup();
 
+ var latLngs = [ markers[nb].getLatLng() ];
+  var markerBounds = L.latLngBounds(latLngs);
+  mymap.fitBounds(markerBounds);
+  
 
 }
 
@@ -973,11 +994,9 @@ newMarkerCircle= new L.circle(newMarker.getLatLng(),val*10).addTo(mymap)
   </div>
   </div>
   </li>
- 
-
- <li>
- <input type="range" min="20" max="100" onchange='updateradius(this.value)'>
- </li>
+  <li>
+  <button href='' data-toggle="modal" data-target="#inboxxx" class="btn btn-info navbar-btn"> Share <span class="glyphicon glyphicon-thumbs-up"> </button>
+</li>
   
   
  
@@ -1116,12 +1135,28 @@ Add an image
   
   
 
-
-
-<div id="unique-id" style="display:none;">
-    <div class="popover-heading">Source</div>
-    <div  class="popover-body"><p id='ui'> ljrnljnvzjlv<p></div>
 </div>
+
+<div id="inboxxx" class="modal fade left" role="dialog" data-backdrop="false">
+  <div class="modal-dialog">
+
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">×</button>
+<h4 class="modal-title" id='positiontext'>Position set or error</h4>
+</div>
+<div id='menu' class="modal-body">
+
+<button onclick='backconv()' id='backconv' style='display:none'>back</button>
+<div class='list-group' id='poll2'></div>
+<div id='properties'></div><div id='content'></div>
+
+
+    </div>
+</div>
+</div>
+</div>
+
 
 
 </body>
