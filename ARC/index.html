@@ -241,6 +241,10 @@ background-color:white;
   background-color: transparent ;
 }
 
+.green{
+ border-color:green;
+   background-color: transparent ;
+}
 .popover
 {
    background-color: transparent;
@@ -296,7 +300,7 @@ top:5vh;
 
 <script>
 
-alert('ver 1.01');
+alert('ver 1.0Jenny');
 
 var markers=[];
 var customPopup;
@@ -451,7 +455,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     newCircle= new L.circle(e.latlng, radius).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
 	markers.push(newCircle);
 	$('#inboxxx').modal('show');
-	document.getElementById('positiontext').innerText= 'Your position is set';
+	document.getElementById('positiontext').innerHTML= '<span class="glyphicon glyphicon-record"></span> Your position is set';
 	var d =document.getElementById('inboxxx');
 d.className += " located";
 	init();
@@ -484,7 +488,7 @@ d.className += " located";
 	markers.push(newCircle);
 	document.getElementById('inboxxx').style.display='block';
 	//$('#inboxxx').modal('show'); modal
-	document.getElementById('positiontext').innerText= e.message;
+	document.getElementById('positiontext').innerHTML='<span class="glyphicon glyphicon-warning-sign"></span> '+ e.message;
 	var d =document.getElementById('inboxxx');
 d.className += " unlocated";
 	init();
@@ -733,7 +737,7 @@ alert(e.message);
 Road.addTo(mymap);
 }
 
-function Roadmap(e)
+/*function Roadmap(e)
 {
 var request = new XMLHttpRequest();
 
@@ -750,12 +754,12 @@ var geocoder = L.Control.Geocoder.nominatim(),
         });
        
 // Matching with the closest hospital or receive notification from the hospital
- /*geocoder.reverse(e,mymap.getZoom()*20, function(results) {
-          var r = results[0];
-		  if (r.name=='South Korea')
-		  { alert('fine'); hospitallng=  '126.909769'; hospitallat= '37.523164';}
+//geocoder.reverse(e,mymap.getZoom()*20, function(results) {
+//          var r = results[0];
+//		  if (r.name=='South Korea')
+//		  { alert('fine'); hospitallng=  '126.909769'; hospitallat= '37.523164';}
 		 
-         });*/
+//         });
 
 
 var string= "https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf624879ebfcdd06524b60bd41133c5aa01fb1&start="+hospitallng+","+hospitallat+"&end="+e.lng+","+e.lat;
@@ -798,7 +802,65 @@ request.onreadystatechange = function () {
 request.send();
 
 
+}*/
+
+function CalculateRoad(e)
+{
+var request = new XMLHttpRequest();
+
+
+
+
+var hospitallng= '120.964790'; // '126.909769'; //; 
+var hospitallat= '24.798140'; // '37.523164'; //
+
+
+var geocoder = L.Control.Geocoder.nominatim(),
+        control = L.Control.geocoder({
+          geocoder: geocoder
+        });
+       
+// Matching with the closest hospital or receive notification from the hospital
+//geocoder.reverse(e,mymap.getZoom()*20, function(results) {
+//          var r = results[0];
+//		  if (r.name=='South Korea')
+//		  { alert('fine'); hospitallng=  '126.909769'; hospitallat= '37.523164';}
+		 
+//         });
+
+
+var string= "https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf624879ebfcdd06524b60bd41133c5aa01fb1&start="+hospitallng+","+hospitallat+"&end="+e.lng+","+e.lat;
+request.open('GET', string);
+
+request.setRequestHeader('Accept', 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8');
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+  //  console.log('Status:', this.status);
+  //  console.log('Headers:', this.getAllResponseHeaders());
+   // console.log('Body:', this.responseText);
+	 obj = JSON && JSON.parse(this.responseText) || $.parseJSON(this.responseText);
+	 if(obj.features[0])
+	 {
+	 var setup=0;
+	var mn = Math.trunc(Number(obj.features[0].properties.summary.duration)/60);
+	var ss = Math.round(Number(obj.features[0].properties.summary.duration)%60);
+	var dist = Number(obj.features[0].properties.summary.distance);
+	document.getElementById('AT').innerText = mn+' min:'+ss+' sec';
+		document.getElementById('DS').innerText = dist+ ' m';
+  }}
+ else{
+ }
+};
+
+request.send();
+
+
 }
+
+
+
+
 
  function question(e)
  {
@@ -942,6 +1004,12 @@ content3.innerHTML="<input type = 'range' min='0' max='6' step='1' value='0' onc
 content3.setAttribute('onclick','selectdiv(2)');
 document.getElementById("content").appendChild(content3); 
 
+var content4= document.createElement("DIV");
+content4.setAttribute('class','containertype green');
+content4.innerHTML="WUWU joined the chat";
+content4.setAttribute('onclick','$(this).css("background-color",$(this).css("border-top-color"));selectdiv(3);updateloc(0)');
+document.getElementById("content").appendChild(content4); 
+
 }
 
 function buildmap()
@@ -976,7 +1044,7 @@ console.log(popup._isOpen); // true or false
 function updateloc(nb)
 {
 mymap.closePopup();
-customPopup='<div><h4>Distance: xxxx </h4><br><h4>Estimated arrival time: xxx </h4></div>';
+customPopup='<div><h5>Distance:<p id="DS">unknown<p> <br>  Estimated arrival time: <p id="AT">unknown<p> </h5></div>';
  customOptions=
         {
         'className' : '',
@@ -989,7 +1057,7 @@ markers[nb].bindPopup(customPopup,customOptions).openPopup();
  var latLngs = [ markers[nb].getLatLng() ];
   var markerBounds = L.latLngBounds(latLngs);
   mymap.fitBounds(markerBounds);
-  
+  CalculateRoad(markers[nb].getLatLng());
 
 }
 
@@ -1226,7 +1294,7 @@ Add an image
  
 <div id="inboxxx" class="center overlay" style='display:none;' data-backdrop="false">
   <div class="ftp" > 
-<h4 class="modal-title" id='positiontext' style='background-color:white' >Position set or error</h4>
+<h4 class="modal-title" id='positiontext' style='background-color:transparent' >Position set or error</h4>
 
 </div>
 <div id='menu' class='menu' >
