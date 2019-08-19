@@ -227,12 +227,12 @@ background-color:white;
 }
 
 .pro {
-  border-color: RGBA(0, 191, 255, 1);
+  border-color: rgba(0, 191, 255, 1);
   background-color: transparent ;
 }
 
 .con {
-  border-color: RGBA(255, 20, 147, 1);
+  border-color: rgba(255, 20, 147, 1);
   background-color: transparent ;
 }
 
@@ -259,8 +259,8 @@ background-color:white;
 
 .center {
 	position:absolute;
-	top:5vh;
-	bottom:60vh;
+	bottom:5vh;
+	top:60vh;
    left:15vw;
    right:15vw;
     
@@ -910,7 +910,8 @@ var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
 content.setAttribute('class','containertype pro');
-content.setAttribute('onclick','updateloc(2);selectdiv(0)');
+//content.setAttribute('id','border-color:RGBA(0, 191, 255, 1)');
+content.setAttribute('onclick','$(this).css("background-color",$(this).css("border-top-color"));updateloc(2);selectdiv(0)');
 
 opinion.innerHTML=opinioncontent;
 content.appendChild(opinion);
@@ -926,7 +927,8 @@ var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
 
 content2.setAttribute('class','containertype con');
-content2.setAttribute('onclick','updateloc(3);selectdiv(1)');
+//content2.setAttribute('style','border-color:blue');
+content2.setAttribute('onclick','$(this).css("background-color",$(this).css("border-top-color"));updateloc(3);selectdiv(1)');
 
 opinion.innerHTML=opinioncontent;
 content2.appendChild(opinion);
@@ -974,14 +976,15 @@ console.log(popup._isOpen); // true or false
 function updateloc(nb)
 {
 mymap.closePopup();
+customPopup='<div><h4>Distance: xxxx </h4><br><h4>Estimated arrival time: xxx </h4></div>';
  customOptions=
         {
-        'className' : 'custom located navsub',
+        'className' : '',
 				autoClose:false,
     closeOnClick:false
         };
 		
-//markers[nb].bindPopup(document.getElementById("menu").cloneNode(true),customOptions).openPopup();
+markers[nb].bindPopup(customPopup,customOptions).openPopup();
 
  var latLngs = [ markers[nb].getLatLng() ];
   var markerBounds = L.latLngBounds(latLngs);
@@ -1022,10 +1025,8 @@ newMarkerCircle= new L.circle(newMarker.getLatLng(),val*10).addTo(mymap)
 function selectdiv(e)
 {
 for (i=0;i<document.getElementById('content').childNodes.length;i++)
- 	document.getElementById('content').childNodes[i].style.borderColor='';
-
-	
-document.getElementById('content').childNodes[e].style.borderColor='green';
+   if (i!=e)
+ 	document.getElementById('content').childNodes[i].style.backgroundColor='';
 
 }
 
@@ -1058,7 +1059,7 @@ document.getElementById('content').childNodes[e].style.borderColor='green';
   </div>
   </li>
   <li>
-  <button href='' data-toggle="modal" data-target="#inboxxx" class="btn btn-info navbar-btn"> Share <span class="glyphicon glyphicon-thumbs-up"> </button>
+  <button href='' data-toggle="modal" data-target="#inboxxx" class="btn btn-info navbar-btn"> <span class="glyphicon glyphicon-envelope"> </button>
 </li>
   
   
@@ -1225,10 +1226,12 @@ Add an image
  
 <div id="inboxxx" class="center overlay" style='display:none;' data-backdrop="false">
   <div class="ftp" > 
-<h4 class="modal-title" id='positiontext'>Position set or error</h4>
+<h4 class="modal-title" id='positiontext' style='background-color:white' >Position set or error</h4>
+
 </div>
 <div id='menu' class='menu' >
-
+<br>
+<br>
 <button onclick='backconv()' id='backconv' style='display:none'>back</button>
 <div class='list-group' id='poll2'></div>
 <div id='properties'></div><div id='content'></div>
