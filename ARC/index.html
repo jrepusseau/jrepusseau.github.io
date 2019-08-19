@@ -344,6 +344,7 @@ var survey=[];
 
 
 
+
 function Start()
 {
 document.getElementById("menu1").style.display="none";
@@ -1106,10 +1107,10 @@ for (i=0;i<document.getElementById('content').childNodes.length;i++)
   <div class="container-fluid">
   
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back" data-html="true"  data-toggle="popover" title="Source" data-placement="top" data-trigger="focus"
+      <li><a data-toggle="tab" href="#menu1" onclick="Back()" id="back" data-html="true"  data-toggle="popover" title="Source" data-placement="top" data-trigger="focus"
 	 tabindex="0"  data-popover-content="#unique-id" ><span class="glyphicon glyphicon-user" ></span> JK</a></a></li>
 	 
-	 <li>
+	 <li class="active">
   <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
     Start
   </button>
@@ -1350,7 +1351,7 @@ Pas dans l'evenement backgroud-color white, border color,
 
 */
 
-
+Start();
 
 
 </script>
