@@ -490,7 +490,7 @@ d.className += " located";
 	markers.push(newCircle);
 	document.getElementById('inboxxx').style.display='block';
 	//$('#inboxxx').modal('show'); modal
-	document.getElementById('positiontext').innerHTML='<span class="glyphicon glyphicon-warning-sign"></span> '+ e.message + ' <button>retry</button>';
+	document.getElementById('positiontext').innerHTML='<span class="glyphicon glyphicon-warning-sign"></span> '+ e.message + ' <button onclick="location.reload()">retry</button>';
 	var d =document.getElementById('inboxxx');
 d.className += " unlocated";
 	init();
