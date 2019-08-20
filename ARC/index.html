@@ -434,7 +434,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 		element.msRequestFullscreen();
 }
 	
-	mymap.locate({watch:true, maxZoom: 20});
+	mymap.locate({watch:true, maxZoom: 18});
 	
 	
 	
@@ -456,10 +456,11 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     newCircle= new L.circle(e.latlng, radius).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
 	markers.push(newCircle);
 	$('#inboxxx').modal('show');
-	document.getElementById('positiontext').innerHTML= '<span class="glyphicon glyphicon-record"></span> Your position is set';
+	document.getElementById('positiontext').innerHTML= '<span class="glyphicon glyphicon-record"></span> Your position is set'+ ' <button>hide</button>';
 	var d =document.getElementById('inboxxx');
 d.className += " located";
 	init();
+	updateloc(0);
 	
 	}
 	
@@ -485,11 +486,11 @@ d.className += " located";
         };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
-	newCircle=new L.circle([45, 3],10).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
+	newCircle=new L.circle([20.716179, -158.214676],10).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
 	markers.push(newCircle);
 	document.getElementById('inboxxx').style.display='block';
 	//$('#inboxxx').modal('show'); modal
-	document.getElementById('positiontext').innerHTML='<span class="glyphicon glyphicon-warning-sign"></span> '+ e.message;
+	document.getElementById('positiontext').innerHTML='<span class="glyphicon glyphicon-warning-sign"></span> '+ e.message + ' <button>retry</button>';
 	var d =document.getElementById('inboxxx');
 d.className += " unlocated";
 	init();
@@ -591,7 +592,7 @@ mymap.on('click', onMapClick);
 	
 	///////////////////// WE DONT DO LIKE THIS 
 	
-          function Efunction(e,color) {
+  /*        function Efunction(e,color) {
 		  		//pinpopupcontent=pinpopupcontent+'</br>'+ e.innerHTML;
 				document.getElementById("Title").innerHTML=e.innerHTML;
 				///Collision detector here
@@ -648,7 +649,7 @@ newMarker.setIcon(Icon);
   setInterval(function(){ 
 //
 
-  }, 10000);*/
+  }, 10000);*/ 
   
  
 
