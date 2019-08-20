@@ -300,7 +300,7 @@ top:5vh;
 
 <script>
 
-alert('ver 1.0Jenny');
+//alert('ver 1.0Jenny');
 
 var markers=[];
 var customPopup;
@@ -486,7 +486,7 @@ d.className += " located";
         };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
-	newCircle=new L.circle([20.716179, -158.214676],10).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
+	newCircle=new L.circle([21.31560,	-157.858093],20).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
 	markers.push(newCircle);
 	document.getElementById('inboxxx').style.display='block';
 	//$('#inboxxx').modal('show'); modal
@@ -1016,9 +1016,13 @@ document.getElementById("content").appendChild(content4);
 
 function buildmap()
 {
-var event1  = new L.circle([37.544097, 126.95053], 40)
-guest1 = L.marker([37.523164, 126.909769]),
- guest2    = L.marker([39.74, -104.99]);
+var event1  = new L.circle([37.544097, 126.95053], 20)
+guest1 = L.circle([37.523164, 126.909769],20).setStyle({
+    color: 'blue',
+});
+ guest2    = L.circle([39.74, -104.99,20]).setStyle({
+    color: 'pink',
+});
  
  markers.push(event1);
  markers.push(guest1);
@@ -1089,7 +1093,7 @@ function distanceInMBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
 {
 if(newMarkerCircle)
 mymap.removeLayer(newMarkerCircle);
-newMarkerCircle= new L.circle(newMarker.getLatLng(),val*10).addTo(mymap)
+newMarkerCircle= new L.circle(newMarker.getLatLng(),val).addTo(mymap)
 }
 
 function selectdiv(e)
@@ -1300,8 +1304,6 @@ Add an image
 
 </div>
 <div id='menu' class='menu' >
-<br>
-<br>
 <button onclick='backconv()' id='backconv' style='display:none'>back</button>
 <div class='list-group' id='poll2'></div>
 <div id='properties'></div><div id='content'></div>
