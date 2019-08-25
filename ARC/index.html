@@ -560,7 +560,7 @@ d.className += " unlocated";
         html: 'true',
        // title : "<ul class='nav nav-tabs' id='navsurvey'><li class='active'><a data-toggle='tab' href='#menusurvey1' >Style</a></li><li><a href='#menusurvey2' data-toggle='tab' >Contrestyle</a></li></ul>",
        // content : " <div class='tab-content'><div id='menusurvey1' class='tab-pane fade in active'><input type='range'></input></br><input type='button' value='Next' onclick='' ></input></div><div id='menusurvey2' class='tab-pane fade'><p>Yooooooo</p></div></div><div class='btn-group'><button class='btn' id='prevtab' type='button'>Prev</button><button class='btn' id='nexttab' type='button'>Next</button></div>"
-       content : "<div ><br><br><br> <input type='range' min='20' max='1000' onchange='updateradius(this.value)' style='background-color:white;'><br><input type='time' id='appt' name='appt' min='9:00' max='18:00' required></div>",
+       content : "<div ><br><br><br> <input type='range' min='1000' max='10000' onchange='updateradius(this.value)' style='background-color:white;'><br><input type='time' id='appt' name='appt' min='9:00' max='18:00' required></div>",
 	
 	});
 	$("#ppp").popover('show');
@@ -1093,7 +1093,7 @@ function distanceInMBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
 {
 if(newMarkerCircle)
 mymap.removeLayer(newMarkerCircle);
-newMarkerCircle= new L.circle(newMarker.getLatLng(),val).addTo(mymap)
+newMarkerCircle= new L.circle(newMarker.getLatLng(),val*1).addTo(mymap)
 }
 
 function selectdiv(e)
