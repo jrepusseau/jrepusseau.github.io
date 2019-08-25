@@ -47,27 +47,27 @@
   <header class="masthead text-center text-white" style='background-image: url("intro.jpg");'>
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0" style='color:white' >Join us for a meal !</h1>
-        <h2 class="masthead-subheading mb-0"  style='color:white'>The first table sharing network</h2>
-		<br>
-		<input class='text' id='where' placeholder='Where do you want to eat?' style='width:50vw'  onclick='openmenu()' > <br>
+        <h1 class="masthead-heading mb-0" style='color:white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ' >Join us for a meal !</h1>
+        <h2 class="masthead-subheading mb-0"  style='color:white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;'>The first table sharing network</h2>
 		<br>
 		
-		<input class='text' id='date' placeholder='Date' style='display:none' > 
+		<input class='text' id='where' placeholder='Where do you want to eat?' style='width:50vw'  onclick='openmenu()' > <br>
+		<br>
+	<div  style='display:inline'>
+	
+		<input type="date" id='date' style='display:none'>
 		 <select id='nbguest' style='display:none'>
   <option value="volvo">1</option>
   <option value="saab">2</option>
   <option value="mercedes">3</option>
   <option value="audi">4</option>
 </select> 
-		
+		</div>
+		<br>
         <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Find a table</a>
       </div>
     </div>
-    <div class="bg-circle-1 bg-circle"></div>
-    <div class="bg-circle-2 bg-circle"></div>
-    <div class="bg-circle-3 bg-circle"></div>
-    <div class="bg-circle-4 bg-circle"></div>
+
   </header>
 
   <section>
@@ -148,8 +148,8 @@
   <script>
     function openmenu()
 	{
-	 document.getElementById("date").style.display='block'; 
-	document.getElementById("nbguest").style.display='block';
+	 document.getElementById("date").style.display='inline'; 
+	document.getElementById("nbguest").style.display='inline';
 	}
 	</script>
 </body>
