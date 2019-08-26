@@ -272,6 +272,16 @@ background-color:white;
 
 }
 
+.up {
+	position:absolute;
+	top:0vh;
+   left:15vw;
+   right:15vw;
+    
+   
+
+}
+
 .overlay {
     position: absolute;
     z-index: 314159;
@@ -456,7 +466,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     newCircle= new L.circle(e.latlng, radius).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
 	markers.push(newCircle);
 	$('#inboxxx').modal('show');
-	document.getElementById('positiontext').innerHTML= '<span class="glyphicon glyphicon-record"></span> Your position is set'+ ' <button>hide</button>';
+	//document.getElementById('positiontext').innerHTML= '<span class="glyphicon glyphicon-record"></span> Your position is set'+ ' <button>hide</button>';
+	document.getElementById('connectstatus').setAttribute('class',"glyphicon glyphicon-off");
 	var d =document.getElementById('inboxxx');
 d.className += " located";
 	init();
@@ -490,7 +501,8 @@ d.className += " located";
 	markers.push(newCircle);
 	document.getElementById('inboxxx').style.display='block';
 	//$('#inboxxx').modal('show'); modal
-	document.getElementById('positiontext').innerHTML='<span class="glyphicon glyphicon-warning-sign"></span> '+ e.message + ' <button onclick="location.reload()">retry</button>';
+	//document.getElementById('positiontext').innerHTML='<span class="glyphicon glyphicon-warning-sign"></span> '+ e.message + ' <button onclick="location.reload()">retry</button>';
+	document.getElementById('connectstatus').setAttribute('class',"glyphicon glyphicon-warning-sign");
 	var d =document.getElementById('inboxxx');
 d.className += " unlocated";
 	init();
@@ -1108,146 +1120,8 @@ for (i=0;i<document.getElementById('content').childNodes.length;i++)
 
 </script>
 
-<nav class="navbar navbar-fixed-bottom navbar-expand-md" id="nav1" >  
-  <div class="container-fluid">
-  
-    <ul class="nav nav-tabs">
-      <li><a data-toggle="tab" href="#menu1" onclick="Back()" id="back" data-html="true"  data-toggle="popover" title="Source" data-placement="top" data-trigger="focus"
-	 tabindex="0"  data-popover-content="#unique-id" ><span class="glyphicon glyphicon-user" ></span> JK</a></a></li>
-	 
-	 <li class="active">
-  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
-    Start
-  </button>
-  </li>
-  <li>
-  <div class="btn-group dropup" id='inbox' >
-  <button type="button" class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="glyphicon glyphicon-inbox"></span>
-	<span class="badge type">3</span>
-  </button>
-  <div  class="dropdown-menu navsub">
-   <p> Create a new event!</p> <button onclick='showmenu3()'>+</button>
-     <div class="list-group" id="poll" onclick='activatedemo()'> </div>
-  </div>
-  </div>
-  </li>
-  <li>
-  <button href='' data-toggle="modal" data-target="#inboxxx" class="btn btn-info navbar-btn"> <span class="glyphicon glyphicon-envelope"> </button>
-</li>
-  
-  
- 
 
-	 <li class="dropdown" >
-        <a class="dropdown-toggle"   data-toggle="dropdown" href="#">EN
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">ZN</a></li>
-          <li><a href="#">FR</a></li>
-          <li><a href="#">KR</a></li>
-        </ul>
-      </li>
-	 
-    </ul>
-  </div>
-</nav> 
 
-<div id='nav' class='navbar-static-top' style='display:none;'  >
-
-<input id='search' type="text" class='column left' placeholder="Search..">
- <nav class="scroll column right" style="background-color:#bbb;">
-  <a onclick="Efunction(this,'red')">Car accident</a>
-  <a onclick="Efunction(this,'red')">Fire danger</a>
-  <a onclick="Efunction(this,'red')">Medical Issue</a>
-  <a onclick="Efunction(this,'red')">Hazards</a>
-  <a onclick="Efunction(this,'red')" >Robbery</a>
-  <a onclick="Efunction(this,'red')">Social Issues</a>
-  <a onclick="Efunction(this,'orange')">Electric shortage</a>
-  <a onclick="Efunction(this,'orange')" >Water leaks</a>
-  <a onclick="Ffunction()" id='Garbages' >Garbages</a>
-  <a onclick="Efunction(this,'green')">Transports</a>
-  <a onclick="Efunction(this,'green')">Lost and Found</a>
-  <a onclick="Efunction(this,'green')">Delivery</a>
-  <a onclick="Efunction(this,'green')">Events</a>
-  <a onclick="Efunction(this,'green')">...</a>
-  </nav>
-</div> 
-
-<nav id='eventnav' class='navbar-fixed-top' style='display:none;margin:5%'  >
-  
-    
-	   Choose type of event
-       <select>
-  <option value="volvo">Evenement privé</option>
-  <option value="saab">Notification public</option>
-</select> 	  
-<br>
-Choose a title
-	   <select>
-	    <option>Car accident</option>
-  <option>Fire danger</option>
-  <option>Medical Issue</option>
-  <option>Hazards</option>
-  <option>Robbery</option>
-  <option>Social Issues</option>
-  <option>Electric shortage</option>
-  <option>Water leaks</option>
-  <option>Garbages</option>
-  <option>Transports</option>
-  <option>Lost and Found</option>
-  <option>Delivery</option>
-  <option>Events</option>
-  <option>...</option>
-</select> <br>
-Add an image
-<input type='file' accept='image/*;capture=camera' capture='environment' >
-<br>
-	  <input type="checkbox" name="check" value="check">Set up time
-	  <input type="datetime-local">
-	  <br>
-      Choose position with research bar or pin it on the map
-	  <br> 
-	   Whose in ?
-	   <table>
-  <tr>
-    <th>id/phone</th>
-    <th>status</th>
-	<th>Arrival Time</th>
-	<th>Real Time Position</th>
-	<th>Position Box</th>
-  </tr>
-  <tr>
-    <td>all</td>
-    <td> <select>
-  <option value="volvo">admin</option>
-  <option value="saab">guest</option>
-</select> 	</td>
-	<td><input type="checkbox" name="check" value="check"></td>
-	<td><input type="checkbox" name="check" value="check"></td>
-		<td><input type="checkbox" name="check" value="check"></td>
-  </tr>
-  <tr>
-    <td>you</td>
-    <td><select>
-  <option value="volvo">admin</option>
-  <option value="saab">guest</option>
-</select> 
-</td>
-	<td><input type="checkbox" name="check" value="check"></td>
-	<td><input type="checkbox" name="check" value="check"></td>
-    <td><input type="checkbox" name="check" value="check"></td>
-  </tr>
-    <tr>
-    <td><input type='text'></input></td>
-  </tr>
-</table> 
-	  <br>
-	  <button onclick='hidemenu2()'>POST</button>
-  
-</nav>
-
-</div>
 
 
 <div class="tab-content">
@@ -1274,43 +1148,54 @@ Add an image
   
 
 </div>
-<!--
-<div id="inboxxx" class="modal fade center" role="dialog" data-backdrop="false">
-  <div class="modal-dialog">
 
-<div class="modal-content" id='inboxxxcnt'>
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal">×</button>
-<h4 class="modal-title" id='positiontext'>Position set or error</h4>
-</div>
-<div id='menu' class="modal-body">
-
-<button onclick='backconv()' id='backconv' style='display:none'>back</button>
-<div class='list-group' id='poll2'></div>
-<div id='properties'></div><div id='content'></div>
-
-
-    </div>
-</div>
-</div>
-</div>
---> 
 
  
  
 <div id="inboxxx" class="center overlay" style='display:none;' data-backdrop="false">
   <div class="ftp" > 
-<h4 class="modal-title" id='positiontext' style='background-color:transparent' >Position set or error</h4>
 
 </div>
 <div id='menu' class='menu' >
 <button onclick='backconv()' id='backconv' style='display:none'>back</button>
 <div class='list-group' id='poll2'></div>
 <div id='properties'></div><div id='content'></div>
-
-
-    </div>
+  </div>
+ </div>
+  
+<div id="nav1" class="up overlay" data-backdrop="false">
+<ul class="nav">
+    <button class="btn btn-secondary"> <a href="#menu1" onclick="Back()" id="back" data-html="true"  data-toggle="popover" title="Source" data-placement="top" data-trigger="focus"
+	  data-popover-content="#unique-id" ><span class="glyphicon glyphicon-user" ></span> JK</a></button>
+	 
+	 
+  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
+    Start
+  </button>
+   <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ <span class="glyphicon glyphicon-envelope"></span>
+</button>
+<button class="btn btn-secondary"><span id='connectstatus' ></span></button>
+</li>
+  <li>
+  <div class="btn-group dropup" style='display:none' id='inbox' >
+     <span class="glyphicon glyphicon-inbox"></span>
+	<span class="badge type">3</span>
+  </button>
+  <div  class="dropdown-menu navsub">
+   <p> Create a new event!</p> <button onclick='showmenu3()'>+</button>
+     <div class="list-group" id="poll" onclick='activatedemo()'> </div>
+  </div>
+  </div>
+  </li>
+ 
+	
+	 
+    </ul>
 </div>
+ 
+
+  
 
 
 
