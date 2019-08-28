@@ -6,7 +6,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lipis.github.io/flag-icon-css/" />
 
-    <title>SVG Country Flags | flag-icon-css</title>
+    <title>CooXMe</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <!-- jQuery library -->
@@ -95,7 +95,7 @@
 	  
   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">About me</h5>
+      <h5 class="mb-1">About me</h5> 
       <small class="text-muted">Register since 2018</small>
     </div>
     <p class="mb-1">professeur d'histoire à la retraite. J'ai pris goût à la cuisine il y a quelques années et j'aimerai partager ma table avec qui le souhaiterai. Je suis quelqu'un de bavard et je vous assure un repas equilibré et copieux.</p>
@@ -105,34 +105,34 @@
 
 </div>
 <br>
-<h3> Wall </h3> <select><option>Menu</option><option>Review</option></select>
+<h3> Wall </h3> <select><option>Menu</option><option>Review</option></select><button data-toggle="modal" data-target="#exampleModal" > Create a menu</button>
 <br>
 <div id='List-event-review' class="list-group">
  
   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="row">
   <div class="col-sm" style='text-align:center'>
-Menu
+<p>Menu</p>
 <br>
-Starter
+<p>Starter</p>
 <br>
-Main Courses
+<p>Main Courses</p>
 <br>
-Dessert
+<p>Dessert</p>
 <br>
-Drinks
-<br>
-Logo
+<p>Drinks</p>
   </div>
     <div class="col-sm" style='text-align:center'>
-	time
+	<p>date</p>
+	<p>time</p>
 <br>
-pax 
+<p>2 guests<span class='glyphicon glyphicon-user'></span></p>
 <br>
 
 <h3>
 price
 </h3>
+<br>
 <button>
 book
 </button>
@@ -151,5 +151,106 @@ book
   
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create your next menu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+<div class="list-group" style='text-align:center'>
+
+  <a  class="list-group-item ">
+      Date<input type="date" id='date'>
+  </a>
+   <a  class="list-group-item ">
+ 
+    
+from: <input type="time">
+
+
+ 
+to:
+<input type="time">
+
+
+     
+ 
+  </a>
+  <a  class="list-group-item ">
+      Guest
+	  <select>
+	  <option>1</option>
+	   <option>2</option>
+	    <option>3</option>
+		 <option>4</option>
+		  <option>5+</option>
+		  </select>
+  </a>
+    <a  class="list-group-item " style='text-align:center'>
+    
+	  <input type='text' onkeyup="showResult(this.value)" id='starter' placeholder='Starter e.g: Ceaser salad'>
+
+  </a>
+  <a  class="list-group-item " style='text-align:center'>
+     
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'  placeholder='Main course e.g: Lasagna'>
+
+  </a>
+  <a  class="list-group-item " style='text-align:center'>
+    
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'  placeholder='Desserts e.g: Cheeseplates'>
+
+  </a>
+  <a  class="list-group-item " style='text-align:center'>
+   
+	 <input type='text' onkeyup="showResult(this.value)" id='starter' placeholder='Drinks e.g: Red wine'>
+  </a>
+  <a  class="list-group-item " style='text-align:center'>
+     
+	<input type = "text" placeholder='Price'>
+	<select>
+	<option>$</option>
+	<option>£</option>
+	<option>€</option>
+	</select>
+	
+
+  </a>
+   <a  class="list-group-item ">
+      Side event
+  
+  <select>
+  <option></option>
+  <option>Wedding </option>
+   <option>Birthday </option>
+    <option> BBQ Party </option>
+	 <option> Baptism  </option>
+	  <option> Barmitsva  </option>
+	   <option> House Warning  </option>
+	    <option> Christmas  </option>
+		 <option> New Year Old  </option>
+		  <option> Other </option>
+  </select>
+
+  </a>
+   <a  class="list-group-item ">
+   <input type='text' placeholder='Adress [displayed on acceptation]'>
+
+  </a> 
+ 
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Create menu</button>
+      </div>
+    </div>
+  </div>
+</div>
   </body>
 </html>
