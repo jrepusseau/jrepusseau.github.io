@@ -777,7 +777,7 @@ var tt = document.createTextNode(subject[i]);
 		   badge.appendChild(document.createTextNode("reelection"));
 		  
 titl.appendChild(tt);
-titl.appendChild(badge); 
+//titl.appendChild(badge);  Add it later
 var p = document.createElement("p"); 
 p.setAttribute("class", "list-group-item-text"); 
 var tt = document.createTextNode(info[i]); 
@@ -795,6 +795,10 @@ var titl = document.createElement("H4");
 titl.setAttribute("class", "list-group-item-heading"); 
 var tt = document.createTextNode(hottopic[i]); 
 titl.appendChild(tt);
+ var badge = document.createElement('span');
+           badge.setAttribute("class","badge"); 
+		   badge.appendChild(document.createTextNode("reelection"));
+titl.appendChild(badge);
 var p = document.createElement("p"); 
 p.setAttribute("class", "list-group-item-text"); 
 var tt = document.createTextNode('Flip it!'); 
@@ -856,6 +860,7 @@ var argkr=["Japon didnt recognize Korean company women during WWII",
 }
 
 function showDebate(id){
+
 $("#arguments").empty(); 
 $("#debatetitle").empty();
   $('[href="#menu2"]').tab('show');
@@ -891,8 +896,8 @@ node.appendChild(para);
 //document.getElementById("debatetitle").appendChild(node); We stop using debatetitle
  }
  
- 
- switch(document.getElementById(id).children[0].innerHTML) {
+
+ switch(document.getElementById(id).children[0].innerText) {
   case 'Should abortion be legalized ?':
    arg=shuffle(argabortion);
     break;
