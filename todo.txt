@@ -1,11 +1,7 @@
 Guesthouse job
 Robotics class
 Japanese class
-Office in Taipei 
 Kungfu class 
-Sportcenter
-Caroline apolagize
-Washing machine
 New Shoes
 Call Yongmin
 Call Yahopet
@@ -18,5 +14,5 @@ Change insurance
 3) Add road to ARC change it to make the conversation inside popuptext
 4} Add Mathias x Me at CooXMe. 
 5) Prepare BodyProgram, design the website
-6) Add to Realities: No More Sugar, No More Aging, No More Work, No More Border, No More Car, No More War, No More Waste. 
+6) Add to Realities: No More Sugar, No More Aging, No More Work, No More Border, No More Gas, No More War, No More Waste. 
 
