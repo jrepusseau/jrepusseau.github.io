@@ -314,6 +314,27 @@ position:fixed;
 top:70vw;
 }
 
+#img-p
+{
+ border-radius: 50%;
+  height:50px;
+  width:50px;
+}
+
+#img-k
+{
+ border-radius: 50%;
+  height:180px;
+  width:180px;
+}
+
+#img-q
+{
+
+  height:250px;
+  width:250px;
+}
+
 </style>
 	
 </head>
@@ -684,6 +705,7 @@ newMarker.setIcon(Icon);
  };
  
  function Back(){
+ document.getElementById("inboxxx").style.display="none";
 document.getElementById("viewDiv").style.display="none";
 document.getElementById("menu1").style.display="block";
 }
@@ -1142,13 +1164,19 @@ for (i=0;i<document.getElementById('content').childNodes.length;i++)
 <div class="tab-content">
  <div id="menu1" class="tab-pane fade in active" style='text-align:center' >
 
- 
- <h2> JK </h2>
+ <br>
+ <br>
+ <br>
+ <br>
+<img id='img-k' src='profil2.jpg' >
+ <h2> jdy_essa </h2>
+ <br>
+ <img id='img-q' src='qrcode.jpg' >
  <br>
  <h4> phone number </h4>
  <br>
  <br>
- <button> Parameters </button>
+ <button> Scan </button>
  <br>
  <a href='#'> LogOut<a>
  
@@ -1180,12 +1208,10 @@ for (i=0;i<document.getElementById('content').childNodes.length;i++)
   
 <div id="nav1" class="up overlay" style='text-align:center' data-backdrop="false">
 <ul class="nav">
-    <button class="btn btn-secondary" href="#menu1"> <a  onclick="Back()" id="back" data-html="true"  data-toggle="popover" title="Source" data-placement="top" data-trigger="focus"
-	  data-popover-content="#unique-id" ><span class="glyphicon glyphicon-user" ></span> JK</a></button>
-	 
+    	 <img id='img-p' src='profil2.jpg' href="#menu1" onclick="Back()">
 	 
   <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
-    Start
+   Map
   </button>
    <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
  <span class="glyphicon glyphicon-envelope"></span>
