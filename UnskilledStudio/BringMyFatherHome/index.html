@@ -41,6 +41,147 @@ border-radius:50%;
 	padding:10px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.containe {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.containe::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .containe {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .containe::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+  
+  hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+h2{
+text-align:center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 </style>
   </head>
 
@@ -60,9 +201,7 @@ border-radius:50%;
               <a class="nav-link js-scroll-trigger" href="#home">Home</a>
             </li>
 			
-			 <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#takeaction">Take action!</a>
-            </li>
+			 
 			
 			  <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#ourgoals">Our Goals</a>
@@ -76,6 +215,10 @@ border-radius:50%;
 			
 			<li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#hijacking">1969 Hijacking</a>
+            </li>
+			
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#takeaction">Take action!</a>
             </li>
 			
 			<li class="nav-item dropdown">
@@ -111,31 +254,27 @@ border-radius:50%;
     </header>
 
     <!-- Introduction Section -->
-    <section id="home" class="about-section" >
+    <section id="home" class="about-section" style='text-align:center'  >
       <!-- <div class="container"> -->
-        <div class="row">
-		<div class="col-sm-5" style='text-align:center'>
+        
     
-  <iframe frameborder="0" class="img-fluid" src="//www.dailymotion.com/embed/video/x7fe1j1?autoplay=1&mute=1"
-allowfullscreen allow="autoplay" queue-autoplay-next="false" queue-enable="false"></iframe>
+  <iframe frameborder="0" class="img-fluid" height='720px' width='1280px' src="//www.dailymotion.com/embed/video/x7fe1j1?autoplay=1&mute=1"
+allowfullscreen allow="autoplay" queue-autoplay-next="false" queue-enable="false" ></iframe>
 <br>
 
-<a href='https://www.bbc.com/korean/news-43819241?fbclid=IwAR0Wc0lavirCrW1SRuPQKo3uXkT_SPEf6w8vPuX_jPfuoPpWhYtN2UDXhf0/'> BBC link </a>
+<a href='https://www.bbc.com/korean/news-43819241?fbclid=IwAR0Wc0lavirCrW1SRuPQKo3uXkT_SPEf6w8vPuX_jPfuoPpWhYtN2UDXhf0/' style=' margin:1em;'> BBC link </a>
 
-</div>
 
- <div class="col-sm-6" style='text-align:left;  margin:1em; color:white'>
 	
-<p> On December 11th 1969, Mr. Hwang’s father, Hwang Won, boarded the Korean Air YS-11 flight to go on a business trip. Within 10 minutes, his plane was hijacked by a North Korean agent. While 39 passengers were returned, 11 abductees, including Mr. Hwang’s father, were not. \n \n Team Hwang is a group of volunteers who have come together to join Mr Hwang in raising international awareness of this case and help bring his father back home to South Korea. \n \n Crimes of forced abduction committed by North Korea are vast in number and ongoing. By raising our voices, we will help pave the way for resolving hundreds of other abduction cases committed by North Korea. <p>
+<p  style=' margin:1em; color:white'>We are a group of volunteers that stand in solidarity with Mr. Hwang In-cheol in his fight to bring his father home from North Korea.<p>
 
   
-</div>
+
 		
   
 
  
 
- </div>
  
 
 
@@ -166,7 +305,9 @@ Uruguay and Iceland both highlighted the KAL hijacking incident in their human r
 
 	 <section id="ourgoals" class="bg-light" style='text-align:center;margin:1em'>
       <br>
+	  <br>
    <h2>Goals</h2>
+    <br>
 <br>
 <p>By joining Hwang In-cheol in his efforts to bring his father home, we are standing up against impunity and North Korea’s crimes against humanity.</p>
 <br><br>
@@ -253,107 +394,237 @@ Uruguay and Iceland both highlighted the KAL hijacking incident in their human r
 	
 	
     <!-- teamhwang -->
-    <section id="teamhwang" style='background:rgba(255,255,255,0.5);text-align:center;margin:1em'>
+    <section id="teamhwang" style='background:rgba(255,255,255,0.5);'>
+      <br>
+	  <h2 style='text-align:center' >Team Hwang</h2>
+	 <br>
+ <br>
+<div class="container">
+ 
+  <p>We pride ourselves on having a diverse and global team made up of volunteers who have come together to stand with Hwang In-cheol. Our members have contributed their skills and commitment to justice, making Team Hwang what it is today. The team is responsible for research, campaigning and advocacy, as well as fundraising -  all aimed at raising international awareness of Hwang Won’s abduction and his right to return to his family in South Korea. 
+  </p>
+   <br> <br> <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
      
-	  <h2>Team Hwang</h2>
-	  <h4> Members </h4>
-	  
-	  	  <h4> Organization history </h4>
-	  
-	   <h4> Gallery </h4>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="img/2018-2019.jpg" alt="2018-2019">
+          <img src="img/2016-2017.jpg" alt="Lights" style="width:100%">
+          <div class="caption">
+            <p>2016-2017</p>
+          </div>
+    
+      </div>
     </div>
-
-    <div class="item">
-      <img src="img/2017-2018.jpg" alt="2017-2018">
+    <div class="col-md-4">
+      <div class="thumbnail">
+       
+          <img src="img/2017-2018.jpg" alt="Nature" style="width:100%">
+          <div class="caption">
+            <p>2017-2018</p>
+          </div>
+       
+      </div>
     </div>
-
-    <div class="item">
-      <img src="img/2016-2017.jpg" alt="2016-2017">
+    <div class="col-md-4">
+      <div class="thumbnail">
+          <img src="img/2018-2019.jpg" alt="Fjords" style="width:100%">
+          <div class="caption">
+            <p>2018-2019</p>
+          </div>
+      </div>
     </div>
   </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
-	  <a href="#hijacking" class="js-scroll-trigger"><img style="opacity:0.5" width="5%"src="img/white-down-arrow-2.png"></a> 
+ <br>
+  <br> <br>
+	  	  <h2 style='text-align:center'> Organization history </h2>
+		   <br>
+	  <div class="timeline bg-light" style="overflow-y: scroll; height:400px;">
+	  <div class="containe left">
+    <div class="content">
+      <h2>2019</h2>
+      <p>March 4~6 : In partnership with other NGOs, Team Hwang travels to Brussels, Belgium, to advocate for the return of Hwang In-cheol’s father at the European Parliament.
+<hr>
+<p>
+March 7~14: In partnership with other NGOs, Team Hwang travels to Geneva, Switzerland, to advocate for the return of Hwang In-cheol’s father at the UN Human Rights Council. </p>
+<hr>
+<p>
+May 9: At North Korea’s 3rd cycle UPR, the representatives of Uruguay and Iceland urges North Korea to address the KAL hijacking case of 1969. 
+Iceland directly mentions Hwang Won’s name, calling on North Korea to “immediately release” him to South Korea.
+</p>
+
+  </div>
+  </div>
+	   <div class="containe right">
+    <div class="content">
+      <h2>2018</h2>
+      <p>October 5: On behalf of Hwang In-cheol, Team Hwang submits a report to the UN Human Rights Council for North Korea’s 3rd cycle Universal Periodic Review (UPR).
+ </p>
+<hr>
+<p>
+December 11: Marking the 49th anniversary of the KAL hijacking, Team Hwang members gather to write letters to foreign embassies in Seoul to raise Hwang In-cheol’s case at North Korea’s 3rd cycle UPR. 
+</p>
+  </div>
+  </div>
+	   <div class="containe left">
+    <div class="content">
+      <h2>2017</h2>
+      <p>May 30: The annual report of the UN Human Rights Office (OHCHR) highlights the KAL hijacking case. </p>
+<hr>
+<p>
+December 11: Marking the 48th anniversary of the KAL hijacking, Team Hwang holds a press conference calling on North Korea to allow Hwang In-cheol to reunite with his father in a 3rd country.
+</p>
+  </div>
+  </div>
+  
+	   <div class="containe right">
+    <div class="content">
+      <h2>2016</h2>
+      <p>June 1: TNKR (Teach North Korean Refugees) creates Team Hwang, a group of volunteers dedicated to helping Hwang In-cheol raise international awareness of his father’s abduction.
+</p>
+	  <hr>
+	  <p>June 17: Team Hwang stages its first event at Imjingak (Freedom Bridge), near the  DMZ, calling for the repatriation of Hwang In-cheol’s father. This marks the beginning of the #BringMyFatherHome campaign. 
+</p>
+<hr>
+<p>August 30: Marking the International Day of Victims of Enforced Disappearances, Team Hwang submits a copy of UN Security Council Resolution 286 to the UN Human Rights Office in Seoul.
+Adopted on September 8, 1970, the UN Security Council Resolution 286 appeals for the immediate release of all passengers and crew members held as a result of hijackings “without exception.”
+</p>
+<hr>
+<p>
+December 10: Marking the Human Rights Day, Team Hwang stages a candlelight vigil to express solidarity with Hwang In-cheol’s father.
+</p>
+ </div>
+  </div>
+	  <div class="containe left">
+    <div class="content">
+      <h2>2015</h2>
+      <p>On May 8th (Parents’ Day), Hwang In-cheol attempts to send his father the commemorative flower bouquet. The Minister of Unification rejects Hwang’s request. 
+Concurrently, Hwang In-cheol calls on the South Korean government to demand his father’s repatriation in accordance with the Convention for the Suppression of Unlawful Seizure of Aircraft. Hwang’s request is rejected.  
+</p>
+  </div>
+  </div>
+	  <div class="containe right">
+    <div class="content">
+      <h2>2014</h2>
+      <p>Hwang In-cheol applies to the South Korean Ministry of Unification for permission to visit North Korea and to personally contact the head of the North Korean Red Cross office. The South Korean authorities rejects Hwang’s application.  
+</p>
+  </div>
+  </div>
+	    <div class="containe left">
+    <div class="content">
+      <h2>2013</h2>
+      <p>With the help of renowned broker, “Superman”, Hwang In-cheol attempts to aid his father’s escape to China. However, the mission fails, allegedly because of the North Korean government’s 3rd nuclear experiment and the subsequent closing of the surrounding sea lanes that prevents Hwang’s father from travelling to China. 
+</p>
+    </div>
+  </div>
+	  <div class="containe right">
+    <div class="content">
+      <h2>2012</h2>
+      <p>February: Hwang In-cheol files a criminal complaint against Cho Change-Hee, the North Korean hijacker. The complaint is rejected.</p>
+	  <hr>
+	  <p>North Korea responds to the WGEID petition stating that there is “no person in [their] country who ha[d] been forcibly or involuntarily detained against his or her will.”
+Since then, Hwang In-cheol has continuously urged South Korea’s Ministry of Foreign Affairs and Ministry of Unification to firmly rebut North Korea’s position. To date, his requests have been constantly rejected. 
+</p>
+<hr>
+<p>Hwang In-cheol is contacted by a broker code-named “Superman,” who claims to know about his father’s whereabouts.
+</p>
+	  </div>
+  </div>
+  <div class="containe left">
+    <div class="content">
+      <h2>2011</h2>
+      <p>Hwang In-cheol urges the International Committee of the Red Cross (ICRC) to call on North Korea to provide information on his father. North Korea repeats its standing answer that all those who remain in North Korea are doing so voluntarily and that their fate “could not be confirmed.”
+</p>
+    </div>
+  </div>
+  <div class="containe right">
+    <div class="content">
+      <h2>2010</h2>
+      <p>Hwang In-cheol submits his father’s case to the UN Working Group on Enforced or Involuntary Disappearances (WGEID), becoming the first South Korean abductee family to submit a case to WGEID.</p>
+	  </div>
+  </div>
+  <div class="containe left">
+    <div class="content">
+      <h2>2008</h2>
+      <p>Hwang In-cheol establishes the 1969 Korean Air Abductees’ Families Association</p>
+    </div>
+  </div>
+  <div class="containe right">
+    <div class="content">
+      <h2>2006</h2>
+      <p>North Korea rejects Hwang In-cheol’s application to meet with his father, claiming that it is impossible to verify his life status. The other 5 family members receive the same answer.</p>
+    </div>
+  </div>
+  <div class="containe left">
+    <div class="content">
+      <h2>2001</h2>
+      <p>3rd inter-Korean family reunion event; Seong Kyung-hee, one of the two abducted flight attendants, is allowed to meet briefly with her South Korean mother.  </p>
+	  </div>
+  </div>
+  <div class="containe right">
+    <div class="content">
+      <h2>1999</h2>
+      <p>Hwang In-cheol, along with 5 other family members, applies for the inter-Korean family reunion
+</p>
+    </div>
+  </div>
+</div>
+
+	  
  
     </section>
-
-    <!-- Ice elevation -->
-    <section id="hijacking" class="bg-light" style='text-align:center;margin:1em'>
-      
-  <h2>Hijacking</h2>
-  
+<div style='text-align:center'>
+ <a href="#hijacking" class="js-scroll-trigger"><img style="opacity:0.5" width="5%"src="img/white-down-arrow-2.png" ></a> 
+ </div>
+    <section id="hijacking" class="bg-light" style='margin:5em;'>
+     <br>  
+  <h2 style='text-align:center'>1969 Plane Hijacking</h2>
+   <br>
+   
   <ul class="nav nav-pills center-pills" >
-    <li class="active"><a data-toggle="pill" href="#home2"> 1969 plane hijacking </a></li>
-    <li><a data-toggle="pill" href="#menu12"> Menu 1 </a></li>
-    <li><a data-toggle="pill" href="#menu22"> Menu 2 </a></li>
-    <li><a data-toggle="pill" href="#menu32"> Menu 3 </a></li>
+    <li ><a data-toggle="pill" href="#home2"> Main story | </a></li>
+    <li><a data-toggle="pill" href="#menu12">| Hwang Won’s Story </a></li>
+   
   </ul>
   
   <div class="tab-content">
     <div id="home2" class="tab-pane fade in active">
-      <h3>HOME</h3>
+      
       <p>
-	  On December 11th 1969, 4 crew members and 47 passengers boarded the Korean Air Lines YS-11 aircraft in Gwangwon-do. Just 10 minutes after take off, one of the passengers rose from his seat and entered the cockpit. This passenger was a North Korean sleeper agent called Cho Ch'ang-hǔi (조창희). Suddenly, the plane changed direction and was joined by 3 Korean People’s Air Force fighter jets. The plane landed in Sǒndǒk Airfield, North Korea, and North Korean soldiers then proceeded to board the aircraft, blindfold the passengers and instruct them to disembark. Every day of captivity, the passengers were subjected to 4 hours of attempted indoctrination. 
+	On December 11th 1969, 4 crew members and 47 passengers boarded the Korean Air Lines YS-11 aircraft in Gwangwon-do. Just 10 minutes after take off, one of the passengers rose from his seat and entered the cockpit. This passenger was a North Korean sleeper agent called Cho Ch'ang-hǔi (조창희). Suddenly, the plane changed direction and was joined by 3 Korean People’s Air Force fighter jets. The plane landed in Yonpo Airfield, North Korea, and North Korean soldiers then proceeded to board the aircraft, blindfold the passengers and instruct them to disembark. During each day of captivity, the passengers were subjected to 4 hours of attempted indoctrination. <br><br>
 
-The night after the hijacking, 100,000 people in South Korea took to the streets in a mass rally to protest the incident, burning an effigy of Kim Il-Sung. On 25th December, North Korea finally responded and proposed to hold talks on the matter. By the following January, the North had pledged to repatriate all 50 hostages.
+The night after the hijacking, 100,000 people in South Korea took to the streets in a mass rally to protest the incident, burning an effigy of Kim Il-Sung. On 25th December, North Korea finally responded and proposed to hold talks on the matter. <br><br>
  
-On the 14th February 1970, after 66 days of captivity, the hostages were to be returned to South Korea at the Joint Security Area at Panmunjom. However, on the day of repatriation, only 39 passengers stepped foot on South Korean soil. The 4 crew members and 7 other passengers were missing. According to the North Korean government, these 11 hostages had voluntarily chosen to remain in North Korea. Until this day, that statement remains unverified. 
+On 14th February 1970, after 66 days of captivity, the hostages were to be returned to South Korea at the Joint Security Area at Panmunjom. However, on the day of repatriation, only 39 passengers stepped foot on South Korean soil. According to the North Korean government, the 11 hostages left  had voluntarily chosen to remain in North Korea. Until this day, that statement remains unverified. <br><br>
 
-An explanation for the hijacking remains unclear. North Korea stated that the pilots themselves had redirected the aircraft in protest against the current policies of the president of South Korea, Park Chung-hee, however passengers have refuted these claims. One passenger stated that they looked out the window of the aircraft despite instructions from the North Korean guards, and saw the hijacker being driven away in a black sedan.
+An explanation for the hijacking remains unclear. North Korea stated that the pilots themselves had redirected the aircraft in protest against the current policies of the president of South Korea, Park Chung-hee, however the returned passengers have refuted these claims.<br> <br>
 
-As for the whereabouts of the 11 remaining hostages, North Korea continues to withhold this information from the families.  At the Families’ Committee 2008 Inaugural meeting, a veteran from the National Intelligence Service, Song Yeong-in, commented that they were most likely detained in North Korea for their propagandic value and skilled expertise. Oh Kil-nam, who had briefly defected to North Korea in 1986, claimed that he had met the two flight attendants and the two Munhwa Broadcasting Corporation employees, Hwang Won and Gim Bongju. He reported that they were employed to issue propaganda broadcasts to the South. Oh was also told by his daughter that the captain of the aircraft and the first officer (?) were employed at the Korean People’s Air Force. In 2001, the mother of the flight attendant, Seong Gyeong-hui, was permitted to enter North Korea and see her daughter as one of the family reunions agreed to in the June 15th North–South Joint Declaration. In North Korea, Seong and the other flight attendant, Jeong Gyeong-suk, remained friends and were living in the same town. 
+As for the whereabouts of the 11 remaining hostages, North Korea continues to withhold this information from the families. In 2008, at the inaugural meeting of the 1969 Korean Air Abductees’ Families Association, a veteran from the National Intelligence Service, Song Yeong-in, commented that they were most likely detained in North Korea for their propagandic value and skilled expertise. Oh Kil-nam, who had briefly defected to North Korea in 1986, claimed that he had met the two flight attendants and the two Munhwa Broadcasting Corporation employees, Hwang Won and Gim Bongju. He reported that they were employed to issue propaganda broadcasts to the South. 
 
 </p>
 
 
 	  </div>
     <div id="menu12" class="tab-pane fade">
-      <h3>Menu 1</h3>
-      <p>Hwang In-cheol was just two years-old when his father, Hwang Won, boarded the flight for a business trip. As a broadcaster at Munhwa Broadcasting Corporation (MBC), Hwang Won was appointed on behalf of a former broadcast director, Baek Gi-Hong, to go to the United States. After the two year-old tried to block his father’s way out the door, he anxiously awaited his father’s return home. Decades later, Hwang In-cheol is still waiting. MAYBE WE CAN CUT THIS → Too young to understand what had happened, Hwang In-cheol’s mother had told him that his father was going to stay in the States until Christmas. But/However, when Christmas came and his father still hadn’t come home, Hwang In-Cheol sadly concluded that his father no longer loved them and decided to leave home for good. Only at the age of 9 did Hwang In-cheol’s uncle come to learn the terrible truth/reality of what had happened to his father. 
+      <p>
+	  Hwang In-cheol was just two years old when his father, Hwang Won, boarded his flight for a short business trip to Seoul. As a producer for Munhwa Broadcasting Corporation (MBC), Hwang Won had been appointed by his former broadcast director, Baek Gi-Hong, to go on that fateful business trip. <br><br>
 
-The reasons for Hwang Won’s continued detention was revealed by testimonies from the 39 KAL passengers who managed to return. They stated that during indoctrination classes, Hwang Won had refused to accept any of the communist beliefs that were enforced upon him. Angering the North Korean soldiers, he was dragged away and separated from the rest of the hostages. When the other hostages saw him again on February 7th, 1970, Hwang Won was singing, “Ga-go-pa”, which means “I want to go back home”, and once again, the soldiers dragged him away. This was the last time that he was seen by any of the 39 passengers. 
+The reason for Hwang Won’s continued detention was revealed by testimonies from the 39 KAL passengers that were repatriated on February 14th, 1970. They stated that during indoctrination classes, Hwang Won had refused to accept any of the communist beliefs that were enforced upon him. Angering the North Korean soldiers, he was dragged away and separated from the rest of the abductees. When the other abductees saw him again on February 7th, 1970, Hwang Won was singing “Ga-go-pa”, which means “I want to go back home”, and once again, the soldiers dragged him away. This was the last time that he was seen by any of the 39 passengers. <br><br>
 
-Over the years, Hwang In-cheol’s hope to be reunited with his father was slowly eroding. North Korea’s continual denial of his father left Hwang In-cheol….. However, in 2000, the two Koreas had agreed to include South Korean abductees at reunions for families separated by the war. A step in the right direction. His hopes were once again fuelled when in 2001, Seong Gyeong-hui, another KAL hostage, was permitted to meet with her mother. But 5 years later, when the North Korean Red Cross stated that they were "unable to confirm" his father’s whereabouts, this hope turned into bold determination; Hwang In-cheol refused to accept to stand down against North Korea’s outright injustices. 
-The last Hwang In-cheol heard of his father’s whereabouts was from a renowned broker (should we explain what this means?), codenamed ‘Superman’. He told Hwang In-cheol that he knew of his father’s whereabouts and could try to bring him to South Korea. In order to verify these claims, Hwang In-cheol gave Superman a set of questions which only his father would know the answer to. Through complex communication lines, Superman was able to contact Hwang Won and provide the right answers. Once verification was made, Hwang In-cheol and the broker sought confirmation from Hwang Won that he wanted to return to South Korea and then proceeded to plan his escape. In February 2013, Hwang Won made it as far as Sinujiu city and from here, he only needed to get on a boat. However, Kim Jong-un’s nuclear testing around this time meant that security was heightened and borders were being even more heavily guarded. Hwang Won lost the fight to return home and was recaptured by North Korean soldiers.
-Over X years later, Hwang In-Cheol, along with Team Hwang, have not given up and continue the fight to bring his father home. 
+Over the years, Hwang In-cheol’s hope to be reunited with his father was slowly eroding. However, in 2000, the two Koreas had agreed to include South Korean abductees at reunions for families separated by the Korean War (1950~53). A step in the right direction. Hwang’s hopes were once again fuelled when in 2001, Seong Gyeong-hui, one of the two KAL flight attendants that were abducted, was permitted to meet with her South Korean mother. But 5 years later, the North Korean authorities replied through the Red Cross channels saying they were "unable to confirm" his father’s fate and whereabouts. Hwang’s devastation then turned into a bold determination; he refused to accept the North’s explanation and began to speak out against this outright injustice. <br><br>
+The last Hwang In-cheol heard of his father’s whereabouts was from a renowned broker, codenamed ‘Superman’. He told Hwang In-cheol that he knew of his father’s whereabouts and could try to bring him to South Korea. In order to verify these claims, Hwang In-cheol gave Superman a set of questions which only his father would know the answer to. Through complex communication lines, Superman was able to contact Hwang Won and provide the right answers. In February 2013, Hwang Won made it as far as Sinujiu city and from here, he only needed to get on a boat. However, Kim Jong-un’s nuclear testing around this time meant that security was heightened and borders were being more heavily guarded. Hwang Won lost the fight to return home. Since then, the broker has been unable to re-establish contact with his father. <br><br>
+Over 50 years later, Hwang In-Cheol, along with Team Hwang, have not given up and continue the fight to bring his father home. 
 </p>
     </div>
-    <div id="menu2" class="tab-pane fade">
-      <h3>Menu 2</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </div>
-    <div id="menu3" class="tab-pane fade">
-      <h3>Menu 3</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
+    
+  
   </div>
 </div>
       <a href="#takeaction" class="js-scroll-trigger"><img style="opacity:0.5" width="5%"src="img/white-down-arrow-2.png"></a> 
  
     </section>
 
-    <!-- Ice loss and gain -->
+    
     <section id="events" class="bg-light">
 
       <div class="container" style="background:rgba(255,255,255,0.5)">
