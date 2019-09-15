@@ -343,6 +343,20 @@ top:70vw;
   width:250px;
 }
 
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
 </style>
 	
 </head>
@@ -353,8 +367,6 @@ top:70vw;
 
 
 <script>
-
-alert('BETA');
 
 var markers=[];
 var customPopup;
@@ -409,14 +421,12 @@ document.getElementById("viewDiv").style.display="block";
 }
 else
 {
-   var orangeIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+  /*
+  
+  list of coffee :
+  // Rufous coffee 25.023709, 121.543672
+  */
+
 
 
 	
@@ -518,6 +528,20 @@ document.getElementById("menu2").style.display="block";
 
 }
 
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 10;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      elem.innerHTML = width * 1  + ' cups saved!';
+    }
+  }
+}
 
 
 
@@ -534,12 +558,18 @@ document.getElementById("menu2").style.display="block";
  <br>
 <img id='img-k' src='profil1.jpg' >
  <h2> jdy_essa </h2>
+ 
+ 
+<h1>Level 1  </h1>
+
+<div id="myProgress">
+  <div id="myBar">2 cup saved!</div>
+</div>
+
+<br>
+<button onclick="move()">Click Me</button> 
  <br>
- <img id='img-q' src='qrcode.jpg' >
- <br>
- <h4> phone number </h4>
- <br>
- <br>
+ 
  <button> Scan </button>
  <br>
  <a href='#'> LogOut<a>
@@ -554,11 +584,19 @@ document.getElementById("menu2").style.display="block";
   
   
 
-  <div id='menu2' >
-  
-  </div>
+ 
 </div>
-
+<br>
+<h4>Your qr code</h4>
+<br>
+ <div id='menu2' style='display:none,text-align:center'>
+  
+  <img id='img-q' src='qrcode.jpg' >
+ <br>
+ 
+ <br>
+ <br>
+  </div>
 
   
 <div id="nav1" class="down overlay" style='text-align:center' data-backdrop="false">
@@ -568,8 +606,8 @@ document.getElementById("menu2").style.display="block";
   <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
   <span class="glyphicon glyphicon-map-marker"></span>
   </button>
-   <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2' onclick='Website()'>
- <span class="glyphicon glyphicon-gift"></span>
+   <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2'  onclick='Website()'>
+ <span class="glyphicon glyphicon-qrcode"></span>
 </button>
 
  
