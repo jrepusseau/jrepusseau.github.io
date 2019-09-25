@@ -21,6 +21,7 @@ margin:auto;
 .unit
 {
 padding:1em;
+text-align:center;
 }
 .unit:hover
 {
@@ -42,15 +43,28 @@ outline:1px solid black;
 background-image:url('background.jpeg');
   background-attachment: fixed;
   color:white;
+  height: 50px;
+}
+.sticky-top.scrolled {
+  opacity: 0.7 !important;
+  transition: opacity 200ms linear;
 }
 </style>
+<script>
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".sticky-top");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+});
+</script>
 <body>
-
-<div class="jumbotron text-center">
-
-  <h1>UnskilledStudio</h1>
-  <p>Build from your imagination</p> 
-</div>
+<nav class="navbar sticky-top jumbotron">
+  <div class="container">
+   <h1>UnskilledStudio</h1>
+  <p>Build from your imagination</p>
+  </div>
+</nav>
   
 <div class="container">
   <div class="row">
@@ -86,7 +100,7 @@ Back the first step the app will analyze the efficiency of the programs (foods,s
     <div class="col-sm-4">
 	<div class='unit'>
 	<a href='http://comunitea.creatorlink.net/' target="_blank">
-	<img src='communitea.png'/>
+	<img src='leaf.png'/>
 	</a>
       <h3>Communitea</h3>
 	  <a href="https://jrepusseau.github.io/Communitea/index.html" target="_blank">
@@ -116,8 +130,13 @@ We put the store on the Communitea map as à form of exposure advertisement amon
    
 	   <div class="col-sm-4">
 	    <div class="unit">
+		 <a href="https://jrepusseau.github.io/ARC/" target="_blank">
 	   <img src='ARC.jpg'/>
+</a>	
       <h3>ARC</h3>
+	   <a href="https://jrepusseau.github.io/ARC/" target="_blank">
+	<p> BETA <p>
+</a>	  
       <p>ARC or Autonomous Robotic City is a location-based services website designed to help the communication between people and emergency services. The original idea was to connect an interactive map with a social network to allow users to follow ambulances and fire trucks and to chat directly with them. The original version got extended to offer the possibility to the user to create events with friends, order groceries, and ask for other public services. 
 </p>
     </div>
@@ -128,8 +147,8 @@ We put the store on the Communitea map as à form of exposure advertisement amon
     </div>
    
 	<div class="unit">
-      <h3>Bimil</h3>        
-      <p>The project is an made for the couple to play together</p>
+      <h3>Bimil</h3>         
+      <p>The project is an app made for the couple to play together</p>
     </div>
 	</div>
 	
