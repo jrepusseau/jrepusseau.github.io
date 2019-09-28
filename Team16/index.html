@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+.unit
+{
+color:white;
+padding:1em;
+text-align:center;
+outline:1px solid black;
+}
+.unit:hover
+{
+outline:1px solid black;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+    -webkit-transition: box-shadow 6000ms linear;
+    -ms-transition: box-shadow 6000ms linear;
+    transition: box-shadow 6000ms linear;
+	  background-color: white;
+	-webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Team16</h2>
+
+
+  
+    <div  class="col-sm-12 container">
+	General
+	age
+<input type='number' ></input> years old; 
+height
+<input type='number'> </input> cm ; 
+weight
+<input type='number'> </input> kg ;
+</div>
+<div id='det'>
+<div class="row">
+    <div class="col-sm-6 unit"  style='background-color:red' onclick="update('me')">
+	Medical
+	</div>
+	<div class="col-sm-6 unit" id='ph' style='background-color:green' onclick="update('ph')">
+	Physic
+	</div></div>
+	<div class="row">
+    <div class="col-sm-6 unit" id='ps'  style='background-color:blue' onclick="update('ps')">
+	Psychology
+	</div>
+	<div class="col-sm-6 unit" id='es' style='background-color:pink' onclick="update('es')">
+	Esthetic
+	</div>
+</div>
+</div>
+
+
+
+
+<div id='me' style='display:none'>
+<h2> Fill the questionnary </h2>
+
+	age
+<input type='number' ></input> years old; 
+height
+<input type='number'> </input> cm ; 
+weight
+<input type='number'> </input> kg ;
+<div>
+
+
+
+
+
+
+<div class="container">
+  <img src="bot.png" alt="Avatar" style="width:100%;">
+  <p>Hello. How are you today?</p>
+  <span class="time-right">11:00</span>
+</div>
+
+<div class="container darker">
+  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+  <p>Hey! I'm fine. Thanks for asking!</p>
+  <span class="time-left">11:01</span>
+</div>
+
+<div class="container">
+  <img src="bot.png" alt="Avatar" style="width:100%;">
+  <p>Sweet! So, what do you wanna do today?</p>
+  <span class="time-right">11:02</span>
+</div>
+
+<div class="container darker">
+  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+  <select>
+  <option> hao</option>
+    <option> bu hao</option>
+	  <option> wo bu zhidao</option>
+	    <option> ...</option>
+		</select>
+  <span class="time-left">11:05</span>
+</div>
+
+
+<script>
+
+function update(val)
+{
+
+document.getElementById('det').style.display='none';document.getElementById(val).style.display='block';}
+
+{}
+}
+</script>
+</body>
+</html>
