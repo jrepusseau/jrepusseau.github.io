@@ -45,25 +45,6 @@ border-radius:50%;
   box-sizing: border-box;
 }
 
-/* The actual timeline (the vertical ruler) */
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* The actual timeline (the vertical ruler) */
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
-
 /* Container around content */
 .containe {
   padding: 10px 40px;
@@ -72,70 +53,6 @@ border-radius:50%;
   width: 50%;
 }
 
-/* The circles on the timeline */
-.containe::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-/* Place the container to the left */
-.left {
-  left: 0;
-}
-
-/* Place the container to the right */
-.right {
-  left: 50%;
-}
-
-/* Add arrows to the left container (pointing right) */
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
-}
-
-/* Add arrows to the right container (pointing left) */
-.right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-}
-
-/* Fix the circle for containers on the right side */
-.right::after {
-  left: -16px;
-}
-
-/* The actual content */
-.content {
-  padding: 20px 30px;
-  background-color: white;
-  position: relative;
-  border-radius: 6px;
-}
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
@@ -151,23 +68,8 @@ border-radius:50%;
   padding-right: 25px;
   }
   
-  /* Make sure that all arrows are pointing leftwards */
-  .containe::before {
-  left: 60px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-  }
+ 
 
-  /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
-  left: 15px;
-  }
-  
-  /* Make all right containers behave like the left ones */
-  .right {
-  left: 0%;
-  }
   
   hr {
   margin-top: 1rem;
@@ -181,6 +83,44 @@ text-align:center;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.box {
+padding:1em;
+}
+
+p,hr
+{
+  color:white;
+  display:none; 
+}
+
+.conten {
+    width: 29vw;
+    text-align: center;
+text-align:center;
+outline:1px solid black;
+padding:1em;
+padding: 20px 30px;
+  display:inline-block;
+}
+.conten:hover p,hr{ 
+   color:black;
+   display:block;
+   }
+.conten:hover {
+  transform:bottom;
+   display:inline-block;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+    -webkit-transition: box-shadow 6000ms linear;
+    -ms-transition: box-shadow 6000ms linear;
+    transition: box-shadow 6000ms linear;
+	  background-color: white;
+	-webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+
 
 </style>
   </head>
@@ -439,11 +379,12 @@ Uruguay and Iceland both highlighted the KAL hijacking incident in their human r
   <br> <br>
 	  	  <h2 style='text-align:center'> Organization history </h2>
 		   <br>
-	  <div class="timeline bg-light" style="overflow-y: scroll; height:400px;">
-	  <div class="containe left">
-    <div class="content">
-      <h2>2019</h2>
-      <p>March 4~6 : In partnership with other NGOs, Team Hwang travels to Brussels, Belgium, to advocate for the return of Hwang In-cheol’s father at the European Parliament.
+  <div class="row">
+		<div class="col-sm-4" >
+		<h2>
+2019
+</h2>
+<p>March 4~6 : In partnership with other NGOs, Team Hwang travels to Brussels, Belgium, to advocate for the return of Hwang In-cheol’s father at the European Parliament.</p>
 <hr>
 <p>
 March 7~14: In partnership with other NGOs, Team Hwang travels to Geneva, Switzerland, to advocate for the return of Hwang In-cheol’s father at the UN Human Rights Council. </p>
@@ -452,11 +393,8 @@ March 7~14: In partnership with other NGOs, Team Hwang travels to Geneva, Switze
 May 9: At North Korea’s 3rd cycle UPR, the representatives of Uruguay and Iceland urges North Korea to address the KAL hijacking case of 1969. 
 Iceland directly mentions Hwang Won’s name, calling on North Korea to “immediately release” him to South Korea.
 </p>
-
-  </div>
-  </div>
-	   <div class="containe right">
-    <div class="content">
+</div>
+<div class="col-sm-4" >
       <h2>2018</h2>
       <p>October 5: On behalf of Hwang In-cheol, Team Hwang submits a report to the UN Human Rights Council for North Korea’s 3rd cycle Universal Periodic Review (UPR).
  </p>
@@ -465,10 +403,8 @@ Iceland directly mentions Hwang Won’s name, calling on North Korea to “immed
 December 11: Marking the 49th anniversary of the KAL hijacking, Team Hwang members gather to write letters to foreign embassies in Seoul to raise Hwang In-cheol’s case at North Korea’s 3rd cycle UPR. 
 </p>
   </div>
-  </div>
-	   <div class="containe left">
-    <div class="content">
-      <h2>2017</h2>
+  <div class="col-sm-4" >
+   <h2>2017</h2>
       <p>May 30: The annual report of the UN Human Rights Office (OHCHR) highlights the KAL hijacking case. </p>
 <hr>
 <p>
@@ -476,11 +412,27 @@ December 11: Marking the 48th anniversary of the KAL hijacking, Team Hwang holds
 </p>
   </div>
   </div>
-  
-	   <div class="containe right">
-    <div class="content">
+  <div class="row" >
+ <div class="col-sm-4" >
       <h2>2016</h2>
       <p>June 1: TNKR (Teach North Korean Refugees) creates Team Hwang, a group of volunteers dedicated to helping Hwang In-cheol raise international awareness of his father’s abduction.
+</p>
+</div>
+ <div class="col-sm-4" >
+      <h2>2015</h2>
+      <p>On May 8th (Parents’ Day), Hwang In-cheol attempts to send his father the commemorative flower bouquet. The Minister of Unification rejects Hwang’s request. 
+Concurrently, Hwang In-cheol calls on the South Korean government to demand his father’s repatriation in accordance with the Convention for the Suppression of Unlawful Seizure of Aircraft. Hwang’s request is rejected.  
+</p>
+  </div>
+   <div class="col-sm-4" >
+      <h2>2014</h2>
+      <p>Hwang In-cheol applies to the South Korean Ministry of Unification for permission to visit North Korea and to personally contact the head of the North Korean Red Cross office. The South Korean authorities rejects Hwang’s application.  
+</p>
+  </div>
+  <div class="row" >
+ <div class="col-sm-4" >
+      <h2>2013</h2>
+      <p>With the help of renowned broker, “Superman”, Hwang In-cheol attempts to aid his father’s escape to China. However, the mission fails, allegedly because of the North Korean government’s 3rd nuclear experiment and the subsequent closing of the surrounding sea lanes that prevents Hwang’s father from travelling to China. 
 </p>
 	  <hr>
 	  <p>June 17: Team Hwang stages its first event at Imjingak (Freedom Bridge), near the  DMZ, calling for the repatriation of Hwang In-cheol’s father. This marks the beginning of the #BringMyFatherHome campaign. 
@@ -494,31 +446,8 @@ Adopted on September 8, 1970, the UN Security Council Resolution 286 appeals for
 December 10: Marking the Human Rights Day, Team Hwang stages a candlelight vigil to express solidarity with Hwang In-cheol’s father.
 </p>
  </div>
-  </div>
-	  <div class="containe left">
-    <div class="content">
-      <h2>2015</h2>
-      <p>On May 8th (Parents’ Day), Hwang In-cheol attempts to send his father the commemorative flower bouquet. The Minister of Unification rejects Hwang’s request. 
-Concurrently, Hwang In-cheol calls on the South Korean government to demand his father’s repatriation in accordance with the Convention for the Suppression of Unlawful Seizure of Aircraft. Hwang’s request is rejected.  
-</p>
-  </div>
-  </div>
-	  <div class="containe right">
-    <div class="content">
-      <h2>2014</h2>
-      <p>Hwang In-cheol applies to the South Korean Ministry of Unification for permission to visit North Korea and to personally contact the head of the North Korean Red Cross office. The South Korean authorities rejects Hwang’s application.  
-</p>
-  </div>
-  </div>
-	    <div class="containe left">
-    <div class="content">
-      <h2>2013</h2>
-      <p>With the help of renowned broker, “Superman”, Hwang In-cheol attempts to aid his father’s escape to China. However, the mission fails, allegedly because of the North Korean government’s 3rd nuclear experiment and the subsequent closing of the surrounding sea lanes that prevents Hwang’s father from travelling to China. 
-</p>
-    </div>
-  </div>
-	  <div class="containe right">
-    <div class="content">
+    
+  <div class="col-sm-4" >
       <h2>2012</h2>
       <p>February: Hwang In-cheol files a criminal complaint against Cho Change-Hee, the North Korean hijacker. The complaint is rejected.</p>
 	  <hr>
@@ -529,45 +458,31 @@ Since then, Hwang In-cheol has continuously urged South Korea’s Ministry of Fo
 <p>Hwang In-cheol is contacted by a broker code-named “Superman,” who claims to know about his father’s whereabouts.
 </p>
 	  </div>
-  </div>
-  <div class="containe left">
-    <div class="content">
-      <h2>2011</h2>
+    <div class="col-sm-4" >
+     <h2>2011</h2>
       <p>Hwang In-cheol urges the International Committee of the Red Cross (ICRC) to call on North Korea to provide information on his father. North Korea repeats its standing answer that all those who remain in North Korea are doing so voluntarily and that their fate “could not be confirmed.”
 </p>
-    </div>
-  </div>
-  <div class="containe right">
-    <div class="content">
-      <h2>2010</h2>
-      <p>Hwang In-cheol submits his father’s case to the UN Working Group on Enforced or Involuntary Disappearances (WGEID), becoming the first South Korean abductee family to submit a case to WGEID.</p>
-	  </div>
-  </div>
-  <div class="containe left">
-    <div class="content">
+</div>
+</div>
+  <div class="row" >
+    <div class="col-sm-4" >
       <h2>2008</h2>
       <p>Hwang In-cheol establishes the 1969 Korean Air Abductees’ Families Association</p>
     </div>
-  </div>
-  <div class="containe right">
-    <div class="content">
+<div class="col-sm-4" >
       <h2>2006</h2>
       <p>North Korea rejects Hwang In-cheol’s application to meet with his father, claiming that it is impossible to verify his life status. The other 5 family members receive the same answer.</p>
     </div>
-  </div>
-  <div class="containe left">
-    <div class="content">
+   <div class="col-sm-4" >
       <h2>2001</h2>
       <p>3rd inter-Korean family reunion event; Seong Kyung-hee, one of the two abducted flight attendants, is allowed to meet briefly with her South Korean mother.  </p>
 	  </div>
-  </div>
-  <div class="containe right">
-    <div class="content">
+	  </div>
+   <div class="col-sm-4" >
       <h2>1999</h2>
       <p>Hwang In-cheol, along with 5 other family members, applies for the inter-Korean family reunion
 </p>
     </div>
-  </div>
 </div>
 
 	  
