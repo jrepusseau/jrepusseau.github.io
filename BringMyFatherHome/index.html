@@ -48,21 +48,25 @@ border-radius:50%;
 /* Container around content */
 .containe
 {
-outline: 
-outline:1px solid black;
+padding:1em;
 text-align:center;
 } 
-.containe p{
+.containe p,hr{
+height:0;
   visibility: hidden;
   opacity: 0;
   
 }
 
-.containe:hover p{
+.containe:hover p,hr{
+height:auto;
   visibility: visible;
   opacity: 1;
- transition: visibility 0s, opacity 2s linear;
+  border:1px;
+  border-radius:5%;
+ transition: visibility 0s, opacity 0.5s linear;
 }
+
 
 .containe:hover{
   box-shadow: 0 5px 10px rgba(0,0,0,0.8);
@@ -75,6 +79,12 @@ text-align:center;
     transition: background-color 1000ms linear;
 	
 }
+
+.containe:hover h2{
+text-decoration: underline yellow;
+    transition: text-decoration 1000ms linear;
+	}
+
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
