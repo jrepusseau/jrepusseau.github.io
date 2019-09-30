@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bring my father home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="//Users/Jules/Documents/GitHub/jrepusseau.github.io/PIC/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="//Users/Jules/Documents/GitHub/jrepusseau.github.io/PIC/vendor/jquery/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+ 
+ <style>
+ h2{
+ color:#11abe2;
+ text-align:center;
+ }
+
+body
+{
+//background-color:black;
+//background-image: url("picture.jpg");
+background-repeat: no-repeat;
+}
+
+h3{
+//font-family: Arial, Helvetica, sans-serif;
+//  font-family: "Times New Roman", Times, serif;
+}
+
+
+
+img
+{
+    max-width: 100%;
+    min-width: 50px;
+    height: auto;
+}
+
+#menu1
+{
+//background-image:url('photo2.jpg');
+//background-size:100% 100%;
+}
+
+
+ </style>
+ 
+  
+
+</head>
+<body>
+
+ 
+ <nav class="navbar-static-top navbar-expand-lg" id="nav1" >
+  <div class="container-fluid" >
+  <div class="navbar-header">
+  <ul class="nav nav-tabs" style='display:inline'>
+	<li><a data-toggle="tab" href="#menu1"  id=''>#BringMyFatherHome</a></li>
+    <!--Facebook-->
+	 <li><a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-facebook-f"></i></a></li>
+<!--Twitter-->
+<li><a class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fab fa-twitter"></i></a></li>
+<!--Instagram-->
+<li><a class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fab fa-instagram"></i></a></li>
+<!--Youtube-->
+<li><a class="btn-floating btn-lg btn-yt" type="button" role="button"><i class="fab fa-youtube"></i></a></li>
+
+ <li class="dropdown" >
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id='LN'>Languages
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" style='text-align:center'>
+		<li><a href="#" onclick="init('en')">English</a></li>
+		<li><a href="#" onclick="init('kr')">한국</a></li>
+          <li><a href="#" onclick="init('cn')">中文</a></li>
+          <li><a href="#" onclick="init('fr')">Francais</a></li>
+          <li><a href="#" onclick="init('de')">Deutch</a></li>
+		  <li><a href="#" onclick="init('sp')">Espanol</a></li>
+		  <li><a href="#" onclick="init('pt')">Portuguais</a></li>
+		  <li><a href="#" onclick="init('IT')">Italian</a></li>
+        </ul>
+      </li>
+     
+	 
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+        <span class="icon-bar" style='background-color:blue'></span>
+        <span class="icon-bar" style='background-color:blue'></span>
+        <span class="icon-bar" style='background-color:blue'></span>
+      </button>
+	  <div class="collapse navbar-collapse" id="myNavbar">
+	   </ul>
+    <ul class="nav navbar-nav" style='margin:0 auto;'>
+    
+     <li><a  data-toggle="tab" href="#menu2" id=''>Our Goals</a></li>
+	   <li><a  data-toggle="tab" href="#menu5" id=''>Team Hwang</a></li>
+	   <li><a  data-toggle="tab" href="#menu3"  id=''>Our Work</a></li>
+	   <li><a  data-toggle="tab" href="#menu4" id=''>Events</a></li>
+	   
+	   <li class="dropdown" >
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Help us!
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" style='text-align:center'>
+		  <li><a  href='' id=''> Petition </a></li>
+	   <li><a  href='' id='ju'> Join us </a></li>
+	   <li> <button href='' data-toggle="modal" data-target="#share" class="btn btn-info navbar-btn"> Share <span class="glyphicon glyphicon-thumbs-up"> </button></li>
+	   <li> <a  href='https://give.lovetnkr.com/en/KAL1969' id='don'> Donate <span class="glyphicon glyphicon-heart-empty"></span></a></li>
+		
+        </ul>
+      </li>
+	   <li><a  href='' id=''>News</a></li>
+	
+    </ul>
+	
+	</div>
+    </div>
+	
+  </div>
+</nav> 
+
+<nav class="navbar  navbar-fixed-bottom " >
+  
+   <ul class="nav nav-tabs navbar-right" style=' margin: auto;'>
+      <li> <button class="btn btn-info navbar-btn" href='' data-toggle="modal" data-target="#contact"> Contact <span class="glyphicon glyphicon-send"></span></button></li>
+   
+	 </ul>
+
+ 
+</nav> 
+
+ 
+
+ <div class="container" id="directordiv" style='width:100%'>
+
+ <div class="tab-content">
+ <div id="menu2" class="tab-pane" style='text-align:center' >
+ 
+
+ <h2 id='title' >Our team </h2>
+		<img class="img-fluid" src='Photo.jpg'  />
+	<h4>  Information on the case 
+ 
+ The campaign itself: Goals purposes motivations 
+ 
+ Team Hwang</h4>
+ 
+</div>
+ <div id="menu1" class="tab-pane fade in active" style="text-align: center;">
+ 
+<br>
+	<h2 id='title' >Bring my father home </h2>
+	
+	 <div class="row">
+  <div class="col-sm-6" style='text-align:center'>
+    
+  <iframe frameborder="0" class="img-fluid" src="//www.dailymotion.com/embed/video/x7fe1j1?autoplay=1&mute=1"
+allowfullscreen allow="autoplay"></iframe>
+
+<a href='https://www.bbc.com/korean/news-43819241?fbclid=IwAR0Wc0lavirCrW1SRuPQKo3uXkT_SPEf6w8vPuX_jPfuoPpWhYtN2UDXhf0/'> BBC link </a>
+
+</div>
+  
+  
+ <div class="col-sm-6" style='text-align:center;   border-left: 2px solid gray;'>
+	 <h4> Latest news </h4>
+  <p> 2019/02/18 <span class="badge badge-secondary">Amnesty international petition</span></p>
+  <p> 2018/04/20 <span class="badge badge-secondary">BBC News Korea</span></p>
+ 
+  <a href=''> More news </a>
+  
+</div>
+
+
+ </div>
+ 
+ 
+</div>
+
+	<div class="row">
+
+  <div class="col-sm-6" style="text-align: left;">
+  
+  <h4 id='text1'>
+	</h4> 
+	
+  
+  </div>
+   <div class="col-sm-6">
+<img class="img-fluid" src='photo2.jpg' style='text-align:center' />  
+  </div>
+ 
+  </div>
+  
+  
+
+	
+	
+		
+
+<br>
+		
+		
+  
+        <br>
+		
+		<h2> History </h2>
+		
+		
+	
+	<div class="col-sm-4">
+<button href='' data-toggle="modal" data-target="#share" class="btn btn-info navbar-btn"> Share <span class="glyphicon glyphicon-thumbs-up"> </button>
+	 
+	</div>
+	<div class="col-sm-4">
+<button  href='https://give.lovetnkr.com/en/KAL1969' id='don' class="btn btn-info navbar-btn"> Donate <span class="glyphicon glyphicon-heart-empty"></span></button>
+	</div>
+	<br> 
+	<br>
+	
+	
+</div> 
+ 
+ 
+
+
+
+<div id="menu3" class="tab-pane" style="text-align: center;">
+		
+		<img class="img-fluid" src='picture1.jpg'  />
+		
+		
+		  </div>
+		  
+  <div id="menu4" class="tab-pane" style="text-align: center;">
+		
+		<img src='photo3.jpg'  />
+		<p> Event in ... </p>
+		
+		<h3> Event coming </h3>
+		
+	
+</div>
+
+ <div id="menu5" class="tab-pane" style="text-align: center;">
+
+<div class="row">
+
+<h2> Team Hwang </h2>
+        <div class="col-12 col-sm-6 col-md-4">
+		<div class="issue my-4 text-center">
+		<h4 class="mb-4 text-uppercase text-primary">
+		<a href="">team1</a></h4><p>work1</p></div></div>
+		
+		<div class="col-12 col-sm-6 col-md-4">
+		<div class="issue my-4 text-center">
+		<h4 class="mb-4 text-uppercase text-primary">
+		<a href="">team2</a></h4><p>Work2</p></div></div>
+		
+		<div class="col-12 col-sm-6 col-md-4">
+		<div class="issue my-4 text-center">
+		<h4 class="mb-4 text-uppercase text-primary">
+		<a href="">team3</a></h4><p>Maybe work3</p></div></div>
+		
+		<div class="col-12 col-sm-6 col-md-4">
+		<div class="issue my-4 text-center">
+		<h4 class="mb-4 text-uppercase text-primary">
+		<a href="">team4</a></h4><p>Maybe work4</p></div></div>
+		
+		<div class="col-12 col-sm-6 col-md-4">
+		<div class="issue my-4 text-center">
+		<h4 class="mb-4 text-uppercase text-primary">
+		<a href="">team5</a></h4><p>Maybe work5</p></div></div>
+		
+		<div class="col-12 col-sm-6 col-md-4">
+		<div class="issue my-4 text-center">
+		<h4 class="mb-4 text-uppercase text-primary">
+		<a href="">team6</a></h4><p>Maybe work6</p></div></div>
+		
+<h2> History </h2>
+ <ul class="list-group">
+  <a href="#" class="list-group-item">ijcoidoshcdoheu<span class="badge">2019</span></a>
+  <a href="#" class="list-group-item">cwpojecjpecjpew<span class="badge">2018</span></a>
+  <a href="#" class="list-group-item">wkne;wcnwenclwenclkn<span class="badge">2017</span></a>
+</ul> 
+
+		  </div>
+  
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="contact" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">×</button>
+<h4 class="modal-title">Contact Us</h4>
+</div>
+<div class="modal-body">
+
+        <form role="form" method="post" id="reused_form">
+        <p>
+            Contact Mr. Hwang:	friendsofhwang@gmail.com
+        </p>
+
+        <div class="form-group">
+            <label for="name">
+                Name:</label>
+            <input type="text" class="form-control"
+            id="name" name="name"   required maxlength="50" placeholder='Your name :-)'>
+
+        </div>
+        <div class="form-group">
+            <label for="email">
+                Email:</label>
+            <input type="email" class="form-control"
+            id="email" name="email" required maxlength="50" placeholder='Your email'>
+        </div>
+        <div class="form-group">
+            <label for="name">
+                Message:</label>
+            <textarea class="form-control" type="textarea" name="message"
+            id="message" placeholder="Your Message Here"
+            maxlength="6000" rows="7"></textarea>
+        </div>
+        <button type="submit" class="btn btn-lg btn-info btn-block" id="btnContactUs">Send it <span class="glyphicon glyphicon-send"></span> </button>
+
+    </form>
+    <div id="success_message" style="width:100%; height:100%; display:none; ">
+        <h3>Sent your message successfully!</h3>
+    </div>
+    <div id="error_message"
+    style="width:100%; height:100%; display:none; ">
+        <h3>Error</h3>
+        Sorry there was an error sending your form.
+
+    </div>
+</div>
+
+</div>
+
+ </div>
+</div>
+
+
+
+
+<div id="share" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">×</button>
+<h4 class="modal-title">Share our content</h4>
+</div>
+<!--Facebook-->
+<a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
+<!--Twitter-->
+<a class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fab fa-twitter"></i></a>
+<!--Google +-->
+<a class="btn-floating btn-lg btn-gplus" type="button" role="button"><i class="fab fa-google-plus-g"></i></a>
+<!--Linkedin-->
+<a class="btn-floating btn-lg btn-li" type="button" role="button"><i class="fab fa-linkedin-in"></i></a>
+<!--Instagram-->
+<a class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fab fa-instagram"></i></a>
+<!--Pinterest-->
+<a class="btn-floating btn-lg btn-pin" type="button" role="button"><i class="fab fa-pinterest"></i></a>
+<!--Vkontakte-->
+<a class="btn-floating btn-lg btn-vk" type="button" role="button"><i class="fab fa-vk"></i></a>
+<!--Stack Overflow-->
+<a class="btn-floating btn-lg btn-so" type="button" role="button"><i class="fab fa-stack-overflow"></i></a>
+<!--Youtube-->
+<a class="btn-floating btn-lg btn-yt" type="button" role="button"><i class="fab fa-youtube"></i></a>
+<!--Slack-->
+<a class="btn-floating btn-lg btn-slack" type="button" role="button"><i class="fab fa-slack-hash"></i></a>
+<!--Github-->
+<a class="btn-floating btn-lg btn-git" type="button" role="button"><i class="fab fa-github"></i></a>
+<!--Comments-->
+<a class="btn-floating btn-lg btn-comm" type="button" role="button"><i class="fas fa-comments"></i></a>
+<!--Email-->
+<a class="btn-floating btn-lg btn-email" type="button" role="button"><i class="fas fa-envelope"></i></a>
+<!--Dribbble-->
+<a class="btn-floating btn-lg btn-dribbble" type="button" role="button"><i class="fab fa-dribbble"></i></a>
+<!--Reddit-->
+<a class="btn-floating btn-lg btn-reddit" type="button" role="button"><i class="fab fa-reddit-alien"></i></a>
+</div>
+
+</div>
+
+ </div>
+</div>
+
+
+
+
+<script>
+
+
+var contentfr=['Signez la petition','https://www.change.org/p/appel-aux-consciences-du-21%C3%A8me-si%C3%A8cle-s-il-vous-plait-aidez-moi-%C3%A0-rapatrier-mon-p%C3%A8re-bringmyfatherhome','Francais','Ramenez mon pere a la maison',""]
+var contenten=['Sign the petition','https://www.change.org/p/appealing-to-the-conscience-of-the-21st-century-please-help-repatriate-my-father-bringmyfatherhome','English','Bring my father home',"On December 11th 1969, Mr. Hwang’s father, Hwang Won, boarded the Korean Air YS-11 flight to go on a business trip. Within 10 minutes, his plane was hijacked by a North Korean agent. While 39 passengers were returned, 11 abductees, including Mr. Hwang’s father, were not. \n \n Team Hwang is a group of volunteers who have come together to join Mr Hwang in raising international awareness of this case and help bring his father back home to South Korea. \n \n Crimes of forced abduction committed by North Korea are vast in number and ongoing. By raising our voices, we will help pave the way for resolving hundreds of other abduction cases committed by North Korea" ]
+var contentcn=['pop','','中文','pop']
+var contentkr=['','','한국','우리 아버지를 돌려주세요']
+var content;
+
+init('en');
+
+function init(val)
+{
+if (val=="en")
+content=[...contenten];
+if (val=="cn")
+content=[...contentcn];
+if (val=="fr")
+content=[...contentfr];
+if (val=="kr")
+content=[...contentkr];
+//document.getElementById('mainbutton').innerHTML=content[0] + " <span class='glyphicon glyphicon-pencil' ></span>";
+//document.getElementById('mainbutton').setAttribute('href',content[1]);
+document.getElementById('LN').innerHTML=content[2]+" <span class='glyphicon glyphicon-globe' ></span>";
+document.getElementById('title').innerHTML=content[3];
+document.getElementById('text1').innerText=content[4];
+
+}
+
+/*           
+	amnesty https://amnesty.or.kr/onlineaction/27845/?fbclid=IwAR1UNwE2acSrHPpM6BRMVaR7gop2WJpKIbTO9hdk6ddUH-KKgDUL6V44VOo
+		https://amnesty.or.kr/onlineaction/27845/?fbclid=IwAR1UNwE2acSrHPpM6BRMVaR7gop2WJpKIbTO9hdk6ddUH-KKgDUL6V44VOo
+		
+	change en https://www.change.org/p/appealing-to-the-conscience-of-the-21st-century-please-help-repatriate-my-father-bringmyfatherhome
+change kr https://www.change.org/p/21%EC%84%B8%EA%B8%B0-%EC%A7%80%EC%84%B1%EA%B3%BC-%EC%96%91%EC%8B%AC%EC%9D%B4%EC%97%AC-%EA%B9%A8%EC%96%B4-%EC%9D%BC%EC%96%B4%EB%82%98-%EB%82%B4-%EC%95%84%EB%B2%84%EC%A7%80%EB%A5%BC-%EC%86%A1%ED%99%98%ED%95%98%EC%97%AC-%EC%A3%BC%EC%86%8C%EC%84%9C-bringmyfatherhome
+change de https://www.change.org/p/appell-an-das-bewusstsein-im-21-jahrhundert-bitte-helfen-sie-meinen-vater-zur%C3%BCckzuholen-bringmyfatherhome
+change sp https://www.change.org/p/apelando-a-la-conciencia-del-siglo-xxi-por-favor-ay%C3%BAdenme-a-repatriar-a-mi-padre-bringmyfatherhome
+change fr https://www.change.org/p/appel-aux-consciences-du-21%C3%A8me-si%C3%A8cle-s-il-vous-plait-aidez-moi-%C3%A0-rapatrier-mon-p%C3%A8re-bringmyfatherhome
+change pt https://www.change.org/p/apelo-%C3%A0-consci%C3%AAncia-do-s%C3%A9culo-xxi-por-favor-ajude-a-repatriar-meu-pai-bringmyfatherhome
+change it https://www.change.org/p/appello-alle-coscienze-del-xxi-secolo-per-favore-aiutatemi-a-rimpatriare-mio-padre-bringmyfatherhome
+*/
+
+ 
+
+</script>
+
+</body>
+
+</html>
+
+
+
+
