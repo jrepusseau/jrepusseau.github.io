@@ -51,12 +51,18 @@ border-radius:50%;
 padding:1em;
 text-align:center;
 } 
-.containe p,hr{
+.containe p,hr {
 height:0;
   visibility: hidden;
   opacity: 0;
   
 }
+
+.containe img {
+  width:0;
+  visibility: hidden;
+  opacity: 0;
+ }
 
 .containe h2
 {padding:1em;
@@ -65,7 +71,7 @@ border: 1px solid black;
 border-radius:5%;
 }
 
-.containe:hover p,hr{
+.containe:hover p,hr,img{
 height:auto;
   visibility: visible;
   opacity: 1;
@@ -73,6 +79,12 @@ height:auto;
   border-radius:5%;
  transition: visibility 0s, opacity 0.5s linear;
 }
+
+.containe:hover img{
+ visibility: visible;
+  opacity: 1;
+  width:100%;
+  }
 
 
 .containe:hover{
@@ -104,7 +116,10 @@ border:0px solid white;
   left: 31px;
   }
   
-
+.containe: img
+{
+display:none;
+}
   
  
 
@@ -205,8 +220,8 @@ padding:1em;
       <!-- <div class="container"> -->
         
     
-  <iframe frameborder="0" class="img-fluid" height='720px' width='1280px' src="//www.dailymotion.com/embed/video/x7fe1j1?autoplay=1&mute=1"
-allowfullscreen allow="autoplay" queue-autoplay-next="false" queue-enable="false" ></iframe>
+  <iframe frameborder="0" class="img-fluid" height='720px' width='1280px' src="//www.dailymotion.com/embed/video/x7fe1j1?autoplay=0&mute=0"
+allowfullscreen='true'  queue-autoplay-next="true" queue-enable="true" ></iframe>
 <br>
 
 <a href='https://www.bbc.com/korean/news-43819241?fbclid=IwAR0Wc0lavirCrW1SRuPQKo3uXkT_SPEf6w8vPuX_jPfuoPpWhYtN2UDXhf0/' style=' margin:1em;'> BBC link </a>
@@ -346,10 +361,17 @@ Uruguay and Iceland both highlighted the KAL hijacking incident in their human r
 	  <h2 style='text-align:center' >Team Hwang</h2>
 	 <br>
  <br>
-<div class="container">
- 
-  <p>We pride ourselves on having a diverse and global team made up of volunteers who have come together to stand with Hwang In-cheol. Our members have contributed their skills and commitment to justice, making Team Hwang what it is today. The team is responsible for research, campaigning and advocacy, as well as fundraising -  all aimed at raising international awareness of Hwang Won’s abduction and his right to return to his family in South Korea. 
+<div class="container" >
+ <div class="row">
+    <div class="col-md-4">
+ <img src="img/fun.jpg" style='width:100%'>
+  </div>
+   <div class="col-md-8">
+   <p>
+  We pride ourselves on having a diverse and global team made up of volunteers who have come together to stand with Hwang In-cheol. Our members have contributed their skills and commitment to justice, making Team Hwang what it is today. The team is responsible for research, campaigning and advocacy, as well as fundraising -  all aimed at raising international awareness of Hwang Won’s abduction and his right to return to his family in South Korea. 
   </p>
+  </div>
+  </div>
    <br> <br> <br>
   <div class="row">
     <div class="col-md-4">
@@ -384,14 +406,17 @@ Uruguay and Iceland both highlighted the KAL hijacking incident in their human r
 </div>
  <br>
   <br> <br>
+  
 	  	  <h2 style='text-align:center'> Organization history </h2>
 		   <br>
 		   <div 
   <div class="row">
-		<div class="col-sm-4 containe"  >
+
+		<div class="col-sm-4 containe ">
 		<h2>
 2019
 </h2>
+<img src="img/2019.jpg">
 <p>March 4~6 : In partnership with other NGOs, Team Hwang travels to Brussels, Belgium, to advocate for the return of Hwang In-cheol’s father at the European Parliament.</p>
 <hr>
 <p>
@@ -404,6 +429,7 @@ Iceland directly mentions Hwang Won’s name, calling on North Korea to “immed
 </div>
 <div class="col-sm-4 containe" >
       <h2>2018</h2>
+	  <img src="img/2018.jpg">
       <p>October 5: On behalf of Hwang In-cheol, Team Hwang submits a report to the UN Human Rights Council for North Korea’s 3rd cycle Universal Periodic Review (UPR).
  </p>
 <hr>
@@ -413,6 +439,7 @@ December 11: Marking the 49th anniversary of the KAL hijacking, Team Hwang membe
   </div>
   <div class="col-sm-4 containe" >
    <h2>2017</h2>
+   <img src="img/2017.jpg">
       <p>May 30: The annual report of the UN Human Rights Office (OHCHR) highlights the KAL hijacking case. </p>
 <hr>
 <p>
@@ -423,17 +450,20 @@ December 11: Marking the 48th anniversary of the KAL hijacking, Team Hwang holds
   <div class="row" >
  <div class="col-sm-4 containe" >
       <h2>2016</h2>
+	  <img src="img/2016.jpg">
       <p>June 1: TNKR (Teach North Korean Refugees) creates Team Hwang, a group of volunteers dedicated to helping Hwang In-cheol raise international awareness of his father’s abduction.
 </p>
 </div>
  <div class="col-sm-4 containe" >
       <h2>2015</h2>
+	  <img src="img/2015.jpg">
       <p>On May 8th (Parents’ Day), Hwang In-cheol attempts to send his father the commemorative flower bouquet. The Minister of Unification rejects Hwang’s request. 
 Concurrently, Hwang In-cheol calls on the South Korean government to demand his father’s repatriation in accordance with the Convention for the Suppression of Unlawful Seizure of Aircraft. Hwang’s request is rejected.  
 </p>
   </div>
    <div class="col-sm-4 containe" >
       <h2>2014</h2>
+	  <img src="img/2014.jpg">
       <p>Hwang In-cheol applies to the South Korean Ministry of Unification for permission to visit North Korea and to personally contact the head of the North Korean Red Cross office. The South Korean authorities rejects Hwang’s application.  
 </p>
   </div>
