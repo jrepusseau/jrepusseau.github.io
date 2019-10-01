@@ -52,13 +52,7 @@
   color: #999;
 }
 
-.unit 
-{
-color:white;
-padding:1em;
-text-align:center;
 
-}
 .unit:hover 
 {
   box-shadow: 0 5px 10px rgba(0,0,0,0.8);
@@ -73,17 +67,35 @@ text-align:center;
 
 
 .sidenav {
+text-align:center;
 color:white;
   height: 100%;
   width: 0;
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+}
+
+.left{
+  left: 0;
+}
+
+.llright
+{
+right: 25px;
+}
+
+.llleft
+{
+left: 25px;
+}
+
+.right{
+  right: 0;
 }
 
 #main{
@@ -106,22 +118,30 @@ transition:  margin-left .5s;
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
+  
   font-size: 36px;
   margin-left: 50px;
 }
 
 .img-p
 {
-height:60px;
-width:60px;
+height:100px;
+width:100px;
+border-radius:50%;
+
+}
+
+.img-q
+{
+height:300px;
+width:300px;
 border-radius:50%;
 
 }
 
 .orange { 
 background-color:#fbc97f;
- color: white; font: bold 42px Helvetica, Arial, Sans-Serif;
+ color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px #fe4902, 2px 2px #fe4902, 3px 3px #fe4902;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -135,7 +155,7 @@ background-color:#fbc97f;
 
 .green { 
 background-color:#90EE90;
- color: white; font: bold 42px Helvetica, Arial, Sans-Serif;
+ color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px green, 2px 2px green, 3px 3px green;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -149,7 +169,7 @@ background-color:#90EE90;
 
 .blue { 
 background-color:#ADD8E6;
- color: white; font: bold 42px Helvetica, Arial, Sans-Serif;
+ color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px blue, 2px 2px blue, 3px 3px blue;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -163,7 +183,7 @@ background-color:#ADD8E6;
 
 .red { 
 background-color:pink;
- color: white; font: bold 42px Helvetica, Arial, Sans-Serif;
+ color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px red, 2px 2px red, 3px 3px red;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -177,7 +197,7 @@ background-color:pink;
 
 .done{
 background-color:grey;
-color: white; font: bold 42px Helvetica, Arial, Sans-Serif;
+color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px black, 2px 2px black, 3px 3px black;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -203,14 +223,20 @@ margin:1em;
 padding:1em;
 }
 
+.new{
+width:33vw;
+}
 </style>
 </head>
 <body>
 
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
+<div id="mySidenav" class="sidenav left">
+  <a href="javascript:void(0)" class="closebtn llright" onclick="closeNav()">&times;</a>
+  <a href="#">General information</a>
+  
+   <img class='img-q unit' src='profil1.jpg'  >
+   <br>
 	age
 <input type='number' ></input> years old; <br>
 height
@@ -219,30 +245,47 @@ weight
 <input type='number'> </input> kg ;<br>
 </div>
 
+<div id="mySidenav2" class="sidenav right">
+  <a href="javascript:void(0)" class="closebtn  llleft" onclick="closeNav2()">&times;</a>
+  <a href="#">Data-Analysis</a>
+	
+</div>
+
 
 <div id='main'>
  <div class="row" style='text-align:center'>
-    <div class="col-sm-4 " >
- <img class='img-p' src='profil1.jpg'  onclick="openNav()">
+    <div class='new' >
+ <img class='img-p unit' src='profil1.jpg'  onclick="openNav()">
  </div>
-     <div class="col-sm-4 " >
- <h2>Team16</h2>
+     <div class="new " >
+	 <br>
+ <h2 class=''>Team16</h2>
+  <br>
       </div>
-	  <div class="col-sm-4 " >
- <h2>Stats</h2>
+	  <div class="new " >
+<img class='img-p unit' src='da.png'  onclick="openNav2()">
       </div>
 	  </div>
 
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "100vw";
-  document.getElementById("main").style.marginLeft = "100vw"
+}
+
+function openNav2() {
+  document.getElementById("mySidenav2").style.width = "100vw";
 }
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
-   document.getElementById("main").style.marginLeft = "0"
 }
+
+function closeNav2() {
+  document.getElementById("mySidenav2").style.width = "0";
+}
+
+
+
 </script>
 
  <div class="row" id='det' style='text-align:center'>
@@ -270,7 +313,7 @@ function closeNav() {
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
+    <label for="exampleFormControlSelect1">How are you today?</label>
     <select class="form-control" id="exampleFormControlSelect1">
       <option>1</option>
       <option>2</option>
@@ -280,7 +323,7 @@ function closeNav() {
     </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <label for="exampleFormControlSelect2">Can you describe the pain? </label>
     <select multiple class="form-control" id="exampleFormControlSelect2">
       <option>1</option>
       <option>2</option>
@@ -369,5 +412,9 @@ $('#det .big').addClass('done');
 $('#det .big span').text('✓');
 }
 </script>
+
+<footer>
+UnskilledStudio
+</footer>
 </body>
 </html>
