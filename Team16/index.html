@@ -247,7 +247,7 @@ function closeNav() {
 	Physic <span class="badge badge-success" onclick="update(this.parentElement.id)">GO</span>
 	</div>
     <div class="col-sm-6 blue" id='ps'  style='' >
-	Psychology <span onclick="update(this.parentElement.id)" class="badge badge-primary">GO</span>
+	Psychology <span onclick="update(this.parentElement.id)" class="badge badge-primary" data-toggle="pill" href="#home23">GO</span>
 	</div>
 	<div class="col-sm-6 red" id='es' style='' >
 	Esthetic <span class="badge badge-danger" onclick="update(this.parentElement.id)">GO</span>
@@ -260,7 +260,7 @@ function closeNav() {
 
     </div>
 	
-    <div id="home2" class="tab-pane fade in active" style='background-color:#fbc97f;'>
+    <div id="home2" class="tab-pane fade" style='background-color:#fbc97f;'>
 
 <form id='n'  >
   <div class="form-group">
@@ -296,7 +296,41 @@ function closeNav() {
 
 	  </div>
   
-    
+    <div id="home23" class="tab-pane fade" style='background-color:#90EE90;'>
+
+<form id='n'  >
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+
+
+	  </div>
   
     <div  class="col-sm-12 container">
 	
@@ -360,8 +394,7 @@ weight
 function update(val)
 {
 $('#det div').addClass('small');
-$('#'+val).addClass('big col-sm-12').append('<a data-toggle="pill" href="#menu12" id="a" class="closebtn" onclick="closepart()">&times;</a>');
-document.getElementById('n').style.display='block';
+$('#'+val).addClass('big col-sm-12').append('<a data-toggle="pill" href="#" id="a" class="closebtn" onclick="closepart()">&times;</a>');
 document.getElementById('n').style.backgroundColor=document.getElementById(val).style.backgroundColor;
 
 /*document.getElementById(val).classList.remove('orange','green','red','blue');
@@ -377,7 +410,7 @@ document.getElementById(val).lastElementChild.innerText='✓';*/
 function closepart()
 {
 $('#det div').removeClass('col-sm-12').removeClass('small').removeClass('big');
-$('#a').remove();
+$('#det .closebtn').remove();
 }
 </script>
 </body>
