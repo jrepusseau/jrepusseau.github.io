@@ -95,6 +95,7 @@ left: 25px;
 }
 
 .right{
+
   right: 0;
 }
 
@@ -141,7 +142,7 @@ border-radius:50%;
 
 .orange { 
 background-color:#fbc97f;
- color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
+ color: white; font: bold 30px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px #fe4902, 2px 2px #fe4902, 3px 3px #fe4902;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -155,7 +156,7 @@ background-color:#fbc97f;
 
 .green { 
 background-color:#90EE90;
- color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
+ color: white; font: bold 30px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px green, 2px 2px green, 3px 3px green;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -169,7 +170,7 @@ background-color:#90EE90;
 
 .blue { 
 background-color:#ADD8E6;
- color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
+ color: white; font: bold 30px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px blue, 2px 2px blue, 3px 3px blue;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -183,7 +184,7 @@ background-color:#ADD8E6;
 
 .red { 
 background-color:pink;
- color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
+ color: white; font: bold 30px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px red, 2px 2px red, 3px 3px red;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -197,7 +198,7 @@ background-color:pink;
 
 .done{
 background-color:grey;
-color: white; font: bold 38px Helvetica, Arial, Sans-Serif;
+color: white; font: bold 30px Helvetica, Arial, Sans-Serif;
 	       text-shadow: 1px 1px black, 2px 2px black, 3px 3px black;
 	       -webkit-transition: all 0.12s ease-out;
            -moz-transition: all 0.12s ease-out;
@@ -226,6 +227,15 @@ padding:1em;
 .new{
 width:33vw;
 }
+
+.unity
+{
+text-align:center;
+width:50vw;
+height:auto;
+}
+
+
 </style>
 </head>
 <body>
@@ -288,17 +298,17 @@ function closeNav2() {
 
 </script>
 
- <div class="row" id='det' style='text-align:center'>
-    <div class="col-sm-6 orange"  id='me' >
+ <div class="row" id='det' style='text-align:center;margin:auto'>
+    <div class="unity col-sm-6 orange right"  id='me' >
 	Medical <span class="badge badge-warning" onclick="update(this.parentElement.id) " data-toggle="pill" href="#home2">GO</span>
 	</div>
-	<div class="col-sm-6 green" data-toggle="pill" href="#menu12" style='' id='ph' >
+	<div class="unity col-sm-6 green left" data-toggle="pill" href="#menu12" style='' id='ph' >
 	Physic <span class="badge badge-success" onclick="update(this.parentElement.id)">GO</span>
 	</div>
-    <div class="col-sm-6 blue" id='ps'  style='' >
+    <div class="unity col-sm-6 blue right" id='ps'  style='' >
 	Psycho <span onclick="update(this.parentElement.id)" class="badge badge-primary" data-toggle="pill" href="#home23">GO</span>
 	</div>
-	<div class="col-sm-6 red" id='es' style='' >
+	<div class="unity col-sm-6 red left" id='es' style='' >
 	Esthetic <span class="badge badge-danger" onclick="update(this.parentElement.id)">GO</span>
 	</div>
 </div>
