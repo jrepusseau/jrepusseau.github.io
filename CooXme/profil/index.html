@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lipis.github.io/flag-icon-css/" />
+
+    <title>CooXMe</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  
+     <link href="./assets/docs.css" rel="stylesheet">
+    <link href="./css/flag-icon.css" rel="stylesheet">
+	
+	<!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/one-page-wonder.min.css" rel="stylesheet">
+	  <style>
+  img {
+  border-radius: 50%;
+}
+
+#img-p
+{
+  height:150px;
+  width:150px;
+}
+  </style>
+  </head>
+
+  <body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <h4 style='color:white' href="#"><a href="https://jrepusseau.github.io/UnskilledStudio/CookXme/profil/">CooXme</a></h4>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick='signuppage()' >Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div id='home'>
+  <header class="masthead text-center text-white" style='background-image: url("intro.jpg");'>
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0" style='color:white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; ' >Join us for a meal !</h1>
+        <h2 class="masthead-subheading mb-0"  style='color:white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;'>The first table sharing network</h2>
+		<br>
+		
+		<input class='text' id='where' placeholder='Where do you want to eat?' style='width:50vw'  onclick='openmenu()' > <br>
+		<br>
+	<div  style='display:inline'>
+	
+		<input type="date" id='date' style='display:none'>
+		 <select id='nbguest' style='display:none'>
+  <option value="volvo">1</option>
+  <option value="saab">2</option>
+  <option value="mercedes">3</option>
+  <option value="audi">4</option>
+</select> 
+		</div>
+		<br>
+        <button onclick='searchpage()'  href="#search" class="btn btn-primary btn-xl rounded-pill mt-5 js-scroll-trigger" id='fdbutton'>Find a table</button>
+      </div>
+    </div>
+
+  </header>
+
+<section>
+<div id='search' style='display:none'>
+
+
+<br>
+<br>
+<br><br><br>
+<div id='List-event-review' class="list-group">
+ 
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="row">
+  <div class="col-sm" style='text-align:center'>
+<p>Menu</p>
+<br>
+<p>Starter</p>
+<br>
+<p>Main Courses</p>
+<br>
+<p>Dessert</p>
+<br>
+<p>Drinks</p>
+  </div>
+    <div class="col-sm" style='text-align:center'>
+	<p>date</p>
+	<p>time</p>
+<br>
+<p>2 guests<span class='glyphicon glyphicon-user'></span></p>
+<br>
+
+<h3>
+price
+</h3>
+<br>
+<button>
+book
+</button>
+  </div>
+ <div class="col-sm" style='text-align:center' onclick='profilpage()'>
+  <p style='color:white'> o</p>
+	 <div style='position:absolute;top:0;left:0'>
+      <small></small>
+	</div>
+  <img class="img-fluid rounded-circle" src="Michel_Cremades.jpg" id='img-p'>
+  <p style='color:white'> o</p>
+  <div style='position:absolute;bottom:0;left:0;'>
+
+  <span class="flag-icon flag-icon-fr" ></span><br>
+      <small>Active 2 days ago </small>
+	    
+	
+ </div>
+  </div>
+<br><br><br><br><br><br><br><br><br><br>
+</div>
+
+</section>
+<div id='section' style='';>
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="img/01.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Starter</h2>
+            <p> Do you have extra chairs around your table ?</p>
+			<p>Do you take pleasure cooking for others ?</p>
+			<p>Open your door to unexpected guest...</p><p> ... And share your meal with them .</p>
+		    <p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="display-4">Main course</h2>
+			 <p>Travelling in a new city ?</p>
+			<p>Or just not feeling like cooking today !</p>
+			<p>For once share someobody's meal and discover local flavors . </p>
+			<p>Find here more options for a great moment .</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="img/03.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Dinner</h2>
+            <p>Connect with the world through a simple meal .</p>
+			<p>Show your skills, share your story .</p>
+			<p>Let's enjoy this experience together !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+</div>
+
+
+
+
+<div id='signuppage' style='display:none'>
+<style>
+  #img-upload {
+  border-radius: 50%;
+  height:150px;
+  width:150px;
+}
+  </style>
+  </head>
+
+  <body>
+  <br>
+  <br>
+  <br>
+  
+<div style='text-align:center'>
+<div class="list-group">
+<h2> Create a new profil! </h2>
+  <a  class="list-group-item ">
+     Name <input type="text" id='name'>
+  </a>
+  
+   <a  class="list-group-item ">
+      Surname <input type="text" id='name'>
+  </a>
+   <a  class="list-group-item ">
+     Phone <select class="custom-select" style="max-width: 120px;">
+		    <option selected="">+971</option>
+		    <option value="1">+972</option>
+		    <option value="2">+198</option>
+		    <option value="3">+701</option>
+		</select>
+    	<input name="" class="form-control" placeholder="Phone number" type="text">
+  </a>
+   <a  class="list-group-item ">
+   Nationality
+      <select>
+	   <option> </option>
+	   <option> English </option>
+	   <option> Dutsh </option>
+	  </select>
+  </a>
+   <a  class="list-group-item ">
+   Spoken Languages
+      <select>
+	   <option> </option>
+	   <option> English </option>
+	   <option> Dutsh </option>
+	  </select>
+  </a>
+  <a  class="list-group-item ">
+  Gender
+      <select>
+	   <option> </option>
+	   <option> Male </option>
+	   <option> Female </option>
+	  </select>
+  </a>
+  <div class="form-group">
+        <label>Upload Image</label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    <button>Browse</button><input type="file" id="imgInp">
+                </span>
+            </span>
+            <input type="text" class="form-control" readonly>
+        </div>
+        <img id='img-upload'/>
+    </div>
+   <a  class="list-group-item ">
+ Birthdate
+     <input type='date' >
+  </a>
+  <a  class="list-group-item ">
+ Email
+     <input type='email' >
+  </a>
+    <a  class="list-group-item ">
+ Confirm Email
+     <input type='email' >
+  </a>
+   
+</div>
+<br>
+                    <div >
+                        <div class="small-6 columns">
+                            <input placeholder="Card number" type="text" name="number">
+                        </div>
+                        <div class="small-6 columns">
+                            <input placeholder="Full name" type="text" name="name">
+                        </div>
+                    </div>
+                    <div >
+                        <div class="small-3 columns">
+                            <input placeholder="MM/YY" type="text" name="expiry">
+                        </div>
+
+                        <div class="small-3 columns">
+                            <input placeholder="CVC" type="text" name="cvc">
+                        </div>
+
+                        <div class="small-6 columns">
+                            <input type="submit" value="Create profil" class="btn btn-primary btn-xl rounded-pill mt-5 ">
+                        </div>
+                    </div>
+               
+   </div>
+   </div>
+
+<div  id='profil' style='display:none'>
+   <div class="list-group">
+
+  <a  class="list-group-item ">
+   <div class="row">
+  <div class="col-sm" style='text-align:center'>
+    <p style='color:white'> o</p>
+	 <div style='position:absolute;top:0;left:0'>
+      <small></small>
+	</div>
+  <img class="img-fluid rounded-circle" src="Michel_Cremades.jpg" alt="" id='img-p'>
+  <p style='color:white'> o</p>
+  <div style='position:absolute;bottom:0;left:0;'>
+
+  <span class="flag-icon flag-icon-fr" ></span><br>
+      <small>Active 2 days ago </small>
+	    
+	
+	</div>
+	<div style='position:absolute;bottom:0;right:0;'>
+	 <button><span class="fas fa-thumbs-up" ></span> </button>
+	 </div>
+  </div>
+    <div class="col-sm" style='text-align:center'>
+
+      <h4 class="mb-1">Michel  
+<span class="fa fa-mars"></span> <small> 47 years old </small></h4>
+<span class="flag-icon flag-icon-fr"> </span> 
+<span class="flag-icon flag-icon-es"></span>
+
+     
+	  
+	   <p style='color:white'> o</p>
+    
+    
+	
+	  <div class="row">
+  <div class="col-sm" style='text-align:center'>
+  <button class="btn btn-warning " >8.2</button>
+  <h4>Quality</h4>
+  </div>
+   <div class="col-sm" style='text-align:center'>
+	  <button class="btn btn-primary" >8.3</button>
+	  <h4>Kindness</h4>
+	</div>
+   <div class="col-sm" style='text-align:center'>
+     <button class="btn btn-info" >8.1</button>
+	   <h4>Cleanliness</h4>
+   </div>
+    <div class="col-sm" style='text-align:center'>
+	<button type="button" class="btn btn-light">9 <br> Reviews</button>
+   </div>
+       <div class="col-sm" style='text-align:center'>
+	<button type="button" class="btn btn-dark">Map</button>
+   </div>
+	</div>
+  </a>
+    </div>
+	  </div>
+	  
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">About me</h5> 
+      <small class="text-muted">Register since 2018</small>
+    </div>
+    <p class="mb-1">professeur d'histoire à la retraite. J'ai pris goût à la cuisine il y a quelques années et j'aimerai partager ma table avec qui le souhaiterai. Je suis quelqu'un de bavard et je vous assure un repas equilibré et copieux.</p>
+    <small class="text-muted">J'aime le cinema, les voyages et le vin.</small>
+  </a>
+ 
+
+</div>
+<br>
+<h3> Wall </h3> <select><option>Menu</option><option>Review</option></select><button data-toggle="modal" data-target="#exampleModal" > Create a menu</button>
+<br>
+<div id='List-event-review' class="list-group">
+ 
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="row">
+  <div class="col-sm" style='text-align:center'>
+<p>Menu</p>
+<br>
+<p>Starter</p>
+<br>
+<p>Main Courses</p>
+<br>
+<p>Dessert</p>
+<br>
+<p>Drinks</p>
+  </div>
+    <div class="col-sm" style='text-align:center'>
+	<p>date</p>
+	<p>time</p>
+<br>
+<p>2 guests<span class='glyphicon glyphicon-user'></span></p>
+<br>
+
+<h3>
+price
+</h3>
+<br>
+<button>
+book
+</button>
+  </div>
+  </div>
+  
+  </a>
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Reviews</h5>
+      <small class="text-muted">Celine</small>
+    </div>
+    <p class="mb-1">Excelent moment passé à la table de Michel, je recommande ses menus pleins de saveurs. Je ne me suis pas ennuyeux et je me suis régalé.</p>
+    <small class="text-muted">22 Juillet 2019.</small>
+  </a>
+  
+</div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create your next menu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+<div class="list-group" style='text-align:center'>
+
+  <a  class="list-group-item ">
+      Date<input type="date" id='date'>
+  </a>
+   <a  class="list-group-item ">
+ 
+    
+from: <input type="time">
+
+
+ 
+to:
+<input type="time">
+
+
+     
+ 
+  </a>
+  <a  class="list-group-item ">
+      Guest
+	  <select>
+	  <option>1</option>
+	   <option>2</option>
+	    <option>3</option>
+		 <option>4</option>
+		  <option>5+</option>
+		  </select>
+  </a>
+    <a  class="list-group-item " style='text-align:center'>
+    
+	  <input type='text' onkeyup="showResult(this.value)" id='starter' placeholder='Starter e.g: Ceaser salad'>
+
+  </a>
+  <a  class="list-group-item " style='text-align:center'>
+     
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'  placeholder='Main course e.g: Lasagna'>
+
+  </a>
+  <a  class="list-group-item " style='text-align:center'>
+    
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'  placeholder='Desserts e.g: Cheeseplates'>
+
+  </a>
+  <a  class="list-group-item " style='text-align:center'>
+   
+	 <input type='text' onkeyup="showResult(this.value)" id='starter' placeholder='Drinks e.g: Red wine'>
+  </a>
+  <a  class="list-group-item " style='text-align:center'>
+     
+	<input type = "text" placeholder='Price'>
+	<select>
+	<option>$</option>
+	<option>£</option>
+	<option>€</option>
+	</select>
+	
+
+  </a>
+   <a  class="list-group-item ">
+      Side event
+  
+  <select>
+  <option></option>
+  <option>Wedding </option>
+   <option>Birthday </option>
+    <option> BBQ Party </option>
+	 <option> Baptism  </option>
+	  <option> Barmitsva  </option>
+	   <option> House Warning  </option>
+	    <option> Christmas  </option>
+		 <option> New Year Old  </option>
+		  <option> Other </option>
+  </select>
+
+  </a>
+   <a  class="list-group-item ">
+   <input type='text' placeholder='Adress [displayed on acceptation]'>
+
+  </a> 
+ 
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Create menu</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  
+  <script>
+  $("#fdbutton").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#search").offset().top
+    }, 1000);
+});
+
+    function openmenu()
+	{
+	 document.getElementById("date").style.display='inline'; 
+	document.getElementById("nbguest").style.display='inline';
+	}
+	
+	function searchpage()
+	{
+	document.getElementById("search").style.display='block';
+	document.getElementById("section").style.display='none';
+	
+	}
+	
+	function signuppage()
+	{
+	 document.getElementById("home").style.display='none'; 
+	 document.getElementById("search").style.display='none';
+	document.getElementById("signuppage").style.display='block';
+	
+	}
+	
+	function profilpage()
+	{
+	 document.getElementById("home").style.display='none'; 
+	document.getElementById("profil").style.display='block';
+	
+	}
+	
+$(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+
+	</script>
+  </body>
+</html>

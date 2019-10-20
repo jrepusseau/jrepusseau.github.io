@@ -324,8 +324,8 @@ top:70vw;
 .img-r
 {
  border-radius: 50%;
-  height:100px;
-  width:100px;
+  height:80px;
+  width:80px;
 }
 
 #img-k
@@ -410,18 +410,16 @@ else
   profilicon = new L.Icon({
    className: 'img-r',
   iconUrl: 'profil1.jpg',
-  iconSize: [100, 100],
-  iconAnchor: [0, 0],
-  popupAnchor: [0, 0],
-  shadowSize: [41, 41]
+  iconSize:     [80, 80], // size of the icon
+	iconAnchor:   [40, 40] // point of the icon which will correspond to marker's location
+	
 });
 profilicon2 = new L.Icon({
    className: 'img-r',
   iconUrl: 'profil3.jpg',
-  iconSize: [100, 100],
-  iconAnchor: [0, 0],
-  popupAnchor: [0, 0],
-  shadowSize: [41, 41]
+  iconSize:     [80, 80], // size of the icon
+	iconAnchor:   [40, 40] // point of the icon which will correspond to marker's location
+
 });
 
 
@@ -1121,7 +1119,7 @@ customPopup='<div><h5>Distance:<p id="DS">unknown<p> <br>  Estimated arrival tim
     closeOnClick:false
         };
 		
-markers[nb].bindPopup(customPopup,customOptions).openPopup();
+//markers[nb].bindPopup(customPopup,customOptions).openPopup();
 
  var latLngs = [ markers[nb].getLatLng() ];
   var markerBounds = L.latLngBounds(latLngs);

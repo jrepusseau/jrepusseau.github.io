@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lipis.github.io/flag-icon-css/" />
+
+    <title>Menu</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  
+     <link href="./assets/docs.css" rel="stylesheet">
+    <link href="./css/flag-icon.css" rel="stylesheet">
+	  <style>
+  img {
+  border-radius: 50%;
+  height:150px;
+  width:150px;
+}
+  </style>
+  </head>
+
+  <body>
+
+<div class="list-group">
+
+  <a  class="list-group-item ">
+      Date<input type="date" id='date'>
+  </a>
+   <a  class="list-group-item ">
+ 
+    
+from: <input type="time">
+
+
+ 
+to:
+<input type="time">
+
+
+     
+ 
+  </a>
+  <a  class="list-group-item ">
+      Guest
+	  <select>
+	  <option>1</option>
+	   <option>2</option>
+	    <option>3</option>
+		 <option>4</option>
+		  <option>5+</option>
+		  </select>
+  </a>
+    <a  class="list-group-item ">
+     Starter
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'>
+
+  </a>
+  <a  class="list-group-item ">
+     Main course
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'>
+
+  </a>
+  <a  class="list-group-item ">
+     Desserts
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'>
+
+  </a>
+  <a  class="list-group-item ">
+     Drinks
+	 <input type='text' onkeyup="showResult(this.value)" id='starter'>
+  </a>
+  <a  class="list-group-item ">
+     Price
+	<input type = "text" >
+	<select>
+	<option>$</option>
+	<option>£</option>
+	<option>€</option>
+	</select>
+	
+
+  </a>
+   <a  class="list-group-item ">
+    Side Event 
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'>
+
+  </a>
+   <a  class="list-group-item ">
+    Adress [not displayed]
+	  <input type='text' onkeyup="showResult(this.value)" id='starter'>
+
+  </a>
+ 
+  <a  class="list-group-item "> 
+	  <button>Create menu</button>
+
+  </a>
+</div>
+<script>
+/*function showResult(str) {
+var results=[] ,result='';
+  if (str.length==0) {
+  
+    document.getElementById("starter").innerHTML="";
+    document.getElementById("starter").style.border="0px";
+    return;
+  }
+  else{
+       for(var i=0; i<(subjecten.length);i++)
+	   {
+        if(subjecten[i].toLowerCase().indexOf(document.getElementById('searchtopic').value.toLowerCase())!=-1)
+		results.push(subjecten[i]);
+	  }
+	    for(var i=0; i<(hottopicen.length);i++)
+	   {
+        if(hottopicen[i].toLowerCase().indexOf(document.getElementById('searchtopic').value.toLowerCase())!=-1) 
+		results.push(hottopicen[i]);
+	  }
+	   if (results[0])
+	   {
+	      for (var i=0; i<results.length;i++)
+		 {
+		  result+=results[i]+'</br>'
+		 }
+	   document.getElementById("starter").innerHTML=result;
+      document.getElementById("starter").style.border="1px solid #A5ACB2";
+	   }
+	   else
+	   {
+	   document.getElementById("starter").innerHTML="";
+       document.getElementById("starter").style.border="0px";
+	   }
+	  }
+  results=[];
+  result='';*/
+ </script>
+  </body>
+</html>

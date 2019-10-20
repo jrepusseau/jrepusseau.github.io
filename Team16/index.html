@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+.unit 
+{
+color:white;
+padding:1em;
+text-align:center;
+outline:1px solid black;
+}
+.unit:hover 
+{
+outline:1px solid black;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+    -webkit-transition: box-shadow 6000ms linear;
+    -ms-transition: box-shadow 6000ms linear;
+    transition: box-shadow 6000ms linear;
+	  background-color: white;
+	-webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Team16</h2>
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+</div>
+
+<h2>Animated Sidenav Example</h2>
+<p>Click on the element below to open the side navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+ <div class="row">
+    <div class="col-sm-3 unit" data-toggle="pill" href="#home2" style='background-color:red' onclick="update('me')">
+	Medical
+	</div>
+	<div class="col-sm-3 unit" data-toggle="pill" href="#menu12" id='ph' style='background-color:green' onclick="update('ph')">
+	Physic
+	</div>
+    <div class="col-sm-3 unit" id='ps'  style='background-color:blue' onclick="update('ps')">
+	Psychology
+	</div>
+	<div class="col-sm-3 unit" id='es' style='background-color:pink' onclick="update('es')">
+	Esthetic
+	</div>
+</div>
+    
+  
+  <div class="tab-content">
+    <div id="home2" class="tab-pane fade in active">
+      
+      <p>
+	On December 11th 1969, 4 crew members and 47 passengers boarded the Korean Air Lines YS-11 aircraft in Gwangwon-do. Just 10 minutes after take off, one of the passengers rose from his seat and entered the cockpit. This passenger was a North Korean sleeper agent called Cho Ch'ang-hǔi (조창희). Suddenly, the plane changed direction and was joined by 3 Korean People’s Air Force fighter jets. The plane landed in Yonpo Airfield, North Korea, and North Korean soldiers then proceeded to board the aircraft, blindfold the passengers and instruct them to disembark. During each day of captivity, the passengers were subjected to 4 hours of attempted indoctrination. <br><br>
+
+The night after the hijacking, 100,000 people in South Korea took to the streets in a mass rally to protest the incident, burning an effigy of Kim Il-Sung. On 25th December, North Korea finally responded and proposed to hold talks on the matter. <br><br>
+ 
+On 14th February 1970, after 66 days of captivity, the hostages were to be returned to South Korea at the Joint Security Area at Panmunjom. However, on the day of repatriation, only 39 passengers stepped foot on South Korean soil. According to the North Korean government, the 11 hostages left  had voluntarily chosen to remain in North Korea. Until this day, that statement remains unverified. <br><br>
+
+An explanation for the hijacking remains unclear. North Korea stated that the pilots themselves had redirected the aircraft in protest against the current policies of the president of South Korea, Park Chung-hee, however the returned passengers have refuted these claims.<br> <br>
+
+As for the whereabouts of the 11 remaining hostages, North Korea continues to withhold this information from the families. In 2008, at the inaugural meeting of the 1969 Korean Air Abductees’ Families Association, a veteran from the National Intelligence Service, Song Yeong-in, commented that they were most likely detained in North Korea for their propagandic value and skilled expertise. Oh Kil-nam, who had briefly defected to North Korea in 1986, claimed that he had met the two flight attendants and the two Munhwa Broadcasting Corporation employees, Hwang Won and Gim Bongju. He reported that they were employed to issue propaganda broadcasts to the South. 
+
+</p>
+
+
+	  </div>
+    <div id="menu12" class="tab-pane fade">
+      <p>
+	  Hwang In-cheol was just two years old when his father, Hwang Won, boarded his flight for a short business trip to Seoul. As a producer for Munhwa Broadcasting Corporation (MBC), Hwang Won had been appointed by his former broadcast director, Baek Gi-Hong, to go on that fateful business trip. <br><br>
+
+The reason for Hwang Won’s continued detention was revealed by testimonies from the 39 KAL passengers that were repatriated on February 14th, 1970. They stated that during indoctrination classes, Hwang Won had refused to accept any of the communist beliefs that were enforced upon him. Angering the North Korean soldiers, he was dragged away and separated from the rest of the abductees. When the other abductees saw him again on February 7th, 1970, Hwang Won was singing “Ga-go-pa”, which means “I want to go back home”, and once again, the soldiers dragged him away. This was the last time that he was seen by any of the 39 passengers. <br><br>
+
+Over the years, Hwang In-cheol’s hope to be reunited with his father was slowly eroding. However, in 2000, the two Koreas had agreed to include South Korean abductees at reunions for families separated by the Korean War (1950~53). A step in the right direction. Hwang’s hopes were once again fuelled when in 2001, Seong Gyeong-hui, one of the two KAL flight attendants that were abducted, was permitted to meet with her South Korean mother. But 5 years later, the North Korean authorities replied through the Red Cross channels saying they were "unable to confirm" his father’s fate and whereabouts. Hwang’s devastation then turned into a bold determination; he refused to accept the North’s explanation and began to speak out against this outright injustice. <br><br>
+The last Hwang In-cheol heard of his father’s whereabouts was from a renowned broker, codenamed ‘Superman’. He told Hwang In-cheol that he knew of his father’s whereabouts and could try to bring him to South Korea. In order to verify these claims, Hwang In-cheol gave Superman a set of questions which only his father would know the answer to. Through complex communication lines, Superman was able to contact Hwang Won and provide the right answers. In February 2013, Hwang Won made it as far as Sinujiu city and from here, he only needed to get on a boat. However, Kim Jong-un’s nuclear testing around this time meant that security was heightened and borders were being more heavily guarded. Hwang Won lost the fight to return home. Since then, the broker has been unable to re-establish contact with his father. <br><br>
+Over 50 years later, Hwang In-Cheol, along with Team Hwang, have not given up and continue the fight to bring his father home. 
+</p>
+    </div>
+    
+  
+    <div  class="col-sm-12 container">
+	General
+	age
+<input type='number' ></input> years old; 
+height
+<input type='number'> </input> cm ; 
+weight
+<input type='number'> </input> kg ;
+</div>
+<div id='det'>
+<div class="row">
+    <div class="col-sm-6 unit"  style='background-color:red' onclick="update('me')">
+	Medical
+	</div>
+	<div class="col-sm-6 unit" id='ph' style='background-color:green' onclick="update('ph')">
+	Physic
+	</div></div>
+	<div class="row">
+    <div class="col-sm-6 unit" id='ps'  style='background-color:blue' onclick="update('ps')">
+	Psychology
+	</div>
+	<div class="col-sm-6 unit" id='es' style='background-color:pink' onclick="update('es')">
+	Esthetic
+	</div>
+</div>
+</div>
+
+
+
+
+<div id='me' style='display:none'>
+<h2> Fill the questionnary </h2>
+
+	age
+<input type='number' ></input> years old; 
+height
+<input type='number'> </input> cm ; 
+weight
+<input type='number'> </input> kg ;
+<div>
+
+
+
+
+
+
+<div class="container">
+  <img src="bot.png" alt="Avatar" style="width:100%;">
+  <p>Hello. How are you today?</p>
+  <span class="time-right">11:00</span>
+</div>
+
+<div class="container darker">
+  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+  <p>Hey! I'm fine. Thanks for asking!</p>
+  <span class="time-left">11:01</span>
+</div>
+
+<div class="container">
+  <img src="bot.png" alt="Avatar" style="width:100%;">
+  <p>Sweet! So, what do you wanna do today?</p>
+  <span class="time-right">11:02</span>
+</div>
+
+<div class="container darker">
+  <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+  <select>
+  <option> hao</option>
+    <option> bu hao</option>
+	  <option> wo bu zhidao</option>
+	    <option> ...</option>
+		</select>
+  <span class="time-left">11:05</span>
+</div>
+
+
+<script>
+
+function update(val)
+{
+
+document.getElementById('det').style.display='none';document.getElementById(val).style.display='block';}
+
+</script>
+</body>
+</html>
