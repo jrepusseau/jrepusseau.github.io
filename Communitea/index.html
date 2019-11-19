@@ -645,17 +645,21 @@ document.addEventListener("DOMContentLoaded", event => {
   </div>
 
   
-<div id="nav1" class="down overlay" style='text-align:center' data-backdrop="false">
+<div id="nav1" class="up overlay" style='text-align:center' data-backdrop="false">
 <ul class="nav">
-    	 <img id='img-p' src='profil1.jpg' href="#menu1" onclick="Back()">
+    
+ <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2'  onclick='Website()'>
+ <span class="glyphicon glyphicon-qrcode"></span>
+</button>	
 	 
   <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
   <span class="glyphicon glyphicon-map-marker"></span>
   </button>
-   <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2'  onclick='Website()'>
- <span class="glyphicon glyphicon-qrcode"></span>
-</button>
-
+  
+ <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
+  <span class="glyphicon glyphicon-map-marker"></span>
+  </button>
+ <img id='img-p' src='profil1.jpg' href="#menu1" onclick="Back()">
  
  
 	
