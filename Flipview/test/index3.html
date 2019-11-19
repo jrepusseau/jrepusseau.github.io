@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FlipView</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="test.js"></script>
+ <script type="module" src="x-frame-bypass.js"></script></script>
+  
+ 
+  
+ <script>
+ $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+
+ var ids;
+var recorded = ['Should','abortion','legalized'];
+var def1=["Express a conditional or contingent act or state, or as a supposition of an actual fact; also, to express moral obligation"];
+var def2=["Induced termination of a pregnancy with destruction of the embryo or fetus.","Any of various procedures that result in the termination of a pregnancy."];
+var def3=["To make legal or lawful","Authorize or sanction by law."];
+var defi=[def1,def2,def3];
+
+var arg=[ "Women have the right to choose what to do with their body",
+		 "Abortion supports the right to life",
+	 "The right to abortion is critical to gender equality",
+	 "Banning abortion risks illegal abortions",
+	 "Modern medicine makes abortion is less of a risk",
+	 "Abortion gives women the option to minimize their child’s suffering",
+	 "Abortion denies the fetus the right to life",
+	 "Abortion is Murder",
+	 "Abortion is not Contraception",
+	 "Selective Abortion is discriminatory",
+	 "Abortion is a business ",
+	 "Abortion can result in medical complications and psychological trauma for women",
+	 "Abortion reduces the number of babies available for adoption"];
+arg=shuffle(arg);
+
+ function showValue(val){
+ document.getElementById("n").innerHTML=val;
+ document.getElementById("n").style.left=val*95+'%';
+}
+
+function showDebate(id){
+  $('[href="#menu2"]').tab('show');
+ var word = document.getElementById(id).children[0].innerHTML.split(" ");
+  
+  for (i = 0; i < word.length; i++) {    
+
+ ///// For each word if a definition was recorded display it and edit purpose 
+ ///// If not create a new definition 
+ 
+ /// Search in the db word correlation 
+var node = document.createElement("LI");
+var para = document.createElement("A");                       // Create a <p> node
+var t = document.createTextNode(word[i]);      // Create a text node
+para.appendChild(t);                 
+para.setAttribute("title",word[i]);  //word[i]
+para.setAttribute("data-toggle","popover");
+para.setAttribute("data-placement","Top");                          // Append the text to <p>  
+para.setAttribute("data-content","jam");
+ for (j = 0; j < recorded.length; j++)
+ {
+   if (word[i]==recorded[j])
+   {
+    var text="";
+ for (y = 0; y < defi[j].length; y++)
+ {
+    // para.setAttribute("data-content","jambon");
+}                   
+
+   }
+
+   }
+node.appendChild(para); 
+document.getElementById("debatetitle").appendChild(node);
+ }
+ 
+ for (i = 0; i < arg.length; i++) {  
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item");  // Create a <li> node
+var lpo= document.createElement("UL"); 
+lpo.setAttribute("class", "list-inline"); 
+var titl = document.createElement("H4"); 
+var tt = document.createTextNode(arg[i]); 
+titl.appendChild(tt);      
+ var input = document.createElement("input");
+input.type = "range";
+
+input.setAttribute('min', '0');
+input.setAttribute('max', '1');
+input.setAttribute('step', '0.01');
+input.setAttribute('value', '0.5');
+input.setAttribute('width', '100px');
+var sourc= document.createElement("INPUT");
+sourc.appendChild(document.createTextNode("INPUT"));
+sourc.type="button";
+sourc.setAttribute('onclick', 'showSource()');
+lpo.appendChild(titl);
+lpo.appendChild(input);
+node.appendChild(lpo);
+node.appendChild(makeUL(['Pro','Con','Pro']));
+node.appendChild(sourc);
+document.getElementById("arguments").appendChild(node);     
+
+}
+  
+showNav();
+showtextwriter();
+}
+
+function startDebate(id){
+ids=id;
+var modal = document.getElementById("myModal");
+ modal.style.display = "block";
+ var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+showNav();
+
+}}
+
+function showNav(){
+document.getElementById("back").innerHTML = "Back";
+}
+
+function hideNav(){
+document.getElementById("back").innerHTML = "FlipView";
+}
+
+function closemodal(){
+var modal = document.getElementById("myModal");
+ modal.style.display = "none";
+ }
+
+
+
+  function myFunction1() {
+ var image = document.getElementById("flipcoin");
+ var btn = document.getElementById("btnenter");
+   var x = Math.floor(Math.random() * 2);
+    console.log(x);
+    if (x == 0) {
+      image.src = "images/coinpro.png"
+	  document.getElementById("result").innerHTML = "Defend the pro";
+	  document.getElementById(ids).style.backgroundColor="DeepPink";
+	  document.getElementById(ids).style.color="white";
+	  btn.style.display = "block";
+	  
+    } else {
+      image.src = "images/coincon.png"
+	 document.getElementById("result").innerHTML = "Defend the con";
+	 document.getElementById(ids).style.backgroundColor="DeepSkyBlue";
+	  document.getElementById(ids).style.color="white";
+	  btn.style.display = "block";
+    } 
+    document.getElementById('activetopic').appendChild(
+    document.getElementById(ids)
+  );
+  }
+ 
+ 
+function Back() {
+ hideNav();
+  $('[href="#menu1"]').tab('show');
+ hidetextwriter();
+}
+
+function hidetextwriter(){
+var txt = document.getElementById("textwriter");
+txt.style.display = "none";
+}
+
+function showtextwriter(){
+var txt = document.getElementById("textwriter");
+txt.style.display = "block";
+}
+
+function hideSource()
+{
+var source = document.getElementById("Sources");
+source.style.display = "none";
+}
+
+function showSource()
+{
+var source = document.getElementById("Sources");
+source.style.display = "block";
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function makeUL(array) {
+    // Create the list element:
+    var list = document.createElement('ul');
+
+    for (var i = 0; i < array.length; i++) {
+        // Create the list item:
+        var item = document.createElement('li');
+
+        // Set its contents:
+        item.appendChild(document.createTextNode(array[i]));
+
+        // Add it to the list:
+        list.appendChild(item);
+    }
+
+    // Finally, return the constructed list:
+    return list;
+}
+
+ </script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+.glitch {
+
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+
+
+  
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+	
+}
+
+.glitch:hover
+ {
+
+  color:pink;
+	
+}
+
+.np
+{
+position:fixed;
+
+}
+
+h2{
+position:center;
+}
+
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  
+  z-index: 1; /* Sit on top */
+  left: 0px;
+
+
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+  position: relative; /* Stay in place */
+  //bottom: 0px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 0%;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    background-color: DeepSkyBlue ;
+}
+.topnav{
+  margin: 10px;
+}
+.topnav-right {
+  float: right;
+  margin-left:10px;
+}
+
+
+#nav1
+{  
+   background: rgba(0,0,0,.05);
+         
+}
+
+
+  </style>
+</head>
+<body>
+
+ 
+ <nav class="navbar navbar-fixed-top navbar-expand-md" id="nav1">
+  <div class="container-fluid">
+  
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
+      <li><a data-toggle="tab" href="#menu2"></a></li>
+ 
+	 <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">EN
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">ZN</a></li>
+          <li><a href="#">FR</a></li>
+          <li><a href="#">KR</a></li>
+        </ul>
+      </li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
+	 
+    </ul>
+  </div>
+</nav> 
+
+ <nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div id="Sources"  onclick="hideSource()" style="display:none;"  width="100%">
+  
+   <span class="close">&times;</span>
+   <p>Source</p>
+   <iframe is="x-frame-bypass" src="https://www.duckduckgo.com/"  width="100%" frameborder="0px"> Error</iframe> 
+   <a href="#">import ref</a>
+</div>
+    <ul class="nav navbar-nav">
+	
+      
+	  <li class="active"> <a href="#"><input type="text" value="enter comment"/> </a> </li>
+      
+      <li><a href="#">send</a></li>
+   
+    </ul>
+  </div>
+</nav> 
+
+ 
+
+ <div class="container" id="directordiv" style='width:100%'>
+
+<div class="tab-content">
+  <div id="menu1" class="tab-pane fade in active">
+
+  </br>
+  </br>
+	
+	<h2>Research Topics </h2>
+	
+	</br>	
+	
+	 <input type="search" id="site-search" name="q"
+       aria-label="Search through site content">
+
+<button onclick="showSource()">Search</button>
+	
+	
+      <h2>Active Topics</h2>
+     
+  
+ 
+ <div class="list-group" id="activetopic" >
+    <a href="#" id="567" class="list-group-item " style="background-color:DeepSkyBlue;color:white" onclick="showDebate(this.id)" >
+      <h4 class="list-group-item-heading" style="color:white">Should abortion be legalized ?</h4>
+      <p class="list-group-item-text">95 participants 13 answers</p>
+    </a>
+    <a href="#" class="list-group-item " style="background-color:DeepPink;color:white">
+      <h4 class="list-group-item-heading" style="color:white">Should we ban cigarets?</h4>
+      <p class="list-group-item-text">List Group Item Text</p>
+    </a>
+    <a href="#" class="list-group-item " style="background-color:DeepPink;color:white">
+      <h4 class="list-group-item-heading" style="color:white">Is democracy bad?</h4>
+      <p class="list-group-item-text">List Group Item Text</p>
+    </a>
+	 </div>
+	
+	  <h2>Hot Topics</h2>
+	
+	 <div class="list-group" >
+	 <a href="#" id="768" class="list-group-item " onclick="startDebate(this.id)">
+      <h4 class="list-group-item-heading">Do we live in a simulation?</h4>
+      <p class="list-group-item-text">List Group Item Text</p>
+    </a>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Are animals more intelligent than humans?</h4>
+      <p class="list-group-item-text">List Group Item Text</p>
+    </a>
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Can we live without plastics?</h4>
+      <p class="list-group-item-text">List Group Item Text</p>
+    </a>
+  </div>
+ 
+  <input type="button" value="Submit a topic" />
+<!-- The Modal -->
+<div id="myConnection" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Connection</p>
+	<form>
+	<input type="text" class="form-control" placeholder="username">
+	<input type="password" class="form-control" placeholder="password">
+	<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+	</form>
+  </div>
+
+</div>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+  <a>
+  <img id="flipcoin" src="images/coin8bit.gif"  onclick="myFunction1()">
+  </a>
+  <p id="result">Flipping ...</p>
+ <input type="button" id="btnenter" value="Enter" style="display:none;"  onclick="closemodal()"/>  
+    <span class="close" onclick="closemodal()">&times;</span>
+   </div>
+</div>
+
+
+
+
+</div>
+       
+ 
+
+    
+  
+   <div id="menu2" class="tab-pane fade">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" > <p>Map</p></li>
+      <li data-target="#myCarousel" data-slide-to="1"><p>Resources</p></li>
+      <li data-target="#myCarousel" data-slide-to="2"><p>Bayes</p></li>
+    </ol>
+	
+	<div class="carousel-inner">
+      <div class="item active">
+	</br></br>	</br>	</br>	</br>	</br>
+	
+	</br>
+      <ul  class="list-inline" id="debatetitle" ></ul>
+      
+	  </br>
+	 <div class="list-group" id="definition" ></div>
+      
+	 <div class="list-group" id="arguments"></div>
+	 
+	 <div> 
+	<p>
+	
+	 </p>
+	 
+	 <a>
+  <img id="flipcoin" src="images/logo2.jpg" height="30" width="30" onclick="showSource()" >
+  </a> 
+
+	  </div>
+	  
+	
+	  
+	  
+	  </div>
+	  
+	  
+	  
+	  
+	  
+	   <div id="menu3" class="item">
+	
+	</br></br>	</br>	</br>	</br>	</br>
+	
+	</br>
+      <h2>Resources</h2>
+      
+	 <iframe is="x-frame-bypass" src="https://www.duckduckgo.com/" width="100%" frameborder="0px"></iframe>
+	 
+      </div>
+	  
+	  <div id="menu4" class="item">
+	
+	</br></br>	</br>	</br>	</br>	</br>
+	
+	</br>
+      <h2>Should abortion be legalized?</h2>
+      
+	    <h2>Your bayes opinions</h2>
+		
+		
+		
+		<input type="range" min="0" max="1" step="0.01" id="mySlider" onchange="showValue(this.value);"/> 
+		<p class="np" id="n"/> 0.5 <p>
+		</br>
+		</br>
+	
+		<input type="range" min="0" max="1" step="0.01"/> 
+		<input type="range" min="0" max="1" step="0.01"/>
+		
+			<input type="button" onclick="add" value="add"/>  
+		
+	      <h5> Use trustable source, Attack facts not people, Take pleasure  </h5>
+		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
+		
+		<h5> Art is a good example of third opinion cause you can nat the same time dislike a part of an art but fall in love of one element </h5>
+       
+      
+  </div>
+  
+  
+	
+	  </div>
+</div>
+</div>
+
+
+
+<div id="textwriter" class="jumbotron text-center" style="margin-bottom:0; display:none;">
+  <input type="text"/>
+<input type="submit"/>
+</div>
+
+
+</body>
+<script>
+
+
+
+// Bootstrap carousel needs to be loaded first
+$('#myCarousel').carousel().swipeCarousel({
+  sensitivity: 'medium' // low, medium or high
+});
+
+/*$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  var target = $(e.target).attr("href") // activated tab
+  alert(target);
+});*/
+
+
+</script>
+</html>
+
+
+
+

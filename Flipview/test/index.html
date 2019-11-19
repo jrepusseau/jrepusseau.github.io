@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FlipView</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="test.js"></script>
+ <script type="module" src="x-frame-bypass.js"></script>
+ <script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
+  
+
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+.glitch {
+
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+
+
+  
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+	
+}
+
+.glitch:hover
+ {
+
+  color:pink;
+	
+}
+
+.np
+{
+position:fixed;
+
+}
+
+h2{
+position:center;
+}
+
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  
+  z-index: 1; /* Sit on top */
+  left: 0px;
+
+
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+  position: relative; /* Stay in place */
+  //bottom: 0px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 0%;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    background-color: DeepSkyBlue ;
+}
+.topnav{
+  margin: 10px;
+}
+.topnav-right {
+  right: 10px;
+  margin-left:10px;
+}
+
+
+#nav1
+{  
+   background: rgba(0,0,0,1);   
+   padding-right:1em;   
+}
+
+
+#argutitle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 23px;
+}
+
+.affix {
+  top: 70px;
+  width: 100%;
+   z-index: 999;
+}
+.affixsourcebox {
+  top: 70px;
+  width: 100%;
+   z-index: 999;
+}
+
+.divargu:hover{
+
+background-color:#E8E8E8;
+
+}
+
+
+
+
+.flex-container {
+    
+       display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+      
+}
+
+
+.fill-width {
+  flex: 1;
+}
+
+#leftArrow {
+    
+width:40px;
+height:40px;
+background:#ff0000; 
+position:absolute;
+left:0px;
+}
+
+#rightArrow {
+    
+width:40px;
+height:40px;
+background:#ff0000; 
+position:absolute;
+right:0px;
+}
+
+#rightDiv{
+width:25%;
+position:relative;
+text-align:center;
+}
+
+
+.rightDivopi{
+width:25%;
+position:relative;
+text-align:center;
+}
+
+#middleDiv{
+width:70%;
+position:relative;
+
+
+}
+
+#leftDiv{
+width:5%;
+position:relative;
+background-image: url("back.png");
+}
+
+/*Presentation of argu*/
+
+.containertype {
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color:black; 
+}
+
+.con {
+  border-color: RGBA(0, 191, 255, 1);
+  background-color: white ;
+}
+
+.pro {
+  border-color: RGBA(255, 20, 147, 1);
+  background-color: white ;
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style time text */
+.time-right {
+
+  color: black;
+}
+
+/* Style time text */
+.time-left {
+
+  color: black;
+}
+
+.serc {
+margin:4px;
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.serc:focus {
+  width: 80%;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+    border: 2px solid #dedede;
+	background-color:white;
+	max-width:10%;
+
+}
+
+.time-left {
+  float: left;
+  color: #999;
+    border: 2px solid #dedede;
+	background-color:white;
+	
+}
+
+input[orient="vertical"] {
+    -webkit-appearance: none;
+	appearance:none;
+  //  background-color: red;
+    width: 20px;
+    height: 60px;
+		margin-left:8px;
+}
+
+input[orient="vertical"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url('p.png');
+  cursor: pointer;
+}
+
+input[orient="vertical"]::-moz-range-thumb {
+  width: 23px;
+  height: 25px;
+  border: 0;
+  background: url('p.png');
+  cursor: pointer;
+}
+
+
+
+.v::-webkit-slider-thumb {
+     -webkit-appearance: none;
+  appearance: none;
+  background:red;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/** FF*/
+.v::-moz-range-progress {
+  background-color:#9a905d; 
+}
+.v::-moz-range-track {  
+  background-color: #9a905d;
+}
+/* IE*/
+.v::-ms-fill-lower {
+   background-color:#9a905d;
+}
+.v::-ms-fill-upper {  
+  background-color: #9a905d;
+}
+.a
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.a::-moz-range-progress {
+  background-color:red; 
+}
+
+.a::-webkit-slider-thumb {
+  background: red;
+}
+.b
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.b::-moz-range-progress {
+  background-color:orange; 
+}
+.b::-webkit-slider-thumb {
+  background:blue; 
+}
+
+
+
+.c::-moz-range-progress {
+  background-color:green; 
+}
+.c::-webkit-slider-thumb {
+  background-image: :url(smiley2.png);
+}
+
+
+
+
+
+.textop {
+    width: 100%;
+}
+
+.but{
+border-radius: 50%;
+    border: 2px solid white;
+ }
+ 
+ .but1
+ {
+ border-top: 2px solid red;
+ }
+ 
+ .but2
+ {
+// border-top: 2px solid orange;
+//  border-right: 2px solid orange;
+ }
+ 
+ .but3
+ {
+ border-top: 2px solid green;
+  border-right: 2px solid green;
+  border-bottom: 2px solid green;
+ }
+ 
+ .but4
+ {
+ border-top: 2px solid #ffd700;
+  border-left: 2px solid #ffd700;
+    border-bottom: 2px solid #ffd700;
+	  border-right: 2px solid #ffd700;
+ }
+
+.sidenav {
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  right: 5px;
+  text-align:right;
+  background: transparent;
+  overflow-x: hidden;
+  padding: 8px 0;
+  display:none;
+}
+
+  </style>
+</head>
+<body>
+
+ 
+ <nav class="navbar navbar-fixed-top navbar-expand-md"  style='text-align: center;'  id="nav1" >
+ 
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
+	  <!--
+      <li><a href="#menu2" data-toggle="tab" id="maintitle" style='text-align:center'></a></li>
+	  -->
+	 
+     <ul class="nav navbar-nav navbar-right">
+	 <li id="user"><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
+	 
+      
+	 
+    </ul>
+	
+	
+ 
+</nav> 
+
+<nav class="navbar navbar-fixed-bottom navbar-expand-md" style='text-align: center;'  id="nav1" >
+<ul class="nav nav-tabs" style='text-align: center;'>
+<li class="dropdown" id='LN' style='text-align: center;'>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Trend 
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+		<li><a href="#" onclick="init('en')">English (English) </a></li>
+          <li><a href="#" onclick="init('cn')">Taiwan (Zn) </a></li>
+          <li><a href="#" onclick="init('fr')">France (Francais)</a></li>
+          <li><a href="#">Korea (Kr)</a></li>
+        </ul>
+      </li>
+
+	 <ul class="nav navbar-nav navbar-right">
+	 <li> <a href="#"><span class="glyphicon glyphicon-repeat"></span> Recent</a></li>
+	   </ul>
+	  
+	  </nav>
+
+<nav class='navbar'  id="Sources" onclick="" style="width:100%;display:none">
+
+ <div id="Web" >
+    <div class="flex-container"  >
+	<input class="serc"  type="text" id='srch'></input><button onclick='insertcit()' >INSERT</button>
+
+	
+   <span class="close" onclick="hideSource()">&times;</span>
+  </div>
+   <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' id='webpage' name='webpage'  width="100%" frameborder="0px" onLoad="changeURI()"> Error</iframe> 
+   <a href="#">import ref</a>
+</div>
+</nav>
+ 
+
+
+ 
+ 
+ <nav class="navbar navbar navbar-fixed-bottom " style='display:none;' id="editor">
+  
+    
+	
+      <div class="flex-container"  >
+<textarea rows="4" cols="50" id='editortext' placeholder="Write your opinion" class='pro'></textarea>
+    <button id="sourcebox" onclick="SourceBox()"  data-html="true"  data-toggle="popover" title="Source" data-placement="left" data-trigger="focus"
+	 tabindex="0"   data-popover-content="#unique-id"><</button>
+	
+	<button onclick='showSource()'>Browser</button><button onclick='post()'> Post </button>
+	</div>
+	 
+
+ 
+</nav> 
+
+<div class="sidenav" id='notationtool' style='display:none;background-color: transparent;'>
+	<a href="#about" style='background-color:white;'>Ge</a><br>
+  <a href="#services" style='background-color:green;'>WW</a><br>
+  <a href="#clients"  style='background-color:yellow;'>Lo</a><br>
+  <a href="#contact" style='background-color:red;'>Tr</a><br>
+  </div>
+
+  
+
+ <div class="container" id="directordiv" style='width:100%'>
+
+<div class="tab-content">
+  <div id="menu1" class="tab-pane fade in active">
+
+  </br>
+  </br>
+	
+	<h2>Research Topics </h2>
+	
+	</br>	
+	
+	  <input type="text" name="search" class='serc' placeholder="Search.." onkeyup="showResult(this.value)" id='searchtopic'> 
+      <div id="livesearch"></div>
+	
+	
+      <h2>Active Topics</h2>
+     
+  
+ 
+ <div class="list-group" id="activetopic" >
+  
+	 </div>
+	
+	  <h2>Hot Topics</h2>
+	
+	 <div class="list-group" id="hottopic" >
+	
+  </div>
+ 
+  <input type="button" value="Submit a topic" onclick='showtextwriter()' />
+<!-- The Modal -->
+<div id="myConnection" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Connection</p>
+	<form>
+	<input type="text" class="form-control" placeholder="username">
+	<input type="password" class="form-control" placeholder="password">
+	<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+	</form>
+  </div>
+
+</div>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+  <a>
+  <img id="flipcoin" src="images/coin8bit.gif"  onclick="myFunction1()" width='20%' height='20%' >
+  </a>
+  <p id="result">Flipping ...</p>
+ <input type="button" id="btnenter" value="Enter" style="display:none;"  onclick="closemodal()"/>  
+    <span class="close" onclick="closemodal()">&times;</span>
+   </div>
+</div>
+
+
+
+
+</div>
+       
+ 
+
+    
+  
+   <div id="menu2" class="tab-pane fade">
+   
+  </br> </br> </br>
+   
+	 <div id="arguments"></div>
+	 </br> </br> </br>
+	 <div id="argut"></div>
+	 
+	 <div id="Question" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+  <br>
+  <br>
+    <span class="close">&times;</span>
+	
+	
+	<h4>Statistics</h4>
+	
+		<h2> paixjoixjooxnaexniucn </h2>
+	
+    <h4>Context</h4>
+	
+	<h2> paixjoixjooxnaexniucn </h2>
+	
+	<h4>Definition</h4>
+	
+		<h2> paixjoixjooxnaexniucn </h2>
+	
+	
+	
+	</form>
+  </div>
+
+</div
+	  
+	  
+	  </div>
+	  
+	  <div id="AddArgu" class="modal">
+
+  <!-- Modal content -->
+  
+  
+  
+  <div class="modal-content">
+  <br>
+  <br>
+    <span class="close">&times;</span>
+    <h4>Title</h4>
+	<input type='text' placeholder='Arguments title' />
+	<h4>Description</h4>
+    <input type='text' placeholder='Describe briefly why it differ from others arguments' />
+	
+	<input type="submit" value="Validate" class="btn float-right">
+	
+	
+	</form>
+  </div>
+
+</div
+	  
+	  
+	  </div>
+	  
+	  
+	  <div id="menu3" class="tab-pane fade">
+	  
+	 
+
+	  </br></br>	</br>	</br>	</br>	</br>
+	  
+	  
+	   <h5>Use trustable source, Attack facts not people, Take pleasure  </h5>
+		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
+		<h5> Art is a good example of third opinion cause you can, at the same time, dislike a part of an art but fall in love of one element </h5>
+	  </div>
+	  
+	  
+	  
+	  
+		
+	      
+       
+      
+  </div>
+  
+  
+	
+	  </div>
+</div>
+</div>
+
+
+<div id="unique-id" style="display:none;">
+    <div class="popover-heading">Source</div>
+    <div  class="popover-body"><p id='ui'> <p></div>
+</div>
+
+
+
+</body>
+<script>
+/* affix the 2nd navbar after scroll past first navbar */
+$(function(){
+    
+    $("[data-toggle=popover]").popover({
+        html : true,
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).children(".popover-body").html();
+        },
+        title: function() {
+            var title = $(this).attr("data-popover-content");
+            return $(title).children(".popover-heading").html();
+        }
+    });});
+	
+//alert('2.6')
+
+var subject;
+var hottopic;
+
+ var subjecten=[
+'Does the actual political system in China democratic?',
+"Is Hongkong should be rulling by 'one country, two systems'?",
+'Is Taiwan an independent country?',
+'Should abortion be legalized ?'
+];
+
+var subjectfr=[
+'Le systeme politique en Chine est-il democratique?',
+'Honkgong doit-il etre gouverner par la regle "un pays, deux systemes"?',
+'Taiwan est-il un pays independant?',
+"L'abortion doit elle legalisee?"
+];
+
+
+var subjectcn=[
+'中国的政治制度是不是民主的？',
+'香港应该规则"一国两制"吗？',
+'台湾是独立国家吗？',
+"纸烟....?",
+];
+
+
+var style=['RGBA(0, 191, 255, 1)','RGBA(255, 20, 147, 1)','RGBA(255, 20, 147, 1)'];
+
+var info=['95 participants 13 answers','50 participants 12 answers','185 participants 7 answers'];
+
+var hottopicen=[
+'Is there segregation between Chinese and Malais in Singapore?',
+'Is South Korea still in conflict with Japan?',
+'Is Chinese more used than English in Asia?',
+'Should cigarets be banned?',
+'Should we work?',
+'Can we live without plastics?'
+];
+ 
+var hottopicfr=[
+'Y-a t-il une segregation entre Chinois et Malais a Singapoure',
+'La Coree du Sud est elle toujours en conflit avec le Japon?',
+"Le Chinois est-il plus utilise que l'Anglais en Asie?",
+"Les cigarettes doivent-elles etre bannies?",
+"Devons nous travailler?",
+"Peut on vivre sans plastiques?" ];
+
+var hottopiccn=[
+'有没有在新加坡中国人比马来人分离?',
+'朝鲜比韩国仇敌吗？',
+'在亚洲汉语比英语很说吗？',
+"流產....?",
+"我们应该工作吗？",
+"我们可以生活没有塑料？"];
+
+function language(val)
+{
+if (val=="en")
+{hottopic=[...hottopicen];subject=[...subjecten]}
+if (val=="cn")
+{hottopic=[...hottopiccn];subject=[...subjectcn]}
+if (val=="fr")
+{hottopic=[...hottopicfr];subject=[...subjectfr]}
+}
+ 
+ init('en');
+ 
+ function init(val)
+ {
+  $("#activetopic").empty();  
+ $("#hottopic").empty();  
+ language(val);
+ for (var i = 0; i < subject.length; i++) {
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item"); 
+node.setAttribute("style", "background-color:"+style[i]+";color:white"); 
+node.setAttribute("id", i); 
+node.setAttribute("onclick", "showDebate(this.id)"); 
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading"); 
+var tt = document.createTextNode(subject[i]);
+ var badge = document.createElement('span');
+           badge.setAttribute("class","badge"); 
+		   badge.appendChild(document.createTextNode("reelection"));
+		  
+titl.appendChild(tt);
+//titl.appendChild(badge);  Add it later
+var p = document.createElement("p"); 
+p.setAttribute("class", "list-group-item-text"); 
+var tt = document.createTextNode(info[i]); 
+p.appendChild(tt);
+node.appendChild(titl);
+node.appendChild(p);
+document.getElementById("activetopic").appendChild(node);
+ }
+ for (var i = 0; i < hottopic.length; i++) {
+ var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item"); 
+node.setAttribute("id", subjecten.length+i); 
+node.setAttribute("onclick", "startDebate(this.id)"); 
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading"); 
+var tt = document.createTextNode(hottopic[i]); 
+titl.appendChild(tt);
+ var badge = document.createElement('span');
+           badge.setAttribute("class","badge"); 
+		   badge.appendChild(document.createTextNode("reelection"));
+titl.appendChild(badge);
+var p = document.createElement("p"); 
+p.setAttribute("class", "list-group-item-text"); 
+var tt = document.createTextNode('Flip it!'); 
+p.appendChild(tt);
+node.appendChild(titl);
+node.appendChild(p);
+document.getElementById("hottopic").appendChild(node);
+ }
+ }
+ 
+ $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+
+ var ids;
+var recorded = ['Should','abortion','legalized'];
+var def1=["Express a conditional or contingent act or state, or as a supposition of an actual fact; also, to express moral obligation"];
+var def2=["Induced termination of a pregnancy with destruction of the embryo or fetus.","Any of various procedures that result in the termination of a pregnancy."];
+var def3=["To make legal or lawful","Authorize or sanction by law."];
+var defi=[def1,def2,def3];
+
+var argabortion=[ "Women have the right to choose what to do with their body",
+		 "Abortion supports the right to life",
+	 "The right to abortion is critical to gender equality",
+	 "Banning abortion risks illegal abortions",
+	 "Modern medicine makes abortion is less of a risk",
+	 "Abortion gives women the option to minimize their child’s suffering",
+	 "Abortion denies the fetus the right to life",
+	 "Abortion is Murder",
+	 "Abortion is not Contraception",
+	 "Selective Abortion is discriminatory",
+	 "Abortion is a business ",
+	 "Abortion can result in medical complications and psychological trauma for women",
+	 "Abortion reduces the number of babies available for adoption"];
+
+var arghk=["'Two systems' make Hongkong the most prosperous and the most free part of China",
+"Basic Law open HongKong to self-determinism",
+"China have a major influence on the political power: 'one country, 1.5 systems' ",
+"Kidnapping of Gui Minhai and others publishers endanger Hongkongese freedom of speech",
+"Misinformation campaign and attack on social network concerning strikes contestation are lead by China"]
+
+var argtw=["Taiwan has is own sovereignity",
+"25 countries recognize Taiwan as an independant country",
+"Some political power are hold by Chinese power",
+"Han Kuo-yu powered financed by China threath Taiwan independance",
+"Taiwan doesn't have international boundaries",
+"Mainland China has approved anti-cession law blocking Taiwan independance"]
+	 
+var argkr=["Japon didnt recognize Korean company women during WWII",
+"Japon and Korean are still contesting the governanec of an island"] 
+	 
+
+
+
+
+ function showValue(val){
+ document.getElementById("n").innerHTML=val;
+ document.getElementById("n").style.left=val*95+'%';
+}
+
+function showDebate(id){
+
+$("#arguments").empty(); 
+$("#debatetitle").empty();
+  $('[href="#menu2"]').tab('show');
+  
+ var word = document.getElementById(id).children[0].innerHTML.split(" ");
+  
+  for (i = 0; i < word.length; i++) {    
+
+ ///// For each word if a definition was recorded display it and edit purpose 
+ ///// If not create a new definition 
+ 
+ /// Search in the db word correlation 
+var node = document.createElement("LI");
+var para = document.createElement("A");                       // Create a <p> node
+var t = document.createTextNode(word[i]);      // Create a text node
+para.appendChild(t);                 
+para.setAttribute("title",word[i]);  //word[i]
+
+ for (j = 0; j < recorded.length; j++)
+ {
+   if (word[i]==recorded[j])
+   {
+    var text="";
+ for (y = 0; y < defi[j].length; y++)
+ {
+    // para.setAttribute("data-content","jambon");
+}                   
+
+   }
+
+   }
+node.appendChild(para); 
+//document.getElementById("debatetitle").appendChild(node); We stop using debatetitle
+ }
+ 
+
+ switch(document.getElementById(id).children[0].innerText) {
+  case 'Should abortion be legalized ?':
+   arg=shuffle(argabortion);
+    break;
+  case "Is Hongkong should be rulling by 'one country, two systems'?":
+     arg=shuffle(arghk);
+    break;
+  case "Is Taiwan an independent country?":
+       arg=shuffle(argtw);
+	   break;
+    case "Is South Korea still in conflict with Japan?":
+       arg=shuffle(argkr);
+	break;
+  default:
+    arg='';
+} 
+ 
+ for (i = 0; i < arg.length; i++) {  
+ var node = document.createElement("DIV");  
+node.setAttribute("class", "divargu");  
+node.setAttribute("id", i);
+
+
+var titl = document.createElement("H4"); 
+var pp=  document.createElement("span"); 
+var tt = document.createTextNode(arg[i]); 
+
+titl.appendChild(tt);      
+
+
+var tt2= document.createTextNode("7 pro and 15 cons");
+var ppp = document.createElement("P");
+ppp.appendChild(tt2); 
+var li1 = document.createElement("div"); 
+li1.setAttribute("style", "display:inline-block");
+li1.setAttribute("id", "middleDiv");
+li1.setAttribute("onclick","toggleArgu(this)");
+ var input = document.createElement("input");
+input.type = "range";
+input.setAttribute('min', '0');
+input.setAttribute('max', '100');
+input.setAttribute('step', '1');
+ input.setAttribute('value', '50');
+
+input.setAttribute('id', "bayes"+[i]);
+input.setAttribute('onchange', "updateTextInput(this)");
+ var bayesval = document.createElement("P");
+ bayesval.setAttribute('style','text-align:center');
+ bayesval.innerHTML='50%';
+ 
+ bayesval.setAttribute('id', "bayes"+[i]+"x");
+var li2 = document.createElement("div"); 
+li2.setAttribute("style", "display:inline-block");
+li2.setAttribute("id", "rightDiv");
+li1.appendChild(titl);
+li1.appendChild(ppp);
+li2.appendChild(bayesval);
+li2.appendChild(input);
+var li3 = document.createElement("div"); 
+li3.setAttribute("style", "display:inline-block");
+li3.setAttribute("id", "leftDiv");
+
+node.appendChild(li3);
+node.appendChild(li1);
+node.appendChild(li2);
+
+document.getElementById("arguments").appendChild(node);  
+
+/*// Argu as button on top 
+var button=document.createElement("INPUT"); 
+button.type="button";
+button.value=arg[i];
+button.setAttribute('style','border-radius:25px');
+button.setAttribute('onclick','center(this)');
+document.getElementById("argudiv").appendChild(button); */
+
+/// Load select option
+
+
+
+}
+var a = document.createElement("div")
+a.setAttribute('style','display:inline');
+  var addargu = document.createElement("div"); 
+  addargu.setAttribute("style", "width:25%,position:relative");
+   var input = document.createElement("BUTTON");
+   input.innerHTML='+';
+   input.setAttribute('onclick','AddArgu()');
+   var argu = document.createElement("div"); 
+  argu.setAttribute("style", "width:25%,position:relative");
+   var tp = document.createElement("H4");
+   tp.innerHTML='Other useful arguments? Add them!';
+ 	a.appendChild(input);
+	a.appendChild(tp);
+  document.getElementById("arguments").appendChild(a);
+  
+  
+  
+  
+  
+showNav(document.getElementById(id).children[0].innerHTML);
+document.getElementById("nav1").style.backgroundColor= document.getElementById(id).style.backgroundColor;
+
+
+
+  document.getElementById("user").style.display="none";
+  document.getElementById("LN").style.display="none";
+}
+
+function startDebate(id){
+ids=id;
+var modal = document.getElementById("myModal");
+ modal.style.display = "block";
+ var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+
+showNav();
+
+}}
+
+function showNav(title){
+document.getElementById("back").style.display = "none";
+/*if(title.length>25)
+title = title.slice(0, 25) + "</br>" + title.slice(25);
+if(title.length>50)
+var title = title.slice(0, 50) + "</br>" + title.slice(50);
+if(title.length>75)
+var title = title.slice(0, 75) + "</br>" + title.slice(75);*/
+document.getElementById("maintitle").innerHTML="<button onclick='Back()'>Back</button> "+title+"  <button onclick='Question()'>*</button>";
+
+}
+
+function hideNav(){
+document.getElementById("back").style.display = "";
+document.getElementById("maintitle").innerHTML = "";
+}
+
+function closemodal(){
+var modal = document.getElementById("myModal");
+ modal.style.display = "none";
+ }
+
+
+
+  function myFunction1() {
+ var image = document.getElementById("flipcoin");
+ var btn = document.getElementById("btnenter");
+   var x = Math.floor(Math.random() * 2);
+    console.log(x);
+    if (x == 0) {
+      image.src = "images/coinpro.png"
+	  document.getElementById("result").innerHTML = "Defend the pro";
+	  document.getElementById(ids).style.backgroundColor="DeepPink";
+	  document.getElementById(ids).style.color="white";
+	  btn.style.display = "block";
+	  
+    } else {
+      image.src = "images/coincon.png"
+	 document.getElementById("result").innerHTML = "Defend the con";
+	 document.getElementById(ids).style.backgroundColor="DeepSkyBlue";
+	  document.getElementById(ids).style.color="white";
+	  btn.style.display = "block";
+    } 
+    document.getElementById('activetopic').appendChild(
+    document.getElementById(ids)
+  );
+  }
+ 
+ 
+function Back() {
+ hideNav();
+  $('[href="#menu1"]').tab('show');
+  document.getElementById("nav1").style.backgroundColor="";
+  document.getElementById("user").style.display="";
+  document.getElementById("LN").style.display="";
+ hidetextwriter();
+}
+
+function hidetextwriter(){
+var txt = document.getElementById("editor");
+txt.style.display = "none";
+}
+
+function showtextwriter(){
+var txt = document.getElementById("editor");
+txt.style.backgroundColor= document.getElementById('nav1').style.backgroundColor;
+txt.style.display = "block";
+
+}
+
+function hideSource()
+{
+var source = document.getElementById("Sources");
+source.style.display = "none";
+}
+
+function showSource(id)
+{
+var source = document.getElementById("Sources");
+if(id);
+document.getElementById('webpage').setAttribute('src',id);
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
+source.setAttribute('style','left:0px');
+source.style.display = "block";
+$('#Sources').affix({
+      offset: {
+        top: '0px'
+      }
+});
+$('.affix').css('top',$("#arguments").height());
+
+
+}
+
+
+
+
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function makeUL(array) {
+    // Create the list element:
+    var list = document.createElement('ul');
+  list.setAttribute("class","list-group"); 
+    for (var i = 0; i < array.length; i++) {
+        // Create the list item:
+        var item = document.createElement('li');
+         item.setAttribute("class","list-group-item"); 
+        // Set its contents:
+		   var badge = document.createElement('span');
+           badge.setAttribute("class","badge"); 
+		   badge.appendChild(document.createTextNode("JK"));
+		item.appendChild(badge);
+        item.appendChild(array[i]);
+
+        // Add it to the list:
+        list.appendChild(item);
+    }
+
+    // Finally, return the constructed list:
+    return list;
+}
+
+
+function updateTextInput(e) {
+e.parentElement.children[0].innerHTML=e.value+'%';
+}
+         // 
+
+function updateNotation(e) {
+//e.parentElement.children[1].innerHTML=e.value+'%';
+
+ 
+ switch(e.value) {
+  case '0':
+   e.parentElement.children[2].innerHTML='&#128555;';
+//   e.parentElement.setAttribute('class','list-inline-item but');
+e.setAttribute('class','v');
+
+    break;
+  case '1':
+     e.parentElement.children[2].innerHTML='&#128543;';
+//	   e.parentElement.setAttribute('class','list-inline-item but but1');
+e.setAttribute('class','a');
+    break;
+  case '2':
+        e.parentElement.children[2].innerHTML='&#128535;';
+//		  e.parentElement.setAttribute('class','list-inline-item but but2');
+e.setAttribute('class','b');
+	   break;
+    case '3':
+     e.parentElement.children[2].innerHTML='&#128578;';
+//	   e.parentElement.setAttribute('class','list-inline-item but but3');
+e.setAttribute('class','c');
+	break;
+	  case '4':
+     e.parentElement.children[2].innerHTML='&#129488;';
+//	   e.parentElement.setAttribute('class','list-inline-item but but4');
+e.setAttribute('class','c');
+	break;
+  default:
+} 
+
+ //e.parentElement.children[1].innerHTML=+'%';
+         
+        }
+
+// Bootstrap carousel needs to be loaded first
+$('#myCarousel').carousel().swipeCarousel({
+  sensitivity: 'medium' // low, medium or high
+});
+
+/*$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  var target = $(e.target).attr("href") // activated tab
+  alert(target);
+});*/
+
+function add(){
+var node = document.createElement("A");  
+node.setAttribute("class", "list-group-item"); 
+node.setAttribute("id", '56');   //New id
+node.setAttribute("onclick", "startDebate(this.id)"); 
+var titl = document.createElement("H4"); 
+titl.setAttribute("class", "list-group-item-heading"); 
+var tt = document.createTextNode(document.getElementById('editortext').value); 
+titl.appendChild(tt);
+var p = document.createElement("p"); 
+p.setAttribute("class", "list-group-item-text"); 
+var tt = document.createTextNode('Flip it!'); 
+p.appendChild(tt);
+node.appendChild(titl);
+node.appendChild(p);
+document.getElementById("hottopic").appendChild(node);
+}
+
+var view = $("#argudiv");
+var move = "100px";
+var sliderLimit = -9000
+
+$("#rightArrow").click(function(){
+    alert('boom');
+    var currentPosition = parseInt(view.css("left"));
+    if (currentPosition >= sliderLimit) view.stop(false,true).animate({left:"-="+move},{ duration: 400})
+
+});
+
+$("#leftArrow").click(function(){
+
+    var currentPosition = parseInt(view.css("left"));
+    if (currentPosition < 0) view.stop(false,true).animate({left:"+="+move},{ duration: 400})
+});
+
+function center(e)
+{
+
+e.style.color='red';
+
+}
+
+function toggleArgu(a)
+{
+if (document.getElementById("nav1").style.display=="none")
+{
+
+a.parentElement.setAttribute('style','background-color:white');
+document.getElementById("arguments").setAttribute('class',"");
+
+document.getElementById("nav1").style.display="";
+for (var i = 0; i < arg.length+1; i++)
+a.parentElement.parentElement.children[i].style.display="";
+$("#argut").empty(); 
+a.parentElement.children[1].children[1].style.display="";
+hidetextwriter();
+hideSource();
+}
+else{
+
+
+a.parentElement.setAttribute('style','background-color:#E8E8E8;')
+
+
+document.getElementById("arguments").setAttribute('class',"navbar navbar-fixed-top");
+
+document.getElementById("nav1").style.display="none";
+var idfix= a.parentElement.id;
+for (var i = 0; i < arg.length+1; i++){
+if (i != a.parentElement.id)
+a.parentElement.parentElement.children[i].style.display="none";
+}
+
+
+
+
+
+a.parentElement.children[1].children[1].style.display="none";
+
+/*
+   var sourc= document.createElement("A");
+sourc.appendChild(document.createTextNode("source"));
+sourc.setAttribute('onclick', 'showSource();');
+var content= document.createElement("DIV");
+//content.setAttribute('style','display:none');
+content.setAttribute('id',a.parentElement.id+"content");
+content.setAttribute('onclick', 'showSource();');
+for (var i = 0; i < 10; i++)
+{
+content.appendChild(makeUL([document.createTextNode('Pro'),document.createTextNode('Pro'),document.createTextNode('Con')]));
+}*/
+
+
+for (var i = 0; i < 4; i++)
+{
+var content= document.createElement("DIV");
+
+var opinion= document.createElement("P");
+if (a.parentElement.children[1].children[0].innerHTML=='Kidnapping of Gui Minhai and others publishers endanger Hongkongese freedom of speech')
+{var opinioncontent='Gui Minhai and severals publishers have been kidnapped becaused of their freedom of speech';
+ var ref = " <a href='https://www.la-croix.com/Monde/Asie-et-Oceanie/Nouvelle-disparition-suspecte-Chine-dun-libraire-suedois-dorigine-hongkongaise-2018-01-23-1200908157/' target='webpage' onclick='showSource(this.href)'>1</a> ";
+ opinioncontent = opinioncontent.slice(0, 90) + ref + opinioncontent.slice(90);}
+if (a.parentElement.children[1].children[0].innerHTML=='Misinformation campaign and attack on social network concerning strikes contestation are lead by China')
+{var opinioncontent='China cyber army use DDOs attack on Telegram', ref = "<a href='https://techcrunch.com/2019/06/12/telegram-faces-ddos-attack-in-china-again/' target='webpage' onclick='showSource(this.href)'>1</a> "
+opinioncontent = opinioncontent.slice(0, 44) + ref + opinioncontent.slice(44);}
+var posttime= document.createElement('span');
+posttime.innerHTML='Posted 30/7 12:30 <br> ';
+posttime.setAttribute('class','time-right');
+content.setAttribute('class','containertype pro');
+
+opinion.innerHTML=opinioncontent;
+content.appendChild(opinion);
+content.appendChild(posttime);
+
+document.getElementById("argut").appendChild(content); 
+
+var contentm= document.createElement("DIV");
+//contentm.setAttribute("style", "display:inline-block");
+contentm.setAttribute('class','containertype con');
+
+var content2= document.createElement("DIV");
+content2.setAttribute('class','flex-container');
+//content2.setAttribute("id", "middleDiv");
+content2.setAttribute("style", "display:inline-block");
+
+var content3= document.createElement("DIV");
+content3.setAttribute("style", "display:inline-block");
+//content3.setAttribute("class", "rightDivopi");
+
+//
+var opinion= document.createElement("span");
+
+var opinioncontent='gfghghgheuiwehooooooooooooooooooo ooooooooo <br> oiadjooozijjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjzi'
+var ref = " <a href='https://en.wikipedia.org/wiki/Main_Page' target='webpage' onclick='showSource(this.href)'>2</a> "
+opinioncontent = opinioncontent.slice(0, 5) + ref + opinioncontent.slice(5);
+var posttime= document.createElement('span');
+posttime.innerHTML='Edited 25/6 12:14 <br> ';
+posttime.setAttribute('class','time-left');
+
+
+
+opinion.innerHTML=opinioncontent;
+content2.appendChild(opinion);
+
+
+//editable content
+$('span').bind('dblclick', function() {
+        $(this).attr('contentEditable', true);
+		 document.execCommand('styleWithCSS', false, true);
+    document.execCommand('foreColor', false, "#f00");
+	this.parentElement.parentElement.children[1].children[3].style.display='block';
+    }).blur(
+        function() {
+            $(this).attr('contentEditable', false);
+        });
+
+contentm.appendChild(content2);
+		
+		//Notation with button 
+		
+/*var btnn = document.createElement("button")
+ //btnn.setAttribute('onclick', 'edittxt');
+ btnn.innerHTML='submit change';
+ btnn.id='btnn';
+ btnn.style.display='none';
+btnn.setAttribute('class','time-right');
+//this.parentElement.parentElement.children[0].
+ content3.appendChild(btnn);
+;
+*/
+
+var btng = document.createElement("button")
+btng.innerHTML='G';
+btng.setAttribute('class','but');
+btng.setAttribute('onclick','changeclass(this)');
+
+contentm.appendChild(document.createElement("BR"));
+
+
+
+
+appendNote(contentm);
+/*document.getElementById('notationtool').style.display='block';
+$(".rightDivopi").append($( "#notationtool" ));
+
+
+contentm.appendChild(content3);
+*/
+
+
+document.getElementById("argut").appendChild(contentm); 
+/*
+Get cursor position
+https://api.jquery.com/position/
+Draw line between point 
+https://stackoverflow.com/questions/20969434/drawing-line-in-a-div-with-javascript
+*/
+}
+//document.getElementById('notationtool').style.display='block';
+  showtextwriter();
+  
+}
+}
+
+function Question()
+{
+var modal = document.getElementById("Question");
+if (modal.style.display == "block")
+ modal.style.display = "none";
+else
+ modal.style.display = "block";
+ var span = document.getElementsByClassName("close");
+ for (var i = 0; i < span.length; ++i) {
+span[i].onclick = function() {
+  modal.style.display = "none";
+ 
+}
+}
+//$('#Question').modal().hide();
+}
+
+function AddArgu()
+{
+var modal = document.getElementById("AddArgu");
+if (modal.style.display == "block")
+ modal.style.display = "none";
+else
+ modal.style.display = "block";
+ var span = document.getElementsByClassName("close");
+ for (var i = 0; i < span.length; ++i) {
+span[i].onclick = function() {
+  modal.style.display = "none";
+ 
+}
+}
+}
+
+function showResult(str) {
+var results=[] ,result='';
+  if (str.length==0) {
+  
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  else{
+       for(var i=0; i<(subjecten.length);i++)
+	   {
+        if(subjecten[i].toLowerCase().indexOf(document.getElementById('searchtopic').value.toLowerCase())!=-1)
+		results.push(subjecten[i]);
+	  }
+	    for(var i=0; i<(hottopicen.length);i++)
+	   {
+        if(hottopicen[i].toLowerCase().indexOf(document.getElementById('searchtopic').value.toLowerCase())!=-1) 
+		results.push(hottopicen[i]);
+	  }
+	   if (results[0])
+	   {
+	      for (var i=0; i<results.length;i++)
+		 {
+		  result+=results[i]+'</br>'
+		 }
+	   document.getElementById("livesearch").innerHTML=result;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+	   }
+	   else
+	   {
+	   document.getElementById("livesearch").innerHTML="";
+       document.getElementById("livesearch").style.border="0px";
+	   }
+	  }
+  results=[];
+  result='';
+ 
+}
+
+function changeclass(t)
+{
+
+
+ switch(t.className) {
+  case 'list-inline-item but':
+   t.setAttribute('class','list-inline-item but but1');
+    break;
+  case 'list-inline-item but but1':
+     t.setAttribute('class','list-inline-item but but2');
+    break;
+  case 'list-inline-item but but2':
+       t.setAttribute('class','list-inline-item but but3');
+	   break;
+     case 'list-inline-item but but3':
+       t.setAttribute('class','list-inline-item but but4');
+	   break;
+	    case 'list-inline-item but but4':
+       t.setAttribute('class','list-inline-item but');
+	   break;
+  default:
+	
+}
+}
+
+function insertcit()
+{
+ var a=document.getElementById('editortext').value;
+ if (a.length)
+ a=a.slice(0, a.length) + " [a] " + a.slice(a.length);
+ else
+ a='[a]';
+ document.getElementById('editortext').value=a;
+ 
+ 
+
+//Show cit in citation space
+document.getElementById("ui").innerHTML=document.getElementById('webpage').src;
+ 
+ $('#sourcebox').popover('show');
+}
+
+function post()
+{
+//On place le text dans une div 
+ var a=document.getElementById('editortext').value;
+ var content= document.createElement("DIV");
+ content.setAttribute('class','containertype pro');
+var opinion= document.createElement("P");
+opinion.innerHTML=a;
+content.appendChild(opinion);
+appendNote(content);
+document.getElementById("argut").appendChild(content); 
+
+
+ //On vide la box 
+document.getElementById('editortext').value='';
+
+
+
+
+
+}
+
+function SourceBox()
+{
+$('#sourcebox').popover('show');
+
+}
+
+function appendNote(n)
+{
+var ul = document.createElement("UL");
+ul.setAttribute('class','list-inline')
+var li= document.createElement("LI");
+li.setAttribute('class','list-inline-item but but2')
+li.setAttribute('style','text-align:center')
+
+//<input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$100", "$200", "$300", "$400"]'/>
+
+var input = document.createElement("input");
+i/*nput.type="text";
+input.setAttribute('data-provide',"slider");;
+input.setAttribute('data-slider-ticks', '[0,100,200,300,400]');
+input.setAttribute('data-slider-ticks-snap-bounds', '30');
+input.setAttribute('data-slider-ticks-labels', '["Bad","Poor","OK","Good","Perfect"]');*/
+
+
+/*
+input.type = "range";
+input.setAttribute('min', '-100');
+input.setAttribute('max', '100');
+input.setAttribute('step', '1');
+ input.setAttribute('value', '0');
+ input.setAttribute('class', 'o');
+ input.setAttribute('onchange','updateNotation(this)');*/
+ 
+input.type = "range";
+input.setAttribute('style','max-width:20vw');
+input.setAttribute('min', '0');
+input.setAttribute('max', '4');
+input.setAttribute('step', '1');
+ input.setAttribute('value', '2');
+ input.setAttribute('class', 'v');
+ input.setAttribute('onchange','updateNotation(this)');
+ 
+var txt= document.createElement("P");
+var i = document.createTextNode('Structure');
+txt.appendChild(i);
+var txt2= document.createElement("P");
+var i2 = document.createTextNode('-');
+var txt3= document.createElement("P");
+var i3 = document.createTextNode('98%');
+txt3.appendChild(i3);
+txt2.appendChild(i2);
+li.appendChild(txt)
+ li.appendChild(input)
+ li.appendChild(txt2)
+li.appendChild(txt3)
+ul.appendChild(li.cloneNode(true));
+li.children[0].innerHTML='Neutrality';
+ul.appendChild(li.cloneNode(true));
+li.children[0].innerHTML='Trustability';
+ul.appendChild(li.cloneNode(true));
+n.appendChild(ul);
+}
+
+function changeURI()
+{
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
+}
+
+window.addEventListener('keypress', function (e) {
+
+    if (e.keyCode == 13) {
+      var a = document.createElement('A');
+	  a.setAttribute('href',document.getElementById('srch').value)
+	  showSource(a.href);
+    }
+}, false);
+
+</script>
+</html>
+
+
+
+
