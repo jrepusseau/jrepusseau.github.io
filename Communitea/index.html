@@ -424,6 +424,7 @@ function Start()
 {
  document.getElementById("menu2").style.display="none";
 document.getElementById("menu1").style.display="none";
+document.getElementById("menu3").style.display="none";
 if (document.getElementById("viewDiv").innerHTML)
 {
 document.getElementById("viewDiv").style.display="block";
@@ -601,11 +602,18 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
 <div class="tab-content">
- <div id='menu3' style='display;text-align:center'>
-
-  Welcome
-
- 
+ <div id='menu3' style='display:none;text-align:center'>
+<br>
+<br>
+<br><br>
+  Welcome back!
+<br> 
+<br>
+  <ul class="list-group">
+  <li class="list-group-item">Your review of Kamacafe <span class="badge">11/12</span></li>
+  <li class="list-group-item">Your review of Dante Cafe<span class="badge">5/11</span></li>
+  <li class="list-group-item">Your review of Starbucks <span class="badge">3/11</span></li>
+</ul> 
   </div>
   
  <div id="menu1" class="tab-pane fade in active" style='text-align:center' >
@@ -661,9 +669,13 @@ document.addEventListener("DOMContentLoaded", event => {
 </div>
 
  <div id='menu2' style='display:none;text-align:center'>
-
-<h2> Track </h2>
-
+<br>
+<br>
+<br><br>
+<h2> Online Shop</h2>
+ <ul class="list-group">
+  <li class="list-group-item"> New bags arrival<span class="badge">11/12</span></li>
+</ul> 
  
   </div>
   
