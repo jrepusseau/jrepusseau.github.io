@@ -332,15 +332,15 @@ top:70vw;
 #img-k
 {
  border-radius: 50%;
-  height:180px;
-  width:180px;
+  height:150px;
+  width:150px;
 }
 
 #img-q
 {
 
-  height:250px;
-  width:250px;
+  height:100px;
+  width:100px;
   text-align:center;
    margin-left: auto; margin-right: auto;
 }
@@ -527,14 +527,22 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
  function Back(){
  document.getElementById("menu2").style.display="none";
 document.getElementById("viewDiv").style.display="none";
+document.getElementById("menu3").style.display="none";
 document.getElementById("menu1").style.display="block";
 }
 		
 function Website(){
 document.getElementById("viewDiv").style.display="none";
 document.getElementById("menu1").style.display="none";
-document.getElementById("menu2").style.display="block";
+document.getElementById("menu2").style.display="none";
+document.getElementById("menu3").style.display="block";
+}
 
+function Track(){
+document.getElementById("viewDiv").style.display="none";
+document.getElementById("menu1").style.display="none";
+document.getElementById("menu2").style.display="block";
+document.getElementById("menu3").style.display="none";
 }
 
 function move() {
@@ -593,13 +601,24 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
 <div class="tab-content">
+ <div id='menu3' style='display;text-align:center'>
+
+  Welcome
+
+ 
+  </div>
+  
  <div id="menu1" class="tab-pane fade in active" style='text-align:center' >
 
  <br>
 <img id='img-k' src='profil1.jpg' >
  <h2> jdy_essa </h2>
+ <img id='img-q' src='qrcode.jpg' >
+ <br>
+ <a href='#'> LogOut</a>
  
- 
+
+<!-- 
 <h1>Level 1  </h1>
 
 <div id="myProgress">
@@ -612,7 +631,21 @@ document.addEventListener("DOMContentLoaded", event => {
  
  <button onclick='Website()'> Scan </button>
  <br>
- <a href='#'> LogOut<a>
+ 
+ 
+  <br>
+<button id='but' class="btn btn-success"  onclick="myFunction()">Scan</button>
+<br>
+<br>
+
+ 
+ <video id="preview" style='display:none;text-align:center'></video>
+
+
+<!-- Tab panes -->
+
+<h2> Communitea Wallet </h2>
+<h1> 16 CtC </h1>
  
  </br>
  </br>
@@ -628,36 +661,28 @@ document.addEventListener("DOMContentLoaded", event => {
 </div>
 
  <div id='menu2' style='display:none;text-align:center'>
- <br>
-<button id='but'class="btn btn-success"  onclick="myFunction()">Scan</button>
-<br>
-<br>
- <h2> jdy_essa </h2>
- <img id='img-q' src='qrcode.jpg' >
- <video id="preview" style='display:none;text-align:center'></video>
 
-
-<!-- Tab panes -->
-
-
+<h2> Track </h2>
 
  
   </div>
+  
+ 
 
   
 <div id="nav1" class="up overlay" style='text-align:center' data-backdrop="false">
 <ul class="nav">
     
- <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2'  onclick='Website()'>
- <span class="glyphicon glyphicon-shopping-cart"></span>
+ <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu3'  onclick='Website()'>
+ <span class="glyphicon glyphicon-home"></span>
 </button>	
 	 
   <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
   <span class="glyphicon glyphicon-map-marker"></span>
   </button>
   
- <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
-  <span class="glyphicon glyphicon-home"></span>
+ <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2'  onclick='Track()'>
+  <span class="glyphicon glyphicon-shopping-cart"></span>
   </button>
  <img id='img-p' src='profil1.jpg' href="#menu1" onclick="Back()">
  
