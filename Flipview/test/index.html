@@ -11,6 +11,16 @@
  <script type="module" src="x-frame-bypass.js"></script>
  <script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
   
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+   <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+
+
+<!-- Simple List -->
+
+
+
 
   <style>
   .fakeimg {
@@ -122,7 +132,7 @@ position:center;
 
 #nav1
 {  
-   background: rgba(0,0,0,1);   
+  // background: rgba(0,0,0,1);   
    padding-right:1em;   
 }
 
@@ -418,20 +428,35 @@ border-radius: 50%;
   display:none;
 }
 
+  #sortable1, #sortable2 {
+    border: 1px solid #eee;
+    width: 142px;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+  }
+  #sortable1 li, #sortable2 li {
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 120px;
+  }
   </style>
 </head>
 <body>
 
  
- <nav class="navbar navbar-static-top navbar-expand-md justify-content-center"   id="nav1" >
+ <nav class="navbar navbar-static-top navbar-expand-md " id='nav1'  >
  
-    <ul class="nav navbar-nav">
+    <ul class="nav nav-tabs" style='text-align:center'>
       <li class="nav-item"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
 	  <!--
       <li><a href="#menu2" data-toggle="tab" id="maintitle" style='text-align:center'></a></li>
 	  -->
-	 </ul>
-	  <ul class="nav navbar-nav navbar-right">
+	
 	 <li  class="nav-item"id="user"><a href="#"><span class="glyphicon glyphicon-user"></span> JK</a></li>
 	 
       
@@ -443,7 +468,7 @@ border-radius: 50%;
 </nav> 
 
 <nav class="navbar navbar-fixed-bottom navbar-expand-md justify-content-center"     id="nav2" >
-<ul class="nav nav-tabs nav-justified" >
+<ul class="nav nav-tabs " style='text-align:center' >
 <li class="dropdown nav-item" id='LN'>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" >World Trend 
         <span class="caret"></span></a>
@@ -467,9 +492,9 @@ border-radius: 50%;
 	  
 	  
 	  
-<nav class="navbar navbar-static-top navbar-expand-md justify-content-center" style='display:none'   id="navsub1" >
+<nav class="navbar navbar-static-top navbar-expand-md " style='display:none'   id="navsub1" >
  
-    <ul class="nav navbar-nav">
+    <ul class="nav nav-tabs" style='text-align:center' >
 	
 	 <li  class="nav-item" id="user" onclick='leave()'><a href="#"><span class="glyphicon glyphicon-menu-left"></span> </a></li>
       <li class="nav-item"><a id='Title' >hhvjvhvjh</a></li>
@@ -480,10 +505,16 @@ border-radius: 50%;
 </nav> 	 
 
 <nav class="navbar navbar-fixed-bottom navbar-expand-md " style='display:none'   id="navsub2" >
-<ul class="nav nav-tabs nav-justified" >
-<li class="active" onclick='yourlist()'>
+<ul class="nav nav-tabs " style='text-align:center'>
 
-<a href="#menu2"><span class="glyphicon glyphicon-sort-by-order"></span> Your list</a>
+<li class="active" onclick='general()'>
+
+<a href="#menu2"><span class="glyphicon glyphicon-book"></span> General</a>
+</li>
+
+<li  onclick='yourlist()'>
+
+<a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> Your list</a>
 </li>
 
 	 
@@ -516,7 +547,7 @@ border-radius: 50%;
 
  
  
- <nav class="navbar navbar navbar-fixed-bottom " style='display:none;' id="editor">
+ <nav class="navbar navbar navbar-fixed-bottom "  id="editor" style='display:none'>
   
     
 	
@@ -549,10 +580,14 @@ border-radius: 50%;
   <br>
   <br>
  <ul class="list-group" href="#menu2">
-  <li class="list-group-item" id='4645' onclick='enter(this.id)'  >Election 2020  <span class="badge">12</span></li>
+  <li class="list-group-item" id='4645' onclick='enter(this.id)'  >2020 Taiwan presidential election <span class="badge">12</span></li>
   <li class="list-group-item" id='4644' onclick='enter(this.id)'>Senator Election<span class="badge">5</span></li>
   <li class="list-group-item" id='4643' onclick='enter(this.id)'>Empeachement<span class="badge">3</span></li>
 </ul> 
+
+<br>
+<br>
+<br>
 </div>
        
  
@@ -560,43 +595,37 @@ border-radius: 50%;
     
   
    <div id="menu2" class="tab-pane fade">
-  
-  
+  <h3> Context </h3>
+  <h5>The 15th President and Vice President election of the Republic of China is scheduled to be held in Taiwan on 11 January 2020. Voters will either elect a new President and Vice President or re-elect the incumbents.
+  The process of presidential primary elections and nominations are likely to be held during the last six months of 2019.
+Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who was elected in 2016, is eligible to run for a second term. The winner of the 2020 presidential election is scheduled to be inaugurated on 20 May 2020.
+ The 10th Legislative Yuan election will also be held concurrently. 
+</h3>
+<br>
+  <h3> Official Programs </h3>
    <div class="panel-group" id="accordion">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        Derek Cucomb <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-menu-down"></span>
+       Tsai Ing-Wen 蔡英文 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-menu-down"></span>
         </a>
- <select >
-      <option> </option>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
 
-  </select>
       </h4>
 
     </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.</div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+	  
+	  
+	  In April 2011, Tsai became the first female presidential candidate of a major party in the history of the Republic of China after defeating her former superior, Su Tseng-chang, in the DPP's primary by a slight margin. She was defeated by incumbent Kuomintang candidate Ma Ying-jeou in the 5th direct presidential election in 2012, but was elected by a landslide four years later in the sixth direct presidential election in 2016. </div>
     </div>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        Valery Austin <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-menu-down"></span>
+        Han Kuo-yu 韓國瑜<a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-menu-down"></span>
        </a>
-	    <select >
-	      <option> </option>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-
-  </select>
+	   
       </h4>
     </div>
 	
@@ -604,39 +633,85 @@ border-radius: 50%;
  
  
     <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.</div>
+      <div class="panel-body"> Han was elected Mayor of Kaohsiung in November 2018, and became the first Kuomintang politician since Wu in 1998 to hold the office. Han is the KMT's nominee running against incumbent president Tsai Ing-wen in the 2020 Taiwan presidential election. </div>
     </div>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-       Franck Ferdinand <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><span class="glyphicon glyphicon-menu-down"></span>
+       James Soong 宋楚瑜 <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><span class="glyphicon glyphicon-menu-down"></span>
        </a>
-	   <select >
-      <option> </option>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-
-  </select>
+	
       </h4>
 	     
     </div>
     <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.</div>
+      <div class="panel-body">Soong contested the 2020 Taiwan presidential election, beginning his campaign on 13 November 2019.
+	  Soong and Sandra Yu formed the People First Party ticket.The pair registered their candidacy with the Central Election Commission on 18 November 2019.</div>
     </div>
   </div>
 </div> 
+<h3> Programs Analysis </h3>
+  
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Party </th>
+        <th>Gay marriage</th>
+		 <th>French people</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tsai Ing-Wen 蔡英文</td>
+        <td>DPP</td>
+        <td>V</td>
+		<td>baguette</td>
+      </tr>
+      <tr>
+        <td>Han Kuo-yu 韓國瑜</td>
+        <td>Kuomintang</td>
+        <td>X</td>
+		<td>pate</td>
+      </tr>
+       <tr>
+        <td>James Soong 宋楚瑜</td>
+        <td>People First</td>
+        <td>X</td>
+		<td>saucisson!</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <br><br><br>
   
 	  </div>
 	  
+	   <div id="menu5" class="tab-pane fade">
 	  
+	 
+
+	  </br></br>
+	  
+	<ul id="simpleList" class="list-group">
+	
+	<li class="list-group-item">Jenny</li>
+	<li class="list-group-item">Hanguo</li>
+	<li class="list-group-item">Tsai</li>
+</ul>
+	   <button type="button" class="btn btn-default"> Add someone </button>
+	
+	 
+	  
+	  
+		
+	      
+       
+      
+  </div>
+  
 	  <div id="menu3" class="tab-pane fade">
 	  
 	 
@@ -645,13 +720,26 @@ border-radius: 50%;
 	  
 	  
 	   <h5>Use trustable source, Attack facts not people, Take pleasure  </h5>
-		<h5> Tips: Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
+		<h5> Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
 		<h5> Art is a good example of third opinion cause you can, at the same time, dislike a part of an art but fall in love of one element </h5>
+		  <h3> Reddit poll </h3>
+	  
+	  
+	  <footer>
+	  
+      <div class="flex-container"  >
+<textarea rows="4" cols="50" id='editortext' placeholder="Write your opinion" class='pro'></textarea>
+    <button id="sourcebox" onclick="SourceBox()"  data-html="true"  data-toggle="popover" title="Source" data-placement="left" data-trigger="focus"
+	 tabindex="0"   data-popover-content="#unique-id"><</button>
+	
+	<button onclick='showSource()'>Browser</button><button onclick='post()'> Post </button>
+	</div>
+	</footer>
+	<br><br><br>
 	  </div>
 	  
 	  
-	  <h3> Reddit poll </h3>
-	  
+	
 	  
 	  
 		
@@ -666,12 +754,12 @@ border-radius: 50%;
 
 	  </br></br>	</br>	</br>	</br>	</br>
 	  
-	  Valery is leading ....
+	  Jenny is leading!
 	  
 	  
 		
 	      
-       
+       <br><br><br>
       
   </div>
   
@@ -692,7 +780,8 @@ border-radius: 50%;
 <script>
 /* affix the 2nd navbar after scroll past first navbar */
 $(function(){
-    
+    // Simple list
+    Sortable.create(simpleList, { /* options */ });
     $("[data-toggle=popover]").popover({
         html : true,
         content: function() {
@@ -1666,9 +1755,14 @@ document.getElementById('navsub1').style.display='none';
 document.getElementById('navsub2').style.display='none';
 }
 
-function yourlist()
+function general()
 {
  $('[href="#menu2"]').tab('show');
+}
+
+function yourlist()
+{
+ $('[href="#menu5"]').tab('show');
 }
 
 function debate()
@@ -1681,6 +1775,8 @@ function result()
  $('[href="#menu4"]').tab('show');
 }
 
+
+    
 
 </script>
 </html>
