@@ -23,6 +23,8 @@
 
 
   <style>
+  
+  
   .fakeimg {
     height: 200px;
     background: #aaa;
@@ -704,15 +706,17 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 
 	  </br></br>
 	  
-	<ul id="simpleList" class="list-group">
+	<ul id="simpleList" class="tv list-group">
 	
-	<li class="list-group-item"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Jenny</li>
-	<li class="list-group-item"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Hanguo</li>
-	<li class="list-group-item"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Tsai</li>
+	<li class='list-item' onclick='up(this)'> Jenny <span class=" glyphicon glyphicon-remove"></span> </li>
+	<li class='list-item' onclick='up(this)'> Hanguo <span class=" glyphicon glyphicon-remove"></span> </li>
+    <li class='list-item' onclick='up(this)'> Tsai <span class=" glyphicon glyphicon-remove"></span> </li>
 </ul>
 	   <button type="button" class="btn btn-default"> Add someone </button>
 	
-	 
+	 <script>
+	
+</script>
 	  
 	  
 		
@@ -793,6 +797,14 @@ $(function(){
     Sortable.create(simpleList, {
   handle: '.glyphicon-move',
 });
+
+$( "ul.tv > li" ).click(function() { 
+              $(this).insertBefore($(this).prev());
+            }); 
+$( "ul.tv > li > span" ).click(function() { 
+              $(this).parent().remove();
+            });
+
     $("[data-toggle=popover]").popover({
         html : true,
         content: function() {
