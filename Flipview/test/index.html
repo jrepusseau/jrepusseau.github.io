@@ -698,9 +698,9 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
 	<ul id="simpleList" class="list-group">
 	
-	<li class="list-group-item">Jenny</li>
-	<li class="list-group-item">Hanguo</li>
-	<li class="list-group-item">Tsai</li>
+	<li class="list-group-item"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Jenny</li>
+	<li class="list-group-item"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Hanguo</li>
+	<li class="list-group-item"><span class="glyphicon glyphicon-move" aria-hidden="true"></span> Tsai</li>
 </ul>
 	   <button type="button" class="btn btn-default"> Add someone </button>
 	
@@ -782,7 +782,10 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 /* affix the 2nd navbar after scroll past first navbar */
 $(function(){
     // Simple list
-    Sortable.create(simpleList, { /* options */ });
+    Sortable.create(simpleList, {
+  handle: '.glyphicon-move',
+  animation: 150
+});
     $("[data-toggle=popover]").popover({
         html : true,
         content: function() {
