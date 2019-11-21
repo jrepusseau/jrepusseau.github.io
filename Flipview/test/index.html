@@ -18,6 +18,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
 <!-- Simple List -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
 
 
@@ -454,6 +455,13 @@ border-radius: 50%;
   overflow-y:hidden;
   }
   
+  .container {
+        width: 70vw;;
+        height:70vh;
+    }
+	
+	
+  
   </style>
 </head>
 <body>
@@ -708,9 +716,9 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
 	<ul id="simpleList" class="tv list-group">
 	
-	<li class='list-item' onclick='up(this)'> Jenny <span class=" glyphicon glyphicon-remove"></span> </li>
-	<li class='list-item' onclick='up(this)'> Hanguo <span class=" glyphicon glyphicon-remove"></span> </li>
-    <li class='list-item' onclick='up(this)'> Tsai <span class=" glyphicon glyphicon-remove"></span> </li>
+	<li class='list-group-item' onclick=''> Jenny <span class=" glyphicon glyphicon-remove"></span> </li>
+	<li class='list-group-item' onclick=''> Hanguo <span class=" glyphicon glyphicon-remove"></span> </li>
+    <li class='list-group-item' onclick=''> Tsai <span class=" glyphicon glyphicon-remove"></span> </li>
 </ul>
 	   <button type="button" class="btn btn-default"> Add someone </button>
 	
@@ -765,11 +773,15 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
 	 
 
-	  </br></br>	</br>	</br>	</br>	</br>
+	  </br></br>
 	  
-	  Jenny is leading!
-	  
-	  
+
+	  <button id="renderBtn">
+        Render
+    </button>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
 		
 	      
        <br><br><br>
@@ -797,6 +809,16 @@ $(function(){
     Sortable.create(simpleList, {
   handle: '.glyphicon-move',
 });
+
+$("#renderBtn").click(
+    function () {alert('click');
+	
+        data = [20000, 14000, 12000];
+        labels =  ["Jenny", "Tsai", "Hanguo"];
+        renderChart(data, labels);
+    }
+);
+
 
 $( "ul.tv > li" ).click(function() { 
               $(this).insertBefore($(this).prev());
@@ -1797,6 +1819,21 @@ function result()
 {
  $('[href="#menu4"]').tab('show');
 }
+
+function renderChart(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'This week',
+                data: data,
+            }]
+        },
+    });
+}
+
 
 
     
