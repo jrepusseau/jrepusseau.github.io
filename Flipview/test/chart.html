@@ -15,8 +15,8 @@
 </style>
 <body>
 
-    <button id="renderBtn">
-        Render
+    <button id="renderBtn" onclick='act()'>
+	Render
     </button>
     <div class="container">
         <canvas id="myChart"></canvas>
@@ -42,13 +42,14 @@ function renderChart(data, labels) {
     });
 }
 
-$("#renderBtn").click(
-    function () {
+
+    function act() {
+	alert('go');
         data = [20000, 14000, 12000];
         labels =  ["Jenny", "Tsai", "Hanguo"];
         renderChart(data, labels);
     }
-);
+
 </script>
 
 </html>
