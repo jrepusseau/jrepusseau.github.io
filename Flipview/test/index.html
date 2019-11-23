@@ -448,8 +448,8 @@ border-radius: 50%;
   }
   
    .container {
-        width: 80vh;
-        height: 80vw;
+        width: 80vw;
+        height: 80vh;
     }
   
 
@@ -462,7 +462,7 @@ border-radius: 50%;
 <body>
 
  
- <nav class="navbar navbar-static-top navbar-expand-md " id='nav1'  >
+ <nav class="navbar navbar-fixed-top navbar-expand-md " id='nav1'  >
  
     <ul class="nav nav-tabs" style='text-align:center'>
       <li class="nav-item"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
@@ -505,7 +505,7 @@ border-radius: 50%;
 	  
 	  
 	  
-<nav class="navbar navbar-static-top navbar-expand-md " style='display:none'   id="navsub1" >
+<nav class="navbar navbar-fixed-top navbar-expand-md " style='display:none'   id="navsub1" >
  
     <ul class="nav nav-tabs" style='text-align:center' >
 	
@@ -584,7 +584,11 @@ border-radius: 50%;
   <a href="#contact" style='background-color:red;'>Tr</a><br>
   </div>
 
-  
+  <header>
+  <br>
+  <br>
+  <br>
+  </header>
 
  <div class="container" id="directordiv" style='width:100%'>
 
@@ -804,12 +808,7 @@ $(function(){
     
 
 $("#renderBtn").click(
-    function () {
-	
-        data = [20000, 14000, 12000];
-        labels =  ["Jenny", "Tsai", "Hanguo"];
-        renderChart(data, labels);
-    }
+   function() {render();}
 );
 
 
@@ -1811,6 +1810,7 @@ function debate()
 function result()
 {
  $('[href="#menu4"]').tab('show');
+ render();
 }
 
 function renderChart(data, labels) {
@@ -1827,7 +1827,12 @@ function renderChart(data, labels) {
     });
 }
 
-
+function render(){
+	
+        data = [20000, 14000, 12000];
+        labels =  ["Jenny", "Tsai", "Hanguo"];
+        renderChart(data, labels);
+    }
 
     
 

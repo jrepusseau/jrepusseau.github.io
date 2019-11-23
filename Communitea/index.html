@@ -442,7 +442,19 @@ else
 	
 		mymap = L.map('viewDiv',
 	{center: [25.105497, 121.597366],
-    zoom: 10});
+    zoom: 10,
+	layers: shop});
+	
+	/*$.getJSON('map.geojson',function(data){
+	L.geoJson(data).addTo(mymap);*/
+	});
+	
+	var shop= L.layerGroup([L.marker([25.0618497,121.4842027]).bindPopup('Unpackaged. U商店'),
+	L.marker([24.9934261,121.4272488]).bindPopup('野夫咖啡 (樹林店)'),
+	L.marker([25.0054481,121.4643063]).bindPopup('斑果咖啡')]).addTo(mymap);
+	
+	
+
 	
 	mymap.on('movestart', function(e) {
    
