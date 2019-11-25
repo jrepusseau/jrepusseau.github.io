@@ -446,12 +446,12 @@ else
 	layers: shop});
 	
 	/*$.getJSON('map.geojson',function(data){
-	L.geoJson(data).addTo(mymap);*/
-	});
+	L.geoJson(data).addTo(mymap);
+	});*/
 	
-	var shop= L.layerGroup([L.marker([25.0618497,121.4842027]).bindPopup('Unpackaged. U商店'),
-	L.marker([24.9934261,121.4272488]).bindPopup('野夫咖啡 (樹林店)'),
-	L.marker([25.0054481,121.4643063]).bindPopup('斑果咖啡')]).addTo(mymap);
+	var shop= L.layerGroup([L.marker([25.0618497,121.4842027]).bindPopup('<h4>Unpackaged. U商店</h4><p>Your review: Nice place!</p>'),
+	L.marker([24.9934261,121.4272488]).bindPopup('<h4>野夫咖啡 (樹林店)</h4><p>Your review:  </p>'),
+	L.marker([25.0054481,121.4643063]).bindPopup('<h4>斑果咖啡</h4><p>Your review: </p>')]).addTo(mymap);
 	
 	
 
@@ -532,6 +532,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 
 	var popup = L.popup();
+	
+	Website();
 	
 	}
 	};
@@ -616,7 +618,9 @@ document.addEventListener("DOMContentLoaded", event => {
 <br>
 <br>
 <br><br>
+<h4>
   Welcome back!
+  </h4>
 <br> 
 <br>
 <div class="panel-group" id="accordion">
@@ -662,7 +666,7 @@ document.addEventListener("DOMContentLoaded", event => {
    <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-      <span class="badge"> 08/11</span>  <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">  Your review Starbuck <span class="glyphicon glyphicon-menu-down"></span>
+      <span class="badge"> 08/11</span>  <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">  Your review Starbucks <span class="glyphicon glyphicon-menu-down"></span>
         </a>
       </h4>
     </div>
@@ -675,7 +679,7 @@ document.addEventListener("DOMContentLoaded", event => {
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-      <span class="badge"> 05/11</span> <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><span class="glyphicon glyphicon-menu-down"> Your order 'Bio-Bags' is arrived  </span>
+      <span class="badge"> 05/11</span> <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"> Your order 'Bio-Bags' just arrived <span class="glyphicon glyphicon-menu-down">   </span>
         </a>
       </h4>
     </div>
@@ -726,14 +730,14 @@ document.addEventListener("DOMContentLoaded", event => {
 <!-- Tab panes -->
 
 <h2> Remaining Balance </h2>
-<h1> 16 CtC </h1>
+<h1> 16 CT </h1>
  
 <br>
 <h2> Latest transaction </h2>
 <ul class="list-group" href="#menu2">
-  <li class="list-group-item" id='4645' > <span class="badge">11/12</span>+1 CtC </li>
-  <li class="list-group-item" id='4644' ><span class="badge">03/12</span> +1 CtC</li>
-  <li class="list-group-item" id='4643' ><span class="badge">08/11</span> +1 CtC</li>
+  <li class="list-group-item" id='4645' > <span class="badge">11/12</span>+1 CT Kamacafe</li>
+  <li class="list-group-item" id='4644' ><span class="badge">03/12</span> +1 CT Dante Cafe</li>
+  <li class="list-group-item" id='4643' ><span class="badge">08/11</span> +1 CT Starbuck Shongshan</li>
 </ul> 
 
 
@@ -757,11 +761,11 @@ document.addEventListener("DOMContentLoaded", event => {
 <br><br>
 <h2> Online Shop</h2>
  <ul class="list-group">
-  <li class="list-group-item"> New bags arrival    <span class="badge">11/12</span>
-  <img id='img-k' src='macrame.jpg' >  30 CtC  <button> Order now </button>
+  <li class="list-group-item"> Macrame DYI   <span class="badge">11/12</span>
+  <img id='img-k' src='macrame.jpg' >  30 CT  <button> Order now </button>
   </li>
   <li class="list-group-item"> New bags arrival    <span class="badge">09/12</span>
-  <img id='img-k' src='washingbag.jpg' >  40 CtC  <button> Order now </button>
+  <img id='img-k' src='washingbag.jpg' >  40 CT  <button> Order now </button>
   
   </li>
 </ul> 
