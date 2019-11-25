@@ -132,10 +132,10 @@ position:center;
 }
 
 
-#nav1
+#navsub2, #navsub1
 {  
-  // background: rgba(0,0,0,1);   
-   padding-right:0.5em;   
+   background: rgba(255,255,255,1);   
+  // padding-right:0.5em;   
 }
 
 
@@ -452,7 +452,10 @@ border-radius: 50%;
         height: 80vh;
     }
   
-
+.x{
+position:absolute;
+right:10px;
+}
   
 	
 	
@@ -715,11 +718,12 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
 	<ul id="simpleList" class="tv list-group">
 	
-	<li class='list-group-item' onclick=''> Jenny <span class=" glyphicon glyphicon-remove"></span> </li>
-	<li class='list-group-item' onclick=''> Hanguo <span class=" glyphicon glyphicon-remove"></span> </li>
-    <li class='list-group-item' onclick=''> Tsai <span class=" glyphicon glyphicon-remove"></span> </li>
+	<li class='list-group-item' onclick=''> Jenny <span class=" glyphicon glyphicon-remove x"></span> </li>
+	<li class='list-group-item' onclick=''> Hanguo <span class=" glyphicon glyphicon-remove x"></span> </li>
+    <li class='list-group-item' onclick=''> Tsai <span class=" glyphicon glyphicon-remove x"></span> </li>
 </ul>
 	   <button type="button" class="btn btn-default"> Add someone </button>
+	   <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
 	
 	 <script>
 	
@@ -1834,7 +1838,20 @@ function render(){
         renderChart(data, labels);
     }
 
-    
+function validatelist()
+{
+$( "ul.tv > li" ).addClass("list-group-item-success").attr("onclick","");
+$( "ul.tv > li > span" ).addClass("glyphicon-check").removeClass("glyphicon-remove").attr("onclick","");
+document.getElementById('val').innerText='Change';
+
+}    
+
+function changelist()
+{
+$( "ul.tv > li" ).removeClass("list-group-item-success").attr("onclick","$(this).insertBefore($(this).prev())");
+$( "ul.tv > li > span" ).removeClass("glyphicon-check").addClass("glyphicon-remove").attr("onclick","$(this).parent().remove();");
+document.getElementById('val').innerText='Validate';
+}   
 
 </script>
 </html>
