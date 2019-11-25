@@ -816,10 +816,10 @@ $("#renderBtn").click(
 );
 
 
-$( "ul.tv > li" ).click(function() { 
+$( "ul.tv > li.list-group-item-success" ).click(function() { 
               $(this).insertBefore($(this).prev());
             }); 
-$( "ul.tv > li > span" ).click(function() { 
+$( "ul.tv > li > span.glyphicon-check" ).click(function() { 
               $(this).parent().remove();
             });
 
@@ -1840,16 +1840,16 @@ function render(){
 
 function validatelist()
 {
-$( "ul.tv > li" ).addClass("list-group-item-success").attr("onclick","");
-$( "ul.tv > li > span" ).addClass("glyphicon-check").removeClass("glyphicon-remove").attr("onclick","");
+$( "ul.tv > li" ).addClass("list-group-item-success");
+$( "ul.tv > li > span" ).addClass("glyphicon-check").removeClass("glyphicon-remove");
 document.getElementById('val').innerText='Change';
 
 }    
 
 function changelist()
 {
-$( "ul.tv > li" ).removeClass("list-group-item-success").attr("onclick","$(this).insertBefore($(this).prev())");
-$( "ul.tv > li > span" ).removeClass("glyphicon-check").addClass("glyphicon-remove").attr("onclick","$(this).parent().remove();");
+$( "ul.tv > li" ).removeClass("list-group-item-success");
+$( "ul.tv > li > span" ).removeClass("glyphicon-check").addClass("glyphicon-remove");
 document.getElementById('val').innerText='Validate';
 }   
 
