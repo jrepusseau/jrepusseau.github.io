@@ -440,11 +440,13 @@ var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 		streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
 
 
-		var shop= L.layerGroup([L.marker([25.0618497,121.4842027]).bindPopup('<h4>Unpackaged. U商店</h4><p>Your review: Nice place!</p>'),
+		var review= L.layerGroup([L.marker([25.0618497,121.4842027]).bindPopup('<h4>Unpackaged. U商店</h4><p>Your review: Nice place!</p>'),
 	L.marker([24.9934261,121.4272488]).bindPopup('<h4>野夫咖啡 (樹林店)</h4><p>Your review:  </p>'),
 	L.marker([25.0054481,121.4643063]).bindPopup('<h4>斑果咖啡</h4><p>Your review: </p>')])
 
+	var shop= L.layerGroup();
 	
+	var Cs= L.layerGroup();
 	
 		mymap = L.map('viewDiv',
 	{center: [25.105497, 121.597366],
@@ -462,7 +464,9 @@ var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 };
 
 var overlayMaps = {
-    "Shop": shop
+    "Review": review,
+	"Shop": shop ,
+	"Communitea Shop": Cs ,
 };
 
 	L.control.layers(baseMaps, overlayMaps).addTo(mymap);

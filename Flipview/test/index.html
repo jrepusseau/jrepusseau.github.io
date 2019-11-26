@@ -718,12 +718,21 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
 	<ul id="simpleList" class="tv list-group">
 	
-	<li class='list-group-item' onclick=''> Jenny <span class=" glyphicon glyphicon-remove x"></span> </li>
-	<li class='list-group-item' onclick=''> Hanguo <span class=" glyphicon glyphicon-remove x"></span> </li>
-    <li class='list-group-item' onclick=''> Tsai <span class=" glyphicon glyphicon-remove x"></span> </li>
+	<li class='list-group-item'>Jenny <span class=" glyphicon glyphicon-remove x"></span> </li>
+	<li class='list-group-item'> Hanguo <span class=" glyphicon glyphicon-remove x"></span> </li>
+    <li class='list-group-item'> Tsai <span class=" glyphicon glyphicon-remove x"></span> </li>
 </ul>
-	   <button type="button" class="btn btn-default"> Add someone </button>
-	   <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
+	   <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+  <span class="caret"></span></button>
+  <ul id='clist' class="dropdown-menu list-group">
+    <li class='list-group-item'>HTML</li>
+    <li class='list-group-item'>CSS</li>
+    
+  </ul>
+</div>  
+  
+  <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
 	
 	 <script>
 	
@@ -816,13 +825,22 @@ $("#renderBtn").click(
 );
 
 
-$( "ul.tv > li.list-group-item-success" ).click(function() { 
+$( "ul.tv > li" ).click(function() { 
+if (document.getElementById('val').innerText=='Validate')
+{
               $(this).insertBefore($(this).prev());
+			  }
             }); 
-$( "ul.tv > li > span.glyphicon-check" ).click(function() { 
-              $(this).parent().remove();
+$( "ul.tv > li > span" ).click(function() { 
+if (document.getElementById('val').innerText=='Validate')
+{
+             $( "#clist" ).append('<li class="list-group-item">'+$(this).parent().html()+'</li>');
+             $(this).parent().remove();
+			  }
+             
             });
-
+$( "#clist > li" ).click(function() {
+});
     $("[data-toggle=popover]").popover({
         html : true,
         content: function() {
@@ -1840,18 +1858,22 @@ function render(){
 
 function validatelist()
 {
+if (document.getElementById('val').innerText=='Validate')
+{
 $( "ul.tv > li" ).addClass("list-group-item-success");
 $( "ul.tv > li > span" ).addClass("glyphicon-check").removeClass("glyphicon-remove");
 document.getElementById('val').innerText='Change';
-
-}    
-
-function changelist()
-{
+$("#val").removeClass("btn-default").addClass("btn-success");
+}
+else{
 $( "ul.tv > li" ).removeClass("list-group-item-success");
 $( "ul.tv > li > span" ).removeClass("glyphicon-check").addClass("glyphicon-remove");
+$("#val").removeClass("btn-success").addClass("btn-default");
 document.getElementById('val').innerText='Validate';
-}   
+
+}
+}    
+
 
 </script>
 </html>
