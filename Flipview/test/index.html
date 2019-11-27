@@ -715,22 +715,25 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	 
 
 	  </br></br>
-	  
-	<ul id="simpleList" class="tv list-group">
+	  <div class="container-fluid">
+  <div class="row">
+    <div class="ol-xs-4 col-sm-4 col-md-4 col-lg-4">
+       <ul id="simpleList" class="tv list-group">
 	
 	<li class='list-group-item'>Jenny <span class=" glyphicon glyphicon-remove x"></span> </li>
 	<li class='list-group-item'> Hanguo <span class=" glyphicon glyphicon-remove x"></span> </li>
-    <li class='list-group-item'> Tsai <span class=" glyphicon glyphicon-remove x"></span> </li>
+
 </ul>
-	   <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></button>
-  <ul id='clist' class="dropdown-menu list-group">
-    <li class='list-group-item'>HTML</li>
-    <li class='list-group-item'>CSS</li>
-    
-  </ul>
-</div>  
+    </div>
+    <div class="ol-xs-4 col-sm-4 col-md-4 col-lg-4">
+     <ul id="clist" class="tv list-group">
+    <li class='list-group-item'> Tsai <span class=" glyphicon glyphicon-plus x"></span> </li>
+</ul>
+    </div>
+  </div>
+</div>
+	
+	  
   
   <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
 	
@@ -834,12 +837,15 @@ if (document.getElementById('val').innerText=='Validate')
 $( "ul.tv > li > span" ).click(function() { 
 if (document.getElementById('val').innerText=='Validate')
 {
-             $( "#clist" ).append('<li class="list-group-item">'+$(this).parent().html()+'</li>');
-             $(this).parent().remove();
+               $(this).removeClass("glyphicon-remove").addClass("glyphicon-plus");
+              $(this).parent().remove().appendTo($("#clist"));
 			  }
              
             });
-$( "#clist > li" ).click(function() {
+$( "#clist > li> span" ).click(function() {
+$(this).removeClass("glyphicon-plus").addClass("glyphicon-remove");
+   $(this).parent().remove().appendTo($("#simpleList"));
+
 });
     $("[data-toggle=popover]").popover({
         html : true,
