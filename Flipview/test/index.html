@@ -717,17 +717,17 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  </br></br>
 	  <div class="container-fluid">
   <div class="row">
-    <div class="ol-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="ol-xs-3 col-sm-3 col-md-3 col-lg-3">
        <ul id="simpleList" class="tv list-group">
 	
-	<li class='list-group-item'>Jenny <span class=" glyphicon glyphicon-remove x"></span> </li>
-	<li class='list-group-item'> Hanguo <span class=" glyphicon glyphicon-remove x"></span> </li>
+	<li class='list-group-item'>Jenny <span class=" glyphicon glyphicon-plus x" style='visibility:hidden' ></span><span class=" glyphicon glyphicon-remove x"></span> </li>
+	<li class='list-group-item'> Hanguo <span class=" glyphicon glyphicon-plus x" style='visibility:hidden' ></span><span class=" glyphicon glyphicon-remove x"></span> </li>
 
 </ul>
     </div>
-    <div class="ol-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <div class="ol-xs-3 col-sm-3 col-md-3 col-lg-3">
      <ul id="clist" class="tv list-group">
-    <li class='list-group-item'> Tsai <span class=" glyphicon glyphicon-plus x"></span> </li>
+    <li class='list-group-item'> Tsai <span class=" glyphicon glyphicon-plus x"></span> <span class=" glyphicon glyphicon-remove x" style='visibility:hidden'></li>
 </ul>
     </div>
   </div>
@@ -834,17 +834,16 @@ if (document.getElementById('val').innerText=='Validate')
               $(this).insertBefore($(this).prev());
 			  }
             }); 
-$( "ul.tv > li > span" ).click(function() { 
-if (document.getElementById('val').innerText=='Validate')
-{
-               $(this).removeClass("glyphicon-remove").addClass("glyphicon-plus");
+$( "span.glyphicon-remove" ).click(function() { 
+$(this).css("visibility", "hidden");
               $(this).parent().remove().appendTo($("#clist"));
-			  }
+			$("#clist>li>span.glyphicon-plus").css("visibility", "visible");
              
             });
-$( "#clist > li> span" ).click(function() {
-$(this).removeClass("glyphicon-plus").addClass("glyphicon-remove");
+$( "span.glyphicon-plus" ).click(function() {
+$(this).css("visibility", "hidden");
    $(this).parent().remove().appendTo($("#simpleList"));
+   $("#simpleList>li>span.glyphicon-remove").css("visibility", "visible");
 
 });
     $("[data-toggle=popover]").popover({
