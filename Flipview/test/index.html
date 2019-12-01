@@ -463,6 +463,33 @@ right:10px;
   </style>
 </head>
 <body>
+<script>
+/* affix the 2nd navbar after scroll past first navbar */
+$(function(){
+    // Simple list
+    
+
+$("#renderBtn").click(
+   function() {render();}
+);  
+
+
+
+          
+
+
+    $("[data-toggle=popover]").popover({
+        html : true,
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).children(".popover-body").html();
+        },
+        title: function() {
+            var title = $(this).attr("data-popover-content");
+            return $(title).children(".popover-heading").html();
+        }
+    });});
+</script>
 
  
  <nav class="navbar navbar-fixed-top navbar-expand-md " id='nav1'  >
@@ -720,14 +747,14 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
     <div class="ol-xs-3 col-sm-3 col-md-3 col-lg-3">
        <ul id="simpleList" class="tv list-group">
 	
-	<li class='list-group-item'>Jenny <span class=" glyphicon glyphicon-plus x" style='visibility:hidden' ></span><span class=" glyphicon glyphicon-remove x"></span> </li>
-	<li class='list-group-item'> Hanguo <span class=" glyphicon glyphicon-plus x" style='visibility:hidden' ></span><span class=" glyphicon glyphicon-remove x"></span> </li>
+	<li class='list-group-item' onclick='up(this)'>Jenny <button onclick='push(this)'> x</button> </li>
+	<li class='list-group-item' onclick='up(this)'> Hanguo <button onclick='push(this)'>x</button>  </li>
 
 </ul>
     </div>
     <div class="ol-xs-3 col-sm-3 col-md-3 col-lg-3">
-     <ul id="clist" class="tv list-group">
-    <li class='list-group-item'> Tsai <span class=" glyphicon glyphicon-plus x"></span> <span class=" glyphicon glyphicon-remove x" style='visibility:hidden'></li>
+     <ul id="clist" class="tv list-group disabled">
+    <li class='list-group-item' onclick='up(this)'> Tsai <button onclick='push(this)'>+</button> </li>
 </ul>
     </div>
   </div>
@@ -818,45 +845,7 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 
 </body>
 <script>
-/* affix the 2nd navbar after scroll past first navbar */
-$(function(){
-    // Simple list
-    
 
-$("#renderBtn").click(
-   function() {render();}
-);
-
-
-$( "ul.tv > li" ).click(function() { 
-if (document.getElementById('val').innerText=='Validate')
-{
-              $(this).insertBefore($(this).prev());
-			  }
-            }); 
-$( "span.glyphicon-remove" ).click(function() { 
-$(this).css("visibility", "hidden");
-              $(this).parent().remove().appendTo($("#clist"));
-			$("#clist>li>span.glyphicon-plus").css("visibility", "visible");
-             
-            });
-$( "span.glyphicon-plus" ).click(function() {
-$(this).css("visibility", "hidden");
-   $(this).parent().remove().appendTo($("#simpleList"));
-   $("#simpleList>li>span.glyphicon-remove").css("visibility", "visible");
-
-});
-    $("[data-toggle=popover]").popover({
-        html : true,
-        content: function() {
-            var content = $(this).attr("data-popover-content");
-            return $(content).children(".popover-body").html();
-        },
-        title: function() {
-            var title = $(this).attr("data-popover-content");
-            return $(title).children(".popover-heading").html();
-        }
-    });});
 	
 //alert('2.6')
 
@@ -1866,19 +1855,38 @@ function validatelist()
 if (document.getElementById('val').innerText=='Validate')
 {
 $( "ul.tv > li" ).addClass("list-group-item-success");
-$( "ul.tv > li > span" ).addClass("glyphicon-check").removeClass("glyphicon-remove");
+
 document.getElementById('val').innerText='Change';
 $("#val").removeClass("btn-default").addClass("btn-success");
 }
 else{
 $( "ul.tv > li" ).removeClass("list-group-item-success");
-$( "ul.tv > li > span" ).removeClass("glyphicon-check").addClass("glyphicon-remove");
+
 $("#val").removeClass("btn-success").addClass("btn-default");
 document.getElementById('val').innerText='Validate';
 
 }
 }    
 
+function up(e) { 
+if (document.getElementById('val').innerText=='Validate')
+{
+              $(e).insertBefore($(e).prev());
+			  }
+            }; 
+function  push(t) { 
+if ($(t).html()=='x')
+{
+$(t).html('+');
+$(t).parent().remove().appendTo($("#clist"));
+}
+else
+{
+$(t).html('x');
+$(t).parent().remove().appendTo($("#simpleList"));
+}
+}
+             
 
 </script>
 </html>
