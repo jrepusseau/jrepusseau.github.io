@@ -465,6 +465,7 @@ right:10px;
 <body>
 <script>
 /* affix the 2nd navbar after scroll past first navbar */
+
 $(function(){
     // Simple list
     
@@ -489,6 +490,8 @@ $("#renderBtn").click(
             return $(title).children(".popover-heading").html();
         }
     });});
+	
+
 </script>
 
  
@@ -555,18 +558,20 @@ $("#renderBtn").click(
 <a href="#menu2"><span class="glyphicon glyphicon-book"></span> Info</a>
 </li>
 
-<li  onclick='yourlist()' width='24vw'>
+<li id='menu3tabb' onclick='debate()' width='24vw'>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Argue </a>
+
+</li>
+
+<li  id='menu5tab' onclick='yourlist()' width='24vw'>
 
 <a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> Vote</a>
 </li>
 
 	 
-<li onclick='debate()' width='24vw'>
- <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Debate</a>
 
-</li>
 
-	 <li onclick='result()' width='24vw'> 
+	 <li id='menu4tab' onclick='result()' width='24vw'  > 
 	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Results</a></li>
 	   </ul>
 	  
@@ -744,17 +749,17 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  </br></br>
 	  <div class="container-fluid">
   <div class="row">
-    <div class="ol-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="ol-xs-6 col-sm-6 col-md-6 col-lg-6">
        <ul id="simpleList" class="tv list-group">
 	
-	<li class='list-group-item' onclick='up(this)'>Jenny <button onclick='push(this)'> x</button> </li>
-	<li class='list-group-item' onclick='up(this)'> Hanguo <button onclick='push(this)'>x</button>  </li>
+	<li class='list-group-item' onclick='up(this)'>Jenny <button onclick='push(this)' class='x'> x</button> </li>
+	<li class='list-group-item' onclick='up(this)'> Hanguo <button onclick='push(this)' class='x'>x</button>  </li>
 
 </ul>
     </div>
-    <div class="ol-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="ol-xs-6 col-sm-6 col-md-6 col-lg-6">
      <ul id="clist" class="tv list-group">
-    <li class='list-group-item disabled' onclick='up(this)'> Tsai <button onclick='push(this)'>+</button> </li>
+    <li class='list-group-item disabled' onclick='up(this)'> Tsai <button onclick='push(this)' class='x'>+</button> </li>
 </ul>
     </div>
   </div>
@@ -811,7 +816,7 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
       
 
   
-    <div id="menu4" class="tab-pane fade">
+    <div id="menu4" class="tab-pane fade" >
 	  
 	 
 
@@ -819,7 +824,7 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
 
 	  <button id="renderBtn">
-        Render
+        Refresh
     </button><br>
     <div class="container" >
         <canvas id="myChart"></canvas>
@@ -851,6 +856,8 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 
 var subject;
 var hottopic;
+
+$("#menu4tab").hide();
 
  var subjecten=[
 'Does the actual political system in China democratic?',
@@ -1858,6 +1865,10 @@ $( "ul.tv > li" ).addClass("list-group-item-success");
 
 document.getElementById('val').innerText='Change';
 $("#val").removeClass("btn-default").addClass("btn-success");
+
+$("#clist").hide();
+$("#menu4tab").show();
+
 }
 else{
 $( "ul.tv > li" ).removeClass("list-group-item-success");
@@ -1865,6 +1876,8 @@ $( "ul.tv > li" ).removeClass("list-group-item-success");
 $("#val").removeClass("btn-success").addClass("btn-default");
 document.getElementById('val').innerText='Validate';
 
+$("#clist").show();
+$("#menu4tab").hide();
 }
 }    
 
