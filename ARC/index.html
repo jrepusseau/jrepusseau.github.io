@@ -44,7 +44,7 @@
 		top: 0px;
 	   	padding: 0;
         margin: 0;
-        height: 98%;
+        height: 100vh;
         width: 100vw;
       }
 	   #choiceDiv {
@@ -263,11 +263,11 @@ background-color:white;
 
 .center {
 	position:absolute;
-	bottom:45vh;
-	top:5vh;
+	bottom:20vh;
+	top:20vh;
    left:5vw;
    right:5vw;
-    
+    background-color:transparent;
    
 
 }
@@ -1013,7 +1013,7 @@ updateloc(0);
 
 function buildcontent(a)
 {
-a.setAttribute('onclick','updateloc(1)');
+a.setAttribute('onclick','updateloc(1); this.scrollIntoView(false);');
 var switchpos= document.createElement("INPUT");
 switchpos.setAttribute('type','checkbox');
 switchpos.setAttribute('data-toggle',"toggle");
@@ -1027,36 +1027,45 @@ document.getElementById('properties').appendChild(document.createTextNode("Show 
 document.getElementById('properties').appendChild(switcharr);
 
 var content= document.createElement("DIV");
-
+content.setAttribute('style','text-align:center');
 var opinion= document.createElement("P");
 var opinioncontent='Im on my way!';
+var image = document.createElement("IMG");
+image.setAttribute('class','img-r');
+image.setAttribute('src','profil1.jpg');
 var posttime= document.createElement('span');
-posttime.innerHTML='Posted 30/7 12:30 <br> ';
+posttime.innerHTML='<br>Posted 30/7 12:30 <br> ';
 
 content.setAttribute('class','containertype pro');
 //content.setAttribute('id','border-color:RGBA(0, 191, 255, 1)');
-content.setAttribute('onclick','$(this).css("background-color",$(this).css("border-top-color"));updateloc(2);selectdiv(0)');
+content.setAttribute('onclick','$(this).css("background-color",$(this).css("border-top-color"));updateloc(2);selectdiv(0);this.scrollIntoView(false);');
 
 opinion.innerHTML=opinioncontent;
 content.appendChild(opinion);
+
 content.appendChild(posttime);
+content.appendChild(image);
 
 document.getElementById("content").appendChild(content); 
 
 var content2= document.createElement("DIV");
-
+content2.setAttribute('style','text-align:center');
 var opinion= document.createElement("P");
 var opinioncontent='Please fill the questionnary';
 var posttime= document.createElement('span');
 posttime.innerHTML='Posted 30/7 12:30 <br> ';
+var image2 = document.createElement("IMG");
+image2.setAttribute('class','img-r');
+image2.setAttribute('src','profil3.jpg');
 
 content2.setAttribute('class','containertype con');
 //content2.setAttribute('style','border-color:blue');
-content2.setAttribute('onclick','$(this).css("background-color",$(this).css("border-top-color"));updateloc(3);selectdiv(1)');
+content2.setAttribute('onclick','$(this).css("background-color",$(this).css("border-top-color"));updateloc(3);selectdiv(1);this.scrollIntoView(false);');
 
 opinion.innerHTML=opinioncontent;
 content2.appendChild(opinion);
 content2.appendChild(posttime);
+content2.appendChild(image2);
 
 document.getElementById("content").appendChild(content2); 
 
