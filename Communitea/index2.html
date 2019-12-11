@@ -358,11 +358,13 @@ top:70vw;
   color: white;
 }
 
-
-#myOnlineCamera video{width:320px;height:240px;margin:15px;float:left;}
-#myOnlineCamera canvas{width:320px;height:240px;margin:15px;float:left;}
-#myOnlineCamera button{clear:both;margin:30px;}
-
+#preview {
+  width: 100vw;
+  height: 80vh;
+  outline: 1px solid red;
+  text-align:center;
+   margin-left: auto; margin-right: auto;
+}
 </style>
 	
 </head>
@@ -588,7 +590,18 @@ function move() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", event => {
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  Instascan.Camera.getCameras().then(cameras => {
+    scanner.camera = cameras[cameras.length - 1];
+    scanner.start();
+  }).catch(e => console.error(e));
 
+  scanner.addListener('scan', content => {
+    console.log(content);
+  });
+
+});
   
   
   
@@ -610,68 +623,6 @@ function move() {
   }
 } 
 
-//take pictures tuto
-
-var videoObj    = { "video": true },
-    errBack        = function(error){
-        // alert("Video capture error: ", error.code);
-    };
-
-// Ask the browser for permission to use the Webcam
-if(navigator.getUserMedia){                    // Standard
-    navigator.getUserMedia(videoObj, startWebcam, errBack);
-}else if(navigator.webkitGetUserMedia){        // WebKit
-    navigator.webkitGetUserMedia(videoObj, startWebcam, errBack);
-}else if(navigator.mozGetUserMedia){        // Firefox
-    navigator.mozGetUserMedia(videoObj, startWebcam, errBack);
-};
-
-function startWebcam(stream){
-
-    var myOnlineCamera    = getElementById('myOnlineCamera'),
-        video            = myOnlineCamera.querySelectorAll('video'),
-        canvas            = myOnlineCamera.querySelectorAll('canvas');
-
-    video.width = video.offsetWidth;
-	
-	 if(navigator.getUserMedia){                    // Standard
-        video.src = stream;
-        video.play();
-    }else if(navigator.webkitGetUserMedia){        // WebKit
-        video.src = window.webkitURL.createObjectURL(stream);
-        video.play();
-    }else if(navigator.mozGetUserMedia){        // Firefox
-        video.src = window.URL.createObjectURL(stream);
-        video.play();
-    };
-
-    // Click to take the photo
-    $('#webcam-popup .takephoto').click(function(){
-        // Copying the image in a temporary canvas
-        var temp = document.createElement('canvas');
-
-        temp.width  = video.offsetWidth;
-        temp.height = video.offsetHeight;
-
-        var tempcontext = temp.getContext("2d"),
-            tempScale = (temp.height/temp.width);
-			
-temp.drawImage(
-            video,
-            0, 0,
-            video.offsetWidth, video.offsetHeight
-        );
-
-        // Resize it to the size of our canvas
-        canvas.style.height    = parseInt( canvas.offsetWidth * tempScale );
-        canvas.width        = canvas.offsetWidth;
-        canvas.height        = canvas.offsetHeight;
-        var context        = canvas.getContext("2d"),
-            scale        = canvas.width/temp.width;
-        context.scale(scale, scale);
-        context.drawImage(bigimage, 0, 0);
-    });
-};
 </script>
 
 
@@ -688,66 +639,6 @@ temp.drawImage(
   </h4>
 <br> 
 <br>
-
-<div id="myOnlineCamera">
-    <video></video>
-    <canvas></canvas>
-    <input type="file"
-       id="avatar" name="avatar"
-       accept="image/*" capture="user">
-</div>
-
-
-
-  </div>
-  
- <div id="menu1" class="tab-pane fade in active" style='text-align:center' >
-
- <br>
-<img id='img-k' src='profil1.jpg' >
- <h2> jdy_essa </h2>
- <img id='img-q' src='qrcode.jpg' >
- <br>
- <a href='#'> LogOut</a>
- 
-
-<!-- 
-<h1>Level 1  </h1>
-
-<div id="myProgress">
-  <div id="myBar">2 cup saved!</div>
-</div>
-
-<br>
-<button onclick="move()">Click Me</button> 
- <br>
- 
- <button onclick='Website()'> Scan </button>
- <br>
- 
- 
-  <br>
-<button id='but' class="btn btn-success"  onclick="myFunction()">Scan</button>
-<br>
-<br>
-
- 
- <video id="preview" style='display:none;text-align:center'></video>
-
-
-
-
-<h2> Remaining Balance </h2>
-<h1> 16 CT </h1>
-
-<br>
-<h2> Latest transaction </h2>
-<ul class="list-group" href="#menu2">
-  <li class="list-group-item" id='4645' > <span class="badge">11/12</span>+1 CT Kamacafe</li>
-  <li class="list-group-item" id='4644' ><span class="badge">03/12</span> +1 CT Dante Cafe</li>
-  <li class="list-group-item" id='4643' ><span class="badge">08/11</span> +1 CT Starbuck Shongshan</li>
-</ul> 
- <!-- Tab panes -->
 <div class="panel-group" id="accordion">
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -815,6 +706,57 @@ temp.drawImage(
   </div>
   </div>
   </div>
+
+  </div>
+  
+ <div id="menu1" class="tab-pane fade in active" style='text-align:center' >
+
+ <br>
+<img id='img-k' src='profil1.jpg' >
+ <h2> jdy_essa </h2>
+ <img id='img-q' src='qrcode.jpg' >
+ <br>
+ <a href='#'> LogOut</a>
+ 
+
+<!-- 
+<h1>Level 1  </h1>
+
+<div id="myProgress">
+  <div id="myBar">2 cup saved!</div>
+</div>
+
+<br>
+<button onclick="move()">Click Me</button> 
+ <br>
+ 
+ <button onclick='Website()'> Scan </button>
+ <br>
+ 
+ 
+  <br>
+<button id='but' class="btn btn-success"  onclick="myFunction()">Scan</button>
+<br>
+<br>
+
+ 
+ <video id="preview" style='display:none;text-align:center'></video>
+
+
+<!-- Tab panes -->
+
+<h2> Remaining Balance </h2>
+<h1> 16 CT </h1>
+ 
+<br>
+<h2> Latest transaction </h2>
+<ul class="list-group" href="#menu2">
+  <li class="list-group-item" id='4645' > <span class="badge">11/12</span>+1 CT Kamacafe</li>
+  <li class="list-group-item" id='4644' ><span class="badge">03/12</span> +1 CT Dante Cafe</li>
+  <li class="list-group-item" id='4643' ><span class="badge">08/11</span> +1 CT Starbuck Shongshan</li>
+</ul> 
+
+
 <br>
  </br>
  </br>
@@ -852,18 +794,17 @@ temp.drawImage(
 <div id="nav1" class="up overlay" style='text-align:center' data-backdrop="false">
 <ul class="nav">
     
- <button  type="button"  class="btn  btn-success dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu3'  onclick='Website()'>
+ <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu3'  onclick='Website()'>
  <span class="glyphicon glyphicon-home"></span>
 </button>	
 	 
-  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-success">
+  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
   <span class="glyphicon glyphicon-map-marker"></span>
   </button>
-   <!-- Tab panes 
+  
  <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2'  onclick='Track()'>
   <span class="glyphicon glyphicon-shopping-cart"></span>
   </button>
- Tab panes -->
  <img id='img-p' src='profil1.jpg' href="#menu1" onclick="Back()">
  
  
