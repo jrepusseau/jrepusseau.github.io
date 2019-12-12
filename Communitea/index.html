@@ -663,8 +663,8 @@ function move() {
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Snap it!
 </button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Test button
+<button type="button" onclick='chgtxt3()' class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  PhaseB
 </button>
 
 <!-- Modal -->
@@ -684,7 +684,7 @@ function move() {
 	  <div id='modcho' class="modal-body" style='display:none'>
 	  <br>
         <h2> Thanks for choosing Starbucks coffee!</h2> 
-		<h3> What did you choose? </h3>
+		<h3> What did you take this time? </h3>
 		<ul class="list-group" href="#menu2">
   <li class="list-group-item" onclick='chgtxt2()' >Expresso <span class="badge">></span></li>
   <li class="list-group-item" onclick='chgtxt2()'>Tea<span class="badge">></span></li>
@@ -694,14 +694,45 @@ function move() {
       </div>
 	  
 	   <div id='modthx' class="modal-body" style='display:none'>
-	      <h2> Thanks again Communitea!</h2> 
-	  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      <h2> Thanks again!</h2>
+<h3> Bring your cup for the next shop =)  </h3>		  
+	  <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
    
+      </div>
+	   <div id='modrev' class="modal-body" style='display:none'>
+	  <br>
+        <h2> Hey!</h2> 
+		<h3> how  was your order last time? </h3>
+		<ul class="list-group" href="#menu2">
+  <li class="list-group-item" onclick='chgtxt4()' > Fantastic <span class="badge">></span></li>
+  <li class="list-group-item" onclick='chgtxt4()'>Soso<span class="badge">></span></li>
+  <li class="list-group-item" onclick='chgtxt4()'>Bad<span class="badge">></span></li>
+  <li class="list-group-item" onclick='chgtxt4()'>I don't remember<span class="badge">></span></li>
+</ul> 
       </div>
         </div>
   </div>
 </div>
 
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
   
 
   </div>
@@ -977,6 +1008,27 @@ $('#nexttab').on('click', function() {
   }
 } 
 
+	function chgtxt3() {
+  var x = document.getElementById("modthx");
+    var y = document.getElementById("modrev");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+	y.style.display = "block";
+  }
+} 
+
+function chgtxt3() {
+  var x = document.getElementById("modrev");
+    var y = document.getElementById("modcho");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+	y.style.display = "block";
+  }
+} 
 
 
 Start();
