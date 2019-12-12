@@ -668,14 +668,26 @@ function move() {
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <div class="modal-body">
+  <br>
+      <div id='modcap' class="modal-body" >
+	  
         <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
   <canvas id="canvas" hidden=""></canvas>
   <div id="output" hidden="">
     <div id="outputMessage">No QR code detected.</div>
     <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
   </div>
+      </div>
+	  <div id='modcho' class="modal-body" style='display:none'>
+	  <br>
+        <h2> Thanks for choosing Starbucks coffee!</h2> 
+		<h3> What did you choose? </h3>
+		<ul class="list-group" href="#menu2">
+  <li class="list-group-item" >Expresso <span class="badge">></span></li>
+  <li class="list-group-item" >Tea<span class="badge">></span></li>
+  <li class="list-group-item" >Orange juice<span class="badge">></span></li>
+  <li class="list-group-item" >Other<span class="badge">></span></li>
+</ul> 
       </div>
         </div>
   </div>
@@ -924,6 +936,7 @@ $('#nexttab').on('click', function() {
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
+		  chgtxt();
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
@@ -932,6 +945,16 @@ $('#nexttab').on('click', function() {
       requestAnimationFrame(tick);
     }
 
+	function chgtxt() {
+  var x = document.getElementById("modcap");
+    var y = document.getElementById("modcho");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+	y.style.display = "block";
+  }
+} 
 
 Start();
 
