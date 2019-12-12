@@ -659,12 +659,29 @@ function move() {
 <br> 
 <br>
 
-  <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Snap it!
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-body">
+        <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
   <canvas id="canvas" hidden=""></canvas>
   <div id="output" hidden="">
     <div id="outputMessage">No QR code detected.</div>
     <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
   </div>
+      </div>
+        </div>
+  </div>
+</div>
+
+  
 
   </div>
   
