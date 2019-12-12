@@ -263,11 +263,10 @@ background-color:white;
 
 .center {
 	position:absolute;
-	bottom:20vh;
-	top:20vh;
+	bottom:5vh;
    left:5vw;
    right:5vw;
-    background-color:transparent;
+ 
    
 
 }
@@ -277,10 +276,9 @@ background-color:white;
 	top:2vh;
    left:15vw;
    right:15vw;
-    
-   
-
 }
+
+
 
 .overlay {
     position: absolute;
@@ -513,9 +511,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
     var radius = e.accuracy / 2;
-    newCircle= new L.circle(e.latlng, radius).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
+    newCircle= new L.circle(e.latlng, radius).addTo(mymap);//.bindPopup(customPopup,customOptions).openPopup();
 	markers.push(newCircle);
-	$('#inboxxx').modal('show');
+	//$('#inboxxx').modal('show');
 	//document.getElementById('positiontext').innerHTML= '<span class="glyphicon glyphicon-record"></span> Your position is set'+ ' <button>hide</button>';
 	document.getElementById('connectstatus').setAttribute('class',"glyphicon glyphicon-off");
 	var d =document.getElementById('inboxxx');
@@ -547,9 +545,9 @@ d.className += " located";
         };
 	if (newCircle)
 	     mymap.removeLayer(newCircle);
-	newCircle=new L.circle([21.31560,	-157.858093],20).addTo(mymap).bindPopup(customPopup,customOptions).openPopup();
-	markers.push(newCircle);
-	document.getElementById('inboxxx').style.display='block';
+	newCircle=new L.circle([21.31560,	-157.858093],40).addTo(mymap); //.bindPopup(customPopup,customOptions).openPopup();
+	//markers.push(newCircle);
+	//document.getElementById('inboxxx').style.display='block';
 	//$('#inboxxx').modal('show'); modal
 	//document.getElementById('positiontext').innerHTML='<span class="glyphicon glyphicon-warning-sign"></span> '+ e.message + ' <button onclick="location.reload()">retry</button>';
 	document.getElementById('connectstatus').setAttribute('class',"glyphicon glyphicon-warning-sign");
@@ -643,11 +641,11 @@ newMarker.getPopup().on('remove', function() {
 		
 			
 			}
-mymap.on('click', onMapClick);
+//mymap.on('click', onMapClick);
 			
 			
 			
-	mymap.on('dblclick', onMapdbClick);
+//	mymap.on('dblclick', onMapdbClick);
 	
 	///////////////////// WE DONT DO LIKE THIS 
 	
@@ -722,6 +720,7 @@ document.getElementById("menu1").style.display="block";
 }
 
 function init(){
+$('[data-toggle=popover]').popover('update')
 var poll=['Emergency CASE:8979897','Police CASE:786878687','Halloween party','Delivery 76575676'];
 var status=['list-group-item-danger','list-group-item-danger','','disabled'];
 var creator=['EMS','Police Departement','Eloise','Amazon'];
@@ -1227,17 +1226,25 @@ for (i=0;i<document.getElementById('content').childNodes.length;i++)
   </div>
  </div>
   
-<div id="nav1" class="up overlay" style='text-align:center' data-backdrop="false">
+<div id="nav1" class="center overlay" style='text-align:center' data-backdrop="false">
 <ul class="nav">
-    	 <img class='img-p' src='profil2.jpg' href="#menu1" onclick="Back()">
-	 
-  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-secondary">
-   Map
+    	 
+	 <button class="btn btn-danger img-p" data-container="body" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Police<br>Emergency"><span id='' class='glyphicon glyphicon-exclamation-sign' ></span></button>
+  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-warning img-p" data-container="body" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Electricty<br>Gas leak">
+ <span id='connectstatus' class='glyphicon glyphicon-warning-sign' ></span>
   </button>
-   <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
- <span class="glyphicon glyphicon-envelope"></span>
+   <button  class="btn btn-success dropdown-toggle dropup img-p"  aria-haspopup="true" aria-expanded="false" data-container="body" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Transportation<br>Delivery">
+ <span class="glyphicon glyphicon-info-sign"></span>
 </button>
-<button class="btn btn-secondary"><span id='connectstatus' ></span></button>
+
+<button style="background: url ('profil2.jpg') repeat" class='img-p' href="#menu1" data-container="body" data-toggle="popover"
+data-toggle="popover" data-placement="top" data-trigger="focus" data-content=
+"<img id='img-k' src='profil2.jpg' >
+ <h2> jdy_essa </h2>
+ <br>
+ <img id='img-q' src='qrcode.jpg' >
+ <br>
+ <h4> phone number </h4>" > </button>
 </li>
   <li>
   <div class="btn-group dropup" style='display:none' id='inbox' >
