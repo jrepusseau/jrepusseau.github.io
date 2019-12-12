@@ -660,7 +660,7 @@ function move() {
 <br>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='startvid()'>
   Snap it!
 </button>
 <button type="button" onclick='chgtxt3()' class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -929,6 +929,7 @@ $('#nexttab').on('click', function() {
     $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
 });
 
+function startvid(){
  var video = document.createElement("video");
     var canvasElement = document.getElementById("canvas");
     var canvas = canvasElement.getContext("2d");
@@ -984,6 +985,7 @@ $('#nexttab').on('click', function() {
       }
       requestAnimationFrame(tick);
     }
+}
 
 	function chgtxt() {
   var x = document.getElementById("modcap");
