@@ -683,11 +683,17 @@ function move() {
         <h2> Thanks for choosing Starbucks coffee!</h2> 
 		<h3> What did you choose? </h3>
 		<ul class="list-group" href="#menu2">
-  <li class="list-group-item" >Expresso <span class="badge">></span></li>
-  <li class="list-group-item" >Tea<span class="badge">></span></li>
-  <li class="list-group-item" >Orange juice<span class="badge">></span></li>
-  <li class="list-group-item" >Other<span class="badge">></span></li>
+  <li class="list-group-item" onclick='chgtxt2()' >Expresso <span class="badge">></span></li>
+  <li class="list-group-item" onclick='chgtxt2()'>Tea<span class="badge">></span></li>
+  <li class="list-group-item" onclick='chgtxt2()'>Orange juice<span class="badge">></span></li>
+  <li class="list-group-item" onclick='chgtxt2()'>Other<span class="badge">></span></li>
 </ul> 
+      </div>
+	  
+	   <div id='modthx' class="modal-body" style='display:none'>
+	      <h2> Thanks from Communitea!</h2> 
+	  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   
       </div>
         </div>
   </div>
@@ -955,6 +961,20 @@ $('#nexttab').on('click', function() {
 	y.style.display = "block";
   }
 } 
+
+
+	function chgtxt2() {
+  var z = document.getElementById("modthx");
+    var y = document.getElementById("modcho");
+  if (y.style.display === "none") {
+    y.style.display = "block";
+  } else {
+    y.style.display = "none";
+	z.style.display = "block";
+  }
+} 
+
+
 
 Start();
 
