@@ -321,11 +321,11 @@ position:fixed;
 top:70vw;
 }
 
-#img-p
+.img-p
 {
  border-radius: 50%;
-  height:50px;
-  width:50px;
+  height:40px;
+  width:40px;
 }
 
 #img-k
@@ -888,11 +888,11 @@ function move() {
 <div id="nav1" class="up overlay" style='text-align:center' data-backdrop="false">
 <ul class="nav">
     
- <button  type="button"  class="btn  btn-success dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu3'  onclick='Website()'>
+ <button  type="button"  class="btn  btn-success dropdown-toggle dropup  img-p" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu3'  onclick='Website()'>
  <span class="glyphicon glyphicon-home"></span>
 </button>	
 	 
-  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-success">
+  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-success  img-p">
   <span class="glyphicon glyphicon-map-marker"></span>
   </button>
    <!-- Tab panes 
@@ -900,7 +900,7 @@ function move() {
   <span class="glyphicon glyphicon-shopping-cart"></span>
   </button>
  Tab panes -->
- <img id='img-p' src='profil1.jpg' href="#menu1" onclick="Back()">
+ <img class='img-p' src='profil1.jpg' href="#menu1" onclick="Back()">
  
  
 	
@@ -988,6 +988,7 @@ $('#nexttab').on('click', function() {
 	function chgtxt() {
   var x = document.getElementById("modcap");
     var y = document.getElementById("modcho");
+	
   if (x.style.display === "none") {
    // x.style.display = "block";
   } else {
