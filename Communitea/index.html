@@ -696,7 +696,7 @@ function move() {
 	   <div id='modthx' class="modal-body" style='display:none'>
 	      <h2> Thanks again!</h2>
 <h3> Bring your cup for the next shop =)  </h3>		  
-	  <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+	  <button type="button" class="btn btn-secondary" onclick="wait(5000);$('#exampleModal').modal('show');chgtxt3()" data-dismiss="modal" >Close</button>
    
       </div>
 	   <div id='modrev' class="modal-body" style='display:none'>
@@ -1033,6 +1033,13 @@ function chgtxt4() {
   }
 } 
 
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
 
 Start();
 
