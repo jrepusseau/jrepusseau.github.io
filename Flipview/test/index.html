@@ -1845,12 +1845,20 @@ function renderChart(data, labels) {
         data: {
             labels: labels,
             datasets: [{
-                //label: 'This week',
+                label: 'This week',
                 data: data,
             }]
         },
 		options: {
-            responsive: false,
+            responsive: true,
+		
+    dragX: false,
+    dragDataRound: 0,
+    dragOptions: {
+      magnet: {
+        to: Math.round
+      }
+    },
             dragData: true,
             onDragStart: function (e) {
               //console.log("test");
