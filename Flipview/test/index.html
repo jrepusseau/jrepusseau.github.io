@@ -747,7 +747,8 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	 
 
 	  </br></br>
-	  <div class="container-fluid">
+	  <!--
+	   <div class="container-fluid">
   <div class="row">
     <div class="ol-xs-6 col-sm-6 col-md-6 col-lg-6">
        <ul id="simpleList" class="tv list-group">
@@ -764,12 +765,12 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
     </div>
   </div>
 </div>
-	
+	-->
 	  
   
   <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
   
-  </button><br>
+<br>
     <div class="container" >
         <canvas id="myChart2"></canvas>
     </div>
@@ -1897,8 +1898,10 @@ function renderChart2(data, labels) {
               yAxes: [{
                   ticks: {
 				  beginAtZero: true,
-                     max: 10,
-                     min: 0
+                    max: 10,
+					min:0,
+                  //  callback: function(value) {if (value == 0) {return value+0.2;}},
+			   
                   }
               }]
             },
@@ -1958,21 +1961,23 @@ if (document.getElementById('val').innerText=='Validate')
 $( "ul.tv > li" ).addClass("list-group-item-success");
 
 document.getElementById('val').innerText='Change';
-$("#val").removeClass("btn-default").addClass("btn-success");
+
 */
 $("#clist").hide();
 $("#menu4tab").show();
+$("#val").removeClass("btn-default").addClass("btn-success");
 
 }
 else{
 /*
 $( "ul.tv > li" ).removeClass("list-group-item-success");
 
-$("#val").removeClass("btn-success").addClass("btn-default");
+
 document.getElementById('val').innerText='Validate';
 */
 $("#clist").show();
 $("#menu4tab").hide();
+$("#val").removeClass("btn-success").addClass("btn-default");
 }
 }    
 
@@ -1998,15 +2003,19 @@ $(t).parent().remove().removeClass("disabled").appendTo($("#simpleList"));
 function validatefn(dt)
 {
 if (dt==10)
-{document.getElementById('val').innerHTML='Validate'
-document.getElementById('val').disabled = false;
-validatelist();
+{document.getElementById('val').innerHTML='✓';
+document.getElementById('val').disabled = true;
+$("#clist").hide();
+$("#menu4tab").show();
+$("#val").removeClass("btn-default").addClass("btn-success");
 }
 else
 {
-document.getElementById('val').innerHTML=dt;
+document.getElementById('val').innerHTML=10-dt;
 document.getElementById('val').disabled = true; 
-validatelist();
+$("#clist").show();
+$("#menu4tab").hide();
+$("#val").removeClass("btn-success").addClass("btn-default");
 }
 
 }
