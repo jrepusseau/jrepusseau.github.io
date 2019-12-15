@@ -449,7 +449,8 @@ border-radius: 50%;
   
    .container {
         width: 100vw;
-        height: 90vh;
+        height: 88vh;
+		text-align:center;
     }
   
 .x{
@@ -831,12 +832,12 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  <button id="renderBtn">
         Refresh
     </button><br>-->
+	
+    <div class="container" >
 	<select>
 		<option> Asia </option>
 		<option> All </option>
 		</select>
-    <div class="container" >
-	
         <canvas id="myChart"></canvas>
     </div>
 		
@@ -1869,14 +1870,14 @@ function renderChart(data, labels) {
               }],
 			  xAxes: [{
       ticks: {
-      /*  callback: function(value) {
+        callback: function(value) {
           if (value.length > 8) {
             return value.substr(0, 8) + '...'; //truncate
           } else {
             return value
           }
 
-        }, */
+        }, 
       }
     }],
             }
@@ -1932,14 +1933,14 @@ function renderChart2(data, labels) {
               }],
 			  xAxes: [{
       ticks: {
-       /* callback: function(value) {
+        callback: function(value) {
           if (value.length > 8) {
             return value.substr(0, 8) + '...'; //truncate
           } else {
             return value
           }
 
-        }, */
+        }, 
       }
     }],
             },
