@@ -448,8 +448,8 @@ border-radius: 50%;
   }
   
    .container {
-        width: 80vw;
-        height: 80vh;
+        width: 100vw;
+        height: 90vh;
     }
   
 .x{
@@ -713,7 +713,7 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
         <th>Name</th>
         <th>Party </th>
         <th>Gay marriage</th>
-		 <th>French people</th>
+		 <th>military services</th>
       </tr>
     </thead>
     <tbody>
@@ -721,19 +721,19 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
         <td>Tsai Ing-Wen 蔡英文</td>
         <td>DPP</td>
         <td>V</td>
-		<td>baguette</td>
+		<td>Reduce it </td>
       </tr>
       <tr>
         <td>Han Kuo-yu 韓國瑜</td>
         <td>Kuomintang</td>
         <td>X</td>
-		<td>macaron</td>
+		<td>Increase it </td>
       </tr>
        <tr>
         <td>James Soong 宋楚瑜</td>
         <td>People First</td>
         <td>X</td>
-		<td>saucisson!</td>
+		<td>Increase it</td>
       </tr>
     </tbody>
   </table>
@@ -746,7 +746,6 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
 	 
 
-	  </br></br>
 	  <!--
 	   <div class="container-fluid">
   <div class="row">
@@ -768,11 +767,12 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	-->
 	  
   
-  <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
-  
-<br>
-    <div class="container" >
+    <div class="container" style='text-align: center;' >
         <canvas id="myChart2"></canvas>
+		 
+<br>
+  <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
+ 
     </div>
 	
 	 <script>
@@ -790,8 +790,7 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
 	 
 
-	  </br></br>	</br>	</br>	</br>	</br>
-	  
+	  </br></br>	</br>	
 	  
 	   <h5>Use trustable source, Attack facts not people, Take pleasure  </h5>
 		<h5> Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
@@ -828,18 +827,20 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 
 	 
 	  
-
+<!--
 	  <button id="renderBtn">
         Refresh
-    </button><br>
+    </button><br>-->
+	<select>
+		<option> Asia </option>
+		<option> All </option>
+		</select>
     <div class="container" >
+	
         <canvas id="myChart"></canvas>
     </div>
 		
-		<select>
-		<option> All </option>
-		<option> Your </option>
-		</select>
+		
       
   </div>
   
@@ -1857,6 +1858,31 @@ function renderChart(data, labels) {
                 data: data,
             }]
         },
+		options: {
+           
+            scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+			   
+                  }
+              }],
+			  xAxes: [{
+      ticks: {
+      /*  callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, */
+      }
+    }],
+            }
+    }
+			
+          
 	    });
 }
 
@@ -1867,7 +1893,7 @@ function renderChart2(data, labels) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Your vote',
+               // label: 'Preferences',
                 data: data,
 				backgroundColor: ["pink", "blue", "red"], 
             }]
@@ -1903,7 +1929,19 @@ function renderChart2(data, labels) {
                   //  callback: function(value) {if (value == 0) {return value+0.2;}},
 			   
                   }
-              }]
+              }],
+			  xAxes: [{
+      ticks: {
+       /* callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, */
+      }
+    }],
             },
 			tooltips: {
         enabled: false
@@ -1941,14 +1979,14 @@ function renderChart2(data, labels) {
 function render(){
 	
         data = [20000, 14000, 12000];
-        labels =  ["Jenny", "Tsai", "Hanguo"];
+        labels =  [["Tsai Ing-Wen","蔡英文"], ["Han Kuo-yu","韓國瑜"],["James Soong","宋楚瑜"]];
         renderChart(data, labels);
     }
 
 	function render2(){
 	
         data = [1, 1, 1];
-        labels =  ["Jenny", "Tsai", "Hanguo"];
+        labels =  [["Tsai Ing-Wen","蔡英文"], ["Han Kuo-yu","韓國瑜"],["James Soong","宋楚瑜"]];
         renderChart2(data, labels);
     }
 
@@ -2011,7 +2049,7 @@ $("#val").removeClass("btn-default").addClass("btn-success");
 }
 else
 {
-document.getElementById('val').innerHTML=10-dt;
+document.getElementById('val').innerHTML=10-dt + ' points left';
 document.getElementById('val').disabled = true; 
 $("#clist").show();
 $("#menu4tab").hide();
