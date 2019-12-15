@@ -768,6 +768,11 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
   
   <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
+  
+  </button><br>
+    <div class="container" >
+        <canvas id="myChart2"></canvas>
+    </div>
 	
 	 <script>
 	
@@ -860,6 +865,8 @@ var subject;
 var hottopic;
 
 $("#menu4tab").hide();
+
+render2();
 
  var subjecten=[
 'Does the actual political system in China democratic?',
@@ -1849,16 +1856,31 @@ function renderChart(data, labels) {
                 data: data,
             }]
         },
+	    });
+}
+
+function renderChart2(data, labels) {
+    var ctx = document.getElementById("myChart2").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Your vote',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
 		options: {
             responsive: true,
 		
-    dragX: false,
-    dragDataRound: 0,
-    dragOptions: {
-      magnet: {
-        to: Math.round
-      }
-    },
+            dragX: false,
+            dragDataRound: 0,
+            dragOptions: {
+            magnet: {
+            to: Math.round
+            }
+            },
             dragData: true,
             onDragStart: function (e) {
               //console.log("test");
@@ -1874,12 +1896,41 @@ function renderChart(data, labels) {
             scales: {
               yAxes: [{
                   ticks: {
-				  beginAtZero: true
-                    //  max: 6000,
-                    //  min: 0
+				  beginAtZero: true,
+                     max: 10,
+                     min: 0
                   }
               }]
-            }
+            },
+			tooltips: {
+        enabled: false
+    },
+    hover: {
+        animationDuration: 0
+    },
+    animation: {
+        duration: 1,
+        onComplete: function () {
+		
+            var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+
+            this.data.datasets.forEach(function (dataset, i) {
+			var datatot=0;
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];                            
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+					datatot += data;
+                });
+			validatefn(datatot)	
+            });
+        }
+    }
+			
           }
     });
 }
@@ -1891,25 +1942,35 @@ function render(){
         renderChart(data, labels);
     }
 
+	function render2(){
+	
+        data = [1, 1, 1];
+        labels =  ["Jenny", "Tsai", "Hanguo"];
+        renderChart2(data, labels);
+    }
+
+
 function validatelist()
 {
 if (document.getElementById('val').innerText=='Validate')
 {
+/*
 $( "ul.tv > li" ).addClass("list-group-item-success");
 
 document.getElementById('val').innerText='Change';
 $("#val").removeClass("btn-default").addClass("btn-success");
-
+*/
 $("#clist").hide();
 $("#menu4tab").show();
 
 }
 else{
+/*
 $( "ul.tv > li" ).removeClass("list-group-item-success");
 
 $("#val").removeClass("btn-success").addClass("btn-default");
 document.getElementById('val').innerText='Validate';
-
+*/
 $("#clist").show();
 $("#menu4tab").hide();
 }
@@ -1934,7 +1995,21 @@ $(t).parent().remove().removeClass("disabled").appendTo($("#simpleList"));
 }
 }
              
+function validatefn(dt)
+{
+if (dt==10)
+{document.getElementById('val').innerHTML='Validate'
+document.getElementById('val').disabled = false;
+validatelist();
+}
+else
+{
+document.getElementById('val').innerHTML=dt;
+document.getElementById('val').disabled = true; 
+validatelist();
+}
 
+}
 </script>
 </html>
 
