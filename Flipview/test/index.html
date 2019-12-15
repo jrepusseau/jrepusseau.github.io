@@ -18,7 +18,7 @@
 
 <!-- Simple List -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-dragdata@latest/dist/chartjs-plugin-dragdata.min.js"></script>
 
 
 
@@ -1849,6 +1849,29 @@ function renderChart(data, labels) {
                 data: data,
             }]
         },
+		options: {
+            responsive: false,
+            dragData: true,
+            onDragStart: function (e) {
+              //console.log("test");
+              //console.log(e.clientY)
+              //console.log(test.scales["y-axis-0"].getValueForPixel(e.clientY))
+            },
+            onDrag: function (e, datasetIndex, index, value) {
+              //console.log(e.clientY)
+            },
+            onDragEnd: function (e, datasetIndex, index, value) {
+              // console.log(datasetIndex, index, value)
+            },
+            scales: {
+              yAxes: [{
+                  ticks: {
+                    //  max: 6000,
+                    //  min: 0
+                  }
+              }]
+            }
+          }
     });
 }
 
