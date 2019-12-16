@@ -448,7 +448,7 @@ border-radius: 50%;
   }
   
    .container {
-        width: 100vw;
+        width: 97vw;
         height: 88vh;
 		text-align:center;
     }
@@ -472,7 +472,7 @@ $(function(){
     
 
 $("#renderBtn").click(
-   function() {render();}
+   function() {render('pie');}
 );  
 
 
@@ -560,7 +560,7 @@ $("#renderBtn").click(
 </li>
 
 <li id='menu3tabb' onclick='debate()' width='24vw'>
- <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> F&Q </a>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Open </a>
 
 </li>
 
@@ -649,7 +649,7 @@ $("#renderBtn").click(
     
   
    <div id="menu2" class="tab-pane fade">
-  <h3> Context </h3>
+  <h4> Context </h4>
   <h5>The 15th President and Vice President election of the Republic of China is scheduled to be held in Taiwan on 11 January 2020. Voters will either elect a new President and Vice President or re-elect the incumbents.
   The process of presidential primary elections and nominations are likely to be held during the last six months of 2019.
 Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who was elected in 2016, is eligible to run for a second term. The winner of the 2020 presidential election is scheduled to be inaugurated on 20 May 2020.
@@ -769,11 +769,13 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	  
   
     <div class="container" style='text-align: center;' >
+	<button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
+
         <canvas id="myChart2"></canvas>
 		 
 <br>
-  <button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
- 
+   <h5>
+	vote by draging 10-points  </h5>
     </div>
 	
 	 <script>
@@ -837,6 +839,14 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	<select>
 		<option> Asia </option>
 		<option> All </option>
+		</select>
+		<select>
+		<option> Months </option>
+		<option> Week </option>
+		</select>
+		<select>
+		<option onclick="render('bar')"> Bar </option>
+		<option onclick="render('pie')"> Pie </option>
 		</select>
         <canvas id="myChart"></canvas>
     </div>
@@ -1845,7 +1855,7 @@ function debate()
 function result()
 {
  $('[href="#menu4"]').tab('show');
- render();
+ render('pie');
 }
 
 function renderChart(data, labels) {
@@ -1857,11 +1867,69 @@ function renderChart(data, labels) {
             datasets: [{
                 label: 'This week',
                 data: data,
+				backgroundColor: ["pink", "blue", "red"], 
             }]
         },
 		options: {
-           
+		 xAxes: [{
+              //  display: false //this will remove all the x-axis grid lines
+            }],
+			 yAxes: [{
+            //    display: false //this will remove all the x-axis grid lines
+            }],
+            legend: {
+           display: false
+         },
             scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+			   
+                  }
+              }],
+			 /* xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],*/
+	}
+            
+    }
+			
+          
+	    });
+}
+
+function renderPie(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'This week',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+		 xAxes: [{
+                display: false //this will remove all the x-axis grid lines
+            }],
+			 yAxes: [{
+                display: false //this will remove all the x-axis grid lines
+            }],
+            legend: {
+          //  display: false
+         },
+           /* scales: {
               yAxes: [{
                   ticks: {
 				  beginAtZero: true,
@@ -1880,7 +1948,7 @@ function renderChart(data, labels) {
         }, 
       }
     }],
-            }
+            }*/
     }
 			
           
@@ -1921,6 +1989,9 @@ function renderChart2(data, labels) {
             onDragEnd: function (e, datasetIndex, index, value) {
               // console.log(datasetIndex, index, value)
             },
+			 legend: {
+            display: false
+         },
             scales: {
               yAxes: [{
                   ticks: {
@@ -1977,11 +2048,15 @@ function renderChart2(data, labels) {
     });
 }
 
-function render(){
-	
+function render(type){
+	      
         data = [20000, 14000, 12000];
         labels =  [["Tsai Ing-Wen","蔡英文"], ["Han Kuo-yu","韓國瑜"],["James Soong","宋楚瑜"]];
+		
+		if (type== 'bar')
         renderChart(data, labels);
+		else 
+		renderPie(data,labels)
     }
 
 	function render2(){
