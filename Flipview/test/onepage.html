@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FlipView</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="test.js"></script>
+ <script type="module" src="x-frame-bypass.js"></script>
+ <script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
+  
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+
+<!-- Simple List -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-dragdata@latest/dist/chartjs-plugin-dragdata.min.js"></script>
+
+
+
+  <style>
+  
+  
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+.glitch {
+
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+
+
+  
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+	
+}
+
+.glitch:hover
+ {
+
+  color:pink;
+	
+}
+
+.np
+{
+position:fixed;
+
+}
+
+h2{
+position:center;
+}
+
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  
+  z-index: 1; /* Sit on top */
+  left: 0px;
+
+
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+  position: relative; /* Stay in place */
+  //bottom: 0px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 0%;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    background-color: DeepSkyBlue ;
+}
+.topnav{
+  margin: 10px;
+}
+.topnav-right {
+  right: 10px;
+  margin-left:10px;
+}
+
+
+#navsub2, #navsub1
+{  
+   background: rgba(255,255,255,1);   
+  // padding-right:0.5em;   
+}
+
+
+#argutitle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 23px;
+}
+
+.affix {
+  top: 70px;
+  width: 100%;
+   z-index: 999;
+}
+.affixsourcebox {
+  top: 70px;
+  width: 100%;
+   z-index: 999;
+}
+
+.divargu:hover{
+
+background-color:#E8E8E8;
+
+}
+
+
+
+
+.flex-container {
+    
+       display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+      
+}
+
+
+.fill-width {
+  flex: 1;
+}
+
+#leftArrow {
+    
+width:40px;
+height:40px;
+background:#ff0000; 
+position:absolute;
+left:0px;
+}
+
+#rightArrow {
+    
+width:40px;
+height:40px;
+background:#ff0000; 
+position:absolute;
+right:0px;
+}
+
+#rightDiv{
+width:25%;
+position:relative;
+text-align:center;
+}
+
+
+.rightDivopi{
+width:25%;
+position:relative;
+text-align:center;
+}
+
+#middleDiv{
+width:70%;
+position:relative;
+
+
+}
+
+#leftDiv{
+width:5%;
+position:relative;
+background-image: url("back.png");
+}
+
+/*Presentation of argu*/
+
+.containertype {
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color:black; 
+}
+
+.con {
+  border-color: RGBA(0, 191, 255, 1);
+  background-color: white ;
+}
+
+.pro {
+  border-color: RGBA(255, 20, 147, 1);
+  background-color: white ;
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style time text */
+.time-right {
+
+  color: black;
+}
+
+/* Style time text */
+.time-left {
+
+  color: black;
+}
+
+.serc {
+margin:4px;
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.serc:focus {
+  width: 80%;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+    border: 2px solid #dedede;
+	background-color:white;
+	max-width:10%;
+
+}
+
+.time-left {
+  float: left;
+  color: #999;
+    border: 2px solid #dedede;
+	background-color:white;
+	
+}
+
+input[orient="vertical"] {
+    -webkit-appearance: none;
+	appearance:none;
+  //  background-color: red;
+    width: 20px;
+    height: 60px;
+		margin-left:8px;
+}
+
+input[orient="vertical"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url('p.png');
+  cursor: pointer;
+}
+
+input[orient="vertical"]::-moz-range-thumb {
+  width: 23px;
+  height: 25px;
+  border: 0;
+  background: url('p.png');
+  cursor: pointer;
+}
+
+
+
+.v::-webkit-slider-thumb {
+     -webkit-appearance: none;
+  appearance: none;
+  background:red;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/** FF*/
+.v::-moz-range-progress {
+  background-color:#9a905d; 
+}
+.v::-moz-range-track {  
+  background-color: #9a905d;
+}
+/* IE*/
+.v::-ms-fill-lower {
+   background-color:#9a905d;
+}
+.v::-ms-fill-upper {  
+  background-color: #9a905d;
+}
+.a
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.a::-moz-range-progress {
+  background-color:red; 
+}
+
+.a::-webkit-slider-thumb {
+  background: red;
+}
+.b
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.b::-moz-range-progress {
+  background-color:orange; 
+}
+.b::-webkit-slider-thumb {
+  background:blue; 
+}
+
+
+
+.c::-moz-range-progress {
+  background-color:green; 
+}
+.c::-webkit-slider-thumb {
+  background-image: :url(smiley2.png);
+}
+
+
+
+
+
+.textop {
+    width: 100%;
+}
+
+.but{
+border-radius: 50%;
+    border: 2px solid white;
+ }
+ 
+ .but1
+ {
+ border-top: 2px solid red;
+ }
+ 
+ .but2
+ {
+// border-top: 2px solid orange;
+//  border-right: 2px solid orange;
+ }
+ 
+ .but3
+ {
+ border-top: 2px solid green;
+  border-right: 2px solid green;
+  border-bottom: 2px solid green;
+ }
+ 
+ .but4
+ {
+ border-top: 2px solid #ffd700;
+  border-left: 2px solid #ffd700;
+    border-bottom: 2px solid #ffd700;
+	  border-right: 2px solid #ffd700;
+ }
+
+.sidenav {
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  right: 5px;
+  text-align:right;
+  background: transparent;
+  overflow-x: hidden;
+  padding: 8px 0;
+  display:none;
+}
+
+  #sortable1, #sortable2 {
+    border: 1px solid #eee;
+    width: 142px;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+  }
+  #sortable1 li, #sortable2 li {
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 100px;
+  }
+  
+   .container {
+        width: 97vw;
+        height: 88vh;
+		text-align:center;
+    }
+  
+.x{
+position:absolute;
+right:10px;
+}
+  
+	
+	
+  
+  </style>
+</head>
+<body>
+<script>
+/* affix the 2nd navbar after scroll past first navbar */
+
+$(function(){
+    // Simple list
+    
+
+$("#renderBtn").click(
+   function() {render('pie');}
+);  
+
+
+
+          
+
+
+    $("[data-toggle=popover]").popover({
+        html : true,
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).children(".popover-body").html();
+        },
+        title: function() {
+            var title = $(this).attr("data-popover-content");
+            return $(title).children(".popover-heading").html();
+        }
+    });});
+	
+
+</script>
+
+ 
+ <nav class="navbar navbar-fixed-top navbar-expand-md " id='nav1'  >
+ 
+    <ul class="nav nav-tabs" style='text-align:center'>
+      <li class="nav-item"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">FlipView</a></li>
+	  <!--
+      <li><a href="#menu2" data-toggle="tab" id="maintitle" style='text-align:center'></a></li>
+	  -->
+	
+	 <li  class="nav-item"id="user"><a href="#"><span class="glyphicon glyphicon-user"></span> JW</a></li>
+	 
+      
+	 
+    </ul>
+	
+	
+ 
+</nav> 
+
+<nav class="navbar navbar-fixed-bottom navbar-expand-md justify-content-center"     id="nav2" >
+<ul class="nav nav-tabs " style='text-align:center' >
+<li class="dropdown nav-item" id='LN'>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >World Trend 
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+		<li><a href="#" onclick="init('en')">English (English) </a></li>
+          <li><a href="#" onclick="init('cn')">Taiwan (Zn) </a></li>
+          <li><a href="#" onclick="init('fr')">France (Francais)</a></li>
+          <li><a href="#">Korea (Kr)</a></li>
+        </ul>
+      </li>
+<li class="nav-item">
+
+</li>	  
+	 
+
+	
+	 <li class="nav-item"> <a href="#"><span class="glyphicon glyphicon-repeat"></span> Recent</a></li>
+	   </ul>
+	  
+	  </nav>
+	  
+	  
+	  
+<nav class="navbar navbar-fixed-top navbar-expand-md " style='display:none'   id="navsub1" >
+ 
+    <ul class="nav nav-tabs" style='text-align:center' >
+	
+	 <li  class="nav-item" id="user" onclick='leave()'><a href="#"><span class="glyphicon glyphicon-menu-left"></span> </a></li>
+      <li class="nav-item"><a id='Title' >hhvjvhvjh</a></li>
+    </ul>
+	
+	
+ 
+</nav> 	 
+
+<nav class="navbar navbar-fixed-bottom navbar-expand-md " style='display:none'   id="navsub2" >
+<ul class="nav nav-tabs " style='text-align:center'>
+
+<li class="active" onclick='general()' width='24vw'>
+
+<a href="#menu2"><span class="glyphicon glyphicon-book"></span> Info</a>
+</li>
+
+<li id='menu3tabb' onclick='debate()' width='24vw'>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Open </a>
+
+</li>
+
+<li  id='menu5tab' onclick='yourlist()' width='24vw'>
+
+<a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> You </a>
+</li>
+
+	 
+
+
+	 <li id='menu4tab' onclick='result()' width='24vw'  > 
+	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Results</a></li>
+	   </ul>
+	  
+	  </nav> 
+	  
+
+<nav class='navbar'  id="Sources" onclick="" style="width:100%;display:none">
+
+ <div id="Web" >
+    <div class="flex-container"  >
+	<input class="serc"  type="text" id='srch'></input><button onclick='insertcit()' >INSERT</button>
+
+	
+   <span class="close" onclick="hideSource()">&times;</span>
+  </div>
+   <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' id='webpage' name='webpage'  width="100%" frameborder="0px" onLoad="changeURI()"> Error</iframe> 
+   <a href="#">import ref</a>
+</div>
+</nav>
+ 
+
+
+ 
+ 
+ <nav class="navbar navbar navbar-fixed-bottom "  id="editor" style='display:none'>
+  
+    
+	
+      <div class="flex-container"  >
+<textarea rows="4" cols="50" id='editortext' placeholder="Write your opinion" class='pro'></textarea>
+    <button id="sourcebox" onclick="SourceBox()"  data-html="true"  data-toggle="popover" title="Source" data-placement="left" data-trigger="focus"
+	 tabindex="0"   data-popover-content="#unique-id"><</button>
+	
+	<button onclick='showSource()'>Browser</button><button onclick='post()'> Post </button>
+	</div>
+	 
+
+ 
+</nav> 
+
+<div class="sidenav" id='notationtool' style='display:none;background-color: transparent;'>
+	<a href="#about" style='background-color:white;'>Ge</a><br>
+  <a href="#services" style='background-color:green;'>WW</a><br>
+  <a href="#clients"  style='background-color:yellow;'>Lo</a><br>
+  <a href="#contact" style='background-color:red;'>Tr</a><br>
+  </div>
+
+  <header>
+  <br>
+  <br>
+  <br>
+  </header>
+
+ <div class="container" id="directordiv" style='width:100%'>
+
+<div class="tab-content">
+  <div id="menu1" class="tab-pane fade in active">
+
+  <br>
+  <br>
+ <ul class="list-group" href="#menu2">
+  <li class="list-group-item" id='4645' onclick='enter(this.id)'  >2020 Taiwan presidential election <span class="badge">12</span></li>
+  <li class="list-group-item" id='4644' onclick='enter(this.id)'>Senator Election<span class="badge">5</span></li>
+  <li class="list-group-item" id='4643' onclick='enter(this.id)'>Empeachement<span class="badge">3</span></li>
+</ul> 
+
+<br>
+<br>
+<br>
+</div>
+       
+ 
+
+    
+  
+   <div id="menu2" class="tab-pane fade">
+  <h4> Context </h4>
+  <h5>The 15th President and Vice President election of the Republic of China is scheduled to be held in Taiwan on 11 January 2020. Voters will either elect a new President and Vice President or re-elect the incumbents.
+  The process of presidential primary elections and nominations are likely to be held during the last six months of 2019.
+Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who was elected in 2016, is eligible to run for a second term. The winner of the 2020 presidential election is scheduled to be inaugurated on 20 May 2020.
+ The 10th Legislative Yuan election will also be held concurrently. 
+</h3>
+<br>
+  <h3> Official Programs </h3>
+   <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+       <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"> Tsai Ing-Wen 蔡英文 <span class="glyphicon glyphicon-menu-down"></span>
+        </a>
+
+      </h4>
+
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+	  
+	  
+	  In April 2011, Tsai became the first female presidential candidate of a major party in the history of the Republic of China after defeating her former superior, Su Tseng-chang, in the DPP's primary by a slight margin. She was defeated by incumbent Kuomintang candidate Ma Ying-jeou in the 5th direct presidential election in 2012, but was elected by a landslide four years later in the sixth direct presidential election in 2016. </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+       <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">  Han Kuo-yu 韓國瑜 <span class="glyphicon glyphicon-menu-down"></span>
+       </a>
+	   
+      </h4>
+    </div>
+	
+   
+ 
+ 
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body"> Han was elected Mayor of Kaohsiung in November 2018, and became the first Kuomintang politician since Wu in 1998 to hold the office. Han is the KMT's nominee running against incumbent president Tsai Ing-wen in the 2020 Taiwan presidential election. </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">  James Soong 宋楚瑜  <span class="glyphicon glyphicon-menu-down"></span>
+       </a>
+	
+      </h4>
+	     
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">Soong contested the 2020 Taiwan presidential election, beginning his campaign on 13 November 2019.
+	  Soong and Sandra Yu formed the People First Party ticket.The pair registered their candidacy with the Central Election Commission on 18 November 2019.</div>
+    </div>
+  </div>
+</div> 
+<h3> Programs Benchmarks </h3>
+  
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Party </th>
+        <th>Gay marriage</th>
+		 <th>military services</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tsai Ing-Wen 蔡英文</td>
+        <td>DPP</td>
+        <td>V</td>
+		<td>Reduce it </td>
+      </tr>
+      <tr>
+        <td>Han Kuo-yu 韓國瑜</td>
+        <td>Kuomintang</td>
+        <td>X</td>
+		<td>Increase it </td>
+      </tr>
+       <tr>
+        <td>James Soong 宋楚瑜</td>
+        <td>People First</td>
+        <td>X</td>
+		<td>Increase it</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <br><br><br>
+  
+	  </div>
+	  
+	   <div id="menu5" class="tab-pane fade">
+	  
+	 
+
+	  <!--
+	   <div class="container-fluid">
+  <div class="row">
+    <div class="ol-xs-6 col-sm-6 col-md-6 col-lg-6">
+       <ul id="simpleList" class="tv list-group">
+	
+	<li class='list-group-item' onclick='up(this)'>Jenny <button onclick='push(this)' class='x'> x</button> </li>
+	<li class='list-group-item' onclick='up(this)'> Hanguo <button onclick='push(this)' class='x'>x</button>  </li>
+
+</ul>
+    </div>
+    <div class="ol-xs-6 col-sm-6 col-md-6 col-lg-6">
+     <ul id="clist" class="tv list-group">
+    <li class='list-group-item disabled' onclick='up(this)'> Tsai <button onclick='push(this)' class='x'>+</button> </li>
+</ul>
+    </div>
+  </div>
+</div>
+	-->
+	  
+  
+    <div class="container" style='text-align: center;' >
+	<button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
+
+        <canvas id="myChart2"></canvas>
+		 
+<br>
+   <h5>
+	vote by draging 10-points  </h5>
+    </div>
+	
+	 <script>
+	
+</script>
+	  
+	  
+		
+	      
+       
+      
+  </div>
+  
+	  <div id="menu3" class="tab-pane fade">
+	  
+	 
+
+	  </br></br>	</br>	
+	  
+	   <h5>Use trustable source, Attack facts not people, Take pleasure  </h5>
+		<h5> Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
+		<h5> Art is a good example of third opinion cause you can, at the same time, dislike a part of an art but fall in love of one element </h5>
+		  <h3> Reddit poll </h3>
+	  
+	  
+	  <footer>
+	  
+      <div class="flex-container"  >
+<textarea rows="4" cols="50" id='editortext' placeholder="Write your opinion" class='pro'></textarea>
+    <button id="sourcebox" onclick="SourceBox()"  data-html="true"  data-toggle="popover" title="Source" data-placement="left" data-trigger="focus"
+	 tabindex="0"   data-popover-content="#unique-id"><</button>
+	
+	<button onclick='showSource()'>Browser</button><button onclick='post()'> Post </button>
+	</div>
+	</footer>
+	<br><br><br>
+	  </div>
+	  
+	  
+	
+	  
+	  
+		
+	      
+       
+      
+
+  
+    <div id="menu4" class="tab-pane fade" >
+	  
+	 
+
+	 
+	  
+<!--
+	  <button id="renderBtn">
+        Refresh
+    </button><br>-->
+	
+    <div class="container" >
+	<select>
+		<option> Asia </option>
+		<option> All </option>
+		</select>
+		<select>
+		<option> Months </option>
+		<option> Week </option>
+		</select>
+		<select>
+		<option onclick="render('bar')"> Bar </option>
+		<option onclick="render('pie')"> Pie </option>
+		</select>
+        <canvas id="myChart"></canvas>
+    </div>
+		
+		
+      
+  </div>
+  
+	
+	  </div>
+</div>
+</div>
+
+
+<div id="unique-id" style="display:none;">
+    <div class="popover-heading">Source</div>
+    <div  class="popover-body"><p id='ui'> <p></div>
+</div>
+
+
+
+</body>
+<script>
+
+$("#menu4tab").hide();
+
+render2();	
+//alert('2.6')
+
+
+function showNav(title){
+document.getElementById("back").style.display = "none";
+/*if(title.length>25)
+title = title.slice(0, 25) + "</br>" + title.slice(25);
+if(title.length>50)
+var title = title.slice(0, 50) + "</br>" + title.slice(50);
+if(title.length>75)
+var title = title.slice(0, 75) + "</br>" + title.slice(75);*/
+document.getElementById("maintitle").innerHTML="<button onclick='Back()'>Back</button> "+title+"  <button onclick='Question()'>*</button>";
+
+}
+
+function hideNav(){
+document.getElementById("back").style.display = "";
+document.getElementById("maintitle").innerHTML = "";
+}
+
+function closemodal(){
+var modal = document.getElementById("myModal");
+ modal.style.display = "none";
+ }
+
+
+
+ 
+ 
+ 
+function Back() {
+ hideNav();
+  $('[href="#menu1"]').tab('show');
+  document.getElementById("nav1").style.backgroundColor="";
+  document.getElementById("user").style.display="";
+  document.getElementById("LN").style.display="";
+ hidetextwriter();
+}
+
+function hidetextwriter(){
+var txt = document.getElementById("editor");
+txt.style.display = "none";
+}
+
+function showtextwriter(){
+var txt = document.getElementById("editor");
+txt.style.backgroundColor= document.getElementById('nav1').style.backgroundColor;
+txt.style.display = "block";
+
+}
+
+function hideSource()
+{
+var source = document.getElementById("Sources");
+source.style.display = "none";
+}
+
+function showSource(id)
+{
+var source = document.getElementById("Sources");
+if(id);
+document.getElementById('webpage').setAttribute('src',id);
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
+source.setAttribute('style','left:0px');
+source.style.display = "block";
+$('#Sources').affix({
+      offset: {
+        top: '0px'
+      }
+});
+$('.affix').css('top',$("#arguments").height());
+
+
+}
+
+
+
+
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+
+
+function SourceBox()
+{
+$('#sourcebox').popover('show');
+
+}
+function changeURI()
+{
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
+}
+
+window.addEventListener('keypress', function (e) {
+
+    if (e.keyCode == 13) {
+      var a = document.createElement('A');
+	  a.setAttribute('href',document.getElementById('srch').value)
+	  showSource(a.href);
+    }
+}, false);
+
+
+function enter(id)
+{
+ $('[href="#menu2"]').tab('show');
+document.getElementById('nav1').style.display='none';
+document.getElementById('nav2').style.display='none';
+document.getElementById('navsub1').style.display='block';
+document.getElementById('navsub2').style.display='block';
+document.getElementById('Title').innerHTML= document.getElementById(id).innerHTML;
+
+}
+
+function leave()
+{
+ $('[href="#menu1"]').tab('show');
+document.getElementById('nav1').style.display='block';
+document.getElementById('nav2').style.display='block';
+document.getElementById('navsub1').style.display='none';
+document.getElementById('navsub2').style.display='none';
+}
+
+function general()
+{
+ $('[href="#menu2"]').tab('show');
+}
+
+function yourlist()
+{
+ $('[href="#menu5"]').tab('show');
+}
+
+function debate()
+{
+ $('[href="#menu3"]').tab('show');
+}
+
+function result()
+{
+ $('[href="#menu4"]').tab('show');
+ render('pie');
+}
+
+function renderChart(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'This week',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+		 xAxes: [{
+              //  display: false //this will remove all the x-axis grid lines
+            }],
+			 yAxes: [{
+            //    display: false //this will remove all the x-axis grid lines
+            }],
+            legend: {
+           display: false
+         },
+            scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+			   
+                  }
+              }],
+			 /* xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],*/
+	}
+            
+    }
+			
+          
+	    });
+}
+
+function renderPie(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'This week',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+		 xAxes: [{
+                display: false //this will remove all the x-axis grid lines
+            }],
+			 yAxes: [{
+                display: false //this will remove all the x-axis grid lines
+            }],
+            legend: {
+          //  display: false
+         },
+           /* scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+			   
+                  }
+              }],
+			  xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],
+            }*/
+    }
+			
+          
+	    });
+}
+
+function renderChart2(data, labels) {
+    var ctx = document.getElementById("myChart2").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+               // label: 'Preferences',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+            responsive: true,
+		
+            dragX: false,
+            dragDataRound: 0,
+            dragOptions: {
+            magnet: {
+            to: Math.round
+            }
+            },
+            dragData: true,
+            onDragStart: function (e) {
+              //console.log("test");
+              //console.log(e.clientY)
+              //console.log(test.scales["y-axis-0"].getValueForPixel(e.clientY))
+            },
+            onDrag: function (e, datasetIndex, index, value) {
+              //console.log(e.clientY)
+            },
+            onDragEnd: function (e, datasetIndex, index, value) {
+              // console.log(datasetIndex, index, value)
+            },
+			 legend: {
+            display: false
+         },
+            scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+                    max: 10,
+					min:0,
+                  //  callback: function(value) {if (value == 0) {return value+0.2;}},
+			   
+                  }
+              }],
+			  xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],
+            },
+			tooltips: {
+        enabled: false
+    },
+    hover: {
+        animationDuration: 0
+    },
+    animation: {
+        duration: 1,
+        onComplete: function () {
+		
+            var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+
+            this.data.datasets.forEach(function (dataset, i) {
+			var datatot=0;
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];                            
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+					datatot += data;
+                });
+			validatefn(datatot)	
+            });
+        }
+    }
+			
+          }
+    });
+}
+
+function render(type){
+	      
+        data = [20000, 14000, 12000];
+        labels =  [["Tsai Ing-Wen","蔡英文"], ["Han Kuo-yu","韓國瑜"],["James Soong","宋楚瑜"]];
+		
+		if (type== 'bar')
+        renderChart(data, labels);
+		else 
+		renderPie(data,labels);
+    }
+
+	function render2(){
+	
+        data = [1, 1, 1];
+        labels =  [["Tsai Ing-Wen","蔡英文"], ["Han Kuo-yu","韓國瑜"],["James Soong","宋楚瑜"]];
+        renderChart2(data, labels);
+    }
+
+
+function validatelist()
+{
+if (document.getElementById('val').innerText=='Validate')
+{
+/*
+$( "ul.tv > li" ).addClass("list-group-item-success");
+
+document.getElementById('val').innerText='Change';
+
+*/
+$("#clist").hide();
+$("#menu4tab").show();
+$("#val").removeClass("btn-default").addClass("btn-success");
+
+}
+else{
+/*
+$( "ul.tv > li" ).removeClass("list-group-item-success");
+
+
+document.getElementById('val').innerText='Validate';
+*/
+$("#clist").show();
+$("#menu4tab").hide();
+$("#val").removeClass("btn-success").addClass("btn-default");
+}
+}    
+
+function up(e) { 
+if (document.getElementById('val').innerText=='Validate')
+{
+              $(e).insertBefore($(e).prev());
+			  }
+            }; 
+function  push(t) { 
+if ($(t).html()=='x')
+{
+$(t).html('+');
+$(t).parent().remove().addClass("disabled").appendTo($("#clist"));
+}
+else
+{
+$(t).html('x');
+$(t).parent().remove().removeClass("disabled").appendTo($("#simpleList"));
+}
+}
+             
+function validatefn(dt)
+{
+if (dt==10)
+{document.getElementById('val').innerHTML='✓';
+document.getElementById('val').disabled = true;
+$("#clist").hide();
+$("#menu4tab").show();
+$("#val").removeClass("btn-default").addClass("btn-success");
+}
+else
+{
+document.getElementById('val').innerHTML=10-dt + ' points left';
+document.getElementById('val').disabled = true; 
+$("#clist").show();
+$("#menu4tab").hide();
+$("#val").removeClass("btn-success").addClass("btn-default");
+}
+
+}
+</script>
+</html>
+
+
+
+
