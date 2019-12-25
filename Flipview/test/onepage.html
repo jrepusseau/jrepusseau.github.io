@@ -443,29 +443,24 @@ right:10px;
 }
   
 #top-menu {
-    position: fixed;
-    z-index: 1;
+  
     background: white;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    
 }
 
 #top-menu li {
-    float: left;
+ width:24vw;
 }
 
 #top-menu a {
     display: block;
-    padding: 5px 25px 7px 25px;
-    width: 4em;
-    text-align: center;
+  
     -webkit-transition: .2s all ease-out;
     -moz-transition: .2s all ease-out;
     transition: .2s all ease-out;
     border-top: 3px solid white;
     color: #aaa;
-    text-decoration: none;
+ 
 }
 
 #top-menu a:hover {
@@ -577,19 +572,19 @@ $("#renderBtn").click(
 </nav> 	 
 
 <nav class="navbar navbar-fixed-bottom navbar-expand-md " style='display:none'   id="navsub2" >
-<ul id="top-menu">
+<ul class="nav nav-tabs" id="top-menu">
 
-<li class="active" onclick='general()' >
+<li class="nav-item active" onclick='general()'  >
 
 <a href="#menu2"><span class="glyphicon glyphicon-book"></span> Info</a>
 </li>
 
-<li id='menu3tabb' onclick='debate()' width='24vw'>
+<li class="nav-item" id='menu3tabb' onclick='debate()' width='24vw'>
  <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Open </a>
 
 </li>
 
-<li  id='menu5tab' onclick='yourlist()' width='24vw'>
+<li class="nav-item" id='menu5tab' onclick='yourlist()' width='24vw'>
 
 <a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> You </a>
 </li>
@@ -597,7 +592,7 @@ $("#renderBtn").click(
 	 
 
 
-	 <li id='menu4tab' onclick='result()' width='24vw'  > 
+	 <li id='menu4tab' onclick='result()' width='24vw' class="nav-item"  > 
 	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Results</a></li>
 	   </ul>
 	  
