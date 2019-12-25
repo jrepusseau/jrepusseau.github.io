@@ -118,6 +118,7 @@ position:center;
 #navsub2, #navsub1
 {  
   transition: transform 0.4s;
+     background: white;
 
   // padding-right:0.5em;   
 }
@@ -132,16 +133,7 @@ position:center;
   height: 23px;
 }
 
-.affix {
-  top: 70px;
-  width: 100%;
-   z-index: 999;
-}
-.affixsourcebox {
-  top: 70px;
-  width: 100%;
-   z-index: 999;
-}
+
 
 .divargu:hover{
 
@@ -165,52 +157,7 @@ background-color:#E8E8E8;
 .fill-width {
   flex: 1;
 }
-
-#leftArrow {
-    
-width:40px;
-height:40px;
-background:#ff0000; 
-position:absolute;
-left:0px;
-}
-
-#rightArrow {
-    
-width:40px;
-height:40px;
-background:#ff0000; 
-position:absolute;
-right:0px;
-}
-
-#rightDiv{
-width:25%;
-position:relative;
-text-align:center;
-}
-
-
-.rightDivopi{
-width:25%;
-position:relative;
-text-align:center;
-}
-
-#middleDiv{
-width:70%;
-position:relative;
-
-
-}
-
-#leftDiv{
-width:5%;
-position:relative;
-background-image: url("back.png");
-}
-
-/*Presentation of argu*/
+*Presentation of argu*/
 
 .containertype {
   border: 2px solid #dedede;
@@ -220,187 +167,7 @@ background-image: url("back.png");
   color:black; 
 }
 
-.con {
-  border-color: RGBA(0, 191, 255, 1);
-  background-color: white ;
-}
 
-.pro {
-  border-color: RGBA(255, 20, 147, 1);
-  background-color: white ;
-}
-
-/* Clear floats */
-.container::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-/* Style time text */
-.time-right {
-
-  color: black;
-}
-
-/* Style time text */
-.time-left {
-
-  color: black;
-}
-
-.serc {
-margin:4px;
-  width: 130px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-/* When the input field gets focus, change its width to 100% */
-.serc:focus {
-  width: 80%;
-}
-
-.time-right {
-  float: right;
-  color: #aaa;
-    border: 2px solid #dedede;
-	background-color:white;
-	max-width:10%;
-
-}
-
-.time-left {
-  float: left;
-  color: #999;
-    border: 2px solid #dedede;
-	background-color:white;
-	
-}
-
-input[orient="vertical"] {
-    -webkit-appearance: none;
-	appearance:none;
-  //  background-color: red;
-    width: 20px;
-    height: 60px;
-		margin-left:8px;
-}
-
-input[orient="vertical"]::-webkit-slider-thumb {
-     -webkit-appearance: none;
-  appearance: none;
-  width: 23px;
-  height: 24px;
-  border: 0;
-  background: url('p.png');
-  cursor: pointer;
-}
-
-input[orient="vertical"]::-moz-range-thumb {
-  width: 23px;
-  height: 25px;
-  border: 0;
-  background: url('p.png');
-  cursor: pointer;
-}
-
-
-
-.v::-webkit-slider-thumb {
-     -webkit-appearance: none;
-  appearance: none;
-  background:red;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-/** FF*/
-.v::-moz-range-progress {
-  background-color:#9a905d; 
-}
-.v::-moz-range-track {  
-  background-color: #9a905d;
-}
-/* IE*/
-.v::-ms-fill-lower {
-   background-color:#9a905d;
-}
-.v::-ms-fill-upper {  
-  background-color: #9a905d;
-}
-.a
-{
- appearance: none;
--webkit-appearance: none;
-}
-.a::-moz-range-progress {
-  background-color:red; 
-}
-
-.a::-webkit-slider-thumb {
-  background: red;
-}
-.b
-{
- appearance: none;
--webkit-appearance: none;
-}
-.b::-moz-range-progress {
-  background-color:orange; 
-}
-.b::-webkit-slider-thumb {
-  background:blue; 
-}
-
-
-
-.c::-moz-range-progress {
-  background-color:green; 
-}
-.c::-webkit-slider-thumb {
-  background-image: :url(smiley2.png);
-}
-
-
-
-
-
-.textop {
-    width: 100%;
-}
-
-.but{
-border-radius: 50%;
-    border: 2px solid white;
- }
- 
- .but1
- {
- border-top: 2px solid red;
- }
- 
- .but2
- {
-// border-top: 2px solid orange;
-//  border-right: 2px solid orange;
- }
- 
- .but3
- {
- border-top: 2px solid green;
-  border-right: 2px solid green;
-  border-bottom: 2px solid green;
- }
- 
- .but4
- {
- border-top: 2px solid #ffd700;
-  border-left: 2px solid #ffd700;
-    border-bottom: 2px solid #ffd700;
-	  border-right: 2px solid #ffd700;
- }
 
 .sidenav {
   position: fixed;
@@ -414,22 +181,7 @@ border-radius: 50%;
   display:none;
 }
 
-  #sortable1, #sortable2 {
-    border: 1px solid #eee;
-    width: 142px;
-    min-height: 20px;
-    list-style-type: none;
-    margin: 0;
-    padding: 5px 0 0 0;
-    float: left;
-    margin-right: 10px;
-  }
-  #sortable1 li, #sortable2 li {
-    margin: 0 5px 5px 5px;
-    padding: 5px;
-    font-size: 1.2em;
-    width: 100px;
-  }
+ 
   
    .container {
         width: 97vw;
@@ -561,10 +313,10 @@ $("#renderBtn").click(
 	  
 <nav class="navbar navbar-fixed-top navbar-expand-md " style='display:none'   id="navsub1" >
  
-    <ul class="nav nav-tabs" style='text-align:center' >
+    <ul class="nav nav-tabs" >
 	
 	 <li  class="nav-item" id="user" onclick='leave()'><a href="#"><span class="glyphicon glyphicon-menu-left"></span> </a></li>
-      <li class="nav-item"><a id='Title' >hhvjvhvjh</a></li>
+      <li class="nav-item"><a id='Title' style='text-align:center'  >hhvjvhvjh</a></li>
     </ul>
 	
 	
