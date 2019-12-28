@@ -211,7 +211,8 @@ right:10px;
     -moz-transition: .2s all ease-out;
     transition: .2s all ease-out;
     border-top: 3px solid white;
-    color: #aaa;
+ color: #333;
+ text-align:center;
  
 }
 
@@ -234,6 +235,16 @@ right:10px;
   transform: none;
 }
 
+.success
+{
+border-top: 2px solid green;
+color:green;
+}
+
+.success span
+{
+color:green;
+}
   
   </style>
 </head>
@@ -334,20 +345,18 @@ $("#renderBtn").click(
 </li>
 
  <li id='menu4tab' onclick='result()' width='24vw' class="nav-item"  > 
-	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Results</a></li>
+	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> File</a></li>
 	
 
-<li class="nav-item" id='menu3tabb' onclick='debate()' width='24vw'>
- <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Open </a>
+<li class="nav-item" id='menu3tab' onclick='debate()' width='24vw'>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Come </a>
 
 </li>
 
-<li class="nav-item" id='menu5tab' onclick='yourlist()' width='24vw'>
+<li class="nav-item" id='menu5tab' onclick='yourlist()' width='24vw' data-toggle="modal" data-target="#myModal" data-backdrop="false">
 
-<a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> You </a>
+<a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> Vote </a>
 </li>
-
-	 
 
 
 	   </ul>
@@ -543,37 +552,70 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 		</select>
         <canvas id="myChart"></canvas>
     </div>
+	</br></br>	
   
    <a id="menu3" > Debate </a>
 	  
 	 
-
-	  </br></br>	</br>	
+</br>	  <br>
+<br>
+</br>	  <br>
+<br>
+	  </br></br>	
 	  
-	   <h5>Use trustable source, Attack facts not people, Take pleasure  </h5>
-		<h5> Use Turing ideologic test , reformulate ideas even if is the inverse of what you are thinking. </h5>
-		<h5> Art is a good example of third opinion cause you can, at the same time, dislike a part of an art but fall in love of one element </h5>
-		  <h3> Reddit poll </h3>
-	  
-	  
-	  <footer>
+	 
+	  <ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span class="badge badge-primary badge-pill">14 <button>+</button></span>
+   Opinion 1
+   <br>
+   <br>
+   <br>
+<br>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span class="badge badge-primary badge-pill">2<button>+</button></span>
+    Opinion 2
+   <br>
+   <br>
+   <br>
+<br>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <span class="badge badge-primary badge-pill">1<button>+</button></span>
+  Opinion 3
+   <br>
+   <br>
+   <br>
+  <br>
+  </li>
+  
+</ul>
+	
 	  
       <div class="flex-container"  >
 <textarea rows="4" cols="50" id='editortext' placeholder="Write your opinion" class='pro'></textarea>
     <button id="sourcebox" onclick="SourceBox()"  data-html="true"  data-toggle="popover" title="Source" data-placement="left" data-trigger="focus"
 	 tabindex="0"   data-popover-content="#unique-id"><</button>
 	
-	<button onclick='showSource()'>Browser</button><button onclick='post()'> Post </button>
+	<button onclick='showSource()'>Browser</button><button onclick='post()'> Reply</button>
 	</div>
-	</footer>
+	
 	<br><br><br>
+	  <br>
+   <br>
+  <br>
+  <br><br><br>
+	  <br>
+   <br>
+  <br>
+  End
 	  
-	  
-	   <a id="menu5"> Vote </a>
+	   <!--  <a id="menu5"> Vote </a>
 	  
 	 
 
-	  <!--
+	
 	   <div class="container-fluid">
   <div class="row">
     <div class="ol-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -594,7 +636,18 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 	-->
 	  
   
-    <div class="container" style='text-align: center;' >
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container" style='text-align: center;' >
 	<button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
 
         <canvas id="myChart2"></canvas>
@@ -603,6 +656,16 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
    <h5>
 	vote by draging 10-points  </h5>
     </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 	
 	 <script>
 	
@@ -1029,9 +1092,9 @@ function validatelist()
 {
 if (document.getElementById('val').innerText=='Validate')
 {
-/*
-$( "ul.tv > li" ).addClass("list-group-item-success");
 
+
+/*
 document.getElementById('val').innerText='Change';
 
 */
@@ -1041,10 +1104,10 @@ $("#val").removeClass("btn-default").addClass("btn-success");
 
 }
 else{
+
+
+
 /*
-$( "ul.tv > li" ).removeClass("list-group-item-success");
-
-
 document.getElementById('val').innerText='Validate';
 */
 $("#clist").show();
@@ -1078,9 +1141,11 @@ if (dt==10)
 document.getElementById('val').disabled = true;
 $("#clist").hide();
 $("#val").removeClass("btn-default").addClass("btn-success");
+$( "#menu5tab" ).addClass("success");
 }
 else
 {
+$( "#menu5tab" ).removeClass("success");
 document.getElementById('val').innerHTML=10-dt + ' points left';
 document.getElementById('val').disabled = true; 
 $("#clist").show();
@@ -1106,7 +1171,7 @@ var lastId,
 // so we can get a fancy scroll animation
 menuItems.click(function(e){
   var href = $(this).attr("href"),
-      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+40;
   $('html, body').stop().animate({ 
       scrollTop: offsetTop
   }, 0);
