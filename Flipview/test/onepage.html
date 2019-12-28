@@ -184,8 +184,8 @@ background-color:#E8E8E8;
  
   
    .container {
-        width: 97vw;
-        height: 88vh;
+        width: 100%;
+        height: 100%;
 		text-align:center;
     }
   
@@ -217,11 +217,13 @@ right:10px;
 
 #top-menu a:hover {
     color: #000;
+
 }
 
 #top-menu li.active a {
     border-top: 3px solid #333;
     color: #333;
+
 }
 	
 .scroll-down #navsub1 {
@@ -331,6 +333,10 @@ $("#renderBtn").click(
 <a href="#menu2"><span class="glyphicon glyphicon-book"></span> Info</a>
 </li>
 
+ <li id='menu4tab' onclick='result()' width='24vw' class="nav-item"  > 
+	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Results</a></li>
+	
+
 <li class="nav-item" id='menu3tabb' onclick='debate()' width='24vw'>
  <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Open </a>
 
@@ -344,8 +350,6 @@ $("#renderBtn").click(
 	 
 
 
-	 <li id='menu4tab' onclick='result()' width='24vw' class="nav-item"  > 
-	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Results</a></li>
 	   </ul>
 	  
 	  </nav> 
@@ -513,6 +517,33 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
   </div>
   <br><br><br>
   
+  <a id="menu4" > Results </a>
+	  
+	 
+
+	 
+	  
+<!--
+	  <button id="renderBtn">
+        Refresh
+    </button><br>-->
+	
+    <div class="container" >
+	<select>
+		<option> Asia </option>
+		<option> All </option>
+		</select>
+		<select>
+		<option> Months </option>
+		<option> Week </option>
+		</select>
+		<select>
+		<option onclick="render('bar')"> Bar </option>
+		<option onclick="render('pie')"> Pie </option>
+		</select>
+        <canvas id="myChart"></canvas>
+    </div>
+  
    <a id="menu3" > Debate </a>
 	  
 	 
@@ -597,32 +628,7 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
       
 
   
-    <a id="menu4" > Results </a>
-	  
-	 
-
-	 
-	  
-<!--
-	  <button id="renderBtn">
-        Refresh
-    </button><br>-->
-	
-    <div class="container" >
-	<select>
-		<option> Asia </option>
-		<option> All </option>
-		</select>
-		<select>
-		<option> Months </option>
-		<option> Week </option>
-		</select>
-		<select>
-		<option onclick="render('bar')"> Bar </option>
-		<option onclick="render('pie')"> Pie </option>
-		</select>
-        <canvas id="myChart"></canvas>
-    </div>
+    
 		
 		
       
@@ -644,8 +650,7 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 </body>
 <script>
 
-$("#menu4tab").hide();
-
+result();
 render2();	
 alert('1page')
 
@@ -810,6 +815,7 @@ function result()
 
 function renderChart(data, labels) {
     var ctx = document.getElementById("myChart").getContext('2d');
+	ctx.clearRect(0, 0, document.getElementById("myChart").width, document.getElementById("myChart").height);
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -859,6 +865,8 @@ function renderChart(data, labels) {
 
 function renderPie(data, labels) {
     var ctx = document.getElementById("myChart").getContext('2d');
+	ctx.clearRect(0, 0, document.getElementById("myChart").width, document.getElementById("myChart").height);
+  
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
@@ -1040,7 +1048,6 @@ $( "ul.tv > li" ).removeClass("list-group-item-success");
 document.getElementById('val').innerText='Validate';
 */
 $("#clist").show();
-$("#menu4tab").hide();
 $("#val").removeClass("btn-success").addClass("btn-default");
 }
 }    
@@ -1070,7 +1077,6 @@ if (dt==10)
 {document.getElementById('val').innerHTML='✓';
 document.getElementById('val').disabled = true;
 $("#clist").hide();
-$("#menu4tab").show();
 $("#val").removeClass("btn-default").addClass("btn-success");
 }
 else
@@ -1078,7 +1084,6 @@ else
 document.getElementById('val').innerHTML=10-dt + ' points left';
 document.getElementById('val').disabled = true; 
 $("#clist").show();
-$("#menu4tab").hide();
 $("#val").removeClass("btn-success").addClass("btn-default");
 }
 
@@ -1112,6 +1117,7 @@ const body = document.body;
 let lastScroll = 0;
 const scrollUp = "scroll-up";
 const scrollDown = "scroll-down";
+const active='active';
 // Bind to scroll
 $(window).scroll(function(){
    // Get container scroll position
