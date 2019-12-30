@@ -238,7 +238,6 @@ right:10px;
 .success
 {
 border-top: 2px solid green;
-color:green;
 }
 
 .success span
@@ -256,19 +255,19 @@ input[orient="vertical"] {
 }
 
 input[orient="vertical"]::-webkit-slider-thumb {
-     -webkit-appearance: none;
+ /*    -webkit-appearance: none;
   appearance: none;
   width: 25px;
   height: 25px;
   border: 0;
-  cursor: pointer;
+  cursor: pointer;*/
 }
 
 input[orient="vertical"]::-moz-range-thumb {
-  width: 25px;
+/*  width: 25px;
   height: 25px;
   border: 0;
-  cursor: pointer;
+  cursor: pointer;*/
 }
   
 .a
@@ -1305,9 +1304,11 @@ e.parentElement.children[0].innerHTML=e.value;
   $(".modal-title").text((10-tot)+ ' left');
   if (tot==10)
  {$( "#menu5tab" ).addClass("success");
+ $( "#myModal" ).addClass("success");
  $(".modal-title").text('Valid');}
   else 
-  $( "#menu5tab" ).removeClass("success");
+  {$( "#menu5tab" ).removeClass("success");
+   $( "#myModal" ).addClass("success");}
  // if (tot>10)
  //event.stopImmediatePropagation()
 // alert('r')
