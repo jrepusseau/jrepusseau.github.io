@@ -245,6 +245,65 @@ color:green;
 {
 color:green;
 }
+
+
+input[orient="vertical"] {
+    -webkit-appearance: none;
+	appearance:none;
+  //  background-color: red;
+
+		
+}
+
+input[orient="vertical"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 0;
+  cursor: pointer;
+}
+
+input[orient="vertical"]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  cursor: pointer;
+}
+  
+.a
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.a::-moz-range-progress {
+  background-color:red; 
+}
+
+.a::-webkit-slider-thumb {
+  background: red;
+}
+.b
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.b::-moz-range-progress {
+  background-color:orange; 
+}
+.b::-webkit-slider-thumb {
+  background:blue; 
+}
+
+
+
+.c::-moz-range-progress {
+  background-color:green; 
+}
+.c::-webkit-slider-thumb {
+  background-image: :url(smiley2.png);
+}
+  
   
   </style>
 </head>
@@ -563,34 +622,31 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 <br>
 	  </br></br>	
 	  
-	 
-	  <ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-      <span class="badge badge-primary badge-pill">14 <button>+</button></span>
+<div class="well"> 
+    <span class="badge badge-primary badge-pill">14 <button>+</button></span>
    Opinion 1
    <br>
    <br>
    <br>
-<br>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-      <span class="badge badge-primary badge-pill">2<button>+</button></span>
+</div>	 
+<div class="well"> 
+ <span class="badge badge-primary badge-pill">2<button>+</button></span>
     Opinion 2
    <br>
    <br>
    <br>
-<br>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <span class="badge badge-primary badge-pill">1<button>+</button></span>
+</div>	
+<div class="well"> 
+ <span class="badge badge-primary badge-pill">1<button>+</button></span>
   Opinion 3
    <br>
    <br>
    <br>
   <br>
-  </li>
+</div>	  
+ 
   
-</ul>
+
 	
 	  
       <div class="flex-container"  >
@@ -647,10 +703,29 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
+	  <!-- Modal 
         <div class="container" style='text-align: center;' >
 	<button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
 
-        <canvas id="myChart2"></canvas>
+        <canvas id="myChart2"></canvas>-->
+		<div class="row" id='det' style='text-align:center;margin:auto'>
+    <div class="unity col-xs-4 " style='text-align:center;margin:auto' >
+	<p>0</p>
+	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='a' oninput='updateTextInput(this,event)' />	
+	 <p> Tsai Ing-Wen <br> 蔡英文</p>
+		 </div>
+	  <div class="unity col-xs-4" style='text-align:center;margin:auto' >
+	  <p>0</p>
+	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='b' oninput='updateTextInput(this,event)' />
+      <p>Han Kuo-yu <br> 韓國瑜</p>
+	  </div>
+	   <div class="unity col-xs-4" style='text-align:center;margin:auto' >
+	   <p>0</p>
+	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='c' oninput='updateTextInput(this,event)' />	
+	 <p>James Soong <br> 宋楚瑜</p>
+	 </div>
+</div>
+		
 		 
 <br>
    <h5>
@@ -1222,6 +1297,22 @@ $(window).scroll(function(){
   }
   lastScroll = currentScroll;   
 });
+
+function updateTextInput(e,event) {
+
+e.parentElement.children[0].innerHTML=e.value;
+  var tot = Number(e.parentElement.parentElement.children[0].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[1].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[2].children[0].innerHTML);
+  $(".modal-title").text((10-tot)+ ' left');
+  if (tot==10)
+ $( "#menu5tab" ).addClass("success");
+  else 
+  $( "#menu5tab" ).removeClass("success");
+  if (tot>10)
+ //event.stopImmediatePropagation()
+// alert('r')
+};
+  
+
 
 
 </script>
