@@ -1304,11 +1304,11 @@ e.parentElement.children[0].innerHTML=e.value;
   $(".modal-title").text((10-tot)+ ' left');
   if (tot==10)
  {$( "#menu5tab" ).addClass("success");
- $( "#myModal" ).addClass("success");
+ $( ".modal-dialog" ).addClass("success");
  $(".modal-title").text('Valid');}
   else 
   {$( "#menu5tab" ).removeClass("success");
-   $( "#myModal" ).addClass("success");}
+   $( ".modal-dialog" ).removeClass("success");}
  // if (tot>10)
  //event.stopImmediatePropagation()
 // alert('r')
