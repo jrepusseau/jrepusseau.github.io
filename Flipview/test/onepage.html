@@ -412,7 +412,7 @@ $("#renderBtn").click(
 
 </li>
 
-<li class="nav-item" id='menu5tab' onclick='yourlist()' width='24vw' data-toggle="modal" data-target="#myModal" data-backdrop="false">
+<li class="nav-item" id='menu5tab' onclick='document.body.classList.add("scroll-down");' width='24vw' data-toggle="modal" data-target="#myModal" data-backdrop="false">
 
 <a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> Vote </a>
 </li>
@@ -789,8 +789,8 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
 <script>
 
 result();
-render2();	
-alert('1page')
+//render2();	
+//alert('1page')
 
 
 function showNav(title){
@@ -1304,7 +1304,8 @@ e.parentElement.children[0].innerHTML=e.value;
   var tot = Number(e.parentElement.parentElement.children[0].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[1].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[2].children[0].innerHTML);
   $(".modal-title").text((10-tot)+ ' left');
   if (tot==10)
- $( "#menu5tab" ).addClass("success");
+ {$( "#menu5tab" ).addClass("success");
+ $(".modal-title").text('Valid');}
   else 
   $( "#menu5tab" ).removeClass("success");
  // if (tot>10)
