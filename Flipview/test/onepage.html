@@ -115,11 +115,11 @@ position:center;
 }
 
 
-#navsub2, #navsub1
+#navsub2, #navsub1, #Sources
 {  
   transition: transform 0.4s;
      background: white;
-
+ box-shadow: 0px 2px 1px 1px rgba(0,0,0,0.2);
   // padding-right:0.5em;   
 }
 
@@ -145,7 +145,8 @@ background-color:#E8E8E8;
 
 
 .flex-container {
-    
+    width:100%;
+
        display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -155,7 +156,7 @@ background-color:#E8E8E8;
 
 
 .fill-width {
-  flex: 1;
+ // flex: 2;
 }
 *Presentation of argu*/
 
@@ -312,7 +313,20 @@ input[orient="vertical"]::-moz-range-thumb {
   background-image: :url(smiley2.png);
 }
   
+ #Sources{
+  -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+	display: .1s all ease-out;
+ }
   
+  
+.sucs {
+  border-style: solid;
+  border-color: green;
+   border-width: 1px;
+   border-radius: 10px;
+}
   </style>
 </head>
 <body>
@@ -396,14 +410,14 @@ $("#renderBtn").click(
     <ul class="nav nav-tabs" >
 	
 	 <li  class="nav-item" id="user" onclick='leave()'><a href="#"><span class="glyphicon glyphicon-menu-left"></span> </a></li>
-      <li class="nav-item"><a id='Title' style='text-align:center'  >hhvjvhvjh</a></li>
+      <li class="nav-item"><a id='Title' style='text-align:center' > _ </a></li>
     </ul>
 	
 	
  
 </nav> 	 
 
-<nav class="navbar navbar-fixed-bottom navbar-expand-md " style='display:none'   id="navsub2" >
+<nav class="navbar navbar-fixed-bottom navbar-expand-md " style='display:none;  box-shadow: 6px 8px 6px 12px rgba(0,0,0,0.2);'   id="navsub2" >
 <ul class="nav nav-tabs" id="top-menu">
 
 <li class="nav-item active" onclick='general()'  >
@@ -420,7 +434,7 @@ $("#renderBtn").click(
 
 </li>
 
-<li class="nav-item" id='menu5tab' onclick='document.body.classList.add("scroll-down");' width='24vw' data-toggle="modal" data-target="#myModal" data-backdrop="false">
+<li class="nav-item" id='menu5tab' onclick='showvote()' width='24vw' >
 
 <a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> Vote </a>
 </li>
@@ -431,17 +445,46 @@ $("#renderBtn").click(
 	  </nav> 
 	  
 
-<nav class='navbar'  id="Sources" onclick="" style="width:100%;display:none">
+<nav class='navbar'  id="Sources" tabindex= onclick="" style="width:100%;display:none">
 
  <div id="Web" >
     <div class="flex-container"  >
-	<input class="serc"  type="text" id='srch'></input><button onclick='insertcit()' >INSERT</button>
+	 <!--<input class="serc"  type="text" id='srch'></input><button onclick='insertcit()' >INSERT</button>-->
+ <div id='votemod' style='display:none;text-align:center;margin:auto'>
+	  <!-- Modal 
+        <div class="container" style='text-align: center;' >
+	<button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
 
+        <canvas id="myChart2"></canvas>-->
+		<br>
+		<br>
+		<div class="row" id='det' style='text-align:center;margin:auto'>
+    <div class="unity col-xs-4 " style='text-align:center;margin:auto' >
+	<p>0</p>
+	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='a' oninput='updateTextInput(this,event)' />	
+	 <p> Tsai Ing-Wen <br> 蔡英文</p>
+		 </div>
+	  <div class="unity col-xs-4" style='text-align:center;margin:auto' >
+	  <p>0</p>
+	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='b' oninput='updateTextInput(this,event)' />
+      <p>Han Kuo-yu <br> 韓國瑜</p>
+	  </div>
+	   <div class="unity col-xs-4" style='text-align:center;margin:auto' >
+	   <p>0</p>
+	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='c' oninput='updateTextInput(this,event)' />	
+	 <p>James Soong <br> 宋楚瑜</p>
+	 </div>
+</div>
+
+   <h5 class='modal-title'>
+	vote by draging 10-points  </h5>
+    </div>
 	
-   <span class="close" onclick="hideSource()">&times;</span>
+   
+    <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' id='webpage' name='webpage'  width="100%" frameborder="0px" onLoad="changeURI()"> Error</iframe> 
+   <!--<a href="#">import ref</a>-->
   </div>
-   <iframe is="x-frame-bypass" src='https://en.wikipedia.org/wiki/Main_Page' id='webpage' name='webpage'  width="100%" frameborder="0px" onLoad="changeURI()"> Error</iframe> 
-   <a href="#">import ref</a>
+  <span class="close" onclick="hideSource()">&times;</span>
 </div>
 </nav>
  
@@ -710,35 +753,7 @@ Incumbent President Tsai Ing-wen of the Democratic Progressive Party (DPP), who 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Modal Header</h4>
       </div>
-      <div class="modal-body">
-	  <!-- Modal 
-        <div class="container" style='text-align: center;' >
-	<button id='val' type="button" class="btn btn-default" onclick='validatelist(this)'> Validate </button>
-
-        <canvas id="myChart2"></canvas>-->
-		<div class="row" id='det' style='text-align:center;margin:auto'>
-    <div class="unity col-xs-4 " style='text-align:center;margin:auto' >
-	<p>0</p>
-	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='a' oninput='updateTextInput(this,event)' />	
-	 <p> Tsai Ing-Wen <br> 蔡英文</p>
-		 </div>
-	  <div class="unity col-xs-4" style='text-align:center;margin:auto' >
-	  <p>0</p>
-	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='b' oninput='updateTextInput(this,event)' />
-      <p>Han Kuo-yu <br> 韓國瑜</p>
-	  </div>
-	   <div class="unity col-xs-4" style='text-align:center;margin:auto' >
-	   <p>0</p>
-	 <input type="range" value='0' min='0' max='10' step='1' orient="vertical" class='c' oninput='updateTextInput(this,event)' />	
-	 <p>James Soong <br> 宋楚瑜</p>
-	 </div>
-</div>
-		
-		 
-<br>
-   <h5>
-	vote by draging 10-points  </h5>
-    </div>
+     
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -857,18 +872,20 @@ source.style.display = "none";
 
 function showSource(id)
 {
+document.getElementById('webpage').style.display='block';
+document.getElementById('votemod').style.display='none';
 var source = document.getElementById("Sources");
 if(id);
 document.getElementById('webpage').setAttribute('src',id);
 //document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
-source.setAttribute('style','left:0px');
+
 source.style.display = "block";
 $('#Sources').affix({
       offset: {
         top: '0px'
       }
 });
-$('.affix').css('top',$("#arguments").height());
+
 
 
 }
@@ -1298,10 +1315,12 @@ $(window).scroll(function(){
     // down
     body.classList.remove(scrollUp);
     body.classList.add(scrollDown);
+	$('.affix').css('top',0);
   } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
     // up
     body.classList.remove(scrollDown);
     body.classList.add(scrollUp);
+	$('.affix').css('top',$("#navsub1").height());
   }
   lastScroll = currentScroll;   
 });
@@ -1310,21 +1329,27 @@ function updateTextInput(e,event) {
 
 e.parentElement.children[0].innerHTML=e.value;
   var tot = Number(e.parentElement.parentElement.children[0].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[1].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[2].children[0].innerHTML);
-  $(".modal-title").text((10-tot)+ ' left');
   if (tot==10)
  {$( "#menu5tab" ).addClass("success");
  $( ".modal-dialog" ).addClass("succcess");
- $(".modal-title").text('Valid');}
+ $(".modal-title").text('vote verified').addClass('sucs');}
   else 
   {$( "#menu5tab" ).removeClass("success");
-   $( ".modal-dialog" ).removeClass("succcess");}
+   $( ".modal-dialog" ).removeClass("succcess")
+   $(".modal-title").text('vote by draging '+(10-tot)+' points').removeClass('sucs')
+   ;}
  // if (tot>10)
  //event.stopImmediatePropagation()
 // alert('r')
 };
   
-
-
+function showvote()
+{ 
+document.body.classList.add("scroll-down")
+showSource();
+document.getElementById('webpage').style.display='none';
+document.getElementById('votemod').style.display='block';
+}
 
 </script>
 </html>
