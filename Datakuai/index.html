@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Datakuai</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="test.js"></script>
+ <script type="module" src="x-frame-bypass.js"></script>
+ <script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
+  
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+
+<!-- Simple List -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-dragdata@latest/dist/chartjs-plugin-dragdata.min.js"></script>
+
+
+
+  <style>
+  
+  
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+.glitch {
+
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+
+
+  
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+	
+}
+
+.glitch:hover
+ {
+
+  color:pink;
+	
+}
+
+.np
+{
+position:fixed;
+
+}
+
+h2{
+position:center;
+}
+
+
+ /* The Modal (background) */
+.modal {
+  
+
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
+
+.topnav{
+  margin: 10px;
+}
+.topnav-right {
+  right: 10px;
+  margin-left:10px;
+}
+
+
+#navsub2, #navsub1, #Sources
+{  
+  transition: transform 0.4s;
+     background: white;
+ box-shadow: 0px 2px 1px 1px rgba(0,0,0,0.2);
+  // padding-right:0.5em;   
+}
+
+
+#argutitle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 23px;
+}
+
+
+
+.divargu:hover{
+
+background-color:#E8E8E8;
+
+}
+
+
+
+
+.flex-container {
+    width:100%;
+
+       display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+      
+}
+
+
+.fill-width {
+ // flex: 2;
+}
+*Presentation of argu*/
+
+.containertype {
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color:black; 
+}
+
+
+
+.sidenav {
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  right: 5px;
+  text-align:right;
+  background: transparent;
+  overflow-x: hidden;
+  padding: 8px 0;
+  display:none;
+}
+
+ 
+  
+   .container {
+        width: 100%;
+        height: 100%;
+		text-align:center;
+    }
+  
+.x{
+position:absolute;
+right:10px;
+}
+  
+#top-menu {
+  
+    background: white;
+    
+}
+
+#top-menu li {
+ width:32.5vw;
+}
+
+#top-menu a {
+    display: block;
+  
+    -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+    border-top: 3px solid white;
+ color: #333;
+ text-align:center;
+ 
+}
+
+#top-menu a:hover {
+    color: #000;
+
+}
+
+#top-menu li.active a {
+    border-top: 3px solid #333;
+    color: #333;
+
+}
+	
+.scroll-down #navsub1 {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up #navsub1{
+  transform: none;
+}
+
+.success
+{
+border-top: 2px solid green;
+}
+
+.successs
+{
+border-top: 2px solid green;
+border-right: 2px solid green;
+border-bottom: 2px solid green;
+border-left: 2px solid green;
+
+}
+
+.success span
+{
+color:green;
+}
+
+
+input[orient="vertical"] {
+    -webkit-appearance: none;
+	appearance:none;
+  //  background-color: red;
+
+		
+}
+
+input[orient="vertical"]::-webkit-slider-thumb {
+ /*    -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 0;
+  cursor: pointer;*/
+}
+
+input[orient="vertical"]::-moz-range-thumb {
+/*  width: 25px;
+  height: 25px;
+  border: 0;
+  cursor: pointer;*/
+}
+  
+.a
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.a::-moz-range-progress {
+  background-color:red; 
+}
+
+.a::-webkit-slider-thumb {
+  background: red;
+}
+.b
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.b::-moz-range-progress {
+  background-color:orange; 
+}
+.b::-webkit-slider-thumb {
+  background:blue; 
+}
+
+
+
+.c::-moz-range-progress {
+  background-color:green; 
+}
+.c::-webkit-slider-thumb {
+  background-image: :url(smiley2.png);
+}
+  
+ #Sources{
+  -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+	display: .1s all ease-out;
+	border-radius:15px;
+ }
+  
+  
+.sucs {
+  border-style: solid;
+  border-color: green;
+   border-width: 1px;
+   border-radius: 10px;
+}
+  </style>
+</head>
+<body>
+<script>
+/* affix the 2nd navbar after scroll past first navbar */
+
+$(function(){
+    // Simple list
+    
+
+$("#renderBtn").click(
+   function() {render('pie');}
+);  
+
+
+
+          
+
+
+    $("[data-toggle=popover]").popover({
+        html : true,
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).children(".popover-body").html();
+        },
+        title: function() {
+            var title = $(this).attr("data-popover-content");
+            return $(title).children(".popover-heading").html();
+        }
+    });});
+	
+
+</script>
+
+ 
+ <nav class="navbar navbar-fixed-top navbar-expand-md " id='nav1'  >
+ 
+    <ul class="nav nav-tabs" style='text-align:center'>
+      <li class="nav-item"><a data-toggle="tab" href="#menu1" onclick="Back()" id="back">Datakuai</a></li>
+	  <!--
+      <li><a href="#menu2" data-toggle="tab" id="maintitle" style='text-align:center'></a></li>
+	  -->
+	
+	 <li  class="nav-item"id="user"><a href="#"><span class="glyphicon glyphicon-user"></span> You</a></li>
+	 
+      
+	 
+    </ul>
+
+</nav> 
+
+ <!--
+<nav class="navbar navbar-fixed-bottom navbar-expand-md justify-content-center"     id="nav2" >
+<ul class="nav nav-tabs " style='text-align:center' >
+<li class="dropdown nav-item" id='LN'>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >World Trend 
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+		<li><a href="#" onclick="init('en')">English (English) </a></li>
+          <li><a href="#" onclick="init('cn')">Taiwan (Zn) </a></li>
+          <li><a href="#" onclick="init('fr')">France (Francais)</a></li>
+          <li><a href="#">Korea (Kr)</a></li>
+        </ul>
+      </li>
+<li class="nav-item">
+
+</li>	  
+	 
+
+	
+	 <li class="nav-item"> <a href="#"><span class="glyphicon glyphicon-repeat"></span> Recent</a></li>
+	   </ul>
+	  
+	  </nav> -->
+	  
+	  
+	  
+<nav class="navbar navbar-fixed-top navbar-expand-md " style='display:none'   id="navsub1" >
+ 
+    <ul class="nav nav-tabs" >
+	
+	 <li  class="nav-item" id="user" onclick='leave()'><a href="#"><span class="glyphicon glyphicon-menu-left"></span> </a></li>
+      <li class="nav-item" type="button" data-toggle="modal" data-target="#myModal" data-backdrop="false"><a id='Title' style='text-align:center' > _ </a></li>
+    </ul>
+	
+	
+ 
+</nav> 	 
+
+<nav class="navbar navbar-fixed-bottom navbar-expand-md " style='display:none;  box-shadow: 6px 8px 6px 12px rgba(0,0,0,0.2);'   id="navsub2" >
+<ul class="nav nav-tabs" id="top-menu">
+
+<li class="nav-item" onclick='general()' width='33vw'  >
+
+<a href="#menu2"><span class="glyphicon glyphicon-book"></span> Info</a>
+</li>
+
+ <li id='menu4tab' onclick='result()' width='33vw' class="nav-item"  > 
+	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Data</a></li>
+	
+
+<li class="nav-item" id='menu3tab' onclick='debate()' width='33vw'>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Com</a>
+
+</li>
+<!--
+<li class="nav-item" id='menu5tab' onclick='showvote()' width='24vw' >
+
+<a href="#menu5"><span class="glyphicon glyphicon-sort-by-order"></span> Vote </a>
+</li>
+-->
+
+	   </ul>
+	  
+	  </nav> 
+	  
+
+<nav class='navbar'  id="Sources" tabindex= onclick="" style="width:100%;display:none">
+
+ <div id="Web" >
+    <div class="flex-container"  >
+	 
+  </div>
+  <span class="close" onclick="hideSource()">&times;</span>
+</div>
+</nav>
+ 
+
+
+ 
+ 
+ <nav class="navbar navbar navbar-fixed-bottom "  id="editor" style='display:none'>
+  
+    
+	
+      <div class="flex-container"  >
+<textarea rows="4" cols="50" id='editortext' placeholder="Write your opinion" class='pro'></textarea>
+    <button id="sourcebox" onclick="SourceBox()"  data-html="true"  data-toggle="popover" title="Source" data-placement="left" data-trigger="focus"
+	 tabindex="0"   data-popover-content="#unique-id"><</button>
+	
+	<button onclick='showSource()'>Browser</button><button onclick='post()'> Post </button>
+	</div>
+	 
+
+ 
+</nav> 
+
+
+
+  <header>
+  <br>
+  <br>
+  <br>
+  </header>
+
+ <div class="container" id="directordiv" style='width:100%'>
+
+<div class="tab-content">
+  <div id="menu1" class="tab-pane fade in active">
+
+  <br>
+  <br>
+ <ul class="list-group" href="#menu2">
+  <li class="list-group-item" id='4645' onclick='enter(this.id)'  > Study 1 Medical <span class="glyphicon glyphicon-camera"> <span class="glyphicon glyphicon-th-list"> <span class="glyphicon glyphicon-pencil"></span></li>
+  <li class="list-group-item" id='4644' onclick='enter(this.id)'>Study 2 Insurance  <span class="glyphicon glyphicon-th-list"> <span class="glyphicon glyphicon-pencil"></span></li>
+  <li class="list-group-item" id='4643' onclick='enter(this.id)'> Study 3 Politics <span class="glyphicon glyphicon-th-list"> </li>
+</ul> 
+
+<br>
+<br>
+<br>
+</div>
+       
+ 
+
+    
+  
+   <div id="menu2" class="tab-pane fade">
+  <h3> Study </h3>
+  <h5>
+  Study founded by the university of Stoutgart 
+  dowehuhewud<br>
+  dewuhdewuhweiu<br>
+  dewheuhuihdweuih<br>
+  kdejweudkhekuhuhewdke<br>
+</h5>
+<br>
+  <h3> Aim </h3>
+   <h5>
+  Study founded by the university of Stoutgart 
+  dowehuhewud<br>
+  dewuhdewuhweiu<br>
+  dewheuhuihdweuih<br>
+  kdejweudkhekuhuhewdke<br>
+</h5>
+
+<h3> Benchmarks </h3>
+  
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Study1 </th>
+        <th>Gay marriage</th>
+		 <th>military services</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tsai Ing-Wen 蔡英文</td>
+        <td>DPP</td>
+        <td>V</td>
+		<td>Reduce it </td>
+      </tr>
+      <tr>
+        <td>Han Kuo-yu 韓國瑜</td>
+        <td>Kuomintang</td>
+        <td>X</td>
+		<td>Increase it </td>
+      </tr>
+       <tr>
+        <td>James Soong 宋楚瑜</td>
+        <td>People First</td>
+        <td>X</td>
+		<td>Increase it</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <br><br><br>
+  
+  <a id="menu4" > Results </a>
+	  
+	 
+
+	 
+	  
+<!--
+	  <button id="renderBtn">
+        Refresh
+    </button><br>-->
+	
+    <div class="container" >
+	<select>
+		<option> Asia </option>
+		<option> All </option>
+		</select>
+		<select>
+		<option> Months </option>
+		<option> Week </option>
+		</select>
+		<select>
+		<option onclick="render('bar')"> Bar </option>
+		<option onclick="render('pie')"> Pie </option>
+		</select>
+        <canvas id="myChart"></canvas>
+    </div>
+	</br></br>	
+  
+   <a id="menu3" > Debate </a>
+	  
+	 
+</br>	  <br>
+<br>
+</br>	  <br>
+<br>
+	  </br></br>	
+	  
+<div class="well"> 
+    <span class="badge badge-primary badge-pill">14 <button>+</button></span>
+   Opinion 1
+   <br>
+   <br>
+   <br>
+</div>	 
+<div class="well"> 
+ <span class="badge badge-primary badge-pill">2<button>+</button></span>
+    Opinion 2
+   <br>
+   <br>
+   <br>
+</div>	
+<div class="well"> 
+ <span class="badge badge-primary badge-pill">1<button>+</button></span>
+  Opinion 3
+   <br>
+   <br>
+   <br>
+  <br>
+</div>	  
+ 
+  
+
+	
+	  
+      <div class="flex-container"  >
+<textarea rows="4" cols="50" id='editortext' placeholder="Write your opinion" class='pro'></textarea>
+    <button id="sourcebox" onclick="SourceBox()"  data-html="true"  data-toggle="popover" title="Source" data-placement="left" data-trigger="focus"
+	 tabindex="0"   data-popover-content="#unique-id"><</button>
+	
+	<button onclick='showSource()'>Browser</button><button onclick='post()'> Reply</button>
+	</div>
+	
+	<br><br><br>
+	  <br>
+   <br>
+  <br>
+  <br><br><br>
+	  <br>
+   <br>
+  <br>
+  End
+	  
+	   <!--  <a id="menu5"> Vote </a>
+	  
+	 
+
+	
+	   <div class="container-fluid">
+  <div class="row">
+    <div class="ol-xs-6 col-sm-6 col-md-6 col-lg-6">
+       <ul id="simpleList" class="tv list-group">
+	
+	<li class='list-group-item' onclick='up(this)'>Jenny <button onclick='push(this)' class='x'> x</button> </li>
+	<li class='list-group-item' onclick='up(this)'> Hanguo <button onclick='push(this)' class='x'>x</button>  </li>
+
+</ul>
+    </div>
+    <div class="ol-xs-6 col-sm-6 col-md-6 col-lg-6">
+     <ul id="clist" class="tv list-group">
+    <li class='list-group-item disabled' onclick='up(this)'> Tsai <button onclick='push(this)' class='x'>+</button> </li>
+</ul>
+    </div>
+  </div>
+</div>
+	-->
+	  
+  
+
+</div>
+
+
+	
+	 <script>
+	
+</script>
+	  
+	  
+		
+	      
+       
+      
+  
+  
+	 
+	  
+	  
+	  
+	
+	  
+	  
+		
+	      
+       
+      
+
+  
+    
+		
+		
+      
+  </div>
+  
+	
+	  </div>
+</div>
+
+
+
+<div id="unique-id" style="display:none;">
+    <div class="popover-heading">Source</div>
+    <div  class="popover-body"><p id='ui'> <p></div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+<script>
+
+result();
+//render2();	
+//alert('1page')
+
+
+function showNav(title){
+document.getElementById("back").style.display = "none";
+/*if(title.length>25)
+title = title.slice(0, 25) + "</br>" + title.slice(25);
+if(title.length>50)
+var title = title.slice(0, 50) + "</br>" + title.slice(50);
+if(title.length>75)
+var title = title.slice(0, 75) + "</br>" + title.slice(75);*/
+document.getElementById("maintitle").innerHTML="<button onclick='Back()'>Back</button> "+title+"  <button onclick='Question()'>*</button>";
+
+}
+
+function hideNav(){
+document.getElementById("back").style.display = "";
+document.getElementById("maintitle").innerHTML = "";
+}
+
+function closemodal(){
+var modal = document.getElementById("myModal");
+ modal.style.display = "none";
+ }
+
+
+
+ 
+ 
+ 
+function Back() {
+ hideNav();
+  $('[href="#menu1"]').tab('show');
+  document.getElementById("nav1").style.backgroundColor="";
+  document.getElementById("user").style.display="";
+  document.getElementById("LN").style.display="";
+ hidetextwriter();
+}
+
+function hidetextwriter(){
+var txt = document.getElementById("editor");
+txt.style.display = "none";
+}
+
+function showtextwriter(){
+var txt = document.getElementById("editor");
+txt.style.backgroundColor= document.getElementById('nav1').style.backgroundColor;
+txt.style.display = "block";
+
+}
+
+function hideSource()
+{
+var source = document.getElementById("Sources");
+source.style.display = "none";
+}
+
+function showSource(id)
+{
+document.getElementById('webpage').style.display='block';
+document.getElementById('votemod').style.display='none';
+var source = document.getElementById("Sources");
+if(id);
+document.getElementById('webpage').setAttribute('src',id);
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
+
+source.style.display = "block";
+$('#Sources').affix({
+      offset: {
+        top: '0px'
+      }
+});
+
+
+
+}
+
+
+
+
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+
+
+function SourceBox()
+{
+$('#sourcebox').popover('show');
+
+}
+function changeURI()
+{
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
+}
+
+window.addEventListener('keypress', function (e) {
+
+    if (e.keyCode == 13) {
+      var a = document.createElement('A');
+	  a.setAttribute('href',document.getElementById('srch').value)
+	  showSource(a.href);
+    }
+}, false);
+
+
+function enter(id)
+{
+ $('[href="#menu2"]').tab('show');
+document.getElementById('nav1').style.display='none';
+//document.getElementById('nav2').style.display='none';
+document.getElementById('navsub1').style.display='block';
+document.getElementById('navsub2').style.display='block';
+document.getElementById('Title').innerHTML= document.getElementById(id).innerHTML;
+
+}
+
+function leave()
+{
+ $('[href="#menu1"]').tab('show');
+document.getElementById('nav1').style.display='block';
+//document.getElementById('nav2').style.display='block';
+document.getElementById('navsub1').style.display='none';
+document.getElementById('navsub2').style.display='none';
+}
+
+function general()
+{
+ $('[href="#menu2"]').tab('show');
+}
+
+function yourlist()
+{
+ $('[href="#menu5"]').tab('show');
+}
+
+function debate()
+{
+ $('[href="#menu3"]').tab('show');
+}
+
+function result()
+{
+ $('[href="#menu4"]').tab('show');
+ render('pie');
+}
+
+function renderChart(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+	ctx.clearRect(0, 0, document.getElementById("myChart").width, document.getElementById("myChart").height);
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'This week',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+		 xAxes: [{
+              //  display: false //this will remove all the x-axis grid lines
+            }],
+			 yAxes: [{
+            //    display: false //this will remove all the x-axis grid lines
+            }],
+            legend: {
+           display: false
+         },
+            scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+			   
+                  }
+              }],
+			 /* xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],*/
+	}
+            
+    }
+			
+          
+	    });
+}
+
+function renderPie(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+	ctx.clearRect(0, 0, document.getElementById("myChart").width, document.getElementById("myChart").height);
+  
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'This week',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+		 xAxes: [{
+                display: false //this will remove all the x-axis grid lines
+            }],
+			 yAxes: [{
+                display: false //this will remove all the x-axis grid lines
+            }],
+            legend: {
+          //  display: false
+         },
+           /* scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+			   
+                  }
+              }],
+			  xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],
+            }*/
+    }
+			
+          
+	    });
+}
+
+function renderChart2(data, labels) {
+    var ctx = document.getElementById("myChart2").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+               // label: 'Preferences',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+            responsive: true,
+		
+            dragX: false,
+            dragDataRound: 0,
+            dragOptions: {
+            magnet: {
+            to: Math.round
+            }
+            },
+            dragData: true,
+            onDragStart: function (e) {
+              //console.log("test");
+              //console.log(e.clientY)
+              //console.log(test.scales["y-axis-0"].getValueForPixel(e.clientY))
+            },
+            onDrag: function (e, datasetIndex, index, value) {
+              //console.log(e.clientY)
+            },
+            onDragEnd: function (e, datasetIndex, index, value) {
+              // console.log(datasetIndex, index, value)
+            },
+			 legend: {
+            display: false
+         },
+            scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+                    max: 10,
+					min:0,
+                  //  callback: function(value) {if (value == 0) {return value+0.2;}},
+			   
+                  }
+              }],
+			  xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],
+            },
+			tooltips: {
+        enabled: false
+    },
+    hover: {
+        animationDuration: 0
+    },
+    animation: {
+        duration: 1,
+        onComplete: function () {
+		
+            var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+
+            this.data.datasets.forEach(function (dataset, i) {
+			var datatot=0;
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];                            
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+					datatot += data;
+                });
+			validatefn(datatot)	
+            });
+        }
+    }
+			
+          }
+    });
+}
+
+function render(type){
+	      
+        data = [20000, 14000, 12000];
+        labels =  [["Tsai Ing-Wen","蔡英文"], ["Han Kuo-yu","韓國瑜"],["James Soong","宋楚瑜"]];
+		
+		if (type== 'bar')
+        renderChart(data, labels);
+		else 
+		renderPie(data,labels);
+    }
+
+	function render2(){
+	
+        data = [1, 1, 1];
+        labels =  [["Tsai Ing-Wen","蔡英文"], ["Han Kuo-yu","韓國瑜"],["James Soong","宋楚瑜"]];
+        renderChart2(data, labels);
+    }
+
+
+function validatelist()
+{
+if (document.getElementById('val').innerText=='Validate')
+{
+
+
+/*
+document.getElementById('val').innerText='Change';
+
+*/
+$("#clist").hide();
+$("#menu4tab").show();
+$("#val").removeClass("btn-default").addClass("btn-success");
+
+}
+else{
+
+
+
+/*
+document.getElementById('val').innerText='Validate';
+*/
+$("#clist").show();
+$("#val").removeClass("btn-success").addClass("btn-default");
+}
+}    
+
+function up(e) { 
+if (document.getElementById('val').innerText=='Validate')
+{
+              $(e).insertBefore($(e).prev());
+			  }
+            }; 
+function  push(t) { 
+if ($(t).html()=='x')
+{
+$(t).html('+');
+$(t).parent().remove().addClass("disabled").appendTo($("#clist"));
+}
+else
+{
+$(t).html('x');
+$(t).parent().remove().removeClass("disabled").appendTo($("#simpleList"));
+}
+}
+             
+function validatefn(dt)
+{
+if (dt==10)
+{document.getElementById('val').innerHTML='✓';
+document.getElementById('val').disabled = true;
+$("#clist").hide();
+$("#val").removeClass("btn-default").addClass("btn-success");
+$( "#menu5tab" ).addClass("success");
+}
+else
+{
+$( "#menu5tab" ).removeClass("success");
+document.getElementById('val').innerHTML=10-dt + ' points left';
+document.getElementById('val').disabled = true; 
+$("#clist").show();
+$("#val").removeClass("btn-success").addClass("btn-default");
+}
+
+}
+
+//
+// Cache selectors
+var lastId,
+    topMenu = $("#top-menu"),
+    topMenuHeight = topMenu.outerHeight(),
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+40;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 0);
+  e.preventDefault();
+});
+
+const body = document.body;
+let lastScroll = 0;
+const scrollUp = "scroll-up";
+const scrollDown = "scroll-down";
+const active='active';
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+   
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+   
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("active")
+         .end().filter("[href='#"+id+"']").parent().addClass("active");
+   }  
+
+ const currentScroll = window.pageYOffset;
+  if (currentScroll == 0) {
+    body.classList.remove(scrollUp);
+    return;
+  }
+  
+  if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+    // down
+    body.classList.remove(scrollUp);
+    body.classList.add(scrollDown);
+	$('.affix').css('top',0);
+  } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+    // up
+    body.classList.remove(scrollDown);
+    body.classList.add(scrollUp);
+	$('.affix').css('top',$("#navsub1").height());
+  }
+  lastScroll = currentScroll;   
+});
+
+function updateTextInput(e,event) {
+
+e.parentElement.children[0].innerHTML=e.value;
+  var tot = Number(e.parentElement.parentElement.children[0].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[1].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[2].children[0].innerHTML);
+  if (tot==10)
+ {$( "#menu5tab" ).addClass("success");
+ $( ".modal-dialog" ).addClass("succcess");
+ $(".modal-title").text('vote verified').addClass('sucs');}
+  else 
+  {$( "#menu5tab" ).removeClass("success");
+   $( ".modal-dialog" ).removeClass("succcess")
+   $(".modal-title").text('vote by draging '+(10-tot)+' points').removeClass('sucs')
+   ;}
+ // if (tot>10)
+ //event.stopImmediatePropagation()
+// alert('r')
+};
+  
+function showvote()
+{ 
+document.body.classList.add("scroll-down")
+showSource();
+document.getElementById('webpage').style.display='none';
+document.getElementById('votemod').style.display='block';
+}
+
+</script>
+</html>
+
+
+
+
