@@ -1,0 +1,315 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style>
+*, *:before, *:after {
+	 box-sizing: border-box;
+	 margin: 0;
+	 padding: 0;
+}
+
+
+ .demo__content {
+	 overflow: hidden;
+	 position: relative;
+	 height: 48rem;
+	 padding-top: 4.5rem;
+	 user-select: none;
+}
+ .demo__card-cont {
+	 position: relative;
+	 width: 24rem;
+	 height: 32rem;
+	 margin: 0 auto 5rem;
+}
+ .demo__card {
+	 z-index: 2;
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+	 width: 100%;
+	 height: 100%;
+	 transform-origin: 50% 100%;
+}
+ .demo__card.reset {
+	 transition: transform 0.3s;
+	 transform: translateX(0) !important;
+}
+ .demo__card.reset .demo__card__choice {
+	 transition: opacity 0.3s;
+	 opacity: 0 !important;
+}
+ .demo__card.inactive {
+	 transition: transform 0.3s;
+}
+ .demo__card.to-left {
+	 transform: translateX(-30rem) rotate(-30deg) !important;
+}
+ .demo__card.to-right {
+	 transform: translate(30rem) rotate(30deg) !important;
+}
+ .demo__card.below {
+	 z-index: 1;
+}
+ .demo__card__top {
+	  background-size: contain;
+	  height:90%;
+	 padding-top: 4rem;
+}
+ .demo__card__top.purple {
+	 background: #7132b9;
+	 background-image: url('https://i.pinimg.com/474x/86/d1/ed/86d1edb18e31f7a79c2cc18dcab8e974--duckface-ducks.jpg');
+}
+ .demo__card__top.blue {
+	 background: #248cb6;
+	background-image: url('https://ugc-01.cafemomstatic.com/gen/constrain/740/1500/75/2013/01/27/17/b2/rd/phvez8magc1.jpg');
+}
+ .demo__card__top.indigo {
+	 background: #303f9f;
+	 background-image: url('https://external-preview.redd.it/szIQs32H-5fR33ynd_59IHhOn-6TU_ClTavIffXyPLI.jpg');
+	 }
+ .demo__card__top.cyan {
+	 background: #26c6da;
+	 background-image: url('https://pbs.twimg.com/media/C98DdLzUAAANwQ8.jpg');
+
+}
+ .demo__card__top.lime {
+	 background: #afb42b;
+	 background-image: url('https://mikelamonica.files.wordpress.com/2013/11/screen-shot-2013-10-16-at-6-34-25-pm.png');
+}
+ .demo__card__top.brown {
+	 background: #795548;
+	  background-image: url('https://data.whicdn.com/images/332200606/original.jpg');
+	
+}
+
+ .demo__card__name {
+	 text-align: center;
+	 font-size: 2rem;
+	 font-weight: bold;
+	 color: #fff;
+}
+
+ .demo__card__we {
+	 text-align: center;
+	 font-size: 2.2rem;
+	 line-height: 11.5rem;
+}
+ .demo__card__choice {
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+	 width: 100%;
+	 height: 100%;
+	 opacity: 0;
+}
+ .demo__card__choice:before {
+ 	
+	 
+
+}
+ .demo__card__choice:after {
+ position: absolute;
+    top: 50%;
+    left: 50%;
+    content:"🖒";
+    font-size: 100px; 
+    //color: #FFF;
+    line-height: 100px;
+    text-align: center;
+}
+ .demo__card__choice.m--reject {
+ /* use the hex value here... */
+
+	 background: red;
+}
+ .demo__card__choice.m--like {
+	 background: #b1da96;
+}
+ .demo__card__choice.m--reject:after {
+	 transform: scaleY(-1);
+	
+}
+ .demo__card__drag {
+	 z-index: 5;
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+	 width: 100%;
+	 height: 100%;
+	 cursor: grab;
+}
+ .demo__tip {
+	 text-align: center;
+	 font-size: 2.2rem;
+}
+ 
+</style>
+</head>
+<body>
+<div class="demo">
+  <header class="demo__header"></header>
+  <div class="demo__content">
+    <div class="demo__card-cont">
+      <div class="demo__card">
+        <div class="demo__card__top brown">
+          <div class="demo__card__img"></div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top lime">
+          <div class="demo__card__img"></div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top cyan">
+          <div class="demo__card__img"></div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top indigo">
+          <div class="demo__card__img"></div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top blue">
+          <div class="demo__card__img"></div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top purple">
+          <div class="demo__card__img"></div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+    </div>
+    <p class="demo__tip">Swipe left or right if you find a peace sign </p>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+
+  var animating = false;
+  var cardsCounter = 0;
+  var numOfCards = 6;
+  var decisionVal = 80;
+  var pullDeltaX = 0;
+  var deg = 0;
+  var $card, $cardReject, $cardLike;
+
+  function pullChange() {
+    animating = true;
+    deg = pullDeltaX / 10;
+    $card.css("transform", "translateX("+ pullDeltaX +"px) rotate("+ deg +"deg)");
+
+    var opacity = pullDeltaX / 100;
+    var rejectOpacity = (opacity >= 0) ? 0 : Math.abs(opacity);
+    var likeOpacity = (opacity <= 0) ? 0 : opacity;
+    $cardReject.css("opacity", rejectOpacity);
+    $cardLike.css("opacity", likeOpacity);
+  };
+
+  function release() {
+
+    if (pullDeltaX >= decisionVal) {
+      $card.addClass("to-right");
+    } else if (pullDeltaX <= -decisionVal) {
+      $card.addClass("to-left");
+    }
+
+    if (Math.abs(pullDeltaX) >= decisionVal) {
+      $card.addClass("inactive");
+
+      setTimeout(function() {
+        $card.addClass("below").removeClass("inactive to-left to-right");
+        cardsCounter++;
+        if (cardsCounter === numOfCards) {
+          cardsCounter = 0;
+          $(".demo__card").removeClass("below");
+        }
+      }, 300);
+    }
+
+    if (Math.abs(pullDeltaX) < decisionVal) {
+      $card.addClass("reset");
+    }
+
+    setTimeout(function() {
+      $card.attr("style", "").removeClass("reset")
+        .find(".demo__card__choice").attr("style", "");
+
+      pullDeltaX = 0;
+      animating = false;
+    }, 300);
+  };
+
+  $(document).on("mousedown touchstart", ".demo__card:not(.inactive)", function(e) {
+    if (animating) return;
+
+    $card = $(this);
+    $cardReject = $(".demo__card__choice.m--reject", $card);
+    $cardLike = $(".demo__card__choice.m--like", $card);
+    var startX =  e.pageX || e.originalEvent.touches[0].pageX;
+
+    $(document).on("mousemove touchmove", function(e) {
+      var x = e.pageX || e.originalEvent.touches[0].pageX;
+      pullDeltaX = (x - startX);
+      if (!pullDeltaX) return;
+      pullChange();
+    });
+
+    $(document).on("mouseup touchend", function() {
+      $(document).off("mousemove touchmove mouseup touchend");
+      if (!pullDeltaX) return; // prevents from rapid click events
+      release();
+    });
+  });
+
+});
+</script>
+</body>
+</html> 
