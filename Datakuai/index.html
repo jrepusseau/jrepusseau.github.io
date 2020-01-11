@@ -1200,7 +1200,7 @@ const active='active';
 // Bind to scroll
 $(window).scroll(function(){
    // Get container scroll position
-   var fromTop = $(this).scrollTop()+topMenuHeight;
+   var fromTop = $(this).scrollTop()+($( window ).height()/2);
    
    // Get id of current scroll item
    var cur = scrollItems.map(function(){
