@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>UnskilledStudio</title>
+  <title>UnskilledStudio </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -11,10 +11,14 @@
 </head>
 
 <style>
-
+body{
+//background-image:url('images/background.jpeg');
+background-color:#F5F5DC;
+margin:1em;
+}
 img{
-height:100px;
-width:100px;
+height:10vw;
+width:10vw;
 border-radius:50%;
 margin:auto;
 }
@@ -25,7 +29,7 @@ text-align:center;
 }
 .unit:hover
 {
-outline:1px solid black;
+
   box-shadow: 0 5px 10px rgba(0,0,0,0.8);
     -webkit-transition: box-shadow 6000ms linear;
     -ms-transition: box-shadow 6000ms linear;
@@ -38,12 +42,13 @@ outline:1px solid black;
 
 
 
-.jumbotron
+.navbar
 {
-background-image:url('images/background.jpeg');
-  background-attachment: fixed;
+//
+
+ background-attachment: fixed;
   color:white;
-  height: 50px;
+//height: 5vw;
 }
 .sticky-top.scrolled {
   opacity: 0.7 !important;
@@ -59,13 +64,24 @@ $(function () {
 });
 </script>
 <body>
-<nav class="navbar sticky-top jumbotron">
-  <div class="container">
-   <h1>UnskilledStudio</h1>
-  <p>Idea starter</p>
+<nav class="navbar sticky-top" style='background-color: black;'>
+
+   <h4>UnskilledStudio<span class="glyphicon glyphicon-wrench"></span></h4>
+  <p>Idea reactor</p>
+  <div class="dropdown" style='color:white'>
+  <button style='color:white' class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    English
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Français</a>
+    <a class="dropdown-item" href="#">з </a>
+    <a class="dropdown-item" href="#">Something else here</a>
   </div>
+</div>
+ 
 </nav>
-  
+  <br>
+  <h2>Projets</h2>
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
@@ -162,6 +178,6 @@ We put the store on the Communitea map as à form of exposure advertisement amon
 	</div>
   </div>
 </div>
-
+  <h2>Team</h2>
 </body>
 </html>

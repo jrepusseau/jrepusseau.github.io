@@ -432,7 +432,7 @@ input[orient="vertical"]::-moz-range-thumb {
     content:"🖒";
     font-size: 100px; 
     //color: #FFF;
-    line-height: 100px;
+
     text-align: center;
 }
  .demo__card__choice.m--reject {
@@ -475,7 +475,7 @@ input[orient="vertical"]::-moz-range-thumb {
 }
 
 .play-area-sub {
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   //width: 47%;
@@ -484,14 +484,14 @@ input[orient="vertical"]::-moz-range-thumb {
 }
 
 #capture {
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   visibility: hidden;
 }
 
 #snapshot {
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   width: 320px;
@@ -831,116 +831,24 @@ $("#renderBtn").click(
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
   <div class="modal-content">
-      <div class="modal-body">
-            <div class="row">
+     
                 
-                    <div class="panel with-nav-tabs panel-info">
-                        <div class="panel-heading">
+                    
+                       
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#tab1info" data-toggle="tab">Info 1</a></li>
+                                    <li ><a href="#tab1info" data-toggle="tab">Info 1</a></li>
                                     <li><a href="#tab2info" data-toggle="tab">Info 2</a></li>
 									  <button type="button" class="close" data-dismiss="modal">&times;</button>
                                    
                                         </ul>
                                     </li>
                                 </ul>
-                        </div>
-                        <div class="panel-body">
+                        
+						
+                        
                             <div class="tab-content">
-                                <div class="tab-pane fade in active" id="tab2info"><div class="modal-body">
-      <div class="demo">
-  <header class="demo__header"></header>
-  <div class="demo__content">
-    <div class="demo__card-cont">
-      <div class="demo__card">
-        <div class="demo__card__top brown">
-          <div class="demo__card__img">
-		   <img src="https://i.pinimg.com/474x/86/d1/ed/86d1edb18e31f7a79c2cc18dcab8e974--duckface-ducks.jpg"  height="600" width="600"> 
-		  </div>
-          <p class="demo__card__name"></p>
-        </div>
-        <div class="demo__card__btm">
-          <p class="demo__card__we">Whatever</p>
-        </div>
-        <div class="demo__card__choice m--reject"></div>
-        <div class="demo__card__choice m--like"></div>
-        <div class="demo__card__drag"></div>
-      </div>
-      <div class="demo__card">
-        <div class="demo__card__top lime">
-          <div class="demo__card__img">
-		   <img src="https://ugc-01.cafemomstatic.com/gen/constrain/740/1500/75/2013/01/27/17/b2/rd/phvez8magc1.jpg" height="600" width="600"> 
-		   </div>
-          <p class="demo__card__name"></p>
-        </div>
-        <div class="demo__card__btm">
-          <p class="demo__card__we">Whatever</p>
-        </div>
-        <div class="demo__card__choice m--reject"></div>
-        <div class="demo__card__choice m--like"></div>
-        <div class="demo__card__drag"></div>
-      </div>
-      <div class="demo__card">
-        <div class="demo__card__top cyan">
-          <div class="demo__card__img">
-		  <img src="https://i.pinimg.com/474x/76/ae/a8/76aea87c72d10ad45f2f62c70d334b3e--peace-signs-selfies.jpg" height="600" width="600">
-		  </div>
-          <p class="demo__card__name"></p>
-        </div>
-        <div class="demo__card__btm">
-          <p class="demo__card__we">Whatever</p>
-        </div>
-        <div class="demo__card__choice m--reject"></div>
-        <div class="demo__card__choice m--like"></div>
-        <div class="demo__card__drag"></div>
-      </div>
-      <div class="demo__card">
-        <div class="demo__card__top indigo">
-          <div class="demo__card__img">
-		  <img src="https://mikelamonica.files.wordpress.com/2013/11/screen-shot-2013-10-16-at-6-34-25-pm.png" height="600" width="600">
-		  </div>
-          <p class="demo__card__name"></p>
-        </div>
-        <div class="demo__card__btm">
-          <p class="demo__card__we">Whatever</p>
-        </div>
-        <div class="demo__card__choice m--reject"></div>
-        <div class="demo__card__choice m--like"></div>
-        <div class="demo__card__drag"></div>
-      </div>
-      <div class="demo__card">
-        <div class="demo__card__top blue">
-          <div class="demo__card__img">
-		  <img src="https://i.gifer.com/fetch/w300-preview/13/13488185d6483925b41bfe0ee406dcd7.gif" height="600" width="600"></div>
-          <p class="demo__card__name"></p>
-        </div>
-        <div class="demo__card__btm">
-          <p class="demo__card__we">Whatever</p>
-        </div>
-        <div class="demo__card__choice m--reject"></div>
-        <div class="demo__card__choice m--like"></div>
-        <div class="demo__card__drag"></div>
-      </div>
-      <div class="demo__card">
-        <div class="demo__card__top purple">
-          <div class="demo__card__img">
-		  <img src="https://data.whicdn.com/images/332200606/original.jpg" height="600" width="600"></div>
-          <p class="demo__card__name"></p>
-        </div>
-        <div class="demo__card__btm">
-          <p class="demo__card__we">Whatever</p>
-        </div>
-        <div class="demo__card__choice m--reject"></div>
-        <div class="demo__card__choice m--like"></div>
-        <div class="demo__card__drag"></div>
-      </div>
-    </div>
-    <p class="demo__tip">Swipe left or right if you find a peace sign </p>
-  </div>
-</div>
-      </div></div>
-                                <div class="tab-pane fade" id="tab1info">
-								<div class="play-area">
+                                <div class="tab-pane fade" id="tab2info">
+    <div class="play-area">
   <div class="play-area-sub">
    
     <video id="stream" width="320" height="240"></video>
@@ -951,6 +859,7 @@ $("#renderBtn").click(
     <div id="snapshot"></div>
   </div>
 </div
+<br>
   <br>
   <br>
   <br>
@@ -969,6 +878,103 @@ $("#renderBtn").click(
 								
 								
 								</div>
+                                <div class="tab-pane fade in active" id="tab1info">
+								  <div class="demo">
+  <header class="demo__header"></header>
+  <div class="demo__content">
+    <div class="demo__card-cont">
+      <div class="demo__card">
+        <div class="demo__card__top brown">
+          <div class="demo__card__img">
+		   <img src="https://i.pinimg.com/474x/86/d1/ed/86d1edb18e31f7a79c2cc18dcab8e974--duckface-ducks.jpg"  height="100%" width="100%"> 
+		  </div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top lime">
+          <div class="demo__card__img">
+		   <img src="https://ugc-01.cafemomstatic.com/gen/constrain/740/1500/75/2013/01/27/17/b2/rd/phvez8magc1.jpg" height="100%" width="100%"> 
+		   </div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top cyan">
+          <div class="demo__card__img">
+		  <img src="https://i.pinimg.com/474x/76/ae/a8/76aea87c72d10ad45f2f62c70d334b3e--peace-signs-selfies.jpg" height="100%" width="100%">
+		  </div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top indigo">
+          <div class="demo__card__img">
+		  <img src="https://mikelamonica.files.wordpress.com/2013/11/screen-shot-2013-10-16-at-6-34-25-pm.png" height="100%" width="100%">
+		  </div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top blue">
+          <div class="demo__card__img">
+		  <img src="https://i.gifer.com/fetch/w300-preview/13/13488185d6483925b41bfe0ee406dcd7.gif" height="100%" width="100%"></div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+      <div class="demo__card">
+        <div class="demo__card__top purple">
+          <div class="demo__card__img">
+		  <img src="https://data.whicdn.com/images/332200606/original.jpg" height="100%" width="100%"></div>
+          <p class="demo__card__name"></p>
+        </div>
+        <div class="demo__card__btm">
+          <p class="demo__card__we">Whatever</p>
+        </div>
+        <div class="demo__card__choice m--reject"></div>
+        <div class="demo__card__choice m--like"></div>
+        <div class="demo__card__drag"></div>
+      </div>
+    </div>
+    <p class="demo__tip">Swipe left or right if you find a peace sign </p>
+  </div>
+</div>
+      </div>
+								
+								
+								
+								
+								
                              </div>
                         </div>
                     </div>
@@ -980,7 +986,7 @@ $("#renderBtn").click(
   
 
   </div>
-</div>
+
 
 </body>
 <script>
