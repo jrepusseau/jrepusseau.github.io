@@ -52,9 +52,16 @@ text-align:center;
  
  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
 }
-.sticky-top.scrolled {
- // opacity: 0.7 !important;
- // transition: opacity 200ms linear;
+
+.sticky-bottom {
+ opacity: 0 !important;
+ position:fixed;
+ bottom:0px;
+}
+
+.sticky-bottom.scrolled {
+ opacity: 0.7 !important;
+  transition: opacity 1000ms linear;
 }
 h2{
 text-align:center;
@@ -63,7 +70,7 @@ text-align:center;
 <script>
 $(function () {
   $(document).scroll(function () {
-    var $nav = $(".sticky-top");
+    var $nav = $(".sticky-bottom");
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
   });
 });
@@ -72,7 +79,6 @@ $(function () {
 <nav class="navbar sticky-top" style='background-color: black;'>
 
    <h4>UnskilledStudio<span class="glyphicon glyphicon-wrench"></span></h4>
-  <p>Idea reactor</p>
   <div class="dropdown" style='color:white'>
   <button style='color:white' class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     English
@@ -83,6 +89,12 @@ $(function () {
     <a class="dropdown-item" href="#">中文</a>
   </div>
 </div>
+ 
+</nav>
+
+<nav class="navbar sticky-bottom" style='background-color: black;'>
+
+ Contact
  
 </nav>
 <br>
@@ -208,5 +220,10 @@ We put the store on the Communitea map as à form of exposure advertisement amon
   </div>
 </div>
   <h2>Team</h2>
+  <br>
+  <h2>
+  Jules R.
+  </h2>
+  <br>
 </body>
 </html>
