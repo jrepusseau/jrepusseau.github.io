@@ -13,8 +13,8 @@
 <style>
 body{
 //background-image:url('images/background.jpeg');
-background-color:#F5F5DC;
-
+ background: rgb(16,112,158);
+background: linear-gradient(356deg, rgba(16,112,158,1) 0%, rgba(0,212,255,1) 100%); 
 }
 img{
 height:10vw;
@@ -50,11 +50,14 @@ text-align:center;
   color:white;
 //height: 5vw;
  
-  box-shadow: 5px 5px 5px 5px #888888;
+ box-shadow: 0 5px 10px rgba(0,0,0,0.8);
 }
 .sticky-top.scrolled {
  // opacity: 0.7 !important;
  // transition: opacity 200ms linear;
+}
+h2{
+text-align:center;
 }
 </style>
 <script>
@@ -82,11 +85,35 @@ $(function () {
 </div>
  
 </nav>
+<br>
+<br>
+<h2>About</h2>
+  <br>
+  <h2>Blog</h2>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+		
+	<div class='unit'>
+	<a href="https://jrepusseau.github.io/Flipview/debate-like/debate-like2/index.html" target="_blank">
+	<img src='images/flipview.jpg'/>
+</a>
+      <h3>Flipview</h3>
+	  	<a href="https://jrepusseau.github.io/Flipview/debate-like/debate-like2/index.html" target="_blank">
+	<p> BETA <p>
+</a>
+      <p id='' >Flipview is an open-source platform where every user can express their opinion about politics and society without censorship. The subject is usually a controversial subject and every subject is divided into several arguments. In every argument users can leave constructed comments which other users can rate according to structure, neutrality and trustability. Users can also make their sources directly accessible through the browser. Finally, user can rate their own confidence in an argument using a bayesian grade. 
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
   <br>
   <h2>Projets</h2>
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
 		
 	<div class='unit'>
 	<a href="https://jrepusseau.github.io/Flipview/debate-like/debate-like2/index.html" target="_blank">
@@ -115,7 +142,7 @@ Back the first step the app will analyze the efficiency of the programs (foods,s
 </p>
     </div>
 	</div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
 	<div class='unit'>
 	<a href='http://comunitea.creatorlink.net/' target="_blank">
 	<img src='images/leaf.png'/>
@@ -146,7 +173,7 @@ We put the store on the Communitea map as à form of exposure advertisement amon
     </div>
 	</div>
    
-	   <div class="col-sm-4">
+	   <div class="col-sm-6">
 	    <div class="unit">
 		 <a href="https://jrepusseau.github.io/ARC/" target="_blank">
 	   <img src='images/ARC.jpg'/>
