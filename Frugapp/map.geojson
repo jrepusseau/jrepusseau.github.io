@@ -1,0 +1,745 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4842027,25.0618497 ]
+    },
+    "properties": {
+    "Name":"Unpackaged. U?��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4272488,24.9934261 ]
+    },
+    "properties": {
+    "Name":"?�夫?�啡 (樹�?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4643063,25.0054481 ]
+    },
+    "properties": {
+    "Name":"?��??�啡"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.462213,25.009554 ]
+    },
+    "properties": {
+    "Name":"?�豬?��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?�番?�人?��?丼飯專�?�?121.4637833"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5028755,24.9910632 ]
+    },
+    "properties": {
+    "Name":"三�?妹�??�全?��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4359966,25.1730731 ]
+    },
+    "properties": {
+    "Name":"香�?廚房"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4390014,25.1700975 ]
+    },
+    "properties": {
+    "Name":"綠�??�館"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4456722,25.0876286 ]
+    },
+    "properties": {
+    "Name":"?�媽食�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"豐滿總匯三�?�?121.4329549"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4331547,25.0571255 ]
+    },
+    "properties": {
+    "Name":"丼庫食�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.708404,24.934863 ]
+    },
+    "properties": {
+    "Name":"?��??��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4595721,25.0277372 ]
+    },
+    "properties": {
+    "Name":"好�??��??�冰&幾霸?��??�炸??(?��?裕�?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4631979,25.0024386 ]
+    },
+    "properties": {
+    "Name":"?�賣局 (?��?忠�?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.456338,25.017576 ]
+    },
+    "properties": {
+    "Name":"海�?�?(?�中�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?��?宇�?�?121.481478"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4621298,25.0826006 ]
+    },
+    "properties": {
+    "Name":"Gino Pizza"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?��???121.4721006"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4630223,25.086043 ]
+    },
+    "properties": {
+    "Name":"豐滿 (?�洲�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.472041,25.093335 ]
+    },
+    "properties": {
+    "Name":"弘爺漢堡 (?�洲仁�?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"一滴水?�啡�?121.4638273"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.460695,25.088424 ]
+    },
+    "properties": {
+    "Name":"穀morning"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":" 魚缸?�啡�?121.47513"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.447511,25.176308 ]
+    },
+    "properties": {
+    "Name":"賀佳�? (淡水淡水�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4608176,25.1352116 ]
+    },
+    "properties": {
+    "Name":"賀佳�? (淡水竹�?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?��?師�??��?�?121.4230963"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4234487,24.9948906 ]
+    },
+    "properties": {
+    "Name":"?��?�?(樹�?保�?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"御亨小�?�?121.4238252"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4205286,24.9963692 ]
+    },
+    "properties": {
+    "Name":"?�味?��??��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.417394,24.998652 ]
+    },
+    "properties": {
+    "Name":"徐家?��??�宴?�廳"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.413944,24.9863349 ]
+    },
+    "properties": {
+    "Name":"ELK美�?餐廳"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.8071475,25.1078793 ]
+    },
+    "properties": {
+    "Name":"85度C (?�芳?��?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.8056034,25.1082308 ]
+    },
+    "properties": {
+    "Name":"路�??��???(?�芳?��?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.805545,25.10836 ]
+    },
+    "properties": {
+    "Name":"樂窩?�啡�?(?�芳�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4978538,25.0671972 ]
+    },
+    "properties": {
+    "Name":"統�?超�? (三�?�?��)"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4328704,25.0577168 ]
+    },
+    "properties": {
+    "Name":"OVAL MEAT"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4325747,25.0551447 ]
+    },
+    "properties": {
+    "Name":"義�??��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4333686,25.0547759 ]
+    },
+    "properties": {
+    "Name":"幸�??�裡"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.551393,24.863053 ]
+    },
+    "properties": {
+    "Name":"?��?小�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.55158,24.863951 ]
+    },
+    "properties": {
+    "Name":"九�??��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?��?大�?�?121.5515962"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5514149,24.8627992 ]
+    },
+    "properties": {
+    "Name":"山海?��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5384429,24.9568014 ]
+    },
+    "properties": {
+    "Name":"七�?鬆�?�?(?��?碧潭�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5495856,24.8622033 ]
+    },
+    "properties": {
+    "Name":"富米?��??��?餐廳"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5336181,24.9832016 ]
+    },
+    "properties": {
+    "Name":"桔�??�啡 Le gioie café"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5106348,24.9596125 ]
+    },
+    "properties": {
+    "Name":"清風?��??�館"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?�家廚房小�?�?121.4993939"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?��??�啡??121.539311"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4389584,25.0842623 ]
+    },
+    "properties": {
+    "Name":"?�大餐廳"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"大家小�?�?121.438335"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?��?小火??121.4377588"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4380099,25.0849528 ]
+    },
+    "properties": {
+    "Name":"就厲害�??�館"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4379419,25.0850237 ]
+    },
+    "properties": {
+    "Name":"?��?九�??�麵"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?�麵�?121.437436"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4340739,25.0889542 ]
+    },
+    "properties": {
+    "Name":"?�平食�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.439195,25.085517 ]
+    },
+    "properties": {
+    "Name":"?��??��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?�旺食�?�?121.4430298"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"三步五�??��?小�?�?121.435293"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?��?海岸鮮�?�?121.444092"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4159736,24.9803092 ]
+    },
+    "properties": {
+    "Name":"?�哪?�啡"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5225768,24.9930428 ]
+    },
+    "properties": {
+    "Name":"?�都?�刷??(中�??��?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.4883289,24.9956984 ]
+    },
+    "properties": {
+    "Name":"COCO (中�????�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5048174,24.9928236 ]
+    },
+    "properties": {
+    "Name":"清�?福全 (中�??��?�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?�翻�?121.503574"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5106352,24.9899331 ]
+    },
+    "properties": {
+    "Name":"?��??��?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?�欣?�骨�?121.5190699"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?�味�?121.5220338"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Name":"?�尾巴�???121.5072259"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5181148,24.9991892 ]
+    },
+    "properties": {
+    "Name":"客家小館"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.522004,25.0000619 ]
+    },
+    "properties": {
+    "Name":"?�飯食代"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5202812,25.0064574 ]
+    },
+    "properties": {
+    "Name":"?��?小�?"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5135278,24.9948393 ]
+    },
+    "properties": {
+    "Name":"川泰小館"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5164023,24.9981934 ]
+    },
+    "properties": {
+    "Name":"?�好?�港式茶餐廳"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 121.5176955,24.9999563 ]
+    },
+    "properties": {
+    "Name":"?�地廚房"
+    }
+  }
+]
+}
