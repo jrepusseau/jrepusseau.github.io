@@ -36,7 +36,8 @@
   <script src="https://cdn.jsdelivr.net/npm/alasql@0.4"></script>
   <script src='L.Control.Bar.js'></script>
  <script src='http://leaflet.github.io/Leaflet.label/leaflet.label.js'></script>
- 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
+
   <script src="jsQR.js"></script>
 <style>
   
@@ -417,7 +418,7 @@ top:70vw;
 
 <script>
 
-var markers=[];
+var mark=[];
 var customPopup;
  var customOptions;
 var mymap;
@@ -446,7 +447,6 @@ $(function(){
 var pos=[];
 
 
-
 function Start()
 {
  document.getElementById("menu2").style.display="none";
@@ -466,6 +466,8 @@ var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 
 	var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
 		streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
+
+		
 var mark1 = new L.marker([47.835768,1.954847]).on('click', markerOnClick).bindTooltip("La Racinerie", 
     {
         permanent: true, 
@@ -532,13 +534,11 @@ var mark8 = new L.marker([47.860074,1.830988]).on('click', markerOnClick).bindTo
     "<span style='color: gray'>Grayscale</span>": grayscale,
     "Streets": streets,
 };
-
+     mymap.addLayer(review);
 var overlayMaps = {
-	"Veggies & Fruits": Cs ,
-	"Bio-Shop": shop ,
-	    "Review": review,
+	"Veggies & Fruits": review ,
 };
-
+   
 	L.control.layers(baseMaps, overlayMaps).addTo(mymap);
 
 	
@@ -685,6 +685,7 @@ function move() {
 
 //maeker center 
 function markerOnClick(e) {
+$('#title').text(e.target.getTooltip().getContent());
 mymap.setView(e.target.getLatLng(),10);
 $('#navsub2').show().height('30%');
 }
@@ -708,6 +709,12 @@ document.getElementById("mybts").innerText='Commande';
   <br>
   <br>
   <br>
+  <h3> Votre panier </h3>
+  <ul class="list-group">
+  <li class="list-group-item">Votre commande à la Ferme du Ciran</li>
+</ul>
+<br>
+  <h3> Paniers précédents </h3>
 <div class="panel-group" id="accordion">
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -784,9 +791,7 @@ document.getElementById("mybts").innerText='Commande';
 
  <br>
 <img id='img-k' src='profil1.jpg' >
- <h2> jdy_essa </h2>
- <img id='img-q' src='qrcode.jpg' >
- <br>
+ <h2> Jeanne </h2>
  <a href='#'> LogOut</a>
  
 
@@ -819,7 +824,7 @@ document.getElementById("mybts").innerText='Commande';
   </button>
   
   <button  type="button"  class="btn  btn-success dropdown-toggle dropup  img-p" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu3'  onclick='Website()'>
- <span class="glyphicon glyphicon-list-alt"></span>
+ <span  class="fa fa-shopping-basket"></span>
 </button>	
    <!-- Tab panes 
  <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2'  onclick='Track()'>
@@ -832,7 +837,7 @@ document.getElementById("mybts").innerText='Commande';
  
 <nav class="navbar navbar-fixed-bottom navbar-expand-md " style='text-align:center'   id="navsub2" >
 
-<h3> Farm name </h3>
+<h3 id='title'> Farm name </h3>
 <ul class="nav nav-tabs" id="top-menu" >
 
 <li class="nav-item"  width='33vw'  >
@@ -987,6 +992,7 @@ function wait(ms){
   }
 }
 
+Start();
 Start();
 
 
