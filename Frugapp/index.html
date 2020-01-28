@@ -45,8 +45,13 @@
 		top: 0px;
 	   	padding: 0;
         margin: 0;
-        height: 98%;
+        height: 100%;
         width: 100vw;
+		 -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+      -o-transition: height 1s ease;
+     -ms-transition: height 1s ease;
+         transition: height 1s ease;
       }
 	   #choiceDiv {
 	 visibility: hidden;
@@ -292,14 +297,14 @@ background-color:white;
 
 .overlay {
     position: absolute;
-    z-index: 314159;
+    z-index: 40;
     pointer-events: auto;
 	   overflow-y:auto;
 }
 
 .notoverlay {
     position: absolute;
-    z-index: 314159;
+    z-index: 30;
 }
 
 .menu
@@ -393,6 +398,14 @@ top:70vw;
       text-align: center;
     }
 	
+	
+	#navsub2{
+	border-radius:2%;
+	display:none;
+	 box-shadow: 6px 8px 6px 12px rgba(0,0,0,0.2); 
+	 background-color:white;
+	z-index:999;
+	}
 </style>
 	
 </head>
@@ -453,45 +466,45 @@ var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 
 	var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
 		streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
-var mark1 = new L.marker([47.835768,1.954847]).bindPopup('<h4>Unpackaged. U商店</h4><p>Your review: Nice place!</p>').bindTooltip("La Racinerie", 
+var mark1 = new L.marker([47.835768,1.954847]).on('click', markerOnClick).bindTooltip("La Racinerie", 
     {
         permanent: true, 
         direction: 'top'
     });
-var mark2 = new L.marker([47.857446,1.946362]).bindTooltip("Ferme de la patte d'oie", 
+var mark2 = new L.marker([47.857446,1.946362]).on('click', markerOnClick).bindTooltip("Ferme de la patte d'oie", 
     {
         permanent: true, 
         direction: 'top'
     });
-var mark3 = new L.marker([47.8658,1.929247]).bindTooltip("Employement and Solidarity Bio", 
+var mark3 = new L.marker([47.8658,1.929247]).on('click', markerOnClick).bindTooltip("Employement and Solidarity Bio", 
     {
         permanent: true, 
         direction: 'top'
     });
-var mark4 = new L.marker([47.936161,1.956377]).bindTooltip("Le Champ Renard", 
-    {
-        permanent: true, 
-        direction: 'top'
-    });
-	
-var mark5 = new L.marker([47.767106,1.941715]).bindTooltip("Bergerie de la petite ferme", 
+var mark4 = new L.marker([47.936161,1.956377]).on('click', markerOnClick).bindTooltip("Le Champ Renard", 
     {
         permanent: true, 
         direction: 'top'
     });
 	
-var mark6 = new L.marker([47.731144,2.015205]).bindTooltip("Gaec Ferme du Ciran", 
+var mark5 = new L.marker([47.767106,1.941715]).on('click', markerOnClick).bindTooltip("Bergerie de la petite ferme", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+	
+var mark6 = new L.marker([47.731144,2.015205]).on('click', markerOnClick).bindTooltip("Gaec Ferme du Ciran", 
     {
         permanent: true, 
         direction: 'top'
     });
 				
-var mark7 = new L.marker([47.852659,1.961528]).bindTooltip("Serres Bio Val", 
+var mark7 = new L.marker([47.852659,1.961528]).on('click', markerOnClick).bindTooltip("Serres Bio Val", 
     {
         permanent: true, 
         direction: 'top'
     });	
-var mark8 = new L.marker([47.860074,1.830988]).bindTooltip("La Ferme Des Perrieres", 
+var mark8 = new L.marker([47.860074,1.830988]).on('click', markerOnClick).bindTooltip("La Ferme Des Perrieres", 
     {
         permanent: true, 
         direction: 'top'
@@ -670,6 +683,17 @@ function move() {
 } 
 
 
+//maeker center 
+function markerOnClick(e) {
+mymap.setView(e.target.getLatLng(),10);
+$('#navsub2').show().height('30%');
+}
+
+function more(e){
+$('#navsub2').show().height('100%');
+
+document.getElementById("mybts").innerText='Commande';
+}
 
 
 </script>
@@ -701,7 +725,7 @@ function move() {
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-     <span class="badge"> 11/12</span><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">  Your order in Ferme <span class="glyphicon glyphicon-menu-down"></span>
+     <span class="badge"> 11/12</span><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">  Your order in Ferme du champ <span class="glyphicon glyphicon-menu-down"></span>
         </a>
       </h4>
     </div>
@@ -766,44 +790,6 @@ function move() {
  <a href='#'> LogOut</a>
  
 
-<!-- 
-<h1>Level 1  </h1>
-
-<div id="myProgress">
-  <div id="myBar">2 cup saved!</div>
-</div>
-
-<br>
-<button onclick="move()">Click Me</button> 
- <br>
- 
- <button onclick='Website()'> Scan </button>
- <br>
- 
- 
-  <br>
-<button id='but' class="btn btn-success"  onclick="myFunction()">Scan</button>
-<br>
-<br>
-
- 
- <video id="preview" style='display:none;text-align:center'></video>
-
-
-
-
-<h2> Remaining Balance </h2>
-<h1> 16 CT </h1>
-
-<br>
-<h2> Latest transaction </h2>
-<ul class="list-group" href="#menu2">
-  <li class="list-group-item" id='4645' > <span class="badge">11/12</span>+1 CT Kamacafe</li>
-  <li class="list-group-item" id='4644' ><span class="badge">03/12</span> +1 CT Dante Cafe</li>
-  <li class="list-group-item" id='4643' ><span class="badge">08/11</span> +1 CT Starbuck Shongshan</li>
-</ul> 
- <!-- Tab panes -->
-
 <br>
  </br>
  </br>
@@ -819,19 +805,7 @@ function move() {
 </div>
 
  <div id='menu2' style='display:none;text-align:center'>
-<br>
-<br>
-<br><br>
-<h2> Online Shop</h2>
- <ul class="list-group">
-  <li class="list-group-item"> Macrame DYI   <span class="badge">11/12</span>
-  <img id='img-k' src='macrame.jpg' >  30 CT  <button> Order now </button>
-  </li>
-  <li class="list-group-item"> New bags arrival    <span class="badge">09/12</span>
-  <img id='img-k' src='washingbag.jpg' >  40 CT  <button> Order now </button>
-  
-  </li>
-</ul> 
+
  
   </div>
   
@@ -839,10 +813,7 @@ function move() {
 
   
 <div id="nav1" class="up overlay" style='text-align:center' data-backdrop="false">
-<ul class="nav">
-    
- 
-	 
+<ul class="nav">	 
   <button   id="maintitle" onclick="Start()" type="button" class="btn btn-success  img-p">
   <span class="glyphicon glyphicon-map-marker"></span>
   </button>
@@ -856,14 +827,34 @@ function move() {
   </button>
  Tab panes -->
  <img class='img-p' src='profil1.jpg' href="#menu1" onclick="Back()">
- 
- 
-	
-	 
     </ul>
 </div>
  
+<nav class="navbar navbar-fixed-bottom navbar-expand-md " style='text-align:center'   id="navsub2" >
 
+<h3> Farm name </h3>
+<ul class="nav nav-tabs" id="top-menu" >
+
+<li class="nav-item"  width='33vw'  >
+
+<a href="#menu2"><span class="glyphicon glyphicon-book"></span> Info</a>
+</li>
+
+ <li id='menu4tab' onclick='result()' width='33vw' class="nav-item"  > 
+	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Produits</a></li>
+	
+
+<li class="nav-item" id='menu3tab' onclick='debate()' width='33vw'>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Stat</a>
+
+</li>
+	   </ul>
+
+<button class='btn btn-secondary' style='position:fixed;left:0;bottom:0;width:100vw' id='mybts' onclick='more()' >
+Voir plus
+</button>
+	 
+</nav> 
   
 
 
