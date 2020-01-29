@@ -67,17 +67,6 @@
 	.navbar{
 	 z-index: 2;
 	}
-	.row {
-	opacity: 0.8;
-  visibility: hidden;
-  bottom: 5%;
-  left:0%;
-  right:0%;
-  z-index: 0;
-  display:flex;
-  position:fixed;
-
-}
 	
 	.menu1{
 	background-color:pink;
@@ -407,6 +396,13 @@ top:70vw;
 	 background-color:white;
 	z-index:999;
 	}
+	
+#container{width:100%;}
+#left{float:left;width:33vw;}
+#right{float:right;width:33vw;}
+#center{margin:0 auto;width:33vw;border-left:solid black 1px;border-right:solid black 1px;
+background-image: url("carrot.jpg");
+}
 </style>
 	
 </head>
@@ -837,23 +833,13 @@ document.getElementById("mybts").innerText='Commande';
  
 <nav class="navbar navbar-fixed-bottom navbar-expand-md " style='text-align:center'   id="navsub2" >
 
-<h3 id='title'> Farm name </h3>
-<ul class="nav nav-tabs" id="top-menu" >
+<h5 id='title'> Farm name </h5>
 
-<li class="nav-item"  width='33vw'  >
-
-<a href="#menu2"><span class="glyphicon glyphicon-book"></span> Info</a>
-</li>
-
- <li id='menu4tab' onclick='result()' width='33vw' class="nav-item"  > 
-	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Produits</a></li>
-	
-
-<li class="nav-item" id='menu3tab' onclick='debate()' width='33vw'>
- <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Stat</a>
-
-</li>
-	   </ul>
+<div id="container">
+  <div id="left">Label</div>
+  <div id="right">4.3<br> 50 notes</div>
+  <div id="center">Carottes bio</div>
+</div>
 
 <button class='btn btn-secondary' style='position:fixed;left:0;bottom:0;width:100vw' id='mybts' onclick='more()' >
 Voir plus
