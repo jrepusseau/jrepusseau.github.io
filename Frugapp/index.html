@@ -430,7 +430,6 @@ var activemarker;
 var actvmkr=[];
 var newMarker;
 var newMarkerCircle;
- $("#btnbck").hide();
 
 
 $(function(){
@@ -699,6 +698,7 @@ $('#navsub2').show().height('100%');
 $('#btnbck').show();
 $("#mybts").hide();
 $("#container").hide();
+ $("#container2").show();
 }
 
 function less(e){
@@ -706,6 +706,7 @@ $('#navsub2').show().height('30%');
 $('#btnbck').hide();
 $("#mybts").show();
 $("#container").show();
+ $("#container2").hide();
 }
 
 
@@ -856,15 +857,19 @@ $("#container").show();
   <div id="right">4.3<br> 50 notes</div>
   <div id="center">Carottes bio</div>
 </div>
-<div>
+<div id='container2'>
 <h5> Intro 
 <br> Fruits et legumes temps de plantaison et recolte <br>
 Avis <h5>
 <fieldset>
-<button> Order </button>
+<legend> On recolte </legend>
+<h5> Tomates depuis 15 juin</h5>
+<button type="button" class="btn btn-danger"> Commander </button>
 </fieldset>
 <fieldset>
-<button> Pre-Order </button>
+<legend> On plante </legend>
+<h5> Carottes jusqu'au 20 juillet </h5>
+<button  type="button" class="btn btn-success"> Planter </button>
 </fieldset>
 
 </div>
@@ -1009,7 +1014,8 @@ function wait(ms){
 
 Start();
 Start();
-
+ $("#btnbck").hide();
+ $("#container2").hide();
 
 </script>
 </html>
