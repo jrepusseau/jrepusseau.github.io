@@ -403,6 +403,14 @@ top:70vw;
 #center{margin:0 auto;width:33vw;border-left:solid black 1px;border-right:solid black 1px;
 background-image: url("carrot.jpg");
 }
+
+#btnbck
+{
+position: fixed;
+top:0;
+left:0;
+
+}
 </style>
 	
 </head>
@@ -422,7 +430,6 @@ var activemarker;
 var actvmkr=[];
 var newMarker;
 var newMarkerCircle;
-
 
 
 $(function(){
@@ -682,14 +689,24 @@ function move() {
 //maeker center 
 function markerOnClick(e) {
 $('#title').text(e.target.getTooltip().getContent());
-mymap.setView(e.target.getLatLng(),10);
+mymap.setView(e.target.getLatLng(),);
 $('#navsub2').show().height('30%');
 }
 
 function more(e){
 $('#navsub2').show().height('100%');
+$('#btnbck').show();
+$("#mybts").hide();
+$("#container").hide();
+ $("#container2").show();
+}
 
-document.getElementById("mybts").innerText='Commande';
+function less(e){
+$('#navsub2').show().height('30%');
+$('#btnbck').hide();
+$("#mybts").show();
+$("#container").show();
+ $("#container2").hide();
 }
 
 
@@ -833,13 +850,30 @@ document.getElementById("mybts").innerText='Commande';
  
 <nav class="navbar navbar-fixed-bottom navbar-expand-md " style='text-align:center'   id="navsub2" >
 
-<h5 id='title'> Farm name </h5>
+<h5 id='title'> Farm name </h5><button onclick='less()' id='btnbck'><</button>
 
 <div id="container">
-  <div id="left">Label</div>
+  <div id="left">recolte<br>pre-commande</div>
   <div id="right">4.3<br> 50 notes</div>
   <div id="center">Carottes bio</div>
 </div>
+<div id='container2'>
+<h5> Intro 
+<br> Fruits et legumes temps de plantaison et recolte <br>
+Avis <h5>
+<fieldset>
+<legend> On recolte </legend>
+<h5> Tomates depuis 15 juin</h5>
+<button type="button" class="btn btn-danger"> Commander </button>
+</fieldset>
+<fieldset>
+<legend> On plante </legend>
+<h5> Carottes jusqu'au 20 juillet </h5>
+<button  type="button" class="btn btn-success"> Planter </button>
+</fieldset>
+
+</div>
+
 
 <button class='btn btn-secondary' style='position:fixed;left:0;bottom:0;width:100vw' id='mybts' onclick='more()' >
 Voir plus
@@ -980,7 +1014,8 @@ function wait(ms){
 
 Start();
 Start();
-
+ $("#btnbck").hide();
+ $("#container2").hide();
 
 </script>
 </html>
