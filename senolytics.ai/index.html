@@ -24,6 +24,10 @@
 
 	img { max-width: 100%; height: auto }
 
+	section{
+	min-width:100%;
+	min-height:100%;
+	}
   
   .fakeimg {
     height: 200px;
@@ -358,22 +362,22 @@ input[orient="vertical"]::-moz-range-thumb {
 <nav class="navbar navbar-fixed-bottom navbar-expand-md " style=' box-shadow: 6px 8px 6px 12px rgba(0,0,0,0.2);'   id="navsub2" >
 <ul class="nav nav-tabs" id="top-menu">
 
-<li class="nav-item active" onclick='general()'  >
+<li class="nav-item active"  >
 
 <a href="#menu2"><span class="glyphicon glyphicon-home"></span> Home</a>
 </li>
 
- <li id='menu4tab' onclick='result()' width='24vw' class="nav-item"  > 
-	 <a href="#menu4"><span class="glyphicon glyphicon-stats"></span> Properties</a></li>
+ <li id='menu4tab' width='24vw' class="nav-item"  > 
+	 <a href="#menu4"><span class="glyphicon glyphicon-hourglass"></span> Properties</a></li>
 	
 
-<li class="nav-item" id='menu3tab' onclick='debate()' width='24vw'>
+<li class="nav-item" id='menu3tab'  width='24vw'>
  <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Biomarkers</a>
 
 </li>
 
-<li class="nav-item" id='menu5tab' onclick='showvote()' width='24vw' >
-<a href="#menu6"><span class="glyphicon glyphicon-sort-by-order"></span> Senolytics</a>
+<li class="nav-item" id='menu5tab'  width='24vw' >
+<a href="#menu6"><span class="glyphicon glyphicon-flash"></span> Senolytics</a>
 </li>
 
 
@@ -403,22 +407,35 @@ input[orient="vertical"]::-moz-range-thumb {
  
     <section id="menu2" class="intro-section">
         <div class="container">
-            <div class="row">
-               <div class="col-lg-1 col-md-1 col-1">
-              </div>
-                  <div class="col-lg-4 col-md-4 col-6">
-                    <h1> Senolytics  </h1>
-                    <p> Drugs that target senescent cells, main responsible in age-related diseases </p>
-              </div>
-                       <div class="col-lg-2 col-md-2 col-6"> 
-                         <h2><small> powered by </small></h2>
-              </div>
-                 <div class="col-lg-4 col-md-4 col-6">
-                  <h1> Artificial Intelligence </h1>
-                  <p> Branch of computer science inspired by human brain exhibiting traits in learning and problem-solving </p>
-              </div>
-              </div>
+            
              <br>
+			  <h1>senolytics.ai</h1>
+			  <p>
+			  How can AI improve the ways we analyse, track and treats senescent cells responsible for aging and age related disease. 
+			  </p>
+<br>
+ <a href="#menu4"><span class="glyphicon glyphicon-hourglass"></span> Senescence properties</a></li>
+  <p> 
+&#9312 Senescence databases overview<br>
+&#9313 Aging analysis by AI <br>
+&#9314 Insight into senescence reversibility treatments<br>
+                </p>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Senescent cell biomarkers</a>
+<br>
+  <p>
+&#9312 Senescent cell biomarkers databases<br>
+&#9313 Senescent cell features detection powered by AI<br>
+&#9314 Senescent on the chip <br>
+
+                </p>
+
+  <a href="#menu6"><span class="glyphicon glyphicon-flash"></span> Senolytics</a>
+  <p>
+&#9312 Senolytics database <br>
+&#9313 Senolytics drugs dicoveries pipeline <br>
+&#9314 Insights into personnalized senotherapy <br>
+                </p>
+			 
         </div>
     </section>
    <section id='properties'>
@@ -438,7 +455,10 @@ input[orient="vertical"]::-moz-range-thumb {
    <h2> Biomarkers </h2>
 	  <div class="row">
                   <div class="col-lg-6 col-md-6">
+				  <figure>
                     	 <img src="staining.gif "height='400' width='400'>
+						 <figcaption>Staining </figcaption>
+						 </figure>
 						 </div>
          
                  <div class="col-lg-6 col-md-6">
@@ -483,31 +503,7 @@ input[orient="vertical"]::-moz-range-thumb {
 	
 	 <script>
 	
-</script>
-	  
-	  
-		
-	      
-       
-      
-  
-  
-	 
-	  
-	  
-	  
-	
-	  
-	  
-		
-	      
-       
-      
-
-  
-    
-		
-		
+</script>	
       
   </div>
   
@@ -630,33 +626,6 @@ function shuffle(array) {
 }
 
 
-
-
-function general()
-{
- $('[href="#menu2"]').tab('show');
-}
-
-function yourlist()
-{
- $('[href="#menu5"]').tab('show');
-}
-
-function debate()
-{
- $('[href="#menu3"]').tab('show');
-}
-
-function result()
-{
- $('[href="#menu4"]').tab('show');
- render('pathways');
-}
-
-function showvote()
-{ 
- $('[href="#menu6"]').tab('show');
-}
 
 
 function renderChart(data, labels) {
