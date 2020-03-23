@@ -399,8 +399,8 @@ input[orient="vertical"]::-moz-range-thumb {
 
 <div class="tab-content">
        
-   <div id="menu2" class="tab-pane active">
-    <section id="intro" class="intro-section">
+ 
+    <section id="menu2" class="intro-section">
         <div class="container">
             <div class="row">
                <div class="col-lg-1 col-md-1 col-1">
@@ -420,19 +420,21 @@ input[orient="vertical"]::-moz-range-thumb {
              <br>
         </div>
     </section>
-  
-  <a id="menu4" > Properties </a>
+   <section id='properties'>
+  <h2 id="menu4" > Properties </h2>
+ 
  <div class="row">
                   <div class="col-lg-6 col-md-6">
                     	 <p> Many properties </p>
 						 </div>
          
                  <div class="col-lg-6 col-md-6">
-              <img src="properties.png " >
+              <img src="properties.png " height='200' width='400' >
 				 </div>
               </div>  	
-  
-   <h2 id="menu3"> Biomarkers </h2>
+  </section>
+  <section id="menu3">
+   <h2> Biomarkers </h2>
 	  <div class="row">
                   <div class="col-lg-6 col-md-6">
                     	 <img src="staining.gif "height='400' width='400'>
@@ -443,8 +445,9 @@ input[orient="vertical"]::-moz-range-thumb {
 				 </div>
               </div>  	
 
- 
-     <h2 id="menu6" > Senolytics </h2>
+ </section>
+ <section id="menu6">
+     <h2  > Senolytics </h2>
 <select>
   <option onclick="render('pathways');">Pathways</option>
   <option onclick="render('cells');">Cells</option>
@@ -454,7 +457,7 @@ input[orient="vertical"]::-moz-range-thumb {
     </div>
 	</br></br>	
 
-	
+</section>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog" tabindex="-1" >
   <div class="modal-dialog">
@@ -626,25 +629,6 @@ function shuffle(array) {
 }
 
 
-
-function SourceBox()
-{
-$('#sourcebox').popover('show');
-
-}
-function changeURI()
-{
-//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
-}
-
-window.addEventListener('keypress', function (e) {
-
-    if (e.keyCode == 13) {
-      var a = document.createElement('A');
-	  a.setAttribute('href',document.getElementById('srch').value)
-	  showSource(a.href);
-    }
-}, false);
 
 
 function general()
@@ -966,7 +950,7 @@ var lastId,
 // so we can get a fancy scroll animation
 menuItems.click(function(e){
   var href = $(this).attr("href"),
-      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+40;
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+25;
   $('html, body').stop().animate({ 
       scrollTop: offsetTop
   }, 0);
