@@ -485,10 +485,10 @@ input[orient="vertical"]::-moz-range-thumb {
  </section>
  <section id="menu6">
      <h2  > Senolytics </h2>
-<select>
-  <option onclick="render('pathways');">Pathways</option>
-  <option onclick="render('cells');">Cells</option>
-</select>
+
+	 <div id="container2"></div>
+	 
+	 
 	    <div class="container" >
         <canvas id="myChart"></canvas>
     </div>
@@ -543,6 +543,46 @@ input[orient="vertical"]::-moz-range-thumb {
 
 </body>
 <script>
+
+ $.get('Senvitro.csv', function(data) {
+
+// start the table
+var html = '<table">';
+
+// split into lines
+var rows = data.split("\n");
+
+// parse lines
+rows.forEach( function getvalues(ourrow) {
+alert('yes');
+// start a table row
+html += "<tr>";
+
+// split line into columns
+var columns = ourrow.split(";");
+
+html += "<td>" + columns[0] + "</td>";
+html += "<td>" + columns[1] + "</td>";
+html += "<td>" + columns[2] + "</td>";
+
+// close row
+html += "</tr>";
+})
+// close table
+html += "</table>";
+
+// insert into div
+$('#container2').append(html);
+
+});
+
+
+
+
+
+
+
+
   var myChart;
 render('pathways');
  $('[href="#menu2"]').tab('show');
@@ -995,24 +1035,7 @@ $(window).scroll(function(){
   lastScroll = currentScroll;   
 });
 
-function updateTextInput(e,event) {
 
-e.parentElement.children[0].innerHTML=e.value;
-  var tot = Number(e.parentElement.parentElement.children[0].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[1].children[0].innerHTML)+ Number(e.parentElement.parentElement.children[2].children[0].innerHTML);
-  if (tot==10)
- {$( "#menu5tab" ).addClass("success");
- $( ".modal-dialog" ).addClass("succcess");
- $(".modal-title").text('vote verified').addClass('sucs');}
-  else 
-  {$( "#menu5tab" ).removeClass("success");
-   $( ".modal-dialog" ).removeClass("succcess")
-   $(".modal-title").text('vote by draging '+(10-tot)+' points').removeClass('sucs')
-   ;}
- // if (tot>10)
- //event.stopImmediatePropagation()
-// alert('r')
-};
-  
 
 
 </script>
