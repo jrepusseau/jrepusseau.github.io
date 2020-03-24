@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>senolytics.ai</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script src="test.js"></script>
+ <script type="module" src="x-frame-bypass.js"></script>
+ <script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
+  
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+
+<!-- Simple List -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-dragdata@latest/dist/chartjs-plugin-dragdata.min.js"></script>
+
+
+
+  <style>
+
+	img { max-width: 100%; height: auto }
+
+	section{
+	min-width:100%;
+	min-height:100%;
+	}
+  
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+.glitch {
+
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+
+
+  
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-decoration: none;
+	
+}
+
+.glitch:hover
+ {
+
+  color:pink;
+	
+}
+
+.np
+{
+position:fixed;
+
+}
+
+h2{
+position:center;
+}
+
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  
+  z-index: 1; /* Sit on top */
+  left: 0px;
+
+
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+  position: relative; /* Stay in place */
+  //bottom: 0px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
+
+.topnav{
+  margin: 10px;
+}
+.topnav-right {
+  right: 10px;
+  margin-left:10px;
+}
+
+
+#navsub2, #navsub1, #Sources
+{  
+  transition: transform 0.4s;
+     background: white;
+ box-shadow: 0px 2px 1px 1px rgba(0,0,0,0.2);
+  // padding-right:0.5em;   
+}
+
+
+#argutitle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 23px;
+}
+
+
+
+.divargu:hover{
+
+background-color:#E8E8E8;
+
+}
+
+
+
+
+.flex-container {
+    width:100%;
+
+       display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+      
+}
+
+
+.fill-width {
+ // flex: 2;
+}
+*Presentation of argu*/
+
+.containertype {
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color:black; 
+}
+
+
+
+.sidenav {
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  right: 5px;
+  text-align:right;
+  background: transparent;
+  overflow-x: hidden;
+  padding: 8px 0;
+  display:none;
+}
+
+ 
+  
+   .container {
+        width: 100%;
+        height: 100%;
+		text-align:center;
+    }
+  
+.x{
+position:absolute;
+right:10px;
+}
+  
+#top-menu {
+  
+    background: white;
+    
+}
+
+#top-menu li {
+ width:24vw;
+}
+
+#top-menu a {
+    display: block;
+  
+    -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+    border-top: 3px solid white;
+ color: #333;
+ text-align:center;
+ 
+}
+
+#top-menu a:hover {
+    color: #000;
+
+}
+
+#top-menu li.active a {
+    border-top: 3px solid #333;
+    color: #333;
+
+}
+	
+.scroll-down #navsub1 {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up #navsub1{
+  transform: none;
+}
+
+.success
+{
+border-top: 2px solid green;
+}
+
+.successs
+{
+border-top: 2px solid green;
+border-right: 2px solid green;
+border-bottom: 2px solid green;
+border-left: 2px solid green;
+
+}
+
+.success span
+{
+color:green;
+}
+
+
+input[orient="vertical"] {
+    -webkit-appearance: none;
+	appearance:none;
+  //  background-color: red;
+
+		
+}
+
+input[orient="vertical"]::-webkit-slider-thumb {
+ /*    -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 0;
+  cursor: pointer;*/
+}
+
+input[orient="vertical"]::-moz-range-thumb {
+/*  width: 25px;
+  height: 25px;
+  border: 0;
+  cursor: pointer;*/
+}
+  
+.a
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.a::-moz-range-progress {
+  background-color:red; 
+}
+
+.a::-webkit-slider-thumb {
+  background: red;
+}
+.b
+{
+ appearance: none;
+-webkit-appearance: none;
+}
+.b::-moz-range-progress {
+  background-color:orange; 
+}
+.b::-webkit-slider-thumb {
+  background:blue; 
+}
+
+
+
+.c::-moz-range-progress {
+  background-color:green; 
+}
+.c::-webkit-slider-thumb {
+  background-image: :url(smiley2.png);
+}
+  
+ #Sources{
+  -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+	display: .1s all ease-out;
+	border-radius:15px;
+ }
+  
+  
+.sucs {
+  border-style: solid;
+  border-color: green;
+   border-width: 1px;
+   border-radius: 10px;
+}
+  </style>
+</head>
+<body>
+ 
+<nav class="navbar navbar-fixed-top navbar-expand-md "   id="navsub1" >
+ 
+   
+   <a class="navbar-brand page-scroll" href="#page-top">senolytics.ai</a>
+	  <!--
+      <li><a href="#menu2" data-toggle="tab" id="maintitle" style='text-align:center'></a></li>
+	  -->
+
+  
+ 
+       
+    
+
+	 
+ 
+	
+	
+ 
+</nav> 
+
+
+	  	 
+
+<nav class="navbar navbar-fixed-bottom navbar-expand-md " style=' box-shadow: 6px 8px 6px 12px rgba(0,0,0,0.2);'   id="navsub2" >
+<ul class="nav nav-tabs" id="top-menu">
+
+<li class="nav-item active"  >
+
+<a href="#menu2"><span class="glyphicon glyphicon-home"></span> Home</a>
+</li>
+
+ <li id='menu4tab' width='24vw' class="nav-item"  > 
+	 <a href="#menu4"><span class="glyphicon glyphicon-hourglass"></span> Properties</a></li>
+	
+
+<li class="nav-item" id='menu3tab'  width='24vw'>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Biomarkers</a>
+
+</li>
+
+<li class="nav-item" id='menu5tab'  width='24vw' >
+<a href="#menu6"><span class="glyphicon glyphicon-flash"></span> Senolytics</a>
+</li>
+
+
+	   </ul>
+	  
+	  </nav> 
+	  
+
+
+ 
+
+ 
+
+
+
+
+  <header>
+  <br>
+  <br>
+  <br>
+  </header>
+
+ <div class="container" id="directordiv" style='width:100%'>
+
+<div class="tab-content">
+       
+ 
+    <section id="menu2" class="intro-section">
+        <div class="container">
+            
+             <br>
+			  <h1>senolytics.ai</h1>
+			  <p>
+			  How can AI improve the ways we analyse, track and treats senescent cells responsible for aging and age related disease. 
+			  </p>
+<br>
+ <a href="#menu4"><span class="glyphicon glyphicon-hourglass"></span> Senescence properties</a></li>
+  <p> 
+&#9312 Senescence databases overview<br>
+&#9313 Aging analysis by AI <br>
+&#9314 Insight into senescence reversibility treatments<br>
+                </p>
+ <a href="#menu3"><span class="glyphicon glyphicon-pencil"></span> Senescent cell biomarkers</a>
+<br>
+  <p>
+&#9312 Senescent cell biomarkers databases<br>
+&#9313 Senescent cell features detection powered by AI<br>
+&#9314 Senescent on the chip <br>
+
+                </p>
+
+  <a href="#menu6"><span class="glyphicon glyphicon-flash"></span> Senolytics</a>
+  <p>
+&#9312 Senolytics database <br>
+&#9313 Senolytics drugs dicoveries pipeline <br>
+&#9314 Insights into personnalized senotherapy <br>
+                </p>
+			 
+        </div>
+    </section>
+   <section id='properties'>
+  <h2 id="menu4" > Senescence properties </h2>
+ 
+ <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                    	 <p> 
+&#9312 Senescence databases overview<br>
+&#9313 Aging analysis by AI <br>
+&#9314 Insight into senescence reversibility treatments<br>
+                </p>
+						 </div>
+         
+                 <div class="col-lg-6 col-md-6">
+              <img src="properties.png " height='200' width='400' >
+				 </div>
+				 
+				 
+              </div>  
+		
+<button type="button" class="btn btn-default">Read more</button>
+		  <br>
+  </section>
+  
+  <section id="menu3">
+   <h2> Senescence cell biomarkers</h2>
+	  <div class="row">
+                  <div class="col-lg-6 col-md-6">
+				  <figure>
+                    	 <img src="staining.gif "height='400' width='400'>
+						 <figcaption><i>Senescent cells staining </i> </figcaption>
+						 </figure>
+						 </div>
+         
+                 <div class="col-lg-6 col-md-6">
+                  <p>
+&#9312 Senescent cell biomarkers databases<br>
+&#9313 Senescent cell features detection powered by AI<br>
+&#9314 Senescent on the chip <br>
+
+                </p>
+				 </div>
+              </div>  	
+<button type="button" class="btn btn-success">Read more</button>
+	<br>
+ </section>
+ <section id="menu6">
+     <h2  > Senolytics </h2>
+
+	
+	 
+	    <div class="container" >
+        <canvas id="myChart"></canvas>
+    </div>
+	</br>
+	 <p>
+&#9312 Senolytics database <br>
+&#9313 Senolytics drugs dicoveries pipeline <br>
+&#9314 Insights into personnalized senotherapy <br>
+                </p>
+			
+<button type="button" class="btn btn-primary">Read more</button>	
+	</br>
+	</br>	
+</br>	
+</br>	
+</br>
+</section>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" tabindex="-1" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+	
+	 <script>
+	
+</script>	
+      
+  </div>
+  
+	
+	  </div>
+</div>
+
+
+
+
+</body>
+<script>
+
+ $.get('Senvitro.csv', function(data) {
+
+// start the table
+var html = '<table">';
+
+// split into lines
+var rows = data.split("\n");
+
+// parse lines
+rows.forEach( function getvalues(ourrow) {
+// start a table row
+html += "<tr>";
+
+// split line into columns
+var columns = ourrow.split(",");
+
+html += "<td>" + columns[0] + "</td>";
+html += "<td>" + columns[1] + "</td>";
+html += "<td>" + columns[2] + "</td>";
+
+// close row
+html += "</tr>";
+})
+// close table
+html += "</table>";
+
+// insert into div
+$('#container2').append(html);
+
+});
+
+
+
+
+
+
+
+
+  var myChart;
+render('pathways');
+ $('[href="#menu2"]').tab('show');
+ 
+
+
+function showNav(title){
+document.getElementById("back").style.display = "none";
+/*if(title.length>25)
+title = title.slice(0, 25) + "</br>" + title.slice(25);
+if(title.length>50)
+var title = title.slice(0, 50) + "</br>" + title.slice(50);
+if(title.length>75)
+var title = title.slice(0, 75) + "</br>" + title.slice(75);*/
+document.getElementById("maintitle").innerHTML="<button onclick='Back()'>Back</button> "+title+"  <button onclick='Question()'>*</button>";
+
+}
+
+function hideNav(){
+document.getElementById("back").style.display = "";
+document.getElementById("maintitle").innerHTML = "";
+}
+
+function closemodal(){
+var modal = document.getElementById("myModal");
+ modal.style.display = "none";
+ }
+
+
+
+ 
+ 
+ 
+function Back() {
+ hideNav();
+  $('[href="#menu1"]').tab('show');
+  document.getElementById("nav1").style.backgroundColor="";
+  document.getElementById("user").style.display="";
+  document.getElementById("LN").style.display="";
+ hidetextwriter();
+}
+
+function hidetextwriter(){
+var txt = document.getElementById("editor");
+txt.style.display = "none";
+}
+
+function showtextwriter(){
+var txt = document.getElementById("editor");
+txt.style.backgroundColor= document.getElementById('nav1').style.backgroundColor;
+txt.style.display = "block";
+
+}
+
+function hideSource()
+{
+var source = document.getElementById("Sources");
+source.style.display = "none";
+}
+
+function showSource(id)
+{
+document.getElementById('webpage').style.display='block';
+document.getElementById('votemod').style.display='none';
+var source = document.getElementById("Sources");
+if(id);
+document.getElementById('webpage').setAttribute('src',id);
+//document.getElementById('srch').value=document.getElementById('webpage').contentWindow.location.href;
+
+source.style.display = "block";
+$('#Sources').affix({
+      offset: {
+        top: '0px'
+      }
+});
+
+
+
+}
+
+
+
+
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+
+
+
+function renderChart(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+	ctx.clearRect(0, 0, document.getElementById("myChart").width, document.getElementById("myChart").height);
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Senolytics per pathways targeted',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+		 xAxes: [{
+              //  display: false //this will remove all the x-axis grid lines
+            }],
+			 yAxes: [{
+            //    display: false //this will remove all the x-axis grid lines
+            }],
+            legend: {
+           display: false
+         },
+            scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+			   
+                  }
+              }],
+			 /* xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],*/
+	}
+            
+    }
+			
+          
+	    });
+}
+
+function renderPie(data, labels) {
+if(myChart)
+myChart.destroy();
+    var ctx = document.getElementById("myChart").getContext('2d');
+	ctx.clearRect(0, 0, document.getElementById("myChart").width, document.getElementById("myChart").height);
+  myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'This week',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+		 xAxes: [{
+                display: false //this will remove all the x-axis grid lines
+            }],
+			 yAxes: [{
+                display: false //this will remove all the x-axis grid lines
+            }],
+            legend: {
+          //  display: false
+         },
+           /* scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+			   
+                  }
+              }],
+			  xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],
+            }*/
+    }
+			
+          
+	    });
+}
+
+function renderChart2(data, labels) {
+    var ctx = document.getElementById("myChart2").getContext('2d');
+	context.clearRect(0, 0, ctx.width, ctx.height)
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+               // label: 'Preferences',
+                data: data,
+				backgroundColor: ["pink", "blue", "red"], 
+            }]
+        },
+		options: {
+            responsive: true,
+		
+            dragX: false,
+            dragDataRound: 0,
+            dragOptions: {
+            magnet: {
+            to: Math.round
+            }
+            },
+            dragData: true,
+            onDragStart: function (e) {
+              //console.log("test");
+              //console.log(e.clientY)
+              //console.log(test.scales["y-axis-0"].getValueForPixel(e.clientY))
+            },
+            onDrag: function (e, datasetIndex, index, value) {
+              //console.log(e.clientY)
+            },
+            onDragEnd: function (e, datasetIndex, index, value) {
+              // console.log(datasetIndex, index, value)
+            },
+			 legend: {
+            display: false
+         },
+            scales: {
+              yAxes: [{
+                  ticks: {
+				  beginAtZero: true,
+                    max: 10,
+					min:0,
+                  //  callback: function(value) {if (value == 0) {return value+0.2;}},
+			   
+                  }
+              }],
+			  xAxes: [{
+      ticks: {
+        callback: function(value) {
+          if (value.length > 8) {
+            return value.substr(0, 8) + '...'; //truncate
+          } else {
+            return value
+          }
+
+        }, 
+      }
+    }],
+            },
+			tooltips: {
+        enabled: false
+    },
+    hover: {
+        animationDuration: 0
+    },
+    animation: {
+        duration: 1,
+        onComplete: function () {
+		
+            var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+
+            this.data.datasets.forEach(function (dataset, i) {
+			var datatot=0;
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];                            
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+					datatot += data;
+                });
+			validatefn(datatot)	
+            });
+        }
+    }
+			
+          }
+    });
+}
+
+function render(type){
+   if (type== 'pathways')
+        data = [5, 2, 2];
+        labels =  ["BCL-Family","P13K/APK","Mitochondria"];
+		renderPie(data,labels);
+    if (type=='cells')
+        data = [5, 2, 6];
+        labels =  ["IMR90","WI-38", "HUVEC"];
+	//	renderPie(data,labels);
+	
+    }
+
+
+
+function validatelist()
+{
+if (document.getElementById('val').innerText=='Validate')
+{
+
+
+/*
+document.getElementById('val').innerText='Change';
+
+*/
+$("#clist").hide();
+$("#menu4tab").show();
+$("#val").removeClass("btn-default").addClass("btn-success");
+
+}
+else{
+
+
+
+/*
+document.getElementById('val').innerText='Validate';
+*/
+$("#clist").show();
+$("#val").removeClass("btn-success").addClass("btn-default");
+}
+}    
+
+function up(e) { 
+if (document.getElementById('val').innerText=='Validate')
+{
+              $(e).insertBefore($(e).prev());
+			  }
+            }; 
+function  push(t) { 
+if ($(t).html()=='x')
+{
+$(t).html('+');
+$(t).parent().remove().addClass("disabled").appendTo($("#clist"));
+}
+else
+{
+$(t).html('x');
+$(t).parent().remove().removeClass("disabled").appendTo($("#simpleList"));
+}
+}
+             
+function validatefn(dt)
+{
+if (dt==10)
+{document.getElementById('val').innerHTML='✓';
+document.getElementById('val').disabled = true;
+$("#clist").hide();
+$("#val").removeClass("btn-default").addClass("btn-success");
+$( "#menu5tab" ).addClass("success");
+}
+else
+{
+$( "#menu5tab" ).removeClass("success");
+document.getElementById('val').innerHTML=10-dt + ' points left';
+document.getElementById('val').disabled = true; 
+$("#clist").show();
+$("#val").removeClass("btn-success").addClass("btn-default");
+}
+
+}
+
+//
+// Cache selectors
+var lastId,
+    topMenu = $("#top-menu"),
+    topMenuHeight = topMenu.outerHeight(),
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+25;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 0);
+  e.preventDefault();
+});
+
+const body = document.body;
+let lastScroll = 0;
+const scrollUp = "scroll-up";
+const scrollDown = "scroll-down";
+const active='active';
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+   
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+   
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("active")
+         .end().filter("[href='#"+id+"']").parent().addClass("active");
+   }  
+
+ const currentScroll = window.pageYOffset;
+  if (currentScroll == 0) {
+    body.classList.remove(scrollUp);
+    return;
+  }
+  
+  if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+    // down
+    body.classList.remove(scrollUp);
+    body.classList.add(scrollDown);
+	$('.affix').css('top',0);
+  } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+    // up
+    body.classList.remove(scrollDown);
+    body.classList.add(scrollUp);
+	$('.affix').css('top',$("#navsub1").height());
+  }
+  lastScroll = currentScroll;   
+});
+
+
+
+
+</script>
+</html>
+
+
+
+
