@@ -490,11 +490,12 @@ Senescence mechanism limits the replication of old and damaged cells in order to
  <section id="menu6">
      <h2  > Senolytics </h2>
 
-	
+	  <button id='shdata' onclick='table()'>Show</button> 
+		 <div id="includedContent"></div>
 	 
 	    <div class="container" >
        <canvas id="myChart"></canvas> 
-		 <div id="includedContent"></div>
+	 
     </div>
 	</br>
 	 <p>
@@ -554,10 +555,13 @@ Senescence mechanism limits the replication of old and damaged cells in order to
 </body>
 <script>
 
-$(function(){
-      $("#includedContent").load("Senvitro.htm"); 
-    });
-
+function table(){
+ //if ($('#includedContent').is(':empty')){
+       $("#includedContent").load("Senvitro.htm"); 
+	 // }
+	//  else
+//$( "#includedContent" ).empty();
+}
   var myChart;
 render('pathways');
  $('[href="#menu2"]').tab('show');
