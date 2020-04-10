@@ -42,9 +42,6 @@ border-radius:50%;
 	padding:10px;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 /* Container around content */
 .containe
@@ -137,9 +134,12 @@ text-align:center;
 }
 
     .box{
-width: 100%;
-height: auto;
-background-image: url("plane.jpg");
+
+        position: relative;
+ text-align: center;
+         /* Make the width of box same as image */
+
+    }
 
  .centered {
   position: absolute;
@@ -148,7 +148,10 @@ background-image: url("plane.jpg");
   transform: translate(-50%, -50%);
 }
 
-
+.mainNav
+{
+color:white;
+}
 
 
 </style>
@@ -210,12 +213,12 @@ background-image: url("plane.jpg");
     
      
         <div class="box">
- 
-       
+ <img  src='plane1.png' style='width: 100%; height: auto;'  />
+         <div class="centered">
 
           <h1 class="mx-auto my-0 text-uppercase" >Bring my father home</h1>
 
-        
+        </div>
 	</div>
 <h4> Latest news </h4>
 <ul class="list-group">
