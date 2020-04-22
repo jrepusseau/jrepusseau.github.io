@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>test</title>
+  <meta charset="utf-8">
+ 
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+  
+ input[type="range"] {
+//width:50px;
+}
+</style>
+  
+  </head>
+
+<body>
+
+
+<div class="row" 'text-align:center;margin:auto'>
+    <div class="col" style='text-align:center;margin:auto' >
+    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+   <p>
+    Mental 
+    </p><input type="range" value='10' min='0' max='10'  id='s1' />	
+</div>
+<div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+   <p>
+    Emotions 
+    </p><input type="range" value='10' min='0' max='10'  id='s2' />	
+</div>
+<div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+   <p>
+    Physique 
+    </p><input type="range" value='10' min='0' max='10'  id='s3' />	
+</div>
+</div>
+    <div class="col" style='text-align:center;margin:auto' >
+	<p id='tips'>
+	Tout est ok!
+	<p/>
+   </div>
+   </div>
+   
+   
+
+   <script>
+   var p; 
+  $('input[type=range]').on('change', function () {
+  p='';
+  if ($('#s3').val()<10)
+   {
+   if ($('#s3').val()>5)
+   p+=' Priorité1:  physique moyen : action: ....'
+   else
+   p+=' Priorité1:  physique pas bon : action : ....';
+   }
+  if ($('#s2').val()<10)
+    {
+   if ($('#s2').val()>5)
+   p+=' Priorité2: emotion moyen : action: ...'
+   else
+   p+=' Priorité2: emotion pas bon : action: ... ';
+   }
+  if  ($('#s1').val()<10)
+  {
+     if ($('#s1').val()>5)
+   p+=' Priorité 3: mental moyen: action: ... '
+   else
+   p+=' Priorité 3: mental pas bon: action: .... ';
+   }
+  if (p=='')
+    p='Tout est ok!'
+   $('#tips').text(p)
+});
+</script>
+   </body>
+   </html>
