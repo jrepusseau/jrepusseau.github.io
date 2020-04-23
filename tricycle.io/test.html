@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tricycle.io</title>
+  <meta charset="utf-8">
+ 
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+.carousel-item {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg-text {
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+//  border: 3px solid #f1f1f1;
+  text-align: center;
+}
+</style>
+  
+  </head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Tricycle</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Order now!</a>
+        </li>
+			<li class="nav-item">
+          <a class="nav-link" href="#">Our models</a>
+        </li>
+		<li class="nav-item">
+          <a class="nav-link" href="#">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('triporteur.jpg')">
+        <div class="carousel-caption d-none d-md-block bg-text ">
+          <h3 class="display-4 opacity-5">Contact us!</h3>
+          <p class="lead">We will come to your home or restaurant to deliver our bio-local fresh products.</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('triporteur2.jpg')">
+        <div class="carousel-caption d-none d-md-block bg-text">
+          <h3 class="display-4">Trade your garbage!</h3>
+          <p class="lead">We take your glass bottle and food waste for every delivery.</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      
+	   <div class="carousel-item" style="background-image: url('compost.jpg')">
+        <div class="carousel-caption d-none d-md-block bg-text">
+          <h3 class="display-4">Compost</h3>
+          <p class="lead">We turn your waste into professional compost.</p>
+        </div>
+      </div>
+	  
+	  <div class="carousel-item" style="background-image: url('verre.jpg')">
+        <div class="carousel-caption d-none d-md-block bg-text">
+          <h3 class="display-4">Glass bottle</h3>
+          <p class="lead">We clean your glass bottle to reuse them.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+</header>
+
+<!-- Page Content -->
+<section class="py-5">
+  <div class="container">
+    <h1 class="font-weight-light">Hi there! It's Tricycle.</h1>
+    <p class="lead">Our idea is to bring circular economy in your home and restaurants by using our Tricycles</p><br>
+	 <p class="lead">We deliver our fresh products and in exchange take your food waste and reusable glass bottles to process them</p>
+  </div>
+</section>
+
+   <script>
+   var p; 
+  $('input[type=range]').on('change', function () {
+  p='';
+  if ($('#s3').val()<10)
+   {
+   if ($('#s3').val()>5)
+   p+=' Priorité1:  physique moyen : action: ....'
+   else
+   p+=' Priorité1:  physique pas bon : action : ....';
+   }
+  if ($('#s2').val()<10)
+    {
+   if ($('#s2').val()>5)
+   p+=' Priorité2: emotion moyen : action: ...'
+   else
+   p+=' Priorité2: emotion pas bon : action: ... ';
+   }
+  if  ($('#s1').val()<10)
+  {
+     if ($('#s1').val()>5)
+   p+=' Priorité 3: mental moyen: action: ... '
+   else
+   p+=' Priorité 3: mental pas bon: action: .... ';
+   }
+  if (p=='')
+    p='Tout est ok!'
+   $('#tips').text(p)
+});
+</script>
+   </body>
+   </html>
