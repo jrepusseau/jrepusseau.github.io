@@ -337,7 +337,7 @@ max-height: 100%;
 				  
 			  </p><br>
 			  <p>
-Lifespan or longevity refer to the duration an organism life where healthspan refer at good health duration and life quality. Since the previous lifespan and healthspan doesn’t have the same objective we define well-being as a trade of these two criteria’s. Then a biomarker of aging is a marker that predicts a temporally later feature of well-being better than the chronological age.			</p><br>
+Lifespan or longevity refer to the duration an organism life where healthspan refer at good health duration and life quality. Since the previous lifespan and healthspan doesn’t have the same objective we define well-being as a trade of these two criteria’s. Then a biomarker of aging is a marker that predicts a temporally later feature of well-being better than the chronological age.	
 			  </p><br>
 			  <p>
 			  The following table is an exhaustive list of aging biomarkers : 
@@ -420,7 +420,165 @@ Nordfjall’s clock<br>
     </tr>
   </tbody>
 </table>
+<br>
+	  <h2>Longevity research and treatments</h2>
+<p> To hack biologing aging research have being working on severals pathways:
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>Clearance of senescent cell
+(Senotherapy) 
+</td>
+      <td>Stem cell addition </td>
+      <td>Inflammation reduction, blood rejuvenation </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Restoring mitochondrial functions</td>
+      <td> Caloric restriction </td>
+      <td> Reducing cell with genomic damage
+(Gene therapy) 
+</td>
+    </tr>
+    <tr>
+       <td> Reactive protein regulation</td>
+      <td> Epigenetic drugs</td>
+      <td>Telomere reactivation 
+(Telomerase) 
+</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
 
 
    </div>
 	 
+</section>
+   
+           
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+	
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var scatterChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Non-senescent cells',
+			borderColor: "#c45850",
+            data: [{ 
+                x: 0,
+                y: 100
+            }, {
+                x: 0.012,
+                y: 89
+            }, {
+                x: 0.037,
+                y: 90
+            }, 
+			{
+                x: 0.111,
+                y: 87
+            },
+			{
+                x: 0.333,
+                y: 84
+            },
+			{
+                x: 1,
+                y: 80
+            },
+			{
+                x: 3,
+                y: 70
+            }]}
+			,
+			{
+			borderColor: "#3e95cd",
+			label: 'DNA damages induced-senescent (DIS) cells',
+			 data: [{ 
+                x: 0,
+                y: 100
+            }, {
+                x: 0.012,
+                y: 77
+            }, {
+                x: 0.037,
+                y: 68
+            }, 
+			{
+                x: 0.111,
+                y: 48
+            },
+			{
+                x: 0.333,
+                y: 25
+            },
+			{
+                x: 1,
+                y: 16
+            },
+			{
+                x: 3,
+                y: 10
+            }]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Dosage [mL]'
+          },
+            }],
+			 yAxes: [{
+                type: 'linear',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Viable cell [%]'
+          },
+            }]
+        }
+    }
+});
+
+</script>
+</body>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157967028-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-157967028-2');
+</script>
+</div>
+
+</html>
