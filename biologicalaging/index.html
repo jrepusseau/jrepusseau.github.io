@@ -333,13 +333,13 @@ max-height: 100%;
              <br>
 			  <h2>Biological aging</h2>
 			  <p>
-		A common definition of ageing is an chronological process that cause multiple age-related disease , fragility and morbidity  and disabilities.  
-				  
-			  </p><br>
-			  <p>
-Lifespan or longevity refer to the duration an organism life where healthspan refer at good health duration and life quality. Since the previous lifespan and healthspan doesn’t have the same objective we define well-being as a trade of these two criteria’s. Then a biomarker of aging is a marker that predicts a temporally later feature of well-being better than the chronological age.	
-			  </p><br>
-			  <p>
+	Lifespan or longevity refers to the duration an organism life whereas healthspan refers to the duration of good health. Since the previous lifespan and healthspan doesn’t have the same objective, well-being as a trade of these two criteria’s. Then aging biomarker is a marker that predicts a temporally later feature of well-being better than the chronological age.
+<p>
+The biological aging is the results of recursive, multiple, separate, diverse, interconnected,  but malleable biomarker of aging that can eventually compromising normal functions, at different times and level.  This process only occurs in somatic cells species and has been associated with fragility and multiple diseases, disabilities and morbidities.
+</p><br>			
+
+			<p>
+			  
 			  The following table is an exhaustive list of aging biomarkers : 
 			  </p>
 			  <table class="table">
@@ -480,95 +480,6 @@ Nordfjall’s clock<br>
 	
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<script>
-
-var ctx = document.getElementById('myChart').getContext('2d');
-var scatterChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        datasets: [{
-            label: 'Non-senescent cells',
-			borderColor: "#c45850",
-            data: [{ 
-                x: 0,
-                y: 100
-            }, {
-                x: 0.012,
-                y: 89
-            }, {
-                x: 0.037,
-                y: 90
-            }, 
-			{
-                x: 0.111,
-                y: 87
-            },
-			{
-                x: 0.333,
-                y: 84
-            },
-			{
-                x: 1,
-                y: 80
-            },
-			{
-                x: 3,
-                y: 70
-            }]}
-			,
-			{
-			borderColor: "#3e95cd",
-			label: 'DNA damages induced-senescent (DIS) cells',
-			 data: [{ 
-                x: 0,
-                y: 100
-            }, {
-                x: 0.012,
-                y: 77
-            }, {
-                x: 0.037,
-                y: 68
-            }, 
-			{
-                x: 0.111,
-                y: 48
-            },
-			{
-                x: 0.333,
-                y: 25
-            },
-			{
-                x: 1,
-                y: 16
-            },
-			{
-                x: 3,
-                y: 10
-            }]
-        }]
-    },
-    options: {
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom',
-				 scaleLabel: {
-            display: true,
-            labelString: 'Dosage [mL]'
-          },
-            }],
-			 yAxes: [{
-                type: 'linear',
-				 scaleLabel: {
-            display: true,
-            labelString: 'Viable cell [%]'
-          },
-            }]
-        }
-    }
-});
-
-</script>
 </body>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157967028-2"></script>
