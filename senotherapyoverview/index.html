@@ -331,12 +331,44 @@ max-height: 100%;
        
 	      <div>
              <br>
-			  <h2>Senescence cell biomarkers</h2>
+			  <h2>Senotherapy overview</h2>
+			  <br>
+			  
 			  <p>
-		
+		Senotherapy or the cleaning of senescent cells. have been developed to target and kills senescent cells. Among the technics is the cheapest and the one that showed the most promising results  in animal models. 
 			  
 			  </p>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Senotherapy ranked by targetability 
+</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Knives & radiation
+(organism-scale)
+</td>
+      <td> Senescent chips
+(morphology-based)
+</td>
+      <td> Anticancer drugs & senolytics 
+(metabolism-based)
 
+</td>
+     <td>Antibodies & CAR-T & Nanosystems
+(surfaces markers)
+</td>
+<td>Gene therapy 
+(transcriptional activity) 
+
+</td>
+    </tr>
+
+  </tbody>
+</table>
+<br>
    </div>
 	 
 
@@ -358,95 +390,7 @@ max-height: 100%;
 	
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<script>
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var scatterChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        datasets: [{
-            label: 'Non-senescent cells',
-			borderColor: "#c45850",
-            data: [{ 
-                x: 0,
-                y: 100
-            }, {
-                x: 0.012,
-                y: 89
-            }, {
-                x: 0.037,
-                y: 90
-            }, 
-			{
-                x: 0.111,
-                y: 87
-            },
-			{
-                x: 0.333,
-                y: 84
-            },
-			{
-                x: 1,
-                y: 80
-            },
-			{
-                x: 3,
-                y: 70
-            }]}
-			,
-			{
-			borderColor: "#3e95cd",
-			label: 'DNA damages induced-senescent (DIS) cells',
-			 data: [{ 
-                x: 0,
-                y: 100
-            }, {
-                x: 0.012,
-                y: 77
-            }, {
-                x: 0.037,
-                y: 68
-            }, 
-			{
-                x: 0.111,
-                y: 48
-            },
-			{
-                x: 0.333,
-                y: 25
-            },
-			{
-                x: 1,
-                y: 16
-            },
-			{
-                x: 3,
-                y: 10
-            }]
-        }]
-    },
-    options: {
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom',
-				 scaleLabel: {
-            display: true,
-            labelString: 'Dosage [mL]'
-          },
-            }],
-			 yAxes: [{
-                type: 'linear',
-				 scaleLabel: {
-            display: true,
-            labelString: 'Viable cell [%]'
-          },
-            }]
-        }
-    }
-});
-
-</script>
 </body>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157967028-2"></script>
