@@ -326,149 +326,321 @@ max-height: 100%;
                    
                 </div>
             </nav>
-			
+			<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
               <section id="menu2" class="intro-section">
-        <div class="container">
-            
-             <br>
-			   <a class="dropdown-item" href="#">To bring updated informations about senescence cells senolytics and targeted senotherapy. </a>
-			  </p>
-  <div class="line"></div>
-  <h2 id="menu4" > Biological aging and aging therapies </h2>
- 
- <div class="row">
-                  <div class="col-lg-6 col-md-6">
-                    	 <p> 
-						 An overview of the definition of aging the use of biological clocks and modern treatments
-<br>
-                </p>
-				<a type="button"  <a href="senescentcells/index.html" class="btn btn-default" >Read more</a>
-						 </div>
-         
-                 <div class="col-lg-6 col-md-6">
-				 <figure>
-                    <img src="biologicalclock.jpg"  width='400' class='center' alt='biological clock and aging treatments mice' >
-						 <figcaption class='center'><i>Biological clock and aging treatments in mice [Tyshkovskiy 2019] </i> </figcaption>
-						 </figure>
-              
-				 </div>
-				 
-				 
-              </div>  
-		
-
-		  <br>
-   <div class="line"></div>
-  <h2 id="menu4" > Senescence properties </h2>
- 
- <div class="row">
-                  <div class="col-lg-6 col-md-6">
-                    	 <p> 
-Senescence is a dynamic multistep process that conducts cells to cycle arrest. The senescent cells undergo change in viability, large size/ irregular shape, growth arrest, loss of lamin B1, resistance to apoptosis and also at the subcellular level regarding p16, p21 gene activation,  SA Bgal activity , lipofuscin accumulation, CCL autophagic signal modulation and secrete senescence-associated secretory phenotype (SASP) .  
-<br>
-                </p>
-						 </div>
-         
-                 <div class="col-lg-6 col-md-6">
-				 <figure>
-                    <img src="properties.png " height='200' width='400' class='center' alt='senescent cell properties' >
-						 <figcaption class='center'><i>Senescent cells properties </i> </figcaption>
-						 </figure>
-              
-				 </div>
-				 
-				 
-              </div>  
-		
-<a type="button"  <a href="senescentcells/index.html" class="btn btn-default" >Read more</a>
-		  <br>
-   <div class="line"></div>
-  
-	  <div class="row">
-                  <div class="col-lg-6 col-md-6">
-				  <figure>
-                    	 <img src="staining.gif "height='400' width='400' alt='SA-B-Gal staining'>
-						 <figcaption><i>Senescent cells SA-B-Gal and DAPI staining </i> </figcaption>
-						 </figure>
-						 </div>
-         
-                 <div class="col-lg-6 col-md-6">
-				  <h2> Senescence cell biomarkers</h2>
-                  <p>
-Cellular senescence is linked to a number of predictable phenotypic traits detectable by representative biomarkers. However, due to the heterogeneity of senescence cells and senescence inducing, senescence detection is still challenging.  
-
-
-                </p>
-				<br>
-				<button type="button" class="btn btn-outline-success">Next update 20/04</button>
-	<br>
-				 </div>
-              </div>  	
-	<br>
-  <div class="line"></div>
+       <h2> Senolytics </h2>
+	   
+	   <p>
+	   Senolytics are small molecules that target the senescence-cell anti-apoptotic pathways (SCAPs) such the Bcl-2 family proteins, p53/p21, P13K/AKT, FOXO4/p53 in order to directly eliminate senescent cells. 
+</p>
+ <div class="line"></div>
   <div class="row">
                   <div class="col-lg-6 col-md-6">
-     <h2  > Targeted Senotherapy </h2>
-	 <br>
-	 <a class="dropdown-item" href="#">Senotheray</a>
-		<br>
-		<p>
-			A summary of senescent cells clearance strategies.
-			</p>
-       
-				<button type="button" class="btn btn-outline-warning">Next update 06/05</button>
-	<br> 
-	    <a class="dropdown-item" href="#">Senolytics</a>
-		<br>
-		<p>
-			 Senolytics are a class of small molecules that target and kill senescent cells.
-			</p>
-			<br>
-       
-				<button type="button" class="btn btn-outline-info">Next update 06/05</button>
-	<br>  <br>
-        <a class="dropdown-item" href="#">Nanosystems</a>
-	    <br>
-		<p>
-		   Alternatively,  focus on surfaces markers , nanosystems selectively target senescent cells.
-		</p>
+    <strong>
+	Quercetin and Dasatinib 
+	</strong> 
+	
+	<br>
+	<p>
+	Quercetin is a natural flavoids, inhibits of P13K /Akt pathways and also BCl-2 protein family members and serpines. Dasatinib is a inhibitorof multiple tyrosine kinase used for treating cancer. Dasatinib is also an inhibitor of the ephrins receptors (EFNB1 and EFNB2) critical for pro-survival pathway.
+Studies have revealed that quercetin is more selective against senescent human endothelial cells, while dasatinib is more effective against senescent human primary preadipocytes. However ombination of the two drugs show failure in apoptosis of hepatocellular carcinoma (HCC) .
+
+	</p>
+	 </div>
+	 <div class="col-lg-6 col-md-6">
+	  <figure>
+    <canvas id="myChart1"></canvas>
+ <figcaption><i>Efficiency of Quercetin and Dasatinib  on two differents diploid fibroblast (IMR90) cells,  non-senescent cell and oncogene induced-senescent (DIS by radiation) cells in vitro </i> </figcaption>
+	 </figure>
+	 </div>
+	 </div>
+	 
+</section>
+	
+
+<script>
+
+var ctx = document.getElementById('myChart1').getContext('2d');
+var scatterChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Non-senescent cells',
+			borderColor: "#c45850",
+            data: [{ 
+                x: 0,
+                y: 100
+            }, {
+                x: 20,
+                y: 84
+            }, {
+                x: 150,
+                y: 67
+            }, 
+			{
+                x: 200,
+                y: 67
+            },
 		
-				<button type="button" class="btn btn-outline-warning">Next update 06/05</button>
-	<br><br>
+			]}
+			,
+			{
+			borderColor: "#3e95cd",
+			label: 'Oncogene induced-senescent (OIS) cells',
+			 data: [{ 
+                x: 0,
+                y: 100
+            }, {
+                x: 20,
+                y: 92
+            }, {
+                x: 150,
+                y: 90
+            }, 
+			{
+                x: 200,
+                y: 87
+            },
+			]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Dosage of senolytic Quercetin + Dasatinib [mL]'
+          },
+            }],
+			 yAxes: [{
+                type: 'linear',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Viable diploid fibroblast (IMR90) cells [%]'
+          },
+            }]
+        }
+    }
+});
+
+</script>
+<div class="line"></div>
+  <div class="row">
+                  <div class="col-lg-6 col-md-6">
+    <strong>
+	Fisetin 
+	</strong> 
+	
+	<br>
+	<p>
+	Fisetin, also part of polyphenolic compounds, is present in the quantity of fruits and vegetables. Block P13K/AKt pathway. Fisetin chemical structure is close to Quercetin except for a hydroxyl group in position 5. Compared to quercetin it reports a better senolytics activity. 
+	</p>
 	 </div>
 	 <div class="col-lg-6 col-md-6">
 	  <figure>
     <canvas id="myChart"></canvas>
+ <figcaption><i>Efficiency of Fisetin on two differents diploid fibroblast (IMR90) cells,  non-senescent cell and oncogene induced-senescent (DIS by radiation) cells in vitro </i> </figcaption>
+	 </figure>
+	 </div>
+	 </div>
+	 
+</section>
+	
+
+<script>
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var scatterChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Non-senescent cells',
+			borderColor: "#c45850",
+            data: [{ 
+                x: 0,
+                y: 102
+            }, {
+                x: 1,
+                y: 115
+            }, {
+                x: 3.75,
+                y: 106
+            }, 
+			{
+                x: 7.5,
+                y: 107
+            },
+			{
+                x: 15,
+                y: 90
+            }
+			]}
+			,
+			{
+			borderColor: "#3e95cd",
+			label: 'Oncogene induced-senescent (OIS) cells',
+			 data: [{ 
+                x: 0,
+                y: 102
+            }, {
+                x: 1,
+                y: 109
+            }, {
+                x: 3.75,
+                y: 98
+            }, 
+			{
+                x: 7.5,
+                y: 76
+            },
+			{
+                x: 15,
+                y: 44
+            }]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Dosage of senolytic Fisetin [mL]'
+          },
+            }],
+			 yAxes: [{
+                type: 'linear',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Viable diploid fibroblast (IMR90) cells [%]'
+          },
+            }]
+        }
+    }
+});
+
+</script>
+
+<div class="line"></div>
+  <div class="row">
+                  <div class="col-lg-6 col-md-6">
+    <strong>
+	 ABT-737
+	</strong> 
+	
+	<br>
+	<p>
+ABT-737 is an inhibitor of Bcl-2, Bcl-XL and Bcl-w and show promising results in senescent cells in vitro in mouse models. This lack of biocompatibility after oral administration leads to the developpement of ABT-263 (navitoclax).	</p>
+	 </div>
+	 <div class="col-lg-6 col-md-6">
+	  <figure>
+    <canvas id="myChart3"></canvas>
+ <figcaption><i>Efficiency of senolytic ABT737 on two differents diploid fibroblast (IMR90) cells,  non-senescent cell and DNA-damage induced-senescent (DIS by radiation) cells in vitro </i> </figcaption>
+	 </figure>
+	 </div>
+	 </div>
+	 
+</section>
+	
+
+<script>
+
+var ctx = document.getElementById('myChart3').getContext('2d');
+var scatterChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Non-senescent cells',
+			borderColor: "#c45850",
+            data: [{ 
+                x: 0,
+                y: 100
+            }, {
+                x: 1,
+                y: 87
+            }, {
+                x: 5,
+                y: 81
+            }, 
+			{
+                x: 10,
+                y: 81
+            },
+			]}
+			,
+			{
+			borderColor: "#3e95cd",
+			label: 'Oncogene induced-senescent (OIS) cells',
+			 data: [{ 
+                x: 0,
+                y: 100
+            }, {
+                x: 1,
+                y: 72
+            }, {
+                x: 5,
+                y: 50
+            }, 
+			{
+                x: 10,
+                y: 46
+            },]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Dosage of senolytic ABT737 [mL]'
+          },
+            }],
+			 yAxes: [{
+                type: 'linear',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Viable diploid fibroblast (IMR90) cells [%]'
+          },
+            }]
+        }
+    }
+});
+
+
+</script>
+
+<div class="line"></div>
+  <div class="row">
+                  <div class="col-lg-6 col-md-6">
+    <strong>
+	 ABT-263
+	</strong> 
+	
+	<br>
+	<p>
+ABT-263 targets BCL-W and BCL-XL and kills senescent cells independently of the origin of the senescence. However, it is severely toxic and can causes  apoptosis in non-senescent cells. ABT-263 have also shown non-effectvity against human umbilical vein epithelial cells (HUVECs), and IMR90 human fibroblast 
+	</p>
+	 </div>
+	 <div class="col-lg-6 col-md-6">
+	  <figure>
+    <canvas id="myChart2"></canvas>
  <figcaption><i>Efficiency of senolytic ABT263 on two differents diploid fibroblast (IMR90) cells,  non-senescent cell and DNA-damage induced-senescent (DIS by radiation) cells in vitro </i> </figcaption>
 	 </figure>
 	 </div>
 	 </div>
 	 
 </section>
-   
-           
-
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-                $(this).toggleClass('active');
-            });
-        });
-    </script>
 	
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <script>
 
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart2').getContext('2d');
 var scatterChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -554,7 +726,35 @@ var scatterChart = new Chart(ctx, {
     }
 });
 
+
 </script>
+
+
+
+
+
+
+	     </section> 
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+	
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
 </body>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157967028-2"></script>
