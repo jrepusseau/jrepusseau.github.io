@@ -730,6 +730,107 @@ var scatterChart = new Chart(ctx, {
 </script>
 
 
+<div class="line"></div>
+  <div class="row">
+                  <div class="col-lg-6 col-md-6">
+    <strong>
+	 FOXO4-DRI
+	</strong> 
+	
+	<br>
+	<p>
+FOXO4-DRI is a peptide antagonist designed to block the interaction of forkhead box O 4 (FOXO4) and p53. Using ionizing readition induced  senescent IMR90 cells, it was observed that FOXO4 maintains senescent cell viability by targeting p53 to the nucleus and preventing it from inducing apoptosis, ultimatly eliminating senescente cells. 	</p>
+	 </div>
+	 <div class="col-lg-6 col-md-6">
+	  <figure>
+    <canvas id="myChart4"></canvas>
+ <figcaption><i>Efficiency of senolytic FOXO4-DRI on two differents diploid fibroblast (IMR90) cells,  non-senescent cell and DNA-damage induced-senescent (DIS by radiation) cells in vitro </i> </figcaption>
+	 </figure>
+	 </div>
+	 </div>
+	 
+</section>
+	
+
+<script>
+
+var ctx = document.getElementById('myChart4').getContext('2d');
+var scatterChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Non-senescent cells',
+			borderColor: "#c45850",
+            data: [{ 
+                x: 0,
+                y: 100
+            }, {
+                x: 5,
+                y: 99
+            }, {
+                x: 12.5,
+                y: 98
+            }, 
+			{
+                x:25,
+                y: 91
+            },
+			{
+                x: 37.5,
+                y: 74
+            },
+			{
+                x: 50,
+                y: 57
+            }]}
+			,
+			{
+			borderColor: "#3e95cd",
+			label: 'DNA-damage induced-senescent (DIS) cells',
+			 data: [{ 
+               x: 0,
+                y: 100
+            }, {
+                x: 5,
+                y: 27
+            }, {
+                x: 12.5,
+                y: 9
+            }, 
+			{
+                x:25,
+                y: 0
+            },
+			{
+                x: 37.5,
+                y: 0
+            },
+			{
+                x: 50,
+                y: 0
+            }]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Dosage of senolytic FOXO4-DRI [mL]'
+          },
+            }],
+			 yAxes: [{
+                type: 'linear',
+				 scaleLabel: {
+            display: true,
+            labelString: 'Viable diploid fibroblast (IMR90) cells [%]'
+          },
+            }]
+        }
+    }
+});
 
 
 
