@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Quick Start - Leaflet</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+	
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+
+	
+</head>
+<body>
+
+
+
+<div id="mapid" style="width: 300px; height: 300px;"></div>
+<script>
+
+	var mymap = L.map('mapid').setView([47.9025, 1.909], 10);
+
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(mymap);
+
+			
+var mark1 = new L.marker([47.835768,1.954847]).on('click', markerOnClick).bindTooltip("La Racinerie", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+var mark2 = new L.marker([47.857446,1.946362]).on('click', markerOnClick).bindTooltip("Ferme de la patte d'oie", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+var mark3 = new L.marker([47.8658,1.929247]).on('click', markerOnClick).bindTooltip("Employement and Solidarity Bio", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+var mark4 = new L.marker([47.936161,1.956377]).on('click', markerOnClick).bindTooltip("Le Champ Renard", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+	
+var mark5 = new L.marker([47.767106,1.941715]).on('click', markerOnClick).bindTooltip("Bergerie de la petite ferme", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+	
+var mark6 = new L.marker([47.731144,2.015205]).on('click', markerOnClick).bindTooltip("Gaec Ferme du Ciran", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+				
+var mark7 = new L.marker([47.852659,1.961528]).on('click', markerOnClick).bindTooltip("Serres Bio Val", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });	
+var mark8 = new L.marker([47.860074,1.830988]).on('click', markerOnClick).bindTooltip("La Ferme Des Perrieres", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });	
+	
+	
+		var review= L.layerGroup([mark1,mark2,mark3,mark4,mark5,mark6,mark7,mark8])
+
+
+	var shop= L.layerGroup();
+	
+	var Cs= L.layerGroup();
+	
+		mymap = L.map('viewDiv',
+	{center: [47.9025, 1.909],
+    zoom: 10,
+	layers: [grayscale, shop]});
+
+	 mymap.addLayer(review);
+
+	var popup = L.popup();
+
+</script>
+
+
+
+</body>
+</html>

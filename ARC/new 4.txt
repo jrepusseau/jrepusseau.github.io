@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Frugapp</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+<script src="https://www.domoritz.de/leaflet-locatecontrol/src/L.Control.Locate.js"> </script>
+
+<script src="/cdn-cgi/apps/head/WCXTfKrGxLNzfpUe-D2TgHwMpm4.js"></script><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+<link rel="stylesheet" href="../dist/L.Control.Locate.min.css" />
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>     
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link href="https:/maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/alasql@0.4"></script>
+  <script src='L.Control.Bar.js'></script>
+ <script src='http://leaflet.github.io/Leaflet.label/leaflet.label.js'></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
+
+  <script src="jsQR.js"></script>
+<style>
+  
+      #viewDiv {
+	    position: fixed;
+		top: 0px;
+	   	padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100vw;
+		 -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+      -o-transition: height 1s ease;
+     -ms-transition: height 1s ease;
+         transition: height 1s ease;
+      }
+	   #choiceDiv {
+	 visibility: hidden;
+      position: absolute;
+      top: 25%;
+      width: 100%;
+      padding: 20px ;
+      z-index: 1;
+      text-align: center;
+    }
+	
+	.navbar{
+	 z-index: 2;
+	}
+	
+	.menu1{
+	background-color:pink;
+	z-index: 1;
+	}
+	
+
+    .button {
+      background: white;
+      padding: 7px;
+      border: 1px solid #005e95;
+      font-size: 0.9em;
+      margin: 5px;
+      color: white;
+      font-family: "Avenir Next W01", "Arial", sans-serif;
+    }
+	
+	.button1
+	{
+	background-image: url("ARClogo.jpg");
+	}
+	
+	.button2
+	{
+	background: red;
+	border-radius: 100%;
+	}
+	
+	.button3
+	{
+	background: orange;
+    border-radius: 30%;
+	}
+	
+	.button4
+	{
+	background: green;
+	}
+	
+	.button1:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+	.button2:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+	.button3:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+	.button4:hover {
+      background: #005e95;
+      color: white;
+      cursor: pointer;
+    }
+	
+.scroll {
+  white-space: nowrap; 
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch; 
+  -ms-overflow-style: -ms-autohiding-scrollbar; 
+  }
+  
+  .scroll::-webkit-scrollbar {
+  display: none; }
+  
+  	.column {
+  float: left;
+  padding:10px;
+ 
+
+}
+
+.left {
+  width: 20%;
+}
+
+.right {
+  width: 80%;
+}
+
+	
+	div.image {
+   content:url(trash2.jpg)
+}​
+
+h5
+	{
+  color: green;
+}
+	
+a:hover {
+  background-color: white;
+}
+
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+}
+	
+.navsub {
+    overflow-y:auto;
+   overflow-x:hidden;
+    max-height:60vh;
+   min-width:40vw;
+}
+
+#poll2{
+
+}	
+
+.type
+{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+
+}
+
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+    background-color: transparent;
+    color:black;
+}
+
+.located
+{
+//border: 2px solid blue;
+background-color:white;
+}
+
+.unlocated
+{
+//border: 2px solid gray;
+background-color:white;
+}
+
+.containertype {
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  color:black; 
+}
+
+.pro {
+  border-color: rgba(0, 191, 255, 1);
+  background-color: transparent ;
+}
+
+.con {
+  border-color: rgba(255, 20, 147, 1);
+  background-color: transparent ;
+}
+
+.neutral{
+  border-color: grey;
+  background-color: transparent ;
+}
+
+.green{
+ border-color:green;
+   background-color: transparent ;
+}
+.popover
+{
+   background-color: transparent;
+}
+
+.modal.right .modal-dialog {
+	//position:absolute;
+	right:0;
+}
+
+.modal.left .modal-dialog {
+	//position:absolute;
+	left:0;
+
+}
+
+.center {
+	position:absolute;
+	bottom:0vh;
+	top:60vh;
+   left:0vw;
+   right:0vw;
+    
+   
+
+}
+
+.up {
+	position:absolute;
+	top:2vh;
+   left:15vw;
+   right:15vw;
+}
+
+.down {
+	position:absolute;
+	bottom:2vh;
+   left:15vw;
+   right:15vw;
+    
+   
+
+}
+
+.overlay {
+    position: absolute;
+    z-index: 40;
+    pointer-events: auto;
+	   overflow-y:auto;
+}
+
+.notoverlay {
+    position: absolute;
+    z-index: 30;
+}
+
+.menu
+{
+
+}
+
+.ftp{
+position:fixed;
+top:5vh;
+}
+
+#activate{
+position:fixed;
+top:60vw;
+}
+
+#properties{
+position:fixed;
+top:70vw;
+}
+
+.img-p
+{
+ border-radius: 50%;
+  height:40px;
+  width:40px;
+}
+
+#img-k
+{
+ border-radius: 50%;
+  height:150px;
+  width:150px;
+}
+
+#img-q
+{
+
+  height:200px;
+  width:200px;
+  text-align:center;
+   margin-left: auto; margin-right: auto;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
+#preview {
+  width: 100vw;
+  height: 80vh;
+  outline: 1px solid red;
+  text-align:center;
+   margin-left: auto; margin-right: auto;
+}
+
+ #loadingMessage {
+      text-align: center;
+      padding: 40px;
+      background-color: #eee;
+    }
+
+    #canvas {
+      width: 90%;
+    }
+
+    #output {
+      margin-top: 20px;
+      background: #eee;
+      padding: 10px;
+      padding-bottom: 0;
+    }
+
+    #output div {
+      padding-bottom: 10px;
+      word-wrap: break-word;
+    }
+
+    #noQRFound {
+      text-align: center;
+    }
+	
+	
+	#navsub2{
+	border-radius:2%;
+	display:none;
+	 box-shadow: 6px 8px 6px 12px rgba(0,0,0,0.2); 
+	 background-color:white;
+	z-index:999;
+	}
+	
+#container{width:100%;}
+#left{float:left;width:33vw;}
+#right{float:right;width:33vw;}
+#center{margin:0 auto;width:33vw;border-left:solid black 1px;border-right:solid black 1px;
+background-image: url("carrot.jpg");
+}
+
+#btnbck
+{
+position: fixed;
+top:0;
+left:0;
+
+}
+</style>
+	
+</head>
+<body>
+
+
+
+
+
+<script>
+
+var mark=[];
+var customPopup;
+ var customOptions;
+var mymap;
+var activemarker;
+var actvmkr=[];
+var newMarker;
+var newMarkerCircle;
+
+
+$(function(){
+    
+    $("[data-toggle=popover]").popover({
+        html : true,
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).children(".popover-body").html();
+        },
+        title: function() {
+            var title = $(this).attr("data-popover-content");
+            return $(title).children(".popover-heading").html();
+        }
+    });});
+
+
+var pos=[];
+
+
+function Start()
+{
+ document.getElementById("menu2").style.display="none";
+document.getElementById("menu1").style.display="none";
+document.getElementById("menu3").style.display="none";
+if (document.getElementById("viewDiv").innerHTML)
+{
+document.getElementById("viewDiv").style.display="block";
+}
+else
+{
+  
+var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+	var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+		streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
+
+		
+var mark1 = new L.marker([47.835768,1.954847]).on('click', markerOnClick).bindTooltip("La Racinerie", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+var mark2 = new L.marker([47.857446,1.946362]).on('click', markerOnClick).bindTooltip("Ferme de la patte d'oie", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+var mark3 = new L.marker([47.8658,1.929247]).on('click', markerOnClick).bindTooltip("Employement and Solidarity Bio", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+var mark4 = new L.marker([47.936161,1.956377]).on('click', markerOnClick).bindTooltip("Le Champ Renard", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+	
+var mark5 = new L.marker([47.767106,1.941715]).on('click', markerOnClick).bindTooltip("Bergerie de la petite ferme", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+	
+var mark6 = new L.marker([47.731144,2.015205]).on('click', markerOnClick).bindTooltip("Gaec Ferme du Ciran", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });
+				
+var mark7 = new L.marker([47.852659,1.961528]).on('click', markerOnClick).bindTooltip("Serres Bio Val", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });	
+var mark8 = new L.marker([47.860074,1.830988]).on('click', markerOnClick).bindTooltip("La Ferme Des Perrieres", 
+    {
+        permanent: true, 
+        direction: 'top'
+    });	
+	
+	
+		var review= L.layerGroup([mark1,mark2,mark3,mark4,mark5,mark6,mark7,mark8])
+
+
+	var shop= L.layerGroup();
+	
+	var Cs= L.layerGroup();
+	
+		mymap = L.map('viewDiv',
+	{center: [47.9025, 1.909],
+    zoom: 10,
+	layers: [grayscale, shop]});
+	
+	/*$.getJSON('map.geojson',function(data){
+	L.geoJson(data).addTo(mymap);
+	});*/
+	
+	
+	var baseMaps = {
+    "<span style='color: gray'>Grayscale</span>": grayscale,
+    "Streets": streets,
+};
+     mymap.addLayer(review);
+var overlayMaps = {
+	"Veggies & Fruits": review ,
+};
+   
+	L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+
+	
+	mymap.on('movestart', function(e) {
+   
+});
+	
+	mymap.on('moveend', function(e) {
+  
+});
+
+	
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 20,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.streets'
+	}).addTo(mymap);
+	
+	
+
+
+
+
+	
+	
+	 function GoInFullscreen(element) {
+	// alert("Let's start");
+	if(element.requestFullscreen)
+		element.requestFullscreen();
+	else if(element.mozRequestFullScreen)
+		element.mozRequestFullScreen();
+	else if(element.webkitRequestFullscreen)
+		element.webkitRequestFullscreen();
+	else if(element.msRequestFullscreen)
+		element.msRequestFullscreen();
+}
+	
+	mymap.locate({watch:true, maxZoom: 18});
+	
+	
+	
+	function onLocationFound(e) {
+
+    }
+	
+	
+	function onLocationError(e)
+	{
+	
+	}
+    
+    mymap.on('locationfound', onLocationFound);
+	 mymap.on('locationerror', onLocationError);
+	
+	
+	
+
+    L.control.locate({
+       locateOptions: {
+               enableHighAccuracy: true,
+			   maxZoom: 18
+}}).addTo(mymap);	
+	
+	mymap.addControl(new L.Control.Fullscreen({
+    title: {
+        'false': 'View Fullscreen',
+        'true': 'Exit Fullscreen'
+    }
+}));
+      
+     L.Control.geocoder().addTo(mymap);
+
+
+	
+
+
+	var popup = L.popup();
+	
+	Website();
+	
+	}
+	};
+	
+ function Back(){
+ document.getElementById("menu2").style.display="none";
+document.getElementById("viewDiv").style.display="none";
+document.getElementById("menu3").style.display="none";
+document.getElementById("menu1").style.display="block";
+}
+		
+function Website(){
+document.getElementById("viewDiv").style.display="none";
+document.getElementById("menu1").style.display="none";
+document.getElementById("menu2").style.display="none";
+document.getElementById("menu3").style.display="block";
+}
+
+function Track(){
+document.getElementById("viewDiv").style.display="none";
+document.getElementById("menu1").style.display="none";
+document.getElementById("menu2").style.display="block";
+document.getElementById("menu3").style.display="none";
+}
+
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 10;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      elem.innerHTML = width * 1  + ' cups saved!';
+    }
+  }
+}
+
+
+  
+  
+  
+ 
+
+  function myFunction() {
+  var x = document.getElementById("preview");
+   var y = document.getElementById("img-q");
+    var z = document.getElementById("but")
+  if (x.style.display === "none") {
+    x.style.display = "block";
+	y.style.display = "none";
+	z.innerText='My QR';
+	
+  } else {
+    x.style.display = "none";
+	y.style.display = "block";
+	z.innerText='Scan';
+  }
+} 
+
+
+//maeker center 
+function markerOnClick(e) {
+$('#title').text(e.target.getTooltip().getContent());
+mymap.setView(e.target.getLatLng(),);
+$('#navsub2').show().height('30%');
+}
+
+function more(e){
+$('#navsub2').show().height('100%');
+$('#btnbck').show();
+$("#mybts").hide();
+$("#container").hide();
+ $("#container2").show();
+}
+
+function less(e){
+$('#navsub2').show().height('30%');
+$('#btnbck').hide();
+$("#mybts").show();
+$("#container").show();
+ $("#container2").hide();
+}
+
+
+</script>
+
+
+<div id="viewDiv"  ></div>
+
+
+<div class="tab-content">
+ <div id='menu3' style='display:none;text-align:center'>
+ <br>
+  <br>
+  <br>
+  <br>
+  <h3> Votre panier </h3>
+  <ul class="list-group">
+  <li class="list-group-item">Votre commande à la Ferme du Ciran</li>
+</ul>
+<br>
+  <h3> Paniers précédents </h3>
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <span class="badge"> 18/11</span> <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">  Major update <span class="glyphicon glyphicon-menu-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+	 The app will be under maintenance during the night.
+	   </div>
+  </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+     <span class="badge"> 11/12</span><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">  Your order in Ferme du champ <span class="glyphicon glyphicon-menu-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+	  Super!
+	   </div>
+  </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <span class="badge"> 03/12</span>  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">  Your review of Dante Cafe  <span class="glyphicon glyphicon-menu-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+	  I will come back!
+	   </div>
+  </div>
+  </div>
+   <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <span class="badge"> 08/11</span>  <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">  Your review Starbucks <span class="glyphicon glyphicon-menu-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">
+	  Never again!
+	   </div>
+  </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <span class="badge"> 05/11</span> <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"> Your order 'Bio-Bags' just arrived <span class="glyphicon glyphicon-menu-down">   </span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse">
+      <div class="panel-body">
+	 Pickup your order at our nearest shop :).
+	   </div>
+  </div>
+  </div>
+  </div>
+  
+  
+
+  </div>
+  
+ <div id="menu1" class="tab-pane fade in active" style='text-align:center' >
+
+ <br>
+<img id='img-k' src='profil1.jpg' >
+ <h2> Jeanne </h2>
+ <a href='#'> LogOut</a>
+ 
+
+<br>
+ </br>
+ </br>
+ </br>
+ </br> 
+
+  <div id="message"/>
+  </div>
+  
+  
+
+ 
+</div>
+
+ <div id='menu2' style='display:none;text-align:center'>
+
+ 
+  </div>
+  
+ 
+
+  
+<div id="nav1" class="up overlay" style='text-align:center' data-backdrop="false">
+<ul class="nav">	 
+  <button   id="maintitle" onclick="Start()" type="button" class="btn btn-success  img-p">
+  <span class="glyphicon glyphicon-map-marker"></span>
+  </button>
+  
+  <button  type="button"  class="btn  btn-success dropdown-toggle dropup  img-p" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu3'  onclick='Website()'>
+ <span  class="fa fa-shopping-basket"></span>
+</button>	
+   <!-- Tab panes 
+ <button  class="btn btn-secondary dropdown-toggle dropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href='#menu2'  onclick='Track()'>
+  <span class="glyphicon glyphicon-shopping-cart"></span>
+  </button>
+ Tab panes -->
+ <img class='img-p' src='profil1.jpg' href="#menu1" onclick="Back()">
+    </ul>
+</div>
+ 
+<nav class="navbar navbar-fixed-bottom navbar-expand-md " style='text-align:center'   id="navsub2" >
+
+<h5 id='title'> Farm name </h5><button onclick='less()' id='btnbck'><</button>
+
+<div id="container">
+  <div id="left">recolte<br>pre-commande</div>
+  <div id="right">4.3<br> 50 notes</div>
+  <div id="center">Carottes bio</div>
+</div>
+<div id='container2'>
+<h5> Intro 
+<br> Fruits et legumes temps de plantaison et recolte <br>
+Avis <h5>
+<fieldset>
+<legend> On recolte </legend>
+<h5> Tomates depuis 15 juin</h5>
+<button type="button" class="btn btn-danger"> Commander </button>
+</fieldset>
+<fieldset>
+<legend> On plante </legend>
+<h5> Carottes jusqu'au 20 juillet </h5>
+<button  type="button" class="btn btn-success"> Planter </button>
+</fieldset>
+
+</div>
+
+
+<button class='btn btn-secondary' style='position:fixed;left:0;bottom:0;width:100vw' id='mybts' onclick='more()' >
+Voir plus
+</button>
+	 
+</nav> 
+  
+
+
+
+
+
+</body>
+
+`<script>
+
+ var $tabs = $('#navsurvey').children();
+
+$('#prevtab').on('click', function() {
+    $tabs.filter('.active').prev('li').find('a[data-toggle="tab"]').tab('show');
+});
+
+$('#nexttab').on('click', function() {
+    $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
+});
+
+function startvid(){
+ var video = document.createElement("video");
+    var canvasElement = document.getElementById("canvas");
+    var canvas = canvasElement.getContext("2d");
+    var loadingMessage = document.getElementById("loadingMessage");
+    var outputContainer = document.getElementById("output");
+    var outputMessage = document.getElementById("outputMessage");
+    var outputData = document.getElementById("outputData");
+
+    function drawLine(begin, end, color) {
+      canvas.beginPath();
+      canvas.moveTo(begin.x, begin.y);
+      canvas.lineTo(end.x, end.y);
+      canvas.lineWidth = 4;
+      canvas.strokeStyle = color;
+      canvas.stroke();
+    }
+
+    // Use facingMode: environment to attemt to get the front camera on phones
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.play();
+      requestAnimationFrame(tick);
+    });
+
+    function tick() {
+      loadingMessage.innerText = "⌛ Loading video..."
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        loadingMessage.hidden = true;
+        canvasElement.hidden = false;
+        outputContainer.hidden = false;
+
+        canvasElement.height = video.videoHeight;
+        canvasElement.width = video.videoWidth;
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        var code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert",
+        });
+        if (code) {
+          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+          outputMessage.hidden = true;
+          outputData.parentElement.hidden = false;
+          outputData.innerText = code.data;
+		  chgtxt();
+        } else {
+          outputMessage.hidden = false;
+          outputData.parentElement.hidden = true;
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+}
+
+	function chgtxt() {
+  var x = document.getElementById("modcap");
+    var y = document.getElementById("modcho");
+	
+  if (x.style.display === "none") {
+   // x.style.display = "block";
+  } else {
+    x.style.display = "none";
+	y.style.display = "block";
+  }
+} 
+
+
+	function chgtxt2() {
+  var z = document.getElementById("modthx");
+    var y = document.getElementById("modcho");
+  if (y.style.display === "none") {
+    y.style.display = "block";
+  } else {
+    y.style.display = "none";
+	z.style.display = "block";
+  }
+} 
+
+	function chgtxt3() {
+  var x = document.getElementById("modthx");
+    var y = document.getElementById("modrev");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+	y.style.display = "block";
+  }
+} 
+
+function chgtxt4() {
+  var x = document.getElementById("modrev");
+    var y = document.getElementById("modcho");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+	y.style.display = "block";
+  }
+} 
+
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
+
+Start();
+Start();
+ $("#btnbck").hide();
+ $("#container2").hide();
+
+</script>
+</html>

@@ -1,0 +1,39 @@
+
+
+function user_region() { 
+       $ip = $_SERVER['REMOTE_ADDR'];
+       $details = json_decode(file_get_contents("http://ipinfo.io/{$ip}?token=4f9bd3e19f5e2b"));
+        return $details->region;  
+    }  
+    add_shortcode("get-user-region", "user_region"); 
+	
+	
+	
+	function getClientIP(){
+  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+  } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  } else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+  }
+  return $ip;
+}
+
+$ipaddress = getClientIP();
+
+function ip_details() {
+  $json = file_get_contents("http://ipinfo.io/{$ip}?token=4f9bd3e19f5e2b");
+  $details = json_decode($json, true);
+  return $details['region'];
+}
+
+add_shortcode("display_region","ip_details")
+
+
+
+
+
+aux 4 vents
+    Fruits : cassis, fraises, mûres, pommes, kiwis, prunes, groseilles, ...
+    Légumes : tomates, courgettes, endives, carottes, salades, choux, poireaux, ...

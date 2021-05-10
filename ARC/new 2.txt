@@ -1,0 +1,345 @@
+<div class="landing">
+<div class="top-section">
+<div class="container">
+<div class="row">
+<div class="col-lg-5 col-sm-5 col-xs-12">
+<h3 class="title">Nutritionally designed <div class="mobile-break"></div> meals you'll crave</h3>
+<h4 class="subtitle">
+Ready-to-eat. Delivered to your door. <br>Customize your menu. Pause anytime.
+</h4>
+<div class="cta">
+<a href="/order-thistle/subscription/
+                            " class="btn cta" id="cta_lede">Get Started Now</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="content-section-1">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<h2 class="title">Why Thistle?</h2>
+</div>
+</div>
+<div class="section-break-mini"></div>
+<div class="row">
+<div class="col-sm-3">
+<div class="content-item-8">
+<h3 class="title">Harness Plant Power</h3>
+<h4 class="subtitle">
+Delicious, nutritious plant-forward meals, snacks, and cold-pressed juices, too!
+</h4>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="content-item-8">
+<h3 class="title">Choose Your Meals</h3>
+<h4 class="subtitle">
+Select from breakfast, lunch, and dinner with plant and meat protein options to suit your needs.
+</h4>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="content-item-8">
+<h3 class="title">Delivered To Your Door</h3>
+<h4 class="subtitle">
+We deliver fresh, fully prepared meals to your door designed by our nutritionists &amp; chefs.
+</h4>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="content-item-8">
+<h3 class="title">Eat &amp; Repeat</h3>
+<h4 class="subtitle">
+Skip a delivery, pause for the week or cancel anytime. Make healthy a habit with no commitment.
+</h4>
+</div>
+</div>
+</div>
+<div class="cta">
+<a href="/how/" id="cta_lede"><h4 class="upper">See How It Works <i class="fa fa-angle-right"></i></h4></a>
+</div>
+</div>
+</div>
+<div class="content-section-3">
+<div class="container">
+<div class="row">
+<div class="col-md-7">
+<h2 class="title">Globally Inspired Menu</h2>
+<h4 class="subtitle">
+We believe eating delicious is crucial to a healthy diet. Each week, our team of chefs design a new menu for what's in season, fresh and flavorful.
+</h4>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="horizontal-scroll plan-options">
+<div class="option-2">
+<div class="image">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/landing-menu/yucatan-root-hibiscus-salad-HP-FINAL-72-resized-2.jpg" data-src="https://media-assets.thistle.co/landing-menu/yucatan-root-hibiscus-salad-HP-FINAL-72-resized-2.jpg">
+</div>
+<h4 class="title">Yucatan Root Salad</h4>
+<h5 class="subtitle">Coconut yogurt, fortified with plant-based protein and chia seeds, with a spiced mixed berry compote, and topped with crunchy coconut flakes and our pepita-hempseed mix.</h5>
+</div>
+<div class="option-2">
+<div class="image">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/landing-menu/jackfruit_chili-2.jpg" data-src="https://media-assets.thistle.co/landing-menu/jackfruit_chili-2.jpg">
+</div>
+<h4 class="title">Tri-Bean Chicken Chili</h4>
+<h5 class="subtitle">Our protein-packed bar is filled with nothing but good-for-you ingredients like almonds, flaxseeds, and sunflower seeds, with just a hint of coconut, vanilla, cinnamon, and sea salt!</h5>
+</div>
+<div class="option-2">
+<div class="image">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/landing-menu/persephone-salad-HP-FINAL-72-resized-2.jpg" data-src="https://media-assets.thistle.co/landing-menu/persephone-salad-HP-FINAL-72-resized-2.jpg">
+</div>
+<h4 class="title">Persephone's Salad</h4>
+<h5 class="subtitle">Our take on a decedent Pasta Alfredo. We puree cauliflower with garlic confit, lemon juice, nutritional yeast, and black pepper to create a silky smooth, vegan sauce. Tossed with quinoa pasta, peas, baby spinach, vegan parmesan, and coconut bacon.</h5>
+</div>
+<div class="option-2">
+<div class="image">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/landing-menu/peach-melba-smoothie-HP-FINAL-72-resized-2.jpg" data-src="https://media-assets.thistle.co/landing-menu/peach-melba-smoothie-HP-FINAL-72-resized-2.jpg">
+</div>
+<h4 class="title">Peach Melba Smoothie</h4>
+<h5 class="subtitle">This satisfying salad is packed with southwest-inspired flavor, from the spiced, roasted sweet potatoes to the spiced sunflower seeds and creamy chipotle ranch dressing. Complete with corn, tomatoes, and black beans.</h5>
+</div>
+<div class="option-2">
+<div class="image">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/landing-menu/miso-ramen-HP-FINAL-72-resized-2.jpg" data-src="https://media-assets.thistle.co/landing-menu/miso-ramen-HP-FINAL-72-resized-2.jpg">
+</div>
+<h4 class="title">Miso Ramen Noodle Bowl</h4>
+<h5 class="subtitle">This zen bowl is filled with seasoned and roasted root vegetables like parsnips and rainbow carrots, cumin-garlic lentil cakes, crunchy radish, and golden raisins, accompanied by a deliciously creamy herb dressing.</h5>
+</div>
+<div class="option-2">
+<div class="image">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/landing-menu/pork-carnitas-bowl-2.jpg" data-src="https://media-assets.thistle.co/landing-menu/pork-carnitas-bowl-2.jpg">
+</div>
+<h4 class="title">Pork Carnitas Bowl</h4>
+<h5 class="subtitle">Our vegan jackfruit carnitas are served with seasoned brown rice, fajita veggies, a red cabbage-carrot slaw, spiced sunflower seeds, and our avocado-cilantro-lime dressing.</h5>
+</div>
+<div class="option-2">
+<div class="image">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/landing-menu/flourless-super-brownies-HP-FINAL-72-resized-2.jpg" data-src="https://media-assets.thistle.co/landing-menu/flourless-super-brownies-HP-FINAL-72-resized-2.jpg">
+</div>
+<h4 class="title">Flourless Super Brownies</h4>
+<h5 class="subtitle">A pesto pasta bowl, made with antioxidant-rich moringa, which has more iron than kale and is a complete protein - containing all 9 amino acids! Served with savory castelvetrano olives and sautéed crimini mushrooms, this dish is packed with protein and delicious mediterranean flavors.</h5>
+</div>
+<div class="option-2">
+<div class="image">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/landing-menu/west-african-peanut-stew-HP-FINAL-72-resized-2.jpg" data-src="https://media-assets.thistle.co/landing-menu/west-african-peanut-stew-HP-FINAL-72-resized-2.jpg">
+</div>
+<h4 class="title">West African Peanut Stew</h4>
+<h5 class="subtitle">This asian-inspired bowl incorporates tangy seaweed salad, protein-packed edamame, pickled ginger, sauteed mushrooms, and brown rice. The greens are dressed with our ginger, miso sauce and topped with crunchy radish.</h5>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="cta">
+<a href="/menu/" id="cta_lede"><h4 class="upper">Browse Our Menu <i class="fa fa-angle-right"></i></h4></a>
+</div>
+</div>
+</div>
+<div class="content-section-4">
+<div class="plan-options">
+<div class="option">
+<h1 class="title text-center">What's In Your Delivery?</h1>
+<div class="card-break"></div>
+<div style="margin-left: 2rem;">
+<ul class="inner">
+<li class="list-option">Ready-to-eat, fully prepared meals</li>
+<li class="list-option">Custom plans that fit your needs</li>
+<li class="list-option">Easy delivery, to work or home</li>
+<li class="list-option">Pause anytime, no commitment.</li>
+</ul>
+</div>
+<p>All meals are 100% gluten and dairy free. <br class="hide-desktop"> Vegan options available.</p>
+<hr>
+<div style="margin-top: 1rem;"><sup class="heading">starting at just:</sup></div>
+<h3 class="price"><span class="symbol">$</span>42<sub>/week</sub> <sup>or</sup> <span class="symbol">$</span>11<span class="symbol">.50</span><sub>/meal</sub></h3>
+<a href="/order-thistle/subscription/
+                      " class="btn block" id="cta_lede">Build Plan &amp; View Pricing</a>
+<div class="card-break"></div>
+</div>
+</div>
+</div>
+<div class="content-section-2">
+<div class="mobile-image-section-1"></div>
+<div class="container">
+<div class="row">
+<div class="col-md-7">
+<h2 class="title">Designed by Nutritionists, Crafted by Chefs</h2>
+<h4 class="subtitle">
+Our menus are mindfully designed to meet your macronutrient needs and provide your body with vitamins and minerals found in whole, organic foods - free of added sweeteners and preservatives.
+</h4>
+<div class="section-break-mini"></div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6">
+<div class="content-item-9">
+<h3 class="title">Nutrient Diversity</h3>
+<h4 class="subtitle">
+Thistle meals have an average of 5.8 unique fruits and veggies, plant or meat options. Locally-sourced and organic when possible.
+</h4>
+</div>
+</div>
+<div class="col-md-6">
+<div class="content-item-9">
+<h3 class="title">Superfoods Galore</h3>
+<h4 class="subtitle">
+We feature 40+ superfoods on our menu like turmeric, maca, spirulina, ginger, matcha, chia &amp; moringa.
+</h4>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="content-item-9">
+<h3 class="title">Gluten Free</h3>
+<h4 class="subtitle">
+We use complex, protein-packed carbs: whole grains and legumes like quinoa, lentils, forbidden rice and chickpeas.
+</h4>
+</div>
+</div>
+<div class="col-md-6">
+<div class="content-item-9">
+<h3 class="title">Dairy Free</h3>
+<h4 class="subtitle">
+Housemade coconut cream, nut cheeses and flavorful dressings eliminate all reliance on dairy for deliciousness.
+</h4>
+</div>
+</div>
+</div>
+<div class="cta">
+<a href="/nutrition/" id="cta_lede"><h4 class="upper">Read Our Nutrition Standards <i class="fa fa-angle-right"></i></h4></a>
+</div>
+</div>
+</div>
+<div class="col-md-5 padding-right-0">
+<div class="top-image"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="content-section-6">
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<h2>What People Love About Us</h2>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="testimonials plan-options">
+<div class="testimonial">
+<div class="image">
+<img class="lazyload" src="static/images/ph-face.png" data-src="https://media-assets.thistle.co/landing-testimonials/image 2.3.png">
+</div>
+<div class="text">
+<div class="name">Sarah</div>
+<div class="profession"> Actress / Yoga teacher / Dog mom</div>
+<div class="quoted">My meals magically show up at my door at a convenient time with text messages to remind me that they are coming, close and have arrived. I am literally watching the clock all morning, thinking about the amazing meal that I will be eating for lunch. And I always feel good because, despite my hectic life, I know that I have fueled my body with a healthy meal, made with quality ingredients and will have the energy to keep going.</div>
+</div>
+</div>
+<div class="testimonial">
+<div class="image">
+<img class="lazyload" src="static/images/ph-face.png" data-src="https://media-assets.thistle.co/landing-testimonials/beach-relaxation-morning-body-care-yoga-waves-silence-meditation-workout-namaste_t20_b8jKgX.png">
+</div>
+<div class="text">
+<div class="name">Lizzie</div>
+<div class="profession"> Fitness coach / Designer / Activist</div>
+<div class="quoted">I just tried your Creamy Sage and Squash Pasta and I want to give this a thousand stars. This is the best meal I've ever eaten! I could eat this every day for my whole life. Thank you!</div>
+</div>
+</div>
+<div class="testimonial">
+<div class="image">
+<img class="lazyload" src="static/images/ph-face.png" data-src="https://media-assets.thistle.co/landing-testimonials/image 2.1.png">
+</div>
+<div class="text">
+<div class="name">Sasha</div>
+<div class="profession"> CEO / Mother</div>
+<div class="quoted">My diet needed a makeover and you provided the simplest most delicious solution for a busy professional like me. In 60 days, I've lost about 20 lbs and feel great! The food is delicious. I feel full and satisfied and most importantly, healthy. The app is easy to use and the delivery service so convenient. Simply seamless!</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="cta">
+<a href="/order-thistle/subscription/
+                  " class="btn cta" id="cta_lede">Try Thistle Today</a>
+</div>
+</div>
+</div>
+<div class="content-section-7">
+<div class="container">
+<div class="row">
+<div class="tab-content">
+<div class="tab-pane longest-quote">
+<h2 class="press-quote">A passionate company that offers healthy, nutritionist-designed meals that are as convenient as they are delicious.</h2>
+</div>
+<div class="tab-pane fade in" id="brit_co">
+<h2 class="press-quote">We loved that our healthy meals were ready straight from the fridge. It made our lives so much easier.</h2>
+</div>
+<div class="tab-pane fade in" id="pop_sugar">
+<h2 class="press-quote">As someone who loves to relax on the weekend...I am so thankful that I found Thistle</h2>
+</div>
+<div class="tab-pane fade in" id="instyle">
+<h2 class="press-quote">We love that the meals use high-quality ingredients and are never boring.</h2>
+</div>
+<div class="tab-pane fade in active" id="gilt">
+<h2 class="press-quote">A passionate company that offers healthy, nutritionist-designed meals that are as convenient as they are delicious.</h2>
+</div>
+<div class="tab-pane fade in" id="techcrunch">
+<h2 class="press-quote">I can definitely say I felt healthier and more satisfied after my week on the plan.</h2>
+</div>
+</div>
+<div class="tabs-container col-sm-12">
+<ul class="tab-nav">
+<li class="slide">
+<a data-toggle="tabs" href="#brit_co">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/press/logo-b-c.png" data-src="https://media-assets.thistle.co/press/logo-b-c.png">
+</a>
+</li>
+<li class="slide">
+<a data-toggle="tabs" href="#pop_sugar">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/press/logo-ps.png" data-src="https://media-assets.thistle.co/press/logo-ps.png">
+</a>
+</li>
+<li class="slide">
+<a data-toggle="tabs" href="#instyle">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/press/logo-is.png" data-src="https://media-assets.thistle.co/press/logo-is.png">
+</a>
+</li>
+<li class="slide active">
+<a data-toggle="tabs" href="#gilt">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/press/logo-gilt.png" data-src="https://media-assets.thistle.co/press/logo-gilt.png">
+</a>
+</li>
+<li class="slide">
+<a data-toggle="tabs" href="#techcrunch">
+<img class=" lazyloaded" src="https://media-assets.thistle.co/press/logo-tc.png" data-src="https://media-assets.thistle.co/press/logo-tc.png">
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section-cta">
+<div class="container">
+<div class="row">
+<div class="col-md-5 col-md-offset-0 col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+<h1 class="title">Autopilot your diet,<br> and start feeling amazing.</h1>
+<h3 class="subtitle">
+Give Thistle a try — we promise a tasty,<br> worry-free, and healthy future for you.
+</h3>
+<div class="cta">
+<a href="/order-thistle/subscription/
+                        " class="btn cta" id="cta_lede">Get Started Now</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,20 @@
+%% MatlabCode to Generate  Hann windowed Tone burst input signal for Wave propagation Simulations
+clc;
+clear all;
+f=1*10^6; %frequency of probe
+n=3; %number of cycles per pulse
+runtime = 12e-6;
+Dt=1e-8;
+time=0:1*dt:n/f; %0:step increment:steptime;
+time1=((n/f+dt):dt:runtime);
+a=(1-cos((2*pi*f*time)/n)).*cos(2*pi*f*time); %Amplitude of the Hannpulse
+q=[time',a'];
+a1=0*time1;
+q1=[time1',a1'];
+c1=[q;q1];
+figure;
+plot(c1(:,1),c1(:,2),'black');
+xlabel('Time(sec)','fontsize',25);
+ylabel('Amplitude','fontsize',25);
+axis normal;set(gcf,'color','w');
+csvwrite(strcat('TB_Hanningwindow_',num2str(n),'cycles_',num2str(f/1000000),'MHz.csv'
