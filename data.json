@@ -1,0 +1,16 @@
+{
+  "array": [
+    "test",
+    "test2",
+    "Test3"
+  ],
+  "boolean": true,
+  "color": "blue",
+  "null": false,
+  "number": 123,
+  "object": {
+    "a": "b",
+    "c": "d"
+  },
+  "string": "Hello World"
+}
