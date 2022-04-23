@@ -76,7 +76,6 @@
     listItems.forEach(function(item) {
       item.onclick = function(e) {
         localStorage.setItem("favoriteAsset", this.dataset.myval);
-        alert(localStorage.getItem("favoriteAsset"));
 
       }
     });
