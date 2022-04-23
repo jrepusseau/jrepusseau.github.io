@@ -79,23 +79,25 @@
     <!-- bottom nav -->
     <nav class="mobile-bottom-nav">
       <div class="mobile-bottom-nav__item">
-        <a href="index.html">
+        <a href="navcamera.html">
           <div class="mobile-bottom-nav__item-content">
-            <i class="bi bi-qr-code-scan "></i> Scan
+            <i class="bi bi-qr-code-scan"></i> Scan
           </div>
         </a>
       </div>
+
+
       <div class="mobile-bottom-nav__item">
-        <a href="navsearch.html">
+        <a href="index.html">
           <div class="mobile-bottom-nav__item-content">
             <i class="bi bi-search"></i> Search
           </div>
         </a>
       </div>
       <div class="mobile-bottom-nav__item">
-        <a href="navmap.html">
+        <a href="navsetting.html">
           <div class="mobile-bottom-nav__item-content">
-            <i class="bi bi-map"></i> Map
+            <i class="bi bi-gear"></i> Settings
           </div>
         </a>
       </div>
@@ -111,6 +113,8 @@
     <script> 
   
   assetName = localStorage.getItem("favoriteAsset");
+  if(assetName==null)
+ assetName="d47473f7409c360c3daa7772c1fd1a2e12b67350b0a6a2d7fe3b2224444f4e4746414e474d454952454e4c45415645533034303632303232"
   
 returnAsset(assetName,"productImg","prodInfo")
 returnTxAsset(assetName);

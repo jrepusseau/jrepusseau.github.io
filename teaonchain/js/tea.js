@@ -1,9 +1,9 @@
 window.onload = function() {
-    if (window.location.href.indexOf('scan.html') > -1 || window.location.href.indexOf('index.html') > -1) {
+    if (window.location.href.indexOf('scan.html') > -1 || window.location.href.indexOf('navcamera.html') > -1) {
         scanner();
     };
 
-    if (window.location.href.indexOf('detail.html') > -1 || window.location.href.indexOf('navdetail.html') > -1) {
+    if (window.location.href.indexOf('detail.html') > -1 || window.location.href.indexOf('index.html') > -1) {
         swipetab();
     };
 
@@ -346,9 +346,10 @@ function returnAsset(assetid, imgid, textid) {
     document.getElementById(textid).appendChild(table);
 
     var tit = document.getElementById("title");
-tit.innerText= ascntr.onchain_metadata.name;
+tit.innerText= ascntr.onchain_metadata.name.slice(0,13);
     //Then we retrieve certification data
-
+if(ascntr.onchain_metadata.certificateTx != undefined)
+{
     var xtv = new XMLHttpRequest();
     xtv.open("GET", 'https://cardano-mainnet.blockfrost.io/api/v0/txs/' + ascntr.onchain_metadata.certificateTx + '/metadata', false); // false for synchronous request
     xtv.setRequestHeader("project_id", 'mainnetfXjRIYdCo4FNIxJ15AgCSxLxjLLxZPag');
@@ -358,6 +359,8 @@ tit.innerText= ascntr.onchain_metadata.name;
     var w;
     var contentq = JSON.parse(xtv.responseText);
     //   alert(xtx.responseText);
+
+
     var u = (contentq[0].json_metadata);
 
     for (var key in u) {
@@ -369,6 +372,7 @@ tit.innerText= ascntr.onchain_metadata.name;
     }
     const myArray3 = w.image.split("//");
     document.getElementById("certificateImg").src = 'https://ipfs.io/ipfs/' + myArray3[1];
+
     var table = document.createElement('table');
     table.className = 'table table-striped';
     table.innerHTML = '<tr>  <td> Name </td> <td>' + w.name + '</td></tr>' +
@@ -377,8 +381,13 @@ tit.innerText= ascntr.onchain_metadata.name;
         '<tr><td> Certfication date </td><td>' + w.certificationStart + '</td></tr>' +
         '<tr><td> Renewal date </td><td>' + w.renewalDate + '</td></tr>';
     document.getElementById("certInfo").appendChild(table);
+}
+var pnf = document.createElement('p');
+pnf.innerText="Certifcate not found"
+document.getElementById("certInfo").appendChild(pnf);
 
-
+if(ascntr.onchain_metadata.derivesFromTx != undefined)
+{
 
     var xte = new XMLHttpRequest();
     xte.open("GET", 'https://cardano-mainnet.blockfrost.io/api/v0/txs/' + ascntr.onchain_metadata.derivesFromTx + '/metadata', false); // false for synchronous request
@@ -398,6 +407,8 @@ tit.innerText= ascntr.onchain_metadata.name;
             // console.log(y);
         }
     }
+
+
 
     let placeName = document.getElementById("placeName");
     placeName.innerText = y.placeName;
@@ -444,6 +455,10 @@ tit.innerText= ascntr.onchain_metadata.name;
         })
     });
 }
+let placeName = document.getElementById("placeName");
+placeName.innerText = "No data found";
+}
+
 
 
 function returnIO(hash)
