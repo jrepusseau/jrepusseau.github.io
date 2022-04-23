@@ -346,7 +346,7 @@ function returnAsset(assetid, imgid, textid) {
     document.getElementById(textid).appendChild(table);
 
     var tit = document.getElementById("title");
-tit.innerText= ascntr.onchain_metadata.name.slice(0,13);
+tit.innerHTML= ascntr.onchain_metadata.name.slice(0,13)+ "  <i onclick='toggleheart(this)'  class='bi bi-heart'></i>"
     //Then we retrieve certification data
 if(ascntr.onchain_metadata.certificateTx != undefined)
 {
@@ -522,3 +522,10 @@ function stakeAddressMatch(adr)
     return test; 
 }
 
+function toggleheart(x) {
+    if (x.className == 'bi bi-heart-fill'){
+        x.className = 'bi bi-heart';
+      } else {
+        x.className = 'bi bi-heart-fill';
+      }
+  }
