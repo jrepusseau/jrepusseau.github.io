@@ -22,13 +22,16 @@
 
     <!-- search bar -->
     <nav class="navbar navbar-light bg-light float-left navbar-fixed-top">
-      <form class="form-inline">
         <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776;</span>
         <div class="col">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <datalist id="search keyword">
+            <option value="HongCha">
+            <option value="Dongfei">
+        </datalist>
         </div>
-        <button class="btn btSearch" type="submit">Search</button>
-      </form>
+        <button class="btn btSearch" onclick="openDetails()">Search</button>
+      
      
     </nav>
 
@@ -83,6 +86,42 @@
 
       }
     });
+
+
+    function openDetails()
+  {
+    var str = $("#search").val();
+    
+    console.log(str);
+
+
+    var xtv = new XMLHttpRequest();
+    xtv.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){
+            console.log("asset")
+    window.location.replace("navdetail.html");
+    localStorage.setItem("favoriteAsset",str);
+
+            }
+          else
+          {
+            console.log("no asset")
+
+          }
+          }
+
+
+
+    xtv.open("GET", 'https://cardano-mainnet.blockfrost.io/api/v0/assets/' + str, false); // false for synchronous request
+    xtv.setRequestHeader("project_id", 'mainnetfXjRIYdCo4FNIxJ15AgCSxLxjLLxZPag');
+    xtv.send(null);
+   
+    
+   
+
+
+
+  }
 </script>
 
   </body>
